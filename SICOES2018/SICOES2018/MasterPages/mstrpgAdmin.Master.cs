@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SICOES2018
+namespace SICOES2018.MasterPages
 {
-    public partial class _Default : Page
+    public partial class mstrpgAdmin : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
