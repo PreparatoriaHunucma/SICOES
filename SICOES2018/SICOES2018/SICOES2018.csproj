@@ -135,9 +135,27 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="GUI\LoginGUI.aspx" />
     <Content Include="MasterPages\mstrpgAdmin.Master" />
+    <Content Include="Resources\fonts\fontawesome-webfont.eot" />
+    <Content Include="Resources\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Resources\fonts\fontawesome-webfont.woff" />
+    <Content Include="Resources\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Resources\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Resources\CSS\flexslider.css" />
+    <Content Include="Resources\CSS\font-awesome.css" />
+    <Content Include="Resources\CSS\style.css" />
     <Content Include="Resources\CSS\w3.css" />
+    <Content Include="Resources\fonts\fontawesome-webfont.svg" />
+    <Content Include="Resources\images\banner.jpg" />
+    <Content Include="Resources\images\into.png" />
+    <Content Include="Resources\images\LoginBack.JPG" />
+    <Content Include="Resources\images\t1.jpg" />
+    <Content Include="Resources\images\t2.jpg" />
+    <Content Include="Resources\images\t3.jpg" />
+    <Content Include="Resources\js\jquery.flexslider.js" />
+    <Content Include="Resources\js\jquery.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -176,6 +194,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GUI\LoginGUI.aspx.cs">
+      <DependentUpon>LoginGUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\LoginGUI.aspx.designer.cs">
+      <DependentUpon>LoginGUI.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\mstrpgAdmin.Master.cs">
       <DependentUpon>mstrpgAdmin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -196,7 +221,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="BO\" />
     <Folder Include="DAO\" />
-    <Folder Include="GUI\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
