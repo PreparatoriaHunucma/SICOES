@@ -136,13 +136,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GUI\Inicio.aspx" />
-    <Content Include="GUI\LogIn.aspx" />
+    <Content Include="GUI\Index.aspx" />
     <Content Include="MasterPages\mstrpgAdmin.Master" />
     <Content Include="Resources\fonts\fontawesome-webfont.eot" />
     <Content Include="Resources\fonts\fontawesome-webfont.ttf" />
     <Content Include="Resources\fonts\fontawesome-webfont.woff" />
     <Content Include="Resources\fonts\fontawesome-webfont.woff2" />
     <Content Include="Resources\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Resources\CSS\flexslider.css" />
     <Content Include="Resources\CSS\font-awesome.css" />
@@ -203,12 +204,12 @@
     <Compile Include="GUI\Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\LogIn.aspx.cs">
-      <DependentUpon>LogIn.aspx</DependentUpon>
+    <Compile Include="GUI\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\LogIn.aspx.designer.cs">
-      <DependentUpon>LogIn.aspx</DependentUpon>
+    <Compile Include="GUI\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\mstrpgAdmin.Master.cs">
       <DependentUpon>mstrpgAdmin.Master</DependentUpon>
