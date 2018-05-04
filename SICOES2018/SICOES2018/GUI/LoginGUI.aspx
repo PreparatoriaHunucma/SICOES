@@ -16,7 +16,8 @@
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 </head>
 <body>
-    <h1>Bienvenido a SICOES</h1>
+    <center>
+    <h1>Bienvenido a SICOES</h1></center>
     <div class="main-agile">
         <div class="content-wthree">
             <div class="about-middle">
@@ -26,27 +27,27 @@
                             <li>
                                 <div class="banner-bottom-2">
                                     <div class="about-midd-main">
-                                        <img class="agile-img" src="../Resources/images/logoprepahunucma.jpeg" alt=" " style="width:150px" class="img-responsive">
+                                        <img class="agile-img" src="../Resources/images/logoprepahunucma.jpeg" alt=" " style="width: 150px" class="img-responsive">
                                         <h4>Escuela Preparatoria Hunucmá</h4>
-                                        <p>Somos una institución dedicada a la educación y formación integral de los jóvenes estudiantes.</p>
+                                        <p style="font-style: italic">"Somos una institución dedicada a la educación y formación integral de los jóvenes estudiantes"</p>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="banner-bottom-2">
                                     <div class="about-midd-main">
-                                        <img class="agile-img" src="../Resources/images/logouady.png" alt=" " style="width:150px" class="img-responsive">
+                                        <img class="agile-img" src="../Resources/images/logouady.jpg" alt=" " style="width: 150px" class="img-responsive">
                                         <h4>Universidad Autónoma de Yucatán</h4>
-                                        <p style="font-style:italic">"Luz, Ciencia y Verdad"</p>
+                                        <p style="font-style: italic">"Luz, Ciencia y Verdad"</p>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="banner-bottom-2">
                                     <div class="about-midd-main">
-                                        <img class="agile-img" src="images/t3.jpg" alt=" " class="img-responsive">
-                                        <h4>Thomson Doe</h4>
-                                        <p>consectetur adipiscing elit, sed do eiusmod idunt ut labore. sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                                        <img class="agile-img" src="../Resources/images/logosicoes.png" alt=" " style="width: 150px" class="img-responsive">
+                                        <h4>Sistema de control escolar</h4>
+                                        <p style="font-style: italic">Portal de herramientas académicas para el docente y alumno.</p>
                                     </div>
                                 </div>
                             </li>
@@ -69,10 +70,11 @@
                         <input type="password" class="password" name="Password" placeholder="" required="">
                     </div>
                     <label class="anim">
-<%--                        <input type="checkbox" class="checkbox">
+                        <%--                        <input type="checkbox" class="checkbox">
                         <span>Remember Me</span>--%>
                         <a href="#">¿Olvidaste tu contraseña?</a>
-                    </label><br />
+                    </label>
+                    <br />
                     <input type="submit" value="Iniciar sesión">
                 </form>
             </div>
