@@ -151,12 +151,14 @@
     <Content Include="Resources\CSS\w3.css" />
     <Content Include="Resources\fonts\fontawesome-webfont.svg" />
     <Content Include="Resources\images\AdminSchoolSoftwareEducativo2.png" />
+    <Content Include="Resources\images\docente.jpg" />
     <Content Include="Resources\images\into.png" />
     <Content Include="Resources\images\LoginBack.JPG" />
     <Content Include="Resources\images\logoprepahunucma.jpeg" />
     <Content Include="Resources\images\logosicoes.png" />
     <Content Include="Resources\images\logouady.jpg" />
-    <Content Include="Resources\images\logouady.png" />
+    <Content Include="Resources\images\port2.jpg" />
+    <Content Include="Resources\images\portrait.jpg" />
     <Content Include="Resources\js\jquery.flexslider.js" />
     <Content Include="Resources\js\jquery.min.js" />
     <Content Include="Scripts\bootstrap.js" />
