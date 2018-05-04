@@ -148,12 +148,10 @@
     <Content Include="Resources\CSS\style.css" />
     <Content Include="Resources\CSS\w3.css" />
     <Content Include="Resources\fonts\fontawesome-webfont.svg" />
-    <Content Include="Resources\images\banner.jpg" />
     <Content Include="Resources\images\into.png" />
     <Content Include="Resources\images\LoginBack.JPG" />
-    <Content Include="Resources\images\t1.jpg" />
-    <Content Include="Resources\images\t2.jpg" />
-    <Content Include="Resources\images\t3.jpg" />
+    <Content Include="Resources\images\logoprepahunucma.jpeg" />
+    <Content Include="Resources\images\logouady.png" />
     <Content Include="Resources\js\jquery.flexslider.js" />
     <Content Include="Resources\js\jquery.min.js" />
     <Content Include="Scripts\bootstrap.js" />

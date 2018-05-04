@@ -18,7 +18,6 @@
 <body>
     <h1>Bienvenido a SICOES</h1>
     <div class="main-agile">
-        <div class="alert-close"></div>
         <div class="content-wthree">
             <div class="about-middle">
                 <section class="slider">
@@ -27,18 +26,18 @@
                             <li>
                                 <div class="banner-bottom-2">
                                     <div class="about-midd-main">
-                                        <img class="agile-img" src="images/t1.jpg" alt=" " class="img-responsive">
-                                        <h4>Smith Kevin</h4>
-                                        <p>consectetur adipiscing elit, sed do eiusmod idunt ut labore. sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                                        <img class="agile-img" src="../Resources/images/logoprepahunucma.jpeg" alt=" " style="width:150px" class="img-responsive">
+                                        <h4>Escuela Preparatoria Hunucmá</h4>
+                                        <p>Somos una institución dedicada a la educación y formación integral de los jóvenes estudiantes.</p>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="banner-bottom-2">
                                     <div class="about-midd-main">
-                                        <img class="agile-img" src="images/t2.jpg" alt=" " class="img-responsive">
-                                        <h4>Laura Hill</h4>
-                                        <p>consectetur adipiscing elit, sed do eiusmod idunt ut labore. sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                                        <img class="agile-img" src="../Resources/images/logouady.png" alt=" " style="width:150px" class="img-responsive">
+                                        <h4>Universidad Autónoma de Yucatán</h4>
+                                        <p style="font-style:italic">"Luz, Ciencia y Verdad"</p>
                                     </div>
                                 </div>
                             </li>
@@ -72,8 +71,8 @@
                     <label class="anim">
 <%--                        <input type="checkbox" class="checkbox">
                         <span>Remember Me</span>--%>
-                        <a href="#">Forgot Password</a>
-                    </label>
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                    </label><br />
                     <input type="submit" value="Iniciar sesión">
                 </form>
             </div>
