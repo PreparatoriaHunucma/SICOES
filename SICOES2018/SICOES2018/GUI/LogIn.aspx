@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginGUI.aspx.cs" Inherits="SICOES2018.GUI.LoginGUI" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LogIn.aspx.cs" Inherits="SICOES2018.GUI.LoginGUI" %>
 
 <!DOCTYPE html>
 
