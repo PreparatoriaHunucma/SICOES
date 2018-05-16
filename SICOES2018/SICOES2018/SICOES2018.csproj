@@ -198,6 +198,38 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BO\AlumnosBO.cs" />
+    <Compile Include="BO\AsignaturasBO.cs" />
+    <Compile Include="BO\AvisoBO.cs" />
+    <Compile Include="BO\CalificacionesBO.cs" />
+    <Compile Include="BO\CicloEscolarBO.cs" />
+    <Compile Include="BO\DatosEscuelaBO.cs" />
+    <Compile Include="BO\DepartamentosEscuelaBO.cs" />
+    <Compile Include="BO\DocumentosAlumnoBO.cs" />
+    <Compile Include="BO\EscuelasProcedenciaAlumnosBO.cs" />
+    <Compile Include="BO\EstadoBO.cs" />
+    <Compile Include="BO\GrupoAsignaturaBO.cs" />
+    <Compile Include="BO\GruposBO.cs" />
+    <Compile Include="BO\MaestroGruposBO.cs" />
+    <Compile Include="BO\MaestrosBO.cs" />
+    <Compile Include="BO\ModalidadAsignaturasBO.cs" />
+    <Compile Include="BO\MomentoCalificacionBO.cs" />
+    <Compile Include="BO\MunicipioBO.cs" />
+    <Compile Include="BO\PaisBO.cs" />
+    <Compile Include="BO\PeriodoEscolarBO.cs" />
+    <Compile Include="BO\PlanesEstudioBO.cs" />
+    <Compile Include="BO\SemestresBO.cs" />
+    <Compile Include="BO\TipoAlumnoBO.cs" />
+    <Compile Include="BO\TipoAsignaturasBO.cs" />
+    <Compile Include="BO\TipoMaestroBO.cs" />
+    <Compile Include="BO\TurnosEscuelasBO.cs" />
+    <Compile Include="DAO\AlumnosDAO.cs" />
+    <Compile Include="DAO\AsignaturasDAO.cs" />
+    <Compile Include="DAO\AvisoDAO.cs" />
+    <Compile Include="DAO\CalificacionesDAO.cs" />
+    <Compile Include="DAO\CicloEscolarDAO.cs" />
+    <Compile Include="DAO\ConexionSQL.cs" />
+    <Compile Include="DAO\DatosEscuelaDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -233,8 +265,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="BO\" />
-    <Folder Include="DAO\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
