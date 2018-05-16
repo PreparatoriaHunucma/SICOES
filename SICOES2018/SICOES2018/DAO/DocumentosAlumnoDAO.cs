@@ -11,7 +11,7 @@ namespace SICOES2018.DAO
     public class DocumentosAlumnoDAO: ConexionSQL
     {
         SqlCommand cmd;
-        //Para modificar el estado del aviso segun el alumno [0 = NO VISTO, 1 = VISTO]
+        //Para modificar el estado de los documentos [0 = NO ENTREGADO, 1 = ENTREGADO]
         public int modificarDocumentos(DocumentosAlumnoBO datosDocumentosAlumno)
         {
             cmd = new SqlCommand("UPDATE DocumentosAlumno SET ActaNacimiento = @ActaNacimiento, Fotografias = @Fotografias, Curp = @Curp, Constancia = @Constancia, ComprobanteDomiciliario = @ComprobanteDomiciliario, BoletaCalificaciones = @BoletaCalificaciones, CertificadoParcial = @CertificadoParcial, OficioRevalidacion = @OficioRevalidacion, ConstanciaMedia = @ConstanciaMedia, CertificadoSecundaria = @CertificadoSecundaria, Otros = @Otros WHERE IDDocumentos = @IDDocumentos");
