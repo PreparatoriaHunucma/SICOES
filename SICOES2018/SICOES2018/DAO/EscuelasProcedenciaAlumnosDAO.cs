@@ -28,7 +28,7 @@ namespace SICOES2018.DAO
         //Para modificar el nombre de la escuela de procedencia
         public int modificarNombreEscuelaProc(EscuelasProcedenciaAlumnosBO datosEscuelasProcedenciaAlumnos)
         {
-            cmd = new SqlCommand("UPDATE EscuelasProcedenciaAlumnos SET NombreEscPro = @NombreEscPro WHERE IDEscProcAlumno = @IDEscProcAlumno");
+            cmd = new SqlCommand("UPDATE EscuelasProcedenciaAlumnos SET NombreEscPro = @NombreEscPro WHERE IDEscProAlumno = @IDEscProAlumno");
 
             cmd.Parameters.Add("@NombreEscPro", SqlDbType.TinyInt).Value = datosEscuelasProcedenciaAlumnos.NombreEscPro;
             cmd.Parameters.Add("@IDEscProAlumno", SqlDbType.Int).Value = datosEscuelasProcedenciaAlumnos.IDEscProAlumno;
@@ -40,10 +40,10 @@ namespace SICOES2018.DAO
         //Para modificar el nombre de la escuela de procedencia [0 = NO VISTO, 1 = VISTO]
         public int modificarClaveEscuelaProc(EscuelasProcedenciaAlumnosBO datosEscuelasProcedenciaAlumnos)
         {
-            cmd = new SqlCommand("UPDATE EscuelasProcedenciaAlumnos SET ClaveEscPro = @ClaveEscPro WHERE IDEscProcAlumno = @IDEscProcAlumno");
+            cmd = new SqlCommand("UPDATE EscuelasProcedenciaAlumnos SET ClaveEscPro = @ClaveEscPro WHERE IDEscProAlumno = @IDEscProAlumno");
 
             cmd.Parameters.Add("@ClaveEscPro", SqlDbType.TinyInt).Value = datosEscuelasProcedenciaAlumnos.ClaveEscPro;
-            cmd.Parameters.Add("@IDEscProcAlumno", SqlDbType.Int).Value = datosEscuelasProcedenciaAlumnos.IDEscProAlumno;
+            cmd.Parameters.Add("@IDEscProAlumno", SqlDbType.Int).Value = datosEscuelasProcedenciaAlumnos.IDEscProAlumno;
             cmd.CommandType = CommandType.Text;
 
             return ejecutarComando(cmd);
