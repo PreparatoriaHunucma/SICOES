@@ -43,7 +43,7 @@ namespace SICOES2018.DAO
             cmd = new SqlCommand("UPDATE EscuelasProcedenciaAlumnos SET ClaveEscPro = @ClaveEscPro WHERE IDEscProcAlumno = @IDEscProcAlumno");
 
             cmd.Parameters.Add("@ClaveEscPro", SqlDbType.TinyInt).Value = datosEscuelasProcedenciaAlumnos.ClaveEscPro;
-            cmd.Parameters.Add("@IDEscProcAlumno", SqlDbType.Int).Value = datosEscuelasProcedenciaAlumnos.IDEscProcAlumno;
+            cmd.Parameters.Add("@IDEscProcAlumno", SqlDbType.Int).Value = datosEscuelasProcedenciaAlumnos.IDEscProAlumno;
             cmd.CommandType = CommandType.Text;
 
             return ejecutarComando(cmd);
