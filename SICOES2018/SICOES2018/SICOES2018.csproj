@@ -230,6 +230,8 @@
     <Compile Include="DAO\CicloEscolarDAO.cs" />
     <Compile Include="DAO\ConexionSQL.cs" />
     <Compile Include="DAO\DatosEscuelaDAO.cs" />
+    <Compile Include="DAO\DepartamentosEscuelaDAO.cs" />
+    <Compile Include="DAO\DocumentosAlumnoDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
