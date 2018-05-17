@@ -17,13 +17,13 @@ namespace SICOES2018.DAO
             cmd.Parameters.Add("@IDAsignatura", SqlDbType.Int).Value = datosCalif.IDAsignatura;
             cmd.Parameters.Add("@IDMomento", SqlDbType.Int).Value = datosCalif.IDMomento;
             cmd.Parameters.Add("@Calificacion", SqlDbType.Decimal).Value = datosCalif.Calificacion;
-            cmd.CommandType = CommandType.Text;
 
+            cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
 
         //Para modificar la calificacion de un alumno
-        public int modificarInfoAviso(CalificacionesBO datosCalif)
+        public int modificarCalificacion(CalificacionesBO datosCalif)
         {
             cmd = new SqlCommand("UPDATE Calificaciones SET Calificacion = @Calificacion WHERE IDCalificacion = @IDCalificacion");
 
@@ -33,7 +33,5 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
-
-
     }
 }

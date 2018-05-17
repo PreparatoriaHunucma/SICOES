@@ -13,7 +13,7 @@ namespace SICOES2018.DAO
         SqlCommand cmd;
 
         //Para verificar si el maestro tiene una cuenta dentro del sistema
-        public int loginAlumno(MaestrosBO datoMaestro)
+        public int loginMaestro(MaestrosBO datoMaestro)
         {
             cmd = new SqlCommand("SELECT * FROM Maestro WHERE UsuarioMaestro = @UsuarioMaestro AND ContraseñaMaestro = @ContraseñaMaestro");
 
@@ -25,7 +25,7 @@ namespace SICOES2018.DAO
         }
 
         //Para agregar a un docente al sistema
-        public int agregarAlumno(MaestrosBO datosMaestro)
+        public int agregarMaestro(MaestrosBO datosMaestro)
         {
             cmd = new SqlCommand("INSERT INTO Maestros (NomMaestro, ApePatMaestro, ApeMatMaestro, TelMaestro, CorreoMaestro, CedulaMaestro, IngresoMaestro, FotoMaestro, CurriculumMaestro, IDTipoMaestro, GradoAcademicoMaestro, DireccionMaestro, IDMunicipioMaestro, StatusMaestro, UsuarioMaestro, ContraseñaMaestro) VALUES (@NomMaestro, @ApePatMaestro, @ApeMatMaestro, @TelMaestro, @CorreoMaestro, @CedulaMaestro, GETDATE(), @FotoMaestro, @CurriculumMaestro, @IDTipoMaestro, @GradoAcademicoMaestro, @DireccionMaestro, @IDMunicipioMaestro, @StatusMaestro, @UsuarioMaestro, @ContraseñaMaestro)");
 
@@ -50,11 +50,11 @@ namespace SICOES2018.DAO
         }
 
         //Para cambiar el estado del maestro [0 = DE BAJA, 1 = ACTIVO]
-        public int modificarTipoAlumno(MaestrosBO datosMaestro)
+        public int modificarEstadoMaestro(MaestrosBO datosMaestro)
         {
             cmd = new SqlCommand("UPDATE Maestros SET StatusMaestro = @StatusMaestro WHERE IDMaestro = @IDMaestro");
 
-            cmd.Parameters.Add("@StatusMaestro", SqlDbType.Int).Value = datosMaestro.StatusMaestro;
+            cmd.Parameters.Add("@StatusMaestro", SqlDbType.TinyInt).Value = datosMaestro.StatusMaestro;
             cmd.Parameters.Add("@IDMaestro", SqlDbType.Int).Value = datosMaestro.IDMaestro;
             cmd.CommandType = CommandType.Text;
 
@@ -62,7 +62,7 @@ namespace SICOES2018.DAO
         }
 
         //Para modificar la informacion del maestro dentro del sistema
-        public int modificarInfoAlumno(MaestrosBO datosMaestro)
+        public int modificarInfoMaestro(MaestrosBO datosMaestro)
         {
             cmd = new SqlCommand("UPDATE Alumno SET NomMaestro = @NomMaestro, ApePatMaestro = @ApePatMaestro, ApeMatMaestro = @ApeMatMaestro, TelMaestro = @TelMaestro, CorreoMaestro = @CorreoMaestro, CedulaMaestro = @CedulaMaestro, FotoMaestro = @FotoMaestro, CurriculumMaestro = @CurriculumMaestro, GradoAcademicoMaestro = @GradoAcademicoMaestro, DireccionMaestro = @DireccionMaestro, IDMunicipioMaestro = @IDMunicipioMaestro WHERE IDMaestro = @IDMaestro");
 

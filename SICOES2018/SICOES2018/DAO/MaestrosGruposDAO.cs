@@ -17,11 +17,10 @@ namespace SICOES2018.DAO
             cmd.Parameters.Add("@IDGrupo", SqlDbType.Int).Value = datosMaestroGrupo.IDGrupo;
             cmd.Parameters.Add("@IDAsignatura", SqlDbType.Int).Value = datosMaestroGrupo.IDAsignatura;
             cmd.Parameters.Add("@IDPeriodo", SqlDbType.Int).Value = datosMaestroGrupo.IDPeriodo;
-            cmd.CommandType = CommandType.Text;
 
+            cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
-
 
         //Para modificar el registro de la asignacion del maestro
         public int modificarRegistroMaestroGrupo(MaestroGruposBO datosMaestroGrupo)
@@ -38,6 +37,5 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
-
     }
 }

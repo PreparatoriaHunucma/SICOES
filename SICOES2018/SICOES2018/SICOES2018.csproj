@@ -233,8 +233,22 @@
     <Compile Include="DAO\DepartamentosEscuelaDAO.cs" />
     <Compile Include="DAO\DocumentosAlumnoDAO.cs" />
     <Compile Include="DAO\EscuelasProcedenciaAlumnosDAO.cs" />
+    <Compile Include="DAO\EstadoDAO.cs" />
+    <Compile Include="DAO\GruposDAO.cs" />
+    <Compile Include="DAO\GruposAsignaturaDAO.cs" />
     <Compile Include="DAO\MaestrosDAO.cs" />
     <Compile Include="DAO\MaestrosGruposDAO.cs" />
+    <Compile Include="DAO\ModalidadAsignaturasDAO.cs" />
+    <Compile Include="DAO\MomentoCalificacionDAO.cs" />
+    <Compile Include="DAO\MunicipioDAO.cs" />
+    <Compile Include="DAO\PaisDAO.cs" />
+    <Compile Include="DAO\PeriodoEscolarDAO.cs" />
+    <Compile Include="DAO\PlanesEstudioDAO.cs" />
+    <Compile Include="DAO\SemestresDAO.cs" />
+    <Compile Include="DAO\TipoAsignaturasDAO.cs" />
+    <Compile Include="DAO\TipoMaestroDAO.cs" />
+    <Compile Include="DAO\TiposAlumnoDAO.cs" />
+    <Compile Include="DAO\TurnosEscuelasDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

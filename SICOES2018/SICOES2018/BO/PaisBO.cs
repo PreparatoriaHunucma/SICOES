@@ -5,9 +5,9 @@ namespace SICOES2018.BO
     public class PaisBO
     {
         private int iDPais;
-        private String Nombre;
+        private String nombre;
 
         public int IDPais { get => iDPais; set => iDPais = value; }
-        public string Nombre1 { get => Nombre; set => Nombre = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
     }
 }

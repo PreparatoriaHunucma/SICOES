@@ -17,8 +17,8 @@ namespace SICOES2018.DAO
             cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosAviso.IDAlumno;
             cmd.Parameters.Add("@TextoAviso", SqlDbType.Text).Value = datosAviso.TextoAviso;
             cmd.Parameters.Add("@EstadoAviso", SqlDbType.TinyInt).Value = datosAviso.EstadoAviso;
-            cmd.CommandType = CommandType.Text;
 
+            cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
 
@@ -29,8 +29,8 @@ namespace SICOES2018.DAO
 
             cmd.Parameters.Add("@EstadoAviso", SqlDbType.TinyInt).Value = datosAviso.EstadoAviso;
             cmd.Parameters.Add("@IDAviso", SqlDbType.Int).Value = datosAviso.IDAviso;
-            cmd.CommandType = CommandType.Text;
 
+            cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
 
@@ -45,6 +45,5 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
-
     }
 }

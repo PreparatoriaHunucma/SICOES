@@ -42,13 +42,10 @@ namespace SICOES2018.DAO
             cmd.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = datosCicloEsc.Nombre;
             cmd.Parameters.Add("@FechaInicio", SqlDbType.Date).Value = datosCicloEsc.FechaInicio;
             cmd.Parameters.Add("@FechaFin", SqlDbType.Date).Value = datosCicloEsc.FechaFin;
-            cmd.Parameters.Add("@Status", SqlDbType.TinyInt).Value = datosCicloEsc.Status;
             cmd.Parameters.Add("@IDCicloEscolar", SqlDbType.Int).Value = datosCicloEsc.IDCicloEscolar;
 
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
-
-
     }
 }

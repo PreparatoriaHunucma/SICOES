@@ -25,7 +25,6 @@ namespace SICOES2018.DAO
             cmd.Parameters.Add("@IDDepartamentos", SqlDbType.Int).Value = datosDatosEscuela.IDDepartamentos;
 
             cmd.CommandType = CommandType.Text;
-
             return ejecutarComando(cmd);
         }
 

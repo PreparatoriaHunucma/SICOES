@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using SICOES2018.BO;
 
 namespace SICOES2018.DAO
@@ -11,6 +7,28 @@ namespace SICOES2018.DAO
     public class DocumentosAlumnoDAO: ConexionSQL
     {
         SqlCommand cmd;
+
+        //Para crear un registro de documentos [0 = NO ENTREGADO, 1 = ENTREGADO]
+        public int agregarRegistroDocumentos(DocumentosAlumnoBO datosDocumentosAlumno)
+        {
+            cmd = new SqlCommand("INSERT INTO DocumentosAlumno (ActaNacimiento, Fotografias, Curp, Constancia, ComprobanteDomiciliario, BoletaCalificaciones, CertificadoParcial, OficioRevalidacion, ConstanciaMedia, CertificadoSecundaria, Otros) VALUES (@ActaNacimiento, @Fotografias, @Curp, @Constancia, @ComprobanteDomiciliario, @BoletaCalificaciones, @CertificadoParcial, @OficioRevalidacion, @ConstanciaMedia, @CertificadoSecundaria, @Otros)");
+
+            cmd.Parameters.Add("@ActaNacimiento", SqlDbType.TinyInt).Value = datosDocumentosAlumno.ActaNacimiento;
+            cmd.Parameters.Add("@Fotografias", SqlDbType.TinyInt).Value = datosDocumentosAlumno.Fotografias;
+            cmd.Parameters.Add("@Curp", SqlDbType.TinyInt).Value = datosDocumentosAlumno.Curp;
+            cmd.Parameters.Add("@Constancia", SqlDbType.TinyInt).Value = datosDocumentosAlumno.Constancia;
+            cmd.Parameters.Add("@ComprobanteDomiciliario", SqlDbType.TinyInt).Value = datosDocumentosAlumno.CompromanteDomiciliario;
+            cmd.Parameters.Add("@BoletaCalificaciones", SqlDbType.TinyInt).Value = datosDocumentosAlumno.BoletaCalificaciones;
+            cmd.Parameters.Add("@CertificadoParcial", SqlDbType.TinyInt).Value = datosDocumentosAlumno.CertificadoParcial;
+            cmd.Parameters.Add("@OficioRevalidacion", SqlDbType.TinyInt).Value = datosDocumentosAlumno.OficioRevalidacion;
+            cmd.Parameters.Add("@ConstanciaMedia", SqlDbType.TinyInt).Value = datosDocumentosAlumno.ConstanciaMedia;
+            cmd.Parameters.Add("@CertificadoSecundaria", SqlDbType.TinyInt).Value = datosDocumentosAlumno.CertificadoSecundaria;
+            cmd.Parameters.Add("@Otros", SqlDbType.TinyInt).Value = datosDocumentosAlumno.Otros1;
+
+            cmd.CommandType = CommandType.Text;
+            return ejecutarComando(cmd);
+        }
+
         //Para modificar el estado de los documentos [0 = NO ENTREGADO, 1 = ENTREGADO]
         public int modificarDocumentos(DocumentosAlumnoBO datosDocumentosAlumno)
         {
@@ -28,11 +46,9 @@ namespace SICOES2018.DAO
             cmd.Parameters.Add("@CertificadoSecundaria", SqlDbType.TinyInt).Value = datosDocumentosAlumno.CertificadoSecundaria;
             cmd.Parameters.Add("@Otros", SqlDbType.TinyInt).Value = datosDocumentosAlumno.Otros1;
             cmd.Parameters.Add("@IDDocumentos", SqlDbType.Int).Value = datosDocumentosAlumno.IDDocumentos;
-            cmd.CommandType = CommandType.Text;
 
+            cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
-
-
     }
 }
