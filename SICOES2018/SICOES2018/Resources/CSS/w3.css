@@ -3,6 +3,12 @@ html {
 	box-sizing: border-box
 }
 
+.image-upload > input {
+    visibility: hidden;
+    width: 0;
+    height: 0
+}
+
 *, *:before, *:after {
 	box-sizing: inherit
 }

@@ -137,6 +137,7 @@
     </Content>
     <Content Include="GUI\Inicio.aspx" />
     <Content Include="GUI\Index.aspx" />
+    <Content Include="GUI\RegistroAlumnos.aspx" />
     <Content Include="MasterPages\mstrpgAdmin.Master" />
     <Content Include="Resources\fonts\fontawesome-webfont.eot" />
     <Content Include="Resources\fonts\fontawesome-webfont.ttf" />
@@ -151,7 +152,9 @@
     <Content Include="Resources\CSS\w3.css" />
     <Content Include="Resources\fonts\fontawesome-webfont.svg" />
     <Content Include="Resources\images\AdminSchoolSoftwareEducativo2.png" />
+    <Content Include="Resources\images\camara.png" />
     <Content Include="Resources\images\docente.jpg" />
+    <Content Include="Resources\images\imgPerfil.jpg" />
     <Content Include="Resources\images\into.png" />
     <Content Include="Resources\images\LoginBack.JPG" />
     <Content Include="Resources\images\logoprepahunucma.jpeg" />
@@ -265,6 +268,13 @@
     </Compile>
     <Compile Include="GUI\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\RegistroAlumnos.aspx.cs">
+      <DependentUpon>RegistroAlumnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\RegistroAlumnos.aspx.designer.cs">
+      <DependentUpon>RegistroAlumnos.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\mstrpgAdmin.Master.cs">
       <DependentUpon>mstrpgAdmin.Master</DependentUpon>
