@@ -14,6 +14,9 @@
         html, body, h1, h2, h3, h4, h5, h6 {
             font-family: "Roboto", sans-serif
         }
+
+a.cursorencima:hover, a.ex1:active {color: #c5aa22;}
+
     </style>
 </head>
 <body>
@@ -60,6 +63,68 @@
                             <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i>ex@mail.com</p>
                             <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i>1224435534</p>
                             <hr>
+
+                          <a onclick="Directivo('Directivo')" class="w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
+                            Directivo<i class="fa fa-arrow-circle-o-down w3-xlarge" style="float:right;"></i></a>
+
+                            <div id="Directivo" class="w3-hide w3-container w3-light-gray" style="margin-bottom:3px; margin-top:-3px">
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Alta de usuarios</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Gestionar Ciclo Escolar</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Gestionar Semestres</a></p>
+                            </div>
+
+                            <a onclick="Administrativa('Administrativa')" class="w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
+                            Secretaría Administrativa<i class="fa fa-arrow-circle-o-down w3-xlarge" style="float:right;"></i></a>
+
+                            <div id="Administrativa" class="w3-hide w3-container w3-light-gray ">
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Grados y Grupos</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Planes de Estudio</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Asignaturas</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Certificado</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Calificaciones</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Calificaciones de Acompañamiento</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Credencial de estudiantes</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Constancias de Esstudio</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Justifiaciones</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Kardex</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Gestion del Plantel</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Baja de alumnos</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Respaldo de información</a></p>
+                            </div>
+
+                            <a onclick="Académica('Académica')" class="w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
+                                Secretaría Académica<i class="fa fa-arrow-circle-o-down w3-xlarge" style="float:right;"></i></a>
+                            <div id="Académica" class="w3-hide w3-container w3-light-gray ">
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Gestión de Docentes</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Administrar Materias</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Credencial de Maestros</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Constancia laboral</a></p>
+                            </div>
+                            
+                            <a onclick="Control('Control')" class="w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
+                                Control Escolar<i class="fa fa-arrow-circle-o-down w3-xlarge" style="float:right;"></i></a>
+
+                            <div id="Control" class="w3-hide w3-container w3-light-gray ">
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Inscripción de alumnos y asignación de grupos</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Baja de alumnos</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Calificaciones</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Aprovechamiento Escolar</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Boletas de calificación</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Asistencia de Alumnos</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Kardex</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Hojas de inscripción</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Avisos para Tutores y padres</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Información de alumnos</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Reinscripciones</a></p>
+                            </div>
+
+                            <a onclick="Docente('Docente')" class="w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
+                                Docente<i class="fa fa-arrow-circle-o-down w3-xlarge" style="float:right;"></i></a>
+                            <div id="Docente" class="w3-hide w3-container w3-light-gray ">
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Calificaciones</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Lista de asistencia</a></p>
+                              <p><a class="cursorencima" href="" style="text-decoration:none">Notificaciones</a></p>
+                            </div>
 
                             <%--<p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
                             <p>Adobe Photoshop</p>
@@ -121,5 +186,57 @@
             <img style="width:100px; height:100px; margin-right:200px" class="w3-circle w3-right" src="../Resources/images/logosicoes.png" />
         </footer>
     </form>
+
+   <script>
+       function Directivo(id) {
+           var x = document.getElementById(id);
+           if (x.className.indexOf("w3-show") == -1) {
+               x.className += " w3-show";
+               x.previousElementSibling.className =
+                   x.previousElementSibling.className.replace("w3-amber", "w3-blue");
+           } else {
+               x.className = x.className.replace(" w3-show", "");
+               x.previousElementSibling.className =
+                   x.previousElementSibling.className.replace("w3-blue", "w3-amber");
+           }
+       }
+
+       function Administrativa(id) {
+           var x = document.getElementById(id);
+           if (x.className.indexOf("w3-show") == -1) {
+               x.className += " w3-show";
+           } else {
+               x.className = x.className.replace(" w3-show", "");
+           }
+       }
+
+       function Académica(id) {
+           var x = document.getElementById(id);
+           if (x.className.indexOf("w3-show") == -1) {
+               x.className += " w3-show";
+           } else {
+               x.className = x.className.replace(" w3-show", "");
+           }
+       }
+
+       function Control(id) {
+           var x = document.getElementById(id);
+           if (x.className.indexOf("w3-show") == -1) {
+               x.className += " w3-show";
+           } else {
+               x.className = x.className.replace(" w3-show", "");
+           }
+       }
+
+       function Docente(id) {
+           var x = document.getElementById(id);
+           if (x.className.indexOf("w3-show") == -1) {
+               x.className += " w3-show";
+           } else {
+               x.className = x.className.replace(" w3-show", "");
+           }
+       }
+</script>
+
 </body>
 </html>
