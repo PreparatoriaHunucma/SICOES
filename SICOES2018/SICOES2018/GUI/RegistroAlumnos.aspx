@@ -605,15 +605,19 @@
             swal({
                 title: 'Alumno registrado!',
                 text: 'El alumno ha sido registrado correctamente',
-                type: 'success'
+                type: 'success',
+                showConfirmButton: false,
+                timer: 1500
             });
         }
 
         function erroralert() {
             swal({
-                title: 'Oh oh!',
-                text: 'Hubo un problema al registrar el alumno, verifique los campos marcados',
-                type: 'error'
+                position: 'bottom-end',
+                type: 'error',
+                title: 'Oh oh',
+                //text: 'Hubo un problema al guardar la información, verifica los datos',
+
             });
         }
 
