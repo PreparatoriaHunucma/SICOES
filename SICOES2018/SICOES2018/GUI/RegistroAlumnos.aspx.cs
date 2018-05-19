@@ -45,19 +45,67 @@ namespace SICOES2018.GUI
             }
 
         }
+        protected void limpiarCampos()
+        {
+            txtNomAlumno.Text = String.Empty;
+            txtApePatAlumno.Text = String.Empty;
+            txtApeMatAlumno.Text = String.Empty;
+            txtFechaNacAlum.Text = String.Empty;
+            txtCurpAlum.Text = String.Empty;
+            txtNomPadreAlum.Text = String.Empty;
+            txtNomMadreAlum.Text = String.Empty;
+            txtNomTutorAlum.Text = String.Empty;
+            txtTelPadreAlum.Text = String.Empty;
+            txtTelMadreAlum.Text = String.Empty;
+            txtTelTutorAlum.Text = String.Empty;
+            chckTutorPadre.Checked = false;
+            chckTutorMadre.Checked = false;
+            txtCallAlum.Text = String.Empty;
+            txtNumAlum.Text = String.Empty;
+            txtColAlum.Text = String.Empty;
+            txtCPAlum.Text = String.Empty;
+            txtTelAlum.Text = String.Empty;
+            ddlPaisAlum.DataBind();
+            txtNomEscProAlum.Text = String.Empty;
+            txtClaveEscProAlum.Text = String.Empty;
+            ddlEscProAlum.Items.Clear();
+            ddlTurnoEscPro.SelectedIndex = 1;
+            chckActaNacAlum.Checked = false;
+            chckFotosAlum.Checked = false;
+            chckCurpAlum.Checked = false;
+            chckCompDomiAlum.Checked = false;
+            chckBoleCalifAlum.Checked = false;
+            chckCertifParcialAlum.Checked = false;
+            chckOfiRevalAlum.Checked = false;
+            chckConstanciaAlum.Checked = false;
+            chckCertifSecunAlum.Checked = false;
+            chckConstanciaMediaAlum.Checked = false;
+            txtrOtrosAlum.Text = String.Empty;
 
+        }
         //////////////////////////////ALUMNO//////////////////////////////
         protected void btnAgregarAlumno_Click(object sender, EventArgs e)
         {
-            guardarDatosGenerales();
-            guardarDatosTutor();
-            guardarDomicilio();
-            guardarEscProAlum();
-            guardarDocumentos();
-            datoAlum.IDTipoAlumno = 1;
-            datoAlum.RevalidaAlumno = 1;
-            datoAlum.NuevoAlumno = 0;
-            ejecAlum.agregarAlumno(datoAlum);
+            if (txtFechaNacAlum.Text != "")
+            {
+                DateTime valFechaNac = Convert.ToDateTime(txtFechaNacAlum.Text);
+                DateTime fechaInicio = new DateTime(1900, 1, 1);
+                if ((valFechaNac.Date >= fechaInicio.Date) && (valFechaNac.Date <= DateTime.Today))
+                {
+                    guardarDatosGenerales();
+                    guardarDatosTutor();
+                    guardarDomicilio();
+                    guardarEscProAlum();
+                    guardarDocumentos();
+                    datoAlum.IDTipoAlumno = 1;
+                    datoAlum.RevalidaAlumno = 1;
+                    datoAlum.NuevoAlumno = 0;
+                    ejecAlum.agregarAlumno(datoAlum);
+                    limpiarCampos();
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert();", true);
+                }
+            }
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
         }
         protected void guardarDatosGenerales()
         {
