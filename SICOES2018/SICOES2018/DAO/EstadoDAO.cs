@@ -7,6 +7,7 @@ namespace SICOES2018.DAO
     public class EstadoDAO : ConexionSQL
     {
         SqlCommand cmd;
+        string SQLCommand;
 
         //Para agregar un nuevo estado
         public int agregarEstado(EstadoBO datosEstado)
@@ -31,5 +32,19 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
+
+        //Para llenar los DDL de los estados
+        public DataTable LlenarDropDownList(int IDPais)
+        {
+            SQLCommand = "SELECT * FROM Estado WHERE IDPais = '" + IDPais + "' Order By Nombre";
+            return llenarTablas(SQLCommand);
+        }
+        //Para llenar los DDL de los estados sin seleccionar Pais
+        public DataTable LlenarDropDownListNoPais()
+        {
+            SQLCommand = "SELECT * FROM Estado Order By Nombre";
+            return llenarTablas(SQLCommand);
+        }
+
     }
 }

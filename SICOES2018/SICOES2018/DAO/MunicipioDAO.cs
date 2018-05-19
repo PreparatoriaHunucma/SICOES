@@ -7,9 +7,10 @@ namespace SICOES2018.DAO
     public class MunicipioDAO : ConexionSQL
     {
         SqlCommand cmd;
+        string SQLCommand;
 
         //Para agregar un nuevo municipio
-        public int agregarEstado(MunicipioBO datosMunicipio)
+        public int agregarMunicipio(MunicipioBO datosMunicipio)
         {
             cmd = new SqlCommand("INSERT INTO Municipio (Nombre, IDEstado) VALUES (@Nombre, @IDEstado)");
 
@@ -31,5 +32,13 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
+
+        //Para llenar los DDL de los municipios
+        public DataTable LlenarDropDownList(int IDEstado)
+        {
+            SQLCommand = "SELECT * FROM Municipio WHERE IDEstado = '" + IDEstado + "' Order By Nombre";
+            return llenarTablas(SQLCommand);
+        }
+
     }
 }

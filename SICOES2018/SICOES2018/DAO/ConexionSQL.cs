@@ -19,7 +19,7 @@ namespace SICOES2018.DAO
         }
         public SqlConnection establecerConexion()
         {
-            string cs = "Data Source=sql7001.site4now.net;Initial Catalog=DB_A3AC6D_SICOES2018;User Id=DB_A3AC6D_SICOES2018_admin;Password=sicoes2018;";
+            string cs = "Data Source=sql7001.site4now.net; Initial Catalog=DB_A3AC6D_SICOES2018; User Id=DB_A3AC6D_SICOES2018_admin; Password=sicoeshunucma2018;";
             con = new SqlConnection(cs);
             return con;
         }
@@ -82,6 +82,15 @@ namespace SICOES2018.DAO
             LeerDato.Close();
             this.cerrarConexion();
             return DatoEspecifico;
+        }
+        public DataTable llenarTablas(string ComandSQL)
+        {
+            SqlDataAdapter SQLDA = new SqlDataAdapter(ComandSQL, this.establecerConexion());
+            this.abrirConexion();
+            DataTable TablaALlenar = new DataTable();
+            SQLDA.Fill(TablaALlenar);
+            this.cerrarConexion();
+            return TablaALlenar;
         }
     }
 }

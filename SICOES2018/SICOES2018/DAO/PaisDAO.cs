@@ -7,6 +7,7 @@ namespace SICOES2018.DAO
     public class PaisDAO : ConexionSQL
     {
         SqlCommand cmd;
+        string SQLCommand;
 
         //Para crear un pais
         public int agregarPais(PaisBO datosPais)
@@ -29,6 +30,13 @@ namespace SICOES2018.DAO
 
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
+        }
+
+        //Para llenar los GridView y DDL de los paises
+        public DataTable llenarTablasDDL()
+        {
+            SQLCommand = "SELECT * FROM Pais Order By Nombre";
+            return llenarTablas(SQLCommand);
         }
 
     }

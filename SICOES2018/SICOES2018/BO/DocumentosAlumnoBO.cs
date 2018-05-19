@@ -6,7 +6,7 @@ namespace SICOES2018.BO
     {
         private int iDDocumentos;
         private short actaNacimiento, fotografias, curp, constancia, compromanteDomiciliario, boletaCalificaciones, certificadoParcial, oficioRevalidacion, constanciaMedia, certificadoSecundaria;
-        private String Otros;
+        private String otros;
 
         public int IDDocumentos { get => iDDocumentos; set => iDDocumentos = value; }
         public short ActaNacimiento { get => actaNacimiento; set => actaNacimiento = value; }
@@ -19,6 +19,6 @@ namespace SICOES2018.BO
         public short OficioRevalidacion { get => oficioRevalidacion; set => oficioRevalidacion = value; }
         public short ConstanciaMedia { get => constanciaMedia; set => constanciaMedia = value; }
         public short CertificadoSecundaria { get => certificadoSecundaria; set => certificadoSecundaria = value; }
-        public string Otros1 { get => Otros; set => Otros = value; }
+        public string Otros { get => otros; set => otros = value; }
     }
 }

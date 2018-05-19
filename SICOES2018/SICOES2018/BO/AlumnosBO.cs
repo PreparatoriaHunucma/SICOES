@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -6,9 +7,9 @@ namespace SICOES2018.BO
 {
     public class AlumnosBO
     {
-        private int iDAlumno, iDTipoAlumno, iDMunicipioAlumno, iDDocumentosAlumno, iDEscProAlumno, iDGrupo;
+        private int iDAlumno, iDTipoAlumno, iDMunicipioAlumno, iDDocumentosAlumno, iDEscProAlumno, iDGrupo, iDTurno;
         private String nomAlumno, apePatAlumno, apeMatAlumno, telAlumno, fotoAlumno, calleAlumno, numeroAlumno, coloniaAlumno, codigoPostalAlumno, nomPadreAlumno, telPadreAlumno, nomMadreAlumno, telMadreAlumno, nomTutorAlumno, telTutorAlumno, curpAlumno, usuarioAlumno, contrasenhaAlumno;
-        private DateTime ingresoAlumno, fechaNacAlumno;
+        private DateTime ingresoAlumno, fechaNacAlum;
         private short revalidaAlumno, nuevoAlumno;
 
 
@@ -37,9 +38,10 @@ namespace SICOES2018.BO
         public string UsuarioAlumno { get => usuarioAlumno; set => usuarioAlumno = value; }
         public string ContrasenhaAlumno { get => contrasenhaAlumno; set => contrasenhaAlumno = value; }
         public DateTime IngresoAlumno { get => ingresoAlumno; set => ingresoAlumno = value; }
-        public DateTime FechaNacAlumno { get => fechaNacAlumno; set => fechaNacAlumno = value; }
         public short RevalidaAlumno { get => revalidaAlumno; set => revalidaAlumno = value; }
         public short NuevoAlumno { get => nuevoAlumno; set => nuevoAlumno = value; }
+        public int IDTurno { get => iDTurno; set => iDTurno = value; }
+        public DateTime FechaNacAlum { get => fechaNacAlum; set => fechaNacAlum = value; }
 
         public string EncriptarMD5(string texto)
         {
@@ -69,5 +71,17 @@ namespace SICOES2018.BO
             }
             return texto;
         }
+        public System.Drawing.Image RedimencionarImagen(System.Drawing.Image Imgoriginal, int Altoimg)
+        {
+            var Radio = (double)Altoimg / Imgoriginal.Height;//diferencia entre la imagenes
+            var NuevoAncho = (int)(Imgoriginal.Width * Radio);
+            var NuevoAlto = (int)(Imgoriginal.Height * Radio);
+            var ImagenRedimencionada = new Bitmap(NuevoAncho, NuevoAlto);
+            //creo archivo apartir del bitmap con las nuevas dimensiones
+            var g = Graphics.FromImage(ImagenRedimencionada);
+            g.DrawImage(Imgoriginal, 0, 0, NuevoAncho, NuevoAlto);
+            return ImagenRedimencionada;
+        }
+
     }
 }
