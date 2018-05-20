@@ -386,12 +386,37 @@
                                             <asp:Label ID="lbVerPais" runat="server" Text="Países registrados"></asp:Label>
                                         </b>
                                         <div class="w3-responsive">
-                                            <asp:GridView ID="gvAddPais" runat="server" CssClass="w3-table w3-striped w3-border" Style="min-height: 212px" AutoGenerateColumns="False" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="3" OnPageIndexChanging="gvAddPais_PageIndexChanging">
+
+                                            <asp:GridView ID="gvAddPais" runat="server" AutoGenerateColumns="False" CellPadding="6" OnRowCancelingEdit="gvAddPais_RowCancelingEdit"
+                                                OnRowEditing="gvAddPais_RowEditing" OnRowUpdating="gvAddPais_RowUpdating" CssClass="w3-table w3-striped w3-border" Style="min-height: 212px" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="3" OnPageIndexChanging="gvAddPais_PageIndexChanging">
                                                 <Columns>
-                                                    <asp:BoundField DataField="IDPais" HeaderText="ID" HeaderStyle-Height="20px" ItemStyle-Height="10px" FooterStyle-Height="20px" />
-                                                    <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+
+                                                    <asp:TemplateField HeaderText="ID">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_ID" runat="server" Text='<%#Eval("IDPais") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Nombre">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("Nombre") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="txt_Name" CssClass="w3-input" Style="min-height: 15px; max-height: 15px" runat="server" Text='<%#Eval("Nombre") %>'></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField>
+                                                        <ItemTemplate>
+                                                            <asp:LinkButton ID="btn_Edit" runat="server" CommandName="Edit"> <i class="fa fa-pencil"></i></asp:LinkButton>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:LinkButton ID="btn_Update" runat="server" Text="Update" CommandName="Update">  <i class="fa fa-check"></i></asp:LinkButton>
+                                                            <asp:LinkButton ID="btn_Cancel" runat="server" Text="Cancel" CommandName="Cancel"> <i class="fa fa-times"></i></asp:LinkButton>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
                                                 </Columns>
                                             </asp:GridView>
+
+
                                         </div>
                                     </div>
                                 </ContentTemplate>
@@ -562,7 +587,7 @@
                 </div>
             </div>
 
-            <%--MODAL PARA AGREGAR UNA ESCUELA DE PROCEDENCIA--%>
+            <%--MODAL PARA TOMAR FOTO DESDE CAMARA WEB--%>
             <div id="modalTomarFoto" class="w3-modal">
                 <div class="w3-modal-content w3-animate-top w3-card-4 w3-round">
                     <header class="w3-container w3-blue w3-round" style="height: 50px">
@@ -574,6 +599,8 @@
                     </div>
                 </div>
             </div>
+
+
         </ContentTemplate>
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="btnAgregarAlumno" EventName="Click" />
@@ -613,13 +640,11 @@
 
         function erroralert() {
             swal({
-                position: 'bottom-end',
-                type: 'error',
                 title: 'Oh oh',
-                //text: 'Hubo un problema al guardar la información, verifica los datos',
-
+                text: 'Hubo un problema al guardar la información, verifica los datos',
+                type: 'error'
             });
         }
-
     </script>
+
 </asp:Content>
