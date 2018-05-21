@@ -2,8 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-        <ContentTemplate>
 
             <div class="w3-row">
                 <div class="w3-col m8">
@@ -388,7 +386,7 @@
                                         <div class="w3-responsive">
 
                                             <asp:GridView ID="gvAddPais" runat="server" AutoGenerateColumns="False" CellPadding="6" OnRowCancelingEdit="gvAddPais_RowCancelingEdit"
-                                                OnRowEditing="gvAddPais_RowEditing" OnRowUpdating="gvAddPais_RowUpdating" CssClass="w3-table w3-striped w3-border" Style="min-height: 212px" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="3" OnPageIndexChanging="gvAddPais_PageIndexChanging">
+                                                OnRowEditing="gvAddPais_RowEditing" OnRowUpdating="gvAddPais_RowUpdating" CssClass="w3-table w3-striped w3-border" Style="min-height: 212px" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="3" OnPageIndexChanging="gvAddPais_PageIndexChanging" EnableViewState="false">
                                                 <Columns>
 
                                                     <asp:TemplateField HeaderText="ID">
@@ -401,7 +399,7 @@
                                                             <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("Nombre") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:TextBox ID="txt_Name" CssClass="w3-input" Style="min-height: 15px; max-height: 15px" runat="server" Text='<%#Eval("Nombre") %>'></asp:TextBox>
+                                                            <asp:TextBox ID="txt_Name" CssClass="w3-input" Style="min-height: 20px; max-height: 20px" runat="server" Text='<%#Eval("Nombre") %>'></asp:TextBox>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField>
@@ -409,7 +407,7 @@
                                                             <asp:LinkButton ID="btn_Edit" runat="server" CommandName="Edit"> <i class="fa fa-pencil"></i></asp:LinkButton>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:LinkButton ID="btn_Update" runat="server" Text="Update" CommandName="Update">  <i class="fa fa-check"></i></asp:LinkButton>
+                                                            <asp:LinkButton ID="btn_Update" runat="server" Text="Update" CommandName="Update" CausesValidation="false">  <i class="fa fa-check"></i></asp:LinkButton>
                                                             <asp:LinkButton ID="btn_Cancel" runat="server" Text="Cancel" CommandName="Cancel"> <i class="fa fa-times"></i></asp:LinkButton>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
@@ -458,10 +456,32 @@
                                             <asp:Label ID="lbVerEstado" runat="server" Text="Estados registrados"></asp:Label>
                                         </b>
                                         <div class="w3-responsive">
-                                            <asp:GridView ID="gvAddEstado" runat="server" CssClass="w3-table w3-striped w3-border" Style="min-height: 212px" AutoGenerateColumns="False" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="3" OnPageIndexChanging="gvAddEstado_PageIndexChanging">
+                                            <asp:GridView ID="gvAddEstado" runat="server" AutoGenerateColumns="False" CellPadding="6" OnRowCancelingEdit="gvAddEstado_RowCancelingEdit"
+                                                OnRowEditing="gvAddEstado_RowEditing" OnRowUpdating="gvAddEstado_RowUpdating" CssClass="w3-table w3-striped w3-border" Style="min-height: 212px" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="3" OnPageIndexChanging="gvAddEstado_PageIndexChanging" EnableViewState="false">
                                                 <Columns>
-                                                    <asp:BoundField DataField="IDEstado" HeaderText="ID" HeaderStyle-Height="20px" ItemStyle-Height="10px" FooterStyle-Height="20px" />
-                                                    <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+
+                                                    <asp:TemplateField HeaderText="ID">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_IDAddEstado" runat="server" Text='<%#Eval("IDEstado") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Nombre">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_NameAddEstado" runat="server" Text='<%#Eval("Nombre") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="txt_NameAddEstado" CssClass="w3-input" Style="min-height: 20px; max-height: 20px" runat="server" Text='<%#Eval("Nombre") %>'></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField>
+                                                        <ItemTemplate>
+                                                            <asp:LinkButton ID="btn_Edit" runat="server" CommandName="Edit" CausesValidation="false"> <i class="fa fa-pencil"></i></asp:LinkButton>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:LinkButton ID="btn_Update" runat="server" Text="Update" CommandName="Update" CausesValidation="false">  <i class="fa fa-check"></i></asp:LinkButton>
+                                                            <asp:LinkButton ID="btn_Cancel" runat="server" Text="Cancel" CommandName="Cancel"> <i class="fa fa-times"></i></asp:LinkButton>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
                                                 </Columns>
                                             </asp:GridView>
                                         </div>
@@ -601,14 +621,9 @@
             </div>
 
 
-        </ContentTemplate>
-        <Triggers>
-            <asp:AsyncPostBackTrigger ControlID="btnAgregarAlumno" EventName="Click" />
-        </Triggers>
-    </asp:UpdatePanel>
 
     <%--BOTON PARA REGISTRAR AL ALUMNO--%>
-    <asp:Button CssClass="w3-button w3-amber w3-hover-blue w3-round w3-animate-right" ID="btnAgregarAlumno" runat="server" Text="Pre-Inscribir al alumno" OnClick="btnAgregarAlumno_Click" CausesValidation="true" Style="width: 100%" />
+    <asp:Button CssClass="w3-button w3-amber w3-hover-blue w3-round w3-animate-right" ID="btnAgregarAlumno" runat="server" Text="Pre-Inscribir al alumno" OnClick="btnAgregarAlumno_Click" CausesValidation="true" Style="width: 100%"/>
 
 
 

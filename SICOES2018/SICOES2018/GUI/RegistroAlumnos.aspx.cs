@@ -69,7 +69,6 @@ namespace SICOES2018.GUI
             ddlPaisAlum.DataBind();
             txtNomEscProAlum.Text = String.Empty;
             txtClaveEscProAlum.Text = String.Empty;
-            ddlEscProAlum.Items.Clear();
             ddlTurnoEscPro.SelectedIndex = 1;
             chckActaNacAlum.Checked = false;
             chckFotosAlum.Checked = false;
@@ -338,6 +337,34 @@ namespace SICOES2018.GUI
                 lbAdvAddPais.Visible = true;
             }
         }
+        //Al presionar cancelar en el grid
+        protected void gvAddPais_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvAddPais.EditIndex = -1;
+            LlenarGridViewPais();
+
+        }
+        //Al presionar editar en el grid
+        protected void gvAddPais_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvAddPais.EditIndex = e.NewEditIndex;
+            LlenarGridViewPais();
+        }
+        //Para editar la informacion
+        protected void gvAddPais_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+
+            //Finding the controls from Gridview for the row which is going to update  
+            Label id = gvAddPais.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
+            TextBox name = gvAddPais.Rows[e.RowIndex].FindControl("txt_Name") as TextBox;
+            datoPais.IDPais = Convert.ToInt32(id.Text);
+            datoPais.Nombre = name.Text;
+            ejecPais.modificarInfoPais(datoPais);
+            //Setting the EditIndex property to -1 to cancel the Edit mode in Gridview  
+            gvAddPais.EditIndex = -1;
+            //Call ShowData method for displaying updated data  
+            LlenarGridViewPais();
+        }
 
 
 
@@ -564,31 +591,32 @@ namespace SICOES2018.GUI
             upTutor.Update();
         }
 
-        protected void gvAddPais_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            gvAddPais.EditIndex = -1;
-            LlenarGridViewPais();
-
-        }
-
-        protected void gvAddPais_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            gvAddPais.EditIndex = e.NewEditIndex;
-            LlenarGridViewPais();
-        }
-
-        protected void gvAddPais_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        protected void gvAddEstado_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             //Finding the controls from Gridview for the row which is going to update  
-            Label id = gvAddPais.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
-            TextBox name = gvAddPais.Rows[e.RowIndex].FindControl("txt_Name") as TextBox;
-            datoPais.IDPais = Convert.ToInt32(id.Text);
-            datoPais.Nombre = name.Text;
-            ejecPais.modificarInfoPais(datoPais);
+            Label id = gvAddEstado.Rows[e.RowIndex].FindControl("lbl_IDAddEstado") as Label;
+            TextBox name = gvAddPais.Rows[e.RowIndex].FindControl("txt_NameAddEstado") as TextBox;
+            datoEstado.IDEstado = Convert.ToInt32(id.Text);
+            datoEstado.Nombre = name.Text;
+            ejecEstado.modificarInfoEstado(datoEstado);
             //Setting the EditIndex property to -1 to cancel the Edit mode in Gridview  
             gvAddPais.EditIndex = -1;
             //Call ShowData method for displaying updated data  
-            LlenarGridViewPais();
+            LlenarGridViewEstado(Convert.ToInt32(ddlPaisAddEstado.SelectedValue));
+
+        }
+
+        protected void gvAddEstado_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvAddEstado.EditIndex = e.NewEditIndex;
+            gvAddEstado.DataBind();
+            }
+
+        protected void gvAddEstado_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvAddEstado.EditIndex = -1;
+            LlenarGridViewEstado(Convert.ToInt32(ddlPaisAddEstado.SelectedValue));
+
         }
     }
 }
