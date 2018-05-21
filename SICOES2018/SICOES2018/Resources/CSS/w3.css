@@ -737,7 +737,8 @@ a {
 }
 
 .w3-show-block, .w3-show {
-	display: block !important
+	display: block !important;
+	animation: 5s;
 }
 
 .w3-show-inline-block {
@@ -1036,6 +1037,9 @@ a {
 	}
 }
 
+
+
+
 .w3-animate-top {
 	position: relative;
 	animation: animatetop 0.4s
@@ -1118,6 +1122,19 @@ a {
 	}
 }
 
+.w3-animate-zoomout {
+	animation: animatezoomout 0.6s
+}
+
+@keyframes animatezoomout {
+	from {
+		transform: scale(1)
+	}
+
+	to {
+		transform: scale(0)
+	}
+}
 .w3-animate-input {
 	transition: width 0.4s ease-in-out
 }

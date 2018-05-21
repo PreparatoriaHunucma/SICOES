@@ -10,6 +10,7 @@
     <link href="../Resources/CSS/w3.css" rel="stylesheet" />
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <style>
         html, body, h1, h2, h3, h4, h5, h6 {
             font-family: "Roboto", sans-serif
@@ -18,6 +19,40 @@
         a.cursorencima:hover, a.ex1:active {
             color: #c5aa22;
         }
+
+        
+a.accordion {
+    background-color: #eee;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+a.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+div.panel {
+
+    padding: 0px 0px 0px 15px; 
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+    list-style-type: none;
+    color: #000 !important;
+	background-color: #f1f1f1 !important;
+    
+}
+ div.panel.show {
+    opacity: 1;
+    max-height: 500px;
+}
     </style>
 
 </head>
@@ -30,7 +65,7 @@
                 <a style="font-size: x-large; margin-top: -9px" href="#" class="w3-bar-item w3-button w3-padding-large w3-blue w3-hover-amber">
                     <img style="width: 48px; height: 48px" class="w3-circle" src="../Resources/images/logosicoes.png" />
                     SICOES</a>
-                <a style="font-size: xx-large; margin-top:-11px; margin-right:-5px" href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-amber w3-right w3-blue"><i class="fa fa-sign-out"; style="font-size:x-large" aria-hidden="true"></i></a>
+                <a style="font-size: xx-large; margin-top:-11px; margin-right:-5px" href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-amber w3-right w3-blue"><i class="fas fa-sign-out-alt"; style="font-size:x-large" aria-hidden="true"></i></a>
 
                 <%--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 2</a>
                 <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
@@ -68,19 +103,19 @@
                             <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i>1224435534</p>
                             <hr>
 
-                          <a onclick="Directivo('Directivo')" class="w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
-                            Directivo<i class="fa fa-arrow-circle-o-down w3-xlarge" style="float:right;"></i></a>
+                          <a onclick="Directivo('Directivo')" id="iconoDirectivo" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
+                            Directivo<i class="fas fa-angle-double-down w3-xlarge" style="float:right;"></i></a>
 
-                            <div id="Directivo" class="w3-hide w3-container w3-light-gray" style="margin-bottom:3px; margin-top:-3px">
+                            <div id="Directivo" class="panel">
                               <p><a class="cursorencima" href="" style="text-decoration:none">Alta de usuarios</a></p>
                               <p><a class="cursorencima" href="" style="text-decoration:none">Gestionar Ciclo Escolar</a></p>
                               <p><a class="cursorencima" href="" style="text-decoration:none">Gestionar Semestres</a></p>
                             </div>
 
-                            <a onclick="Administrativa('Administrativa')" class="w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
-                            Secretaría Administrativa<i class="fa fa-arrow-circle-o-down w3-xlarge" style="float:right;"></i></a>
+                            <a onclick="Administrativa('Administrativa')" id="iconoAdministrativa" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
+                            Secretaría Administrativa<i class="fas fa-angle-double-down w3-xlarge" style="float:right;"></i></a>
 
-                            <div id="Administrativa" class="w3-hide w3-container w3-light-gray ">
+                            <div id="Administrativa" class="panel">
                               <p><a class="cursorencima" href="" style="text-decoration:none">Grados y Grupos</a></p>
                               <p><a class="cursorencima" href="" style="text-decoration:none">Planes de Estudio</a></p>
                               <p><a class="cursorencima" href="" style="text-decoration:none">Asignaturas</a></p>
@@ -96,19 +131,19 @@
                               <p><a class="cursorencima" href="" style="text-decoration:none">Respaldo de información</a></p>
                             </div>
 
-                            <a onclick="Académica('Académica')" class="w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
-                                Secretaría Académica<i class="fa fa-arrow-circle-o-down w3-xlarge" style="float:right;"></i></a>
-                            <div id="Académica" class="w3-hide w3-container w3-light-gray ">
+                            <a onclick="Académica('Académica')" id="iconoAcadémica" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
+                                Secretaría Académica<i class="fas fa-angle-double-down w3-xlarge" style="float:right;"></i></a>
+                            <div id="Académica" class="panel">
                               <p><a class="cursorencima" href="" style="text-decoration:none">Gestión de Docentes</a></p>
                               <p><a class="cursorencima" href="" style="text-decoration:none">Administrar Materias</a></p>
                               <p><a class="cursorencima" href="" style="text-decoration:none">Credencial de Maestros</a></p>
                               <p><a class="cursorencima" href="" style="text-decoration:none">Constancia laboral</a></p>
                             </div>
                             
-                            <a onclick="Control('Control')" class="w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
-                                Control Escolar<i class="fa fa-arrow-circle-o-down w3-xlarge" style="float:right;"></i></a>
+                            <a onclick="Control('Control')" id="iconoControl" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
+                                Control Escolar<i class="fas fa-angle-double-down w3-xlarge" style="float:right;"></i></a>
 
-                            <div id="Control" class="w3-hide w3-container w3-light-gray ">
+                            <div id="Control" class="panel">
                               <p><a class="cursorencima" href="" style="text-decoration:none">Inscripción de alumnos y asignación de grupos</a></p>
                               <p><a class="cursorencima" href="" style="text-decoration:none">Baja de alumnos</a></p>
                               <p><a class="cursorencima" href="" style="text-decoration:none">Calificaciones</a></p>
@@ -122,9 +157,9 @@
                               <p><a class="cursorencima" href="" style="text-decoration:none">Reinscripciones</a></p>
                             </div>
 
-                            <a onclick="Docente('Docente')" class="w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
-                                Docente<i class="fa fa-arrow-circle-o-down w3-xlarge" style="float:right;"></i></a>
-                            <div id="Docente" class="w3-hide w3-container w3-light-gray ">
+                            <a onclick="Docente('Docente')" id="iconoDocente" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
+                                Docente<i class="fas fa-angle-double-down w3-xlarge" style="float:right;"></i></a>
+                            <div id="Docente" class="panel">
                               <p><a class="cursorencima" href="" style="text-decoration:none">Calificaciones</a></p>
                               <p><a class="cursorencima" href="" style="text-decoration:none">Lista de asistencia</a></p>
                               <p><a class="cursorencima" href="" style="text-decoration:none">Notificaciones</a></p>
@@ -195,54 +230,46 @@
     <script src="../Scripts/sweetalert2.all.js"></script>
 
    <script>
-       function Directivo(id) {
-           var x = document.getElementById(id);
-           if (x.className.indexOf("w3-show") == -1) {
-               x.className += " w3-show";
-               x.previousElementSibling.className =
-                   x.previousElementSibling.className.replace("w3-amber", "w3-blue");
-           } else {
-               x.className = x.className.replace(" w3-show", "");
-               x.previousElementSibling.className =
-                   x.previousElementSibling.className.replace("w3-blue", "w3-amber");
-           }
-       }
+       
+           var acc = document.getElementsByClassName("accordion");
+           var i;
 
-       function Administrativa(id) {
-           var x = document.getElementById(id);
-           if (x.className.indexOf("w3-show") == -1) {
-               x.className += " w3-show";
-           } else {
-               x.className = x.className.replace(" w3-show", "");
+           for (i = 0; i < acc.length; i++) {
+               acc[i].onclick = function () {
+                   this.classList.toggle("active");
+                   this.nextElementSibling.classList.toggle("show");
+               }
            }
-       }
 
-       function Académica(id) {
-           var x = document.getElementById(id);
-           if (x.className.indexOf("w3-show") == -1) {
-               x.className += " w3-show";
-           } else {
-               x.className = x.className.replace(" w3-show", "");
-           }
-       }
+       $('#iconoDirectivo').click(function () {
+           icon = $(this).find("i");
+           icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+           $('#iconoDirectivo').toggleClass('w3-amber w3-blue');
+       })
+       
+       $('#iconoAdministrativa').click(function () {
+           icon = $(this).find("i");
+           icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+           $('#iconoAdministrativa').toggleClass('w3-amber w3-blue');
+       })
 
-       function Control(id) {
-           var x = document.getElementById(id);
-           if (x.className.indexOf("w3-show") == -1) {
-               x.className += " w3-show";
-           } else {
-               x.className = x.className.replace(" w3-show", "");
-           }
-       }
+       $('#iconoAcadémica').click(function () {
+           icon = $(this).find("i");
+           icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+           $('#iconoAcadémica').toggleClass('w3-amber w3-blue');
+       })
 
-       function Docente(id) {
-           var x = document.getElementById(id);
-           if (x.className.indexOf("w3-show") == -1) {
-               x.className += " w3-show";
-           } else {
-               x.className = x.className.replace(" w3-show", "");
-           }
-       }
+       $('#iconoControl').click(function () {
+           icon = $(this).find("i");
+           icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+           $('#iconoControl').toggleClass('w3-amber w3-blue');
+       })
+
+       $('#iconoDocente').click(function () {
+           icon = $(this).find("i");
+           icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+           $('#iconoDocente').toggleClass('w3-amber w3-blue');
+       })
 </script>
 
 </body>
