@@ -127,6 +127,13 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return buscarDatoEspecifico(cmd, Columna);
         }
+        public string buscarCount(string Columna)
+        {
+            cmd = new SqlCommand("SELECT COUNT(*) AS Cantidad FROM Alumnos");
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, Columna);
+        }
 
     }
 }

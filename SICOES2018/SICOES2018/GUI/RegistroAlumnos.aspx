@@ -16,7 +16,20 @@
 
             <%--DATOS GENERALES--%>
             <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
-                <h4>DATOS GENERALES</h4>
+                <div class="w3-row">
+                    <div class="w3-col m4">
+                        <h4>DATOS GENERALES</h4>
+                    </div>
+                    <div class="w3-col m8 w3-right-align w3-margin-top">
+                        <b>
+                            <asp:CheckBox ID="chckNuevoIng" runat="server" Text=" Nuevo Ingreso" OnCheckedChanged="chckNuevoIng_CheckedChanged"/>
+                            &nbsp&nbsp
+                        <asp:CheckBox ID="chckRevalida" runat="server" Text=" Revalida" OnCheckedChanged="chckRevalida_CheckedChanged"/>
+
+                        </b>
+                    </div>
+
+                </div>
                 <hr style="margin: 5px" />
                 <div class="w3-padding w3-col m6">
                     <div class="w3-row" style="margin-bottom: -20px">
@@ -87,11 +100,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="w3-row">
+                            <asp:Button ID="btnConfirmFoto" runat="server" Text="Button" OnClick="btnConfirmFoto_Click" CssClass="w3-button w3-amber w3-hover-blue" Width="100%" CausesValidation="false" />
+                        </div>
                     </div>
                 </div>
             </div>
-
-
 
             <%--DATOS DEL TUTOR--%>
             <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
@@ -700,6 +714,7 @@
                                 </div>
                             </ContentTemplate>
                             <Triggers>
+                                <asp:PostBackTrigger ControlID="btnConfirmFoto" />
                                 <asp:AsyncPostBackTrigger ControlID="ddlAlumnosReg" EventName="SelectedIndexChanged" />
                             </Triggers>
                         </asp:UpdatePanel>
@@ -725,8 +740,6 @@
     <%--SCRIPT PARA CAMBIAR AL MOMENTO LA IMAGEN DEL ALUMNO DESDE ARCHIVO--%>
     <script>
         var loadimage = function (event) {
-            //var imgeditarlugar = document.getElementById('imgFotoAlum');
-            //imgFotoAlum.URL = URL.createObjectURL(event.target.files[0]);
             $("#<%=imgFotoAlum.ClientID%>").attr('src', URL.createObjectURL(event.target.files[0]));
         };
     </script>
@@ -735,6 +748,7 @@
         function showBrowseDialog() {
             var fileuploadctrl = document.getElementById('<%=fotoAlum.ClientID%>');
             fileuploadctrl.click();
+
         }
     </script>
     <%--SCRIPTS DE ALERTAS--%>
@@ -756,5 +770,18 @@
                 type: 'error'
             });
         }
+
+        function fotosuccessalert() {
+            swal({
+                title: 'Foto guardada',
+                text: 'Continua con el registro del alumno',
+                type: 'success',
+                showConfirmButton: false,
+                timer: 1500
+
+            });
+        }
+
     </script>
+
 </asp:Content>

@@ -87,7 +87,7 @@ namespace SICOES2018.GUI
             chckCertifSecunAlum.Checked = false;
             chckConstanciaMediaAlum.Checked = false;
             txtrOtrosAlum.Text = String.Empty;
-
+            imgFotoAlum.ImageUrl = "~/Resources/images/imgPerfil.jpg";
         }
 
         //////////////////////////////ALUMNO//////////////////////////////
@@ -122,19 +122,17 @@ namespace SICOES2018.GUI
             datoAlum.ApeMatAlumno = txtApeMatAlumno.Text;
             datoAlum.FechaNacAlum = DateTime.ParseExact(txtFechaNacAlum.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
             datoAlum.CurpAlumno = txtCurpAlum.Text.ToUpper();
-            if (fotoAlum.HasFile)
-                datoAlum.FotoAlumno = guardarPerfilAlumno();
-            else
-                datoAlum.FotoAlumno = "~/Resources/images/imgPerfil.jpg";
+            datoAlum.FotoAlumno = Session["RutaFoto"].ToString();
         }
         protected string guardarPerfilAlumno()
         {
+            string Cantidad = ejecAlum.buscarCount("Cantidad");
             string NombreArchivo = Path.GetFileName(fotoAlum.PostedFile.FileName);
             string RutaImagenes = "~/Resources/FotoPerfilAlumno/";
             Bitmap ImagenEnBinario = new Bitmap(fotoAlum.PostedFile.InputStream);
             System.Drawing.Image ObjetoImagengde = datoAlum.RedimencionarImagen(ImagenEnBinario, 500);
-            ObjetoImagengde.Save(Server.MapPath(RutaImagenes + NombreArchivo));
-            return RutaImagenes + NombreArchivo;
+            ObjetoImagengde.Save(Server.MapPath(RutaImagenes + Cantidad + "_" + NombreArchivo));
+            return RutaImagenes + Cantidad + "_" + NombreArchivo;
         }
         protected void guardarDatosTutor()
         {
@@ -734,6 +732,34 @@ namespace SICOES2018.GUI
                 btnAgregarAlumno.Visible = false;
                 UpdatePanel1.Update();
             }
+        }
+
+        protected void btnConfirmFoto_Click(object sender, EventArgs e)
+        {
+            if (fotoAlum.HasFile)
+            {
+                Session["RutaFoto"] = guardarPerfilAlumno();
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "fotosuccessalert();", true);
+            }
+            else
+            {
+                Session["RutaFoto"] = "~/Resources/images/imgPerfil.jpg";
+            }
+
+
+            imgFotoAlum.ImageUrl = Session["RutaFoto"].ToString();
+
+        }
+
+
+        protected void chckRevalida_CheckedChanged(object sender, EventArgs e)
+        {
+            chckNuevoIng.Checked = false;
+        }
+
+        protected void chckNuevoIng_CheckedChanged(object sender, EventArgs e)
+        {
+            chckRevalida.Checked = false;
         }
     }
 }
