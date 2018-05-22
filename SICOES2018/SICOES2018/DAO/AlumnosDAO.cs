@@ -7,11 +7,12 @@ namespace SICOES2018.DAO
     public class AlumnosDAO : ConexionSQL
     {
         SqlCommand cmd;
+        string SQLCommand;
 
         //Para verificar si el alumno tiene una cuenta dentro del sistema
         public int loginAlumno(AlumnosBO datosAlumno)
         {
-            cmd = new SqlCommand("SELECT * FROM Alumno WHERE UsuarioAlumno = @UsuarioAlumno AND ContraseñaAlumno = @ContraseñaAlumno");
+            cmd = new SqlCommand("SELECT * FROM Alumnos WHERE UsuarioAlumno = @UsuarioAlumno AND ContraseñaAlumno = @ContraseñaAlumno");
 
             cmd.Parameters.Add("@UsuarioAlumno", SqlDbType.VarChar).Value = datosAlumno.UsuarioAlumno;
             cmd.Parameters.Add("@ContraseñaAlumno", SqlDbType.VarChar).Value = datosAlumno.ContrasenhaAlumno;
@@ -57,7 +58,7 @@ namespace SICOES2018.DAO
         //Para cambiar el tipo de alumno que es [1 = Pre-Inscrito, 2 = Inscrito, 3 = De Baja]
         public int modificarTipoAlumno(AlumnosBO datosAlumno)
         {
-            cmd = new SqlCommand("UPDATE Alumno SET IDTipoAlumno = @IDTipoAlumno WHERE IDAlumno = @IDAlumno");
+            cmd = new SqlCommand("UPDATE Alumnos SET IDTipoAlumno = @IDTipoAlumno WHERE IDAlumno = @IDAlumno");
 
             cmd.Parameters.Add("@IDTipoAlumno", SqlDbType.Int).Value = datosAlumno.IDTipoAlumno;
             cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosAlumno.IDAlumno;
@@ -69,7 +70,7 @@ namespace SICOES2018.DAO
         //Para cambiar el tipo de alumno a inscrito y asignar a un grupo
         public int inscribirAlumno(AlumnosBO datosAlumno)
         {
-            cmd = new SqlCommand("UPDATE Alumno SET IDTipoAlumno = @IDTipoAlumno, IDGrupo = @IDGrupo WHERE IDAlumno = @IDAlumno");
+            cmd = new SqlCommand("UPDATE Alumnos SET IDTipoAlumno = @IDTipoAlumno, IDGrupo = @IDGrupo WHERE IDAlumno = @IDAlumno");
 
             cmd.Parameters.Add("@IDTipoAlumno", SqlDbType.Int).Value = datosAlumno.IDTipoAlumno;
             cmd.Parameters.Add("@IDGrupo", SqlDbType.Int).Value = datosAlumno.IDGrupo;
@@ -110,5 +111,22 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
+        //Para llenar los GridView de los estados
+        public DataTable LlenarGridView(int IDTipoAlumno)
+        {
+            SQLCommand = "SELECT IDAlumno, NomAlumno, ApePatAlumno, ApeMatAlumno, CONVERT(varchar, FechaNacAlumno, 103) AS FechaNacAlumno, NomTutorAlumno, TelTutorAlumno FROM Alumnos WHERE IDTipoAlumno = " + IDTipoAlumno +";";
+            return llenarTablas(SQLCommand);
+        }
+        //Buscar el dato de una tabla en especifico
+        public string buscarDatoAlumno(string Columna, AlumnosBO datosAlumno)
+        {
+            cmd = new SqlCommand("SELECT " + Columna + " FROM Alumnos WHERE IDAlumno = @IDAlumno;");
+
+            cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosAlumno.IDAlumno;
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, Columna);
+        }
+
     }
 }

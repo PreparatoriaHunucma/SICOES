@@ -20,39 +20,38 @@
             color: #c5aa22;
         }
 
-        
-a.accordion {
-    background-color: #eee;
-    cursor: pointer;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-}
 
-a.accordion.active, button.accordion:hover {
-    background-color: #ddd;
-}
+        a.accordion {
+            background-color: #eee;
+            cursor: pointer;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
 
-div.panel {
+            a.accordion.active, button.accordion:hover {
+                background-color: #ddd;
+            }
 
-    padding: 0px 0px 0px 15px; 
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: 0.6s ease-in-out;
-    opacity: 0;
-    list-style-type: none;
-    color: #000 !important;
-	background-color: #f1f1f1 !important;
-    
-}
- div.panel.show {
-    opacity: 1;
-    max-height: 500px;
-}
+        div.panel {
+            padding: 0px 0px 0px 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.6s ease-in-out;
+            opacity: 0;
+            list-style-type: none;
+            color: #000 !important;
+            background-color: #f1f1f1 !important;
+        }
+
+            div.panel.show {
+                opacity: 1;
+                max-height: 500px;
+            }
     </style>
 
 </head>
@@ -103,66 +102,61 @@ div.panel {
                             <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i>1224435534</p>
                             <hr>
 
-                          <a onclick="Directivo('Directivo')" id="iconoDirectivo" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
-                            Directivo<i class="fas fa-angle-double-down w3-xlarge" style="float:right;"></i></a>
+                            <a onclick="Directivo('Directivo')" id="iconoDirectivo" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Directivo<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
 
                             <div id="Directivo" class="panel">
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Alta de usuarios</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Gestionar Ciclo Escolar</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Gestionar Semestres</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Alta de usuarios</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Gestionar Ciclo Escolar</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Gestionar Semestres</a></p>
                             </div>
 
-                            <a onclick="Administrativa('Administrativa')" id="iconoAdministrativa" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
-                            Secretaría Administrativa<i class="fas fa-angle-double-down w3-xlarge" style="float:right;"></i></a>
+                            <a onclick="Administrativa('Administrativa')" id="iconoAdministrativa" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Secretaría Administrativa<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
 
                             <div id="Administrativa" class="panel">
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Grados y Grupos</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Planes de Estudio</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Asignaturas</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Certificado</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Calificaciones</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Calificaciones de Acompañamiento</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Credencial de estudiantes</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Constancias de Esstudio</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Justifiaciones</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Kardex</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Gestion del Plantel</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Baja de alumnos</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Respaldo de información</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Grados y Grupos</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Planes de Estudio</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Asignaturas</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Certificado</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Calificaciones</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Calificaciones de Acompañamiento</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Credencial de estudiantes</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Constancias de Esstudio</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Justifiaciones</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Kardex</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Gestion del Plantel</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Baja de alumnos</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Respaldo de información</a></p>
                             </div>
 
-                            <a onclick="Académica('Académica')" id="iconoAcadémica" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
-                                Secretaría Académica<i class="fas fa-angle-double-down w3-xlarge" style="float:right;"></i></a>
+                            <a onclick="Académica('Académica')" id="iconoAcadémica" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Secretaría Académica<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
                             <div id="Académica" class="panel">
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Gestión de Docentes</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Administrar Materias</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Credencial de Maestros</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Constancia laboral</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Gestión de Docentes</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Administrar Materias</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Credencial de Maestros</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Constancia laboral</a></p>
                             </div>
-                            
-                            <a onclick="Control('Control')" id="iconoControl" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
-                                Control Escolar<i class="fas fa-angle-double-down w3-xlarge" style="float:right;"></i></a>
+
+                            <a onclick="Control('Control')" id="iconoControl" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Control Escolar<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
 
                             <div id="Control" class="panel">
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Inscripción de alumnos y asignación de grupos</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Baja de alumnos</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Calificaciones</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Aprovechamiento Escolar</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Boletas de calificación</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Asistencia de Alumnos</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Kardex</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Hojas de inscripción</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Avisos para Tutores y padres</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Información de alumnos</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Reinscripciones</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Inscripción de alumnos y asignación de grupos</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Baja de alumnos</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Calificaciones</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Aprovechamiento Escolar</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Boletas de calificación</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Asistencia de Alumnos</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Kardex</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Hojas de inscripción</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Avisos para Tutores y padres</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Información de alumnos</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Reinscripciones</a></p>
                             </div>
 
-                            <a onclick="Docente('Docente')" id="iconoDocente" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom:3px">
-                                Docente<i class="fas fa-angle-double-down w3-xlarge" style="float:right;"></i></a>
+                            <a onclick="Docente('Docente')" id="iconoDocente" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Docente<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
                             <div id="Docente" class="panel">
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Calificaciones</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Lista de asistencia</a></p>
-                              <p><a class="cursorencima" href="" style="text-decoration:none">Notificaciones</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Calificaciones</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Lista de asistencia</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Notificaciones</a></p>
                             </div>
 
                             <%--<p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
@@ -225,52 +219,51 @@ div.panel {
             <img style="width: 100px; height: 100px; margin-right: 200px" class="w3-circle w3-right" src="../Resources/images/logosicoes.png" />
         </footer>
     </form>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="../Scripts/sweetalert2.all.js"></script>
+    <script>
 
-   <script>
-       
-           var acc = document.getElementsByClassName("accordion");
-           var i;
+        var acc = document.getElementsByClassName("accordion");
+        var i;
 
-           for (i = 0; i < acc.length; i++) {
-               acc[i].onclick = function () {
-                   this.classList.toggle("active");
-                   this.nextElementSibling.classList.toggle("show");
-               }
-           }
+        for (i = 0; i < acc.length; i++) {
+            acc[i].onclick = function () {
+                this.classList.toggle("active");
+                this.nextElementSibling.classList.toggle("show");
+            }
+        }
 
-       $('#iconoDirectivo').click(function () {
-           icon = $(this).find("i");
-           icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
-           $('#iconoDirectivo').toggleClass('w3-amber w3-blue');
-       })
-       
-       $('#iconoAdministrativa').click(function () {
-           icon = $(this).find("i");
-           icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
-           $('#iconoAdministrativa').toggleClass('w3-amber w3-blue');
-       })
+        $('#iconoDirectivo').click(function () {
+            icon = $(this).find("i");
+            icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+            $('#iconoDirectivo').toggleClass('w3-amber w3-blue');
+        })
 
-       $('#iconoAcadémica').click(function () {
-           icon = $(this).find("i");
-           icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
-           $('#iconoAcadémica').toggleClass('w3-amber w3-blue');
-       })
+        $('#iconoAdministrativa').click(function () {
+            icon = $(this).find("i");
+            icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+            $('#iconoAdministrativa').toggleClass('w3-amber w3-blue');
+        })
 
-       $('#iconoControl').click(function () {
-           icon = $(this).find("i");
-           icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
-           $('#iconoControl').toggleClass('w3-amber w3-blue');
-       })
+        $('#iconoAcadémica').click(function () {
+            icon = $(this).find("i");
+            icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+            $('#iconoAcadémica').toggleClass('w3-amber w3-blue');
+        })
 
-       $('#iconoDocente').click(function () {
-           icon = $(this).find("i");
-           icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
-           $('#iconoDocente').toggleClass('w3-amber w3-blue');
-       })
-</script>
+        $('#iconoControl').click(function () {
+            icon = $(this).find("i");
+            icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+            $('#iconoControl').toggleClass('w3-amber w3-blue');
+        })
+
+        $('#iconoDocente').click(function () {
+            icon = $(this).find("i");
+            icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+            $('#iconoDocente').toggleClass('w3-amber w3-blue');
+        })
+    </script>
 
 </body>
 </html>

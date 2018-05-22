@@ -2,13 +2,16 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+
 
             <div class="w3-row">
                 <div class="w3-col m8">
                     <h2>Registro de alumnos</h2>
                 </div>
                 <div class=" w3-col m4 w3-padding-16">
-                    <input class="w3-button w3-amber w3-hover-blue  w3-right" type="button" value="Ver registros de alumnos" />
+                    <input class="w3-button w3-amber w3-hover-blue  w3-right" type="button" onclick="document.getElementById('modalAlumnos').style.display = 'block'" value="Ver registros de alumnos" />
                 </div>
             </div>
 
@@ -47,7 +50,9 @@
                         <asp:RequiredFieldValidator ID="reqFechaNacAlum" runat="server" ControlToValidate="txtFechaNacAlum" ErrorMessage="¡Ingrese la fecha!" ViewStateMode="Inherit" ForeColor="Red" Font-Size="Small" Height="10px"></asp:RequiredFieldValidator>
                         <asp:RangeValidator runat="server" ID="rngFechaNacAlum" ControlToValidate="txtFechaNacAlum" Type="Date" MinimumValue="01-01-1900" OnInit="rngFechaNacAlum_Init" ErrorMessage="¡Fecha invalida!" ViewStateMode="Inherit" ForeColor="Red" Font-Size="Small" Height="10px"></asp:RangeValidator>
                         <br />
-                        <asp:TextBox runat="server" CssClass="w3-input" ID="txtFechaNacAlum" TextMode="Date" Style="width: 400px" CausesValidation="true" /><br />
+                        <asp:TextBox runat="server" TextMode="Date" CssClass="w3-input" ID="txtFechaNacAlum" name="txtFechaNacAlum" style="width: 400px" CausesValidation="true" />
+
+                        <br />
                     </div>
                     <div class="w3-row" style="margin-bottom: -20px">
                         <b>
@@ -55,19 +60,19 @@
                         </b>
                         <asp:RequiredFieldValidator ID="reqCurpAlum" runat="server" ControlToValidate="txtCurpAlum" ErrorMessage="¡Ingrese el CURP!" ViewStateMode="Inherit" ForeColor="Red" Font-Size="Small" Height="10px"></asp:RequiredFieldValidator>
                         <br />
-                        <asp:TextBox runat="server" CssClass="w3-input" ID="txtCurpAlum" type="text" Style="width: 400px" /><br />
+                        <asp:TextBox runat="server" CssClass="w3-input" ID="txtCurpAlum" MaxLength="18" type="text" Style="width: 400px" /><br />
                     </div>
                 </div>
                 <div class="w3-padding w3-col m6">
                     <div class="w3-row w3-center">
                         <div class="w3-row">
-                            <img class="w3-image" title="Imágen de perfil del alumno" style="width: 270px; height: 270px" src="../Resources/images/imgPerfil.jpg" id="imgFotoAlum" />
+                            <asp:Image ID="imgFotoAlum" runat="server" ImageUrl="../Resources/images/imgPerfil.jpg" Style="width: 270px; height: 270px" CssClass="w3-image" ToolTip="Imágen de perfil del alumno" />
                         </div>
                         <div class="w3-row">
                             <div class="w3-col m5">
                                 <div class="image-upload w3-right">
                                     <label onclick="showBrowseDialog()" style="cursor: pointer" title="Subír una imágen">
-                                        <i class="fa fa-folder-open-o w3-xxlarge" style="pointer-events: none; cursor: pointer"></i>
+                                        <i class="fa fa-folder-open w3-xxlarge" style="pointer-events: none; cursor: pointer"></i>
                                     </label>
                                     <asp:FileUpload runat="server" ID="fotoAlum" name="fotoAlum" type="file" accept="image/*" onchange="loadimage(event)" Style="display: none" />
                                 </div>
@@ -404,7 +409,7 @@
                                                     </asp:TemplateField>
                                                     <asp:TemplateField>
                                                         <ItemTemplate>
-                                                            <asp:LinkButton ID="btn_Edit" runat="server" CommandName="Edit"> <i class="fa fa-pencil"></i></asp:LinkButton>
+                                                            <asp:LinkButton ID="btn_Edit" runat="server" CommandName="Edit"> <i class="fa fa-pencil-alt"></i></asp:LinkButton>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:LinkButton ID="btn_Update" runat="server" Text="Update" CommandName="Update" CausesValidation="false">  <i class="fa fa-check"></i></asp:LinkButton>
@@ -620,18 +625,110 @@
                 </div>
             </div>
 
+            <%--MODAL PARA AGREGAR UN PAIS--%>
+            <div id="modalAlumnos" class="w3-modal">
+                <div class="w3-modal-content w3-animate-top w3-card-4 w3-round" style="width: 1000px; margin-top: -70px">
+                    <header class="w3-container w3-blue w3-round" style="height: 50px">
+                        <h3 class="w3-display-topleft w3-margin-left">Alumnos</h3>
+                        <span onclick="document.getElementById('modalAlumnos').style.display='none'"
+                            class="w3-button w3-display-topright w3-hover-amber w3-round">&times;</span>
+                    </header>
+                    <div class="w3-container" style="min-height: 480px; max-height: 480px">
+                        <asp:UpdatePanel ID="upAlumnos" runat="server" UpdateMode="Conditional">
+                            <ContentTemplate>
+                                <div class="w3-row w3-margin-top">
+                                    <div class="w3-col m12">
+                                        <b>
+                                            <asp:Label ID="lbAlumnos" runat="server" Text="Seleccione de la lista que tipo de alumno desea vizualizar y posteriormente presione en el icono del a derecha para ver su información"></asp:Label>
+                                        </b>
+                                        <br />
+                                        <asp:DropDownList CssClass="w3-dropdown-click w3-input w3-margin" ID="ddlAlumnosReg" Style="width: 20%" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlAlumnosReg_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                    </div>
+                                </div>
+                                <div class="w3-row ">
+                                    <div class="w3-col m12">
+                                        <b>
+                                            <asp:Label ID="lbAlumnosReg" runat="server" Text="Alumnos registrados"></asp:Label>
+                                        </b>
+                                        <div class="w3-responsive">
+                                            <asp:GridView ID="gvAlumnos" runat="server" AutoGenerateColumns="False" CellPadding="6"
+                                                CssClass="w3-table w3-striped w3-border" Style="min-height: 288px" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="5" OnPageIndexChanging="gvAlumnos_PageIndexChanging" OnRowCommand="gvAlumnos_RowCommand" DataKeyNames="IDAlumno">
+                                                <Columns>
+
+                                                    <asp:TemplateField HeaderText="ID">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_ID" runat="server" Text='<%#Eval("IDAlumno") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Nombre">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("NomAlumno") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Primer apellido">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("ApePatAlumno") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Segundo apellido">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("ApeMatAlumno") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Fecha de Nacimiento">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("FechaNacAlumno") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Nombre del tutor">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("NomTutorAlumno") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Telefono del tutor">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("TelTutorAlumno") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:ButtonField ButtonType="Link" ControlStyle-CssClass="btn btn-success btn-sm" Text="<i class='fa fa-eye w3-large'></i>" CausesValidation="False" CommandName="SelectAlum" Visible="true" />
+                                                    <%--                                                    <asp:TemplateField>
+                                                        <ItemTemplate>
+                                                            <asp:LinkButton ID="btn_Select" runat="server" CommandName="SelectAlum" CausesValidation="false"> <i class="fa fa-eye"  ></i></asp:LinkButton>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>--%>
+                                                </Columns>
+                                            </asp:GridView>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="ddlAlumnosReg" EventName="SelectedIndexChanged" />
+                            </Triggers>
+                        </asp:UpdatePanel>
+                    </div>
+                </div>
+            </div>
+
+
+        </ContentTemplate>
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="btnAgregarAlumno" EventName="Click" />
+        </Triggers>
+    </asp:UpdatePanel>
 
 
     <%--BOTON PARA REGISTRAR AL ALUMNO--%>
-    <asp:Button CssClass="w3-button w3-amber w3-hover-blue w3-round w3-animate-right" ID="btnAgregarAlumno" runat="server" Text="Pre-Inscribir al alumno" OnClick="btnAgregarAlumno_Click" CausesValidation="true" Style="width: 100%"/>
+    <asp:Button CssClass="w3-button w3-amber w3-hover-blue w3-round w3-animate-right" ID="btnAgregarAlumno" runat="server" Text="Pre-Inscribir al alumno" OnClick="btnAgregarAlumno_Click" CausesValidation="true" Style="width: 100%" />
 
 
 
     <%--SCRIPT PARA CAMBIAR AL MOMENTO LA IMAGEN DEL ALUMNO DESDE ARCHIVO--%>
     <script>
         var loadimage = function (event) {
-            var imgeditarlugar = document.getElementById('imgFotoAlum');
-            imgFotoAlum.src = URL.createObjectURL(event.target.files[0]);
+            //var imgeditarlugar = document.getElementById('imgFotoAlum');
+            //imgFotoAlum.URL = URL.createObjectURL(event.target.files[0]);
+            $("#<%=imgFotoAlum.ClientID%>").attr('src', URL.createObjectURL(event.target.files[0]));
         };
     </script>
     <%--SCRIPT PARA ABRIR EL FILEUPLOAD CON EL ICONO--%>

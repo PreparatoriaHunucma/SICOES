@@ -7,6 +7,7 @@ namespace SICOES2018.DAO
     public class TiposAlumnoDAO : ConexionSQL
     {
         SqlCommand cmd;
+        string SQLCommand;
 
         //Para crear un tipo de alumno
         public int agregarTipoAlumno(TipoAlumnoBO datosTipoAlumno)
@@ -29,6 +30,12 @@ namespace SICOES2018.DAO
 
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
+        }
+        //Para llenar los GridView y DDL de los paises
+        public DataTable llenarTablasDDL()
+        {
+            SQLCommand = "SELECT * FROM TipoAlumno";
+            return llenarTablas(SQLCommand);
         }
 
     }

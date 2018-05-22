@@ -52,9 +52,20 @@ namespace SICOES2018.DAO
         }
 
         //Buscar el dato de una tabla en especifico
-        public string buscarDatoDocs(string Columna)
+        public string buscarUltimoIDDocs(string Columna)
         {
             cmd = new SqlCommand("SELECT TOP (1) ["+Columna+"] FROM DocumentosAlumno order by "+Columna+" desc;");
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, Columna);
+        }
+
+        //Buscar el dato de una tabla en especifico
+        public string buscarDatoDocs(string Columna, DocumentosAlumnoBO datosDocumentosAlumno)
+        {
+            cmd = new SqlCommand("SELECT " + Columna + " FROM DocumentosAlumno WHERE IDDocumentos = @IDDocumentos;");
+
+            cmd.Parameters.Add("@IDDocumentos", SqlDbType.Int).Value = datosDocumentosAlumno.IDDocumentos;
 
             cmd.CommandType = CommandType.Text;
             return buscarDatoEspecifico(cmd, Columna);

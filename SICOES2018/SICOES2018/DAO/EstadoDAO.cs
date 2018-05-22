@@ -39,11 +39,15 @@ namespace SICOES2018.DAO
             SQLCommand = "SELECT * FROM Estado WHERE IDPais = '" + IDPais + "' Order By Nombre";
             return llenarTablas(SQLCommand);
         }
-        //Para llenar los DDL de los estados sin seleccionar Pais
-        public DataTable LlenarDropDownListNoPais()
+        //Buscar el dato de una tabla en especifico
+        public string buscarDatoEstado(string Columna, EstadoBO datosEstado)
         {
-            SQLCommand = "SELECT * FROM Estado Order By Nombre";
-            return llenarTablas(SQLCommand);
+            cmd = new SqlCommand("SELECT " + Columna + " FROM Estado WHERE IDEstado = @IDEstado;");
+
+            cmd.Parameters.Add("@IDEstado", SqlDbType.Int).Value = datosEstado.IDEstado;
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, Columna);
         }
 
     }
