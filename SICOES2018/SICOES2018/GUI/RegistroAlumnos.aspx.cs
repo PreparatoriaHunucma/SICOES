@@ -33,25 +33,23 @@ namespace SICOES2018.GUI
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            btnAddNewPais.CausesValidation = false;
-            if (!this.IsPostBack)
+            if (!Page.IsPostBack)
             {
+                DataBind();
                 LLenarDropDownListsPais();
                 LLenarDropDownListsPais2();
                 LLenarDropDownListsPais3();
                 LLenarDropDownListsEscuelasProc();
                 llenarDDLTurnos();
                 LLenarDropDownListsTipoAlumno();
-                LlenarGridViewPais();
                 LlenarGridViewEscPro();
-                LlenarGridViewAlumnos(1);
-                DataBind();
+                LlenarGridViewAlumnos(Convert.ToInt32(ddlAlumnosReg.SelectedValue));
                 ddlPaisAlum.SelectedValue = "1";
                 LLenarDropDownListsEstado(Convert.ToInt32(ddlPaisAlum.SelectedValue));
                 ddlEstadoAlum.SelectedValue = "1";
                 LLenarDropDownListsMunicipio(Convert.ToInt32(ddlEstadoAlum.SelectedValue));
-
             }
+            LlenarGridViewPais();
 
         }
         protected void limpiarCampos()
@@ -95,7 +93,7 @@ namespace SICOES2018.GUI
         //////////////////////////////ALUMNO//////////////////////////////
         protected void btnAgregarAlumno_Click(object sender, EventArgs e)
         {
-            if (txtFechaNacAlum.Text != "")
+            if (txtFechaNacAlum.Text != "" && txtNomAlumno.Text != "" && txtCurpAlum.Text != "" && txtNomTutorAlum.Text != "" && txtTelTutorAlum.Text != "" && txtNomEscProAlum.Text != "")
             {
                 DateTime valFechaNac = Convert.ToDateTime(txtFechaNacAlum.Text);
                 DateTime fechaInicio = new DateTime(1900, 1, 1);
@@ -669,71 +667,73 @@ namespace SICOES2018.GUI
             int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
             int IDAlumno = Convert.ToInt32(gvAlumnos.DataKeys[currentRowIndex].Value);
             datoAlum.IDAlumno = IDAlumno;
-            //DATOS GENERALES
-            txtNomAlumno.Text = ejecAlum.buscarDatoAlumno("NomAlumno", datoAlum);
-            txtApePatAlumno.Text = ejecAlum.buscarDatoAlumno("ApePatAlumno", datoAlum);
-            txtApeMatAlumno.Text = ejecAlum.buscarDatoAlumno("ApeMatAlumno", datoAlum);
-            txtFechaNacAlum.Text = Convert.ToDateTime(ejecAlum.buscarDatoAlumno("FechaNacAlumno", datoAlum)).ToString("yyyy-MM-dd");
-            txtCurpAlum.Text = ejecAlum.buscarDatoAlumno("CurpAlumno", datoAlum);
-            imgFotoAlum.ImageUrl = ejecAlum.buscarDatoAlumno("FotoAlumno", datoAlum);
-            //DATOS DEL TUTOR
-            txtNomPadreAlum.Text = ejecAlum.buscarDatoAlumno("NomPadreAlumno", datoAlum);
-            txtTelPadreAlum.Text = ejecAlum.buscarDatoAlumno("TelPadreAlumno", datoAlum);
-            txtNomMadreAlum.Text = ejecAlum.buscarDatoAlumno("NomMadreAlumno", datoAlum);
-            txtTelMadreAlum.Text = ejecAlum.buscarDatoAlumno("TelMadreAlumno", datoAlum);
-            txtNomTutorAlum.Text = ejecAlum.buscarDatoAlumno("NomTutorAlumno", datoAlum);
-            txtTelTutorAlum.Text = ejecAlum.buscarDatoAlumno("TelTutorAlumno", datoAlum);
-            if (txtNomPadreAlum.Text == txtNomTutorAlum.Text)
-                chckTutorPadre.Checked = true;
-            if (txtNomMadreAlum.Text == txtNomTutorAlum.Text)
-                chckTutorMadre.Checked = true;
-            //DATOS DEL DOMICILIO
-            txtCallAlum.Text = ejecAlum.buscarDatoAlumno("CalleAlumno", datoAlum);
-            txtNumAlum.Text = ejecAlum.buscarDatoAlumno("NumeroAlumno", datoAlum);
-            txtColAlum.Text = ejecAlum.buscarDatoAlumno("ColoniaAlumno", datoAlum);
-            txtCPAlum.Text = ejecAlum.buscarDatoAlumno("CodigoPostalAlumno", datoAlum);
-            txtTelAlum.Text = ejecAlum.buscarDatoAlumno("TelAlumno", datoAlum);
-            int IDMunicipio = Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDMunicipioAlumno", datoAlum));
-            datoMuni.IDMunicipio = IDMunicipio;
-            int IDEstado = Convert.ToInt32(ejecMuni.buscarDatoMunicipio("IDEstado", datoMuni));
-            datoEstado.IDEstado = IDEstado;
-            int IDPais = Convert.ToInt32(ejecEstado.buscarDatoEstado("IDPais", datoEstado));
-            ddlPaisAlum.SelectedValue = IDPais.ToString();
-            ddlEstadoAlum.SelectedValue = IDEstado.ToString();
-            ddlMunicipioAlum.SelectedValue = IDMunicipio.ToString();
-            upDireccion.Update();
-            //DATOS ESCUELA DE PROCEDENCIA
-            ddlEscProAlum.SelectedValue = ejecAlum.buscarDatoAlumno("IDEscProAlumno", datoAlum);
-            datoEscPro.IDEscProAlumno = Convert.ToInt32(ddlEscProAlum.SelectedValue);
-            txtNomEscProAlum.Text = ejecEscPro.buscarDatoEscPro("NombreEscPro", datoEscPro);
-            txtClaveEscProAlum.Text = ejecEscPro.buscarDatoEscPro("ClaveEscPro", datoEscPro);
-            ddlTurnoEscPro.SelectedValue = ejecAlum.buscarDatoAlumno("IDTurno", datoAlum);
-            //DATOS DOCUMENTOS
-            datoDocs.IDDocumentos = Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDDocumentosAlumno", datoAlum));
-            if (ejecDocs.buscarDatoDocs("ActaNacimiento", datoDocs) == "1")
-                chckActaNacAlum.Checked = true;
-            if (ejecDocs.buscarDatoDocs("Fotografias", datoDocs) == "1")
-                chckFotosAlum.Checked = true;
-            if (ejecDocs.buscarDatoDocs("Curp", datoDocs) == "1")
-                chckCurpAlum.Checked = true;
-            if (ejecDocs.buscarDatoDocs("Constancia", datoDocs) == "1")
-                chckConstanciaAlum.Checked = true;
-            if (ejecDocs.buscarDatoDocs("ComprobanteDomiciliario", datoDocs) == "1")
-                chckCompDomiAlum.Checked = true;
-            if (ejecDocs.buscarDatoDocs("BoletaCalificaciones", datoDocs) == "1")
-                chckBoleCalifAlum.Checked = true;
-            if (ejecDocs.buscarDatoDocs("CertificadoParcial", datoDocs) == "1")
-                chckCertifParcialAlum.Checked = true;
-            if (ejecDocs.buscarDatoDocs("OficioRevalidacion", datoDocs) == "1")
-                chckOfiRevalAlum.Checked = true;
-            if (ejecDocs.buscarDatoDocs("ConstanciaMedia", datoDocs) == "1")
-                chckConstanciaMediaAlum.Checked = true;
-            if (ejecDocs.buscarDatoDocs("CertificadoSecundaria", datoDocs) == "1")
-                chckCertifSecunAlum.Checked = true;
-            txtrOtrosAlum.Text = ejecDocs.buscarDatoDocs("Otros", datoDocs);
-            UpdatePanel1.Update();
-
-
+            if (currentCommand == "SelectAlum")
+            {
+                //DATOS GENERALES
+                txtNomAlumno.Text = ejecAlum.buscarDatoAlumno("NomAlumno", datoAlum);
+                txtApePatAlumno.Text = ejecAlum.buscarDatoAlumno("ApePatAlumno", datoAlum);
+                txtApeMatAlumno.Text = ejecAlum.buscarDatoAlumno("ApeMatAlumno", datoAlum);
+                txtFechaNacAlum.Text = Convert.ToDateTime(ejecAlum.buscarDatoAlumno("FechaNacAlumno", datoAlum)).ToString("yyyy-MM-dd");
+                txtCurpAlum.Text = ejecAlum.buscarDatoAlumno("CurpAlumno", datoAlum);
+                imgFotoAlum.ImageUrl = ejecAlum.buscarDatoAlumno("FotoAlumno", datoAlum);
+                //DATOS DEL TUTOR
+                txtNomPadreAlum.Text = ejecAlum.buscarDatoAlumno("NomPadreAlumno", datoAlum);
+                txtTelPadreAlum.Text = ejecAlum.buscarDatoAlumno("TelPadreAlumno", datoAlum);
+                txtNomMadreAlum.Text = ejecAlum.buscarDatoAlumno("NomMadreAlumno", datoAlum);
+                txtTelMadreAlum.Text = ejecAlum.buscarDatoAlumno("TelMadreAlumno", datoAlum);
+                txtNomTutorAlum.Text = ejecAlum.buscarDatoAlumno("NomTutorAlumno", datoAlum);
+                txtTelTutorAlum.Text = ejecAlum.buscarDatoAlumno("TelTutorAlumno", datoAlum);
+                if (txtNomPadreAlum.Text == txtNomTutorAlum.Text)
+                    chckTutorPadre.Checked = true;
+                if (txtNomMadreAlum.Text == txtNomTutorAlum.Text)
+                    chckTutorMadre.Checked = true;
+                //DATOS DEL DOMICILIO
+                txtCallAlum.Text = ejecAlum.buscarDatoAlumno("CalleAlumno", datoAlum);
+                txtNumAlum.Text = ejecAlum.buscarDatoAlumno("NumeroAlumno", datoAlum);
+                txtColAlum.Text = ejecAlum.buscarDatoAlumno("ColoniaAlumno", datoAlum);
+                txtCPAlum.Text = ejecAlum.buscarDatoAlumno("CodigoPostalAlumno", datoAlum);
+                txtTelAlum.Text = ejecAlum.buscarDatoAlumno("TelAlumno", datoAlum);
+                int IDMunicipio = Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDMunicipioAlumno", datoAlum));
+                datoMuni.IDMunicipio = IDMunicipio;
+                int IDEstado = Convert.ToInt32(ejecMuni.buscarDatoMunicipio("IDEstado", datoMuni));
+                datoEstado.IDEstado = IDEstado;
+                int IDPais = Convert.ToInt32(ejecEstado.buscarDatoEstado("IDPais", datoEstado));
+                ddlPaisAlum.SelectedValue = IDPais.ToString();
+                ddlEstadoAlum.SelectedValue = IDEstado.ToString();
+                ddlMunicipioAlum.SelectedValue = IDMunicipio.ToString();
+                upDireccion.Update();
+                //DATOS ESCUELA DE PROCEDENCIA
+                ddlEscProAlum.SelectedValue = ejecAlum.buscarDatoAlumno("IDEscProAlumno", datoAlum);
+                datoEscPro.IDEscProAlumno = Convert.ToInt32(ddlEscProAlum.SelectedValue);
+                txtNomEscProAlum.Text = ejecEscPro.buscarDatoEscPro("NombreEscPro", datoEscPro);
+                txtClaveEscProAlum.Text = ejecEscPro.buscarDatoEscPro("ClaveEscPro", datoEscPro);
+                ddlTurnoEscPro.SelectedValue = ejecAlum.buscarDatoAlumno("IDTurno", datoAlum);
+                //DATOS DOCUMENTOS
+                datoDocs.IDDocumentos = Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDDocumentosAlumno", datoAlum));
+                if (ejecDocs.buscarDatoDocs("ActaNacimiento", datoDocs) == "1")
+                    chckActaNacAlum.Checked = true;
+                if (ejecDocs.buscarDatoDocs("Fotografias", datoDocs) == "1")
+                    chckFotosAlum.Checked = true;
+                if (ejecDocs.buscarDatoDocs("Curp", datoDocs) == "1")
+                    chckCurpAlum.Checked = true;
+                if (ejecDocs.buscarDatoDocs("Constancia", datoDocs) == "1")
+                    chckConstanciaAlum.Checked = true;
+                if (ejecDocs.buscarDatoDocs("ComprobanteDomiciliario", datoDocs) == "1")
+                    chckCompDomiAlum.Checked = true;
+                if (ejecDocs.buscarDatoDocs("BoletaCalificaciones", datoDocs) == "1")
+                    chckBoleCalifAlum.Checked = true;
+                if (ejecDocs.buscarDatoDocs("CertificadoParcial", datoDocs) == "1")
+                    chckCertifParcialAlum.Checked = true;
+                if (ejecDocs.buscarDatoDocs("OficioRevalidacion", datoDocs) == "1")
+                    chckOfiRevalAlum.Checked = true;
+                if (ejecDocs.buscarDatoDocs("ConstanciaMedia", datoDocs) == "1")
+                    chckConstanciaMediaAlum.Checked = true;
+                if (ejecDocs.buscarDatoDocs("CertificadoSecundaria", datoDocs) == "1")
+                    chckCertifSecunAlum.Checked = true;
+                txtrOtrosAlum.Text = ejecDocs.buscarDatoDocs("Otros", datoDocs);
+                btnAgregarAlumno.Visible = false;
+                UpdatePanel1.Update();
+            }
         }
     }
 }

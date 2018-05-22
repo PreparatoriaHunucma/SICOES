@@ -1,10 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/mstrpgAdmin.Master" AutoEventWireup="true" CodeBehind="RegistroAlumnos.aspx.cs" Inherits="SICOES2018.GUI.RegistroAlumnos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/mstrpgAdmin.Master" AutoEventWireup="true" CodeBehind="RegistroAlumnos.aspx.cs" Inherits="SICOES2018.GUI.RegistroAlumnos" EnableEventValidation="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
-
 
             <div class="w3-row">
                 <div class="w3-col m8">
@@ -50,7 +49,7 @@
                         <asp:RequiredFieldValidator ID="reqFechaNacAlum" runat="server" ControlToValidate="txtFechaNacAlum" ErrorMessage="¡Ingrese la fecha!" ViewStateMode="Inherit" ForeColor="Red" Font-Size="Small" Height="10px"></asp:RequiredFieldValidator>
                         <asp:RangeValidator runat="server" ID="rngFechaNacAlum" ControlToValidate="txtFechaNacAlum" Type="Date" MinimumValue="01-01-1900" OnInit="rngFechaNacAlum_Init" ErrorMessage="¡Fecha invalida!" ViewStateMode="Inherit" ForeColor="Red" Font-Size="Small" Height="10px"></asp:RangeValidator>
                         <br />
-                        <asp:TextBox runat="server" TextMode="Date" CssClass="w3-input" ID="txtFechaNacAlum" name="txtFechaNacAlum" style="width: 400px" CausesValidation="true" />
+                        <asp:TextBox runat="server" TextMode="Date" CssClass="w3-input" ID="txtFechaNacAlum" name="txtFechaNacAlum" Style="width: 400px" CausesValidation="true" />
 
                         <br />
                     </div>
@@ -92,6 +91,8 @@
                 </div>
             </div>
 
+
+
             <%--DATOS DEL TUTOR--%>
             <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
                 <h4>DATOS DEL TUTOR</h4>
@@ -112,7 +113,7 @@
                                         <asp:Label ID="lbTelPadreAlum" runat="server" Text="Teléfono del padre"></asp:Label>
                                     </b>
                                     <br />
-                                    <asp:TextBox runat="server" CssClass="w3-input" ID="txtTelPadreAlum" type="text" Style="width: 350px" /><br />
+                                    <asp:TextBox runat="server" CssClass="w3-input" ID="txtTelPadreAlum" TextMode="Number" onkeypress="return this.value.length<=9" Style="width: 350px" />
                                 </div>
                                 <div class="w3-col m1 w3-center">
                                     <b>
@@ -136,7 +137,7 @@
                                         <asp:Label ID="lbTelMadreAlum" runat="server" Text="Teléfono de la madre"></asp:Label>
                                     </b>
                                     <br />
-                                    <asp:TextBox runat="server" CssClass="w3-input" ID="txtTelMadreAlum" type="text" Style="width: 350px" /><br />
+                                    <asp:TextBox runat="server" CssClass="w3-input" ID="txtTelMadreAlum" TextMode="Number" onkeypress="return this.value.length<=9" Style="width: 350px" /><br />
                                 </div>
                                 <div class="w3-col m1 w3-center">
                                     <b>
@@ -161,7 +162,7 @@
                                     </b>
                                     <asp:RequiredFieldValidator ID="reqTelTutorAlum" runat="server" ControlToValidate="txtTelTutorAlum" ErrorMessage="¡Ingrese el teléfono o seleccione a un padre!" ViewStateMode="Inherit" ForeColor="Red" Font-Size="Small" Height="10px"></asp:RequiredFieldValidator>
                                     <br />
-                                    <asp:TextBox runat="server" CssClass="w3-input" ID="txtTelTutorAlum" type="tel" Style="width: 350px" /><br />
+                                    <asp:TextBox runat="server" CssClass="w3-input" ID="txtTelTutorAlum" TextMode="Number" onkeypress="return this.value.length<=9" Style="width: 350px" /><br />
                                 </div>
                             </div>
                         </ContentTemplate>
@@ -248,7 +249,7 @@
                                 <asp:Label ID="lbTelAlum" runat="server" Text="Teléfono del domicilio"></asp:Label>
                             </b>
                             <br />
-                            <asp:TextBox runat="server" CssClass="w3-input" ID="txtTelAlum" type="text" Style="width: 200px" /><br />
+                            <asp:TextBox runat="server" CssClass="w3-input" ID="txtTelAlum" TextMode="Number" onkeypress="return this.value.length<=9" Style="width: 200px" /><br />
                         </div>
                     </div>
                 </div>
@@ -256,7 +257,8 @@
 
             <%--DATOS DE LA ESCUELA DE PROCEDENCIA--%>
             <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
-                <h4>DATOS DE LA ESCUELA DE PROCEDENCIA</h4>
+                <h4>DATOS DE LA ESCUELA DE PROCEDENCIA 
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtNomEscProAlum" ErrorMessage="¡Seleccione una escuela de procedencia!" ViewStateMode="Inherit" ForeColor="Red" Font-Size="Small" Height="10px"></asp:RequiredFieldValidator></h4>
                 <hr style="margin: 5px" />
                 <div class="w3-padding w3-col m12">
                     <asp:UpdatePanel ID="upEscProAlum" runat="server" UpdateMode="Conditional">
@@ -625,7 +627,7 @@
                 </div>
             </div>
 
-            <%--MODAL PARA AGREGAR UN PAIS--%>
+            <%--MODAL PARA VER A LOS ALUMNOS--%>
             <div id="modalAlumnos" class="w3-modal">
                 <div class="w3-modal-content w3-animate-top w3-card-4 w3-round" style="width: 1000px; margin-top: -70px">
                     <header class="w3-container w3-blue w3-round" style="height: 50px">
@@ -691,11 +693,6 @@
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:ButtonField ButtonType="Link" ControlStyle-CssClass="btn btn-success btn-sm" Text="<i class='fa fa-eye w3-large'></i>" CausesValidation="False" CommandName="SelectAlum" Visible="true" />
-                                                    <%--                                                    <asp:TemplateField>
-                                                        <ItemTemplate>
-                                                            <asp:LinkButton ID="btn_Select" runat="server" CommandName="SelectAlum" CausesValidation="false"> <i class="fa fa-eye"  ></i></asp:LinkButton>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>--%>
                                                 </Columns>
                                             </asp:GridView>
                                         </div>
@@ -711,6 +708,9 @@
             </div>
 
 
+            <%--BOTON PARA REGISTRAR AL ALUMNO--%>
+            <asp:Button CssClass="w3-button w3-amber w3-hover-blue w3-round w3-animate-right" ID="btnAgregarAlumno" runat="server" Text="Pre-Inscribir al alumno" OnClick="btnAgregarAlumno_Click" CausesValidation="true" Style="width: 100%" />
+
         </ContentTemplate>
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="btnAgregarAlumno" EventName="Click" />
@@ -718,8 +718,7 @@
     </asp:UpdatePanel>
 
 
-    <%--BOTON PARA REGISTRAR AL ALUMNO--%>
-    <asp:Button CssClass="w3-button w3-amber w3-hover-blue w3-round w3-animate-right" ID="btnAgregarAlumno" runat="server" Text="Pre-Inscribir al alumno" OnClick="btnAgregarAlumno_Click" CausesValidation="true" Style="width: 100%" />
+
 
 
 
@@ -758,5 +757,4 @@
             });
         }
     </script>
-
 </asp:Content>
