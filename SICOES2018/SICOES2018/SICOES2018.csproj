@@ -208,6 +208,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="GUI\AltaUsuarios.aspx" />
     <Content Include="GUI\GestionCiclo.aspx" />
     <Content Include="GUI\Inicio.aspx" />
     <Content Include="GUI\Index.aspx" />
@@ -383,6 +384,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="GUI\AltaUsuarios.aspx.cs">
+      <DependentUpon>AltaUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\AltaUsuarios.aspx.designer.cs">
+      <DependentUpon>AltaUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GestionCiclo.aspx.cs">
       <DependentUpon>GestionCiclo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
