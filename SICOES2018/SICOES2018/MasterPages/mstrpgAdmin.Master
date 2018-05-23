@@ -20,6 +20,7 @@
             color: #c5aa22;
         }
 
+         /*Estilos para los acordeones*/
 
         a.accordion {
             background-color: #eee;
@@ -101,6 +102,8 @@
                             <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i>ex@mail.com</p>
                             <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i>1224435534</p>
                             <hr>
+
+                             <%--Acordeones--%>
 
                             <a onclick="Directivo('Directivo')" id="iconoDirectivo" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Directivo<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
 
@@ -224,7 +227,7 @@
     <script src="../Scripts/sweetalert2.all.js"></script>
 
     <script>
-
+        //Variables y método para animaciones de expansión y contracción de acordeones
         var acc = document.getElementsByClassName("accordion");
         var i;
 
@@ -235,6 +238,9 @@
             }
         }
 
+        //Fin
+
+        //Metodos para cambio de iconos de acordeones al expandir y contraer
         $('#iconoDirectivo').click(function () {
             icon = $(this).find("i");
             icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
@@ -264,6 +270,8 @@
             icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
             $('#iconoDocente').toggleClass('w3-amber w3-blue');
         })
+
+        //FIN
     </script>
 
 </body>
