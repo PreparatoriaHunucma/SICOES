@@ -39,5 +39,14 @@ namespace SICOES2018.DAO
             return ejecutarComando(cmd);
         }
 
+        //Buscar el dato de una tabla en especifico
+        public string buscarUltimoIDTipo(string Columna)
+        {
+            cmd = new SqlCommand("SELECT TOP (1) [" + Columna + "] FROM TipoMaestro order by " + Columna + " desc;");
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, Columna);
+        }
+
     }
 }

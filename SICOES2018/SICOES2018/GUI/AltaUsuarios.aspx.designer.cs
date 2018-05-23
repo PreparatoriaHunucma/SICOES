@@ -148,31 +148,31 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Label lbCurriculum;
         
         /// <summary>
-        /// TextBox1 control.
+        /// filecurriculum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.FileUpload filecurriculum;
         
         /// <summary>
-        /// imgFotoEMP control.
+        /// imgFotoEmp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgFotoEMP;
+        protected global::System.Web.UI.WebControls.Image imgFotoEmp;
         
         /// <summary>
-        /// fotoAlum control.
+        /// fotoEmp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fotoAlum;
+        protected global::System.Web.UI.WebControls.FileUpload fotoEmp;
         
         /// <summary>
         /// btnConfirmFoto control.
@@ -182,6 +182,15 @@ namespace SICOES2018.GUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnConfirmFoto;
+        
+        /// <summary>
+        /// btnConfirmCurriculum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConfirmCurriculum;
         
         /// <summary>
         /// lbDireccEmp control.

@@ -75,14 +75,14 @@
                             <asp:Label ID="lbCurriculum" runat="server" Text="Curriculum"></asp:Label>
                         </b>
                         <br />
-                        <asp:TextBox runat="server" CssClass="w3-input " ID="TextBox1" MaxLength="18" type="file" Style="width: 400px" /><br />
+                        <asp:FileUpload runat="server" CssClass="w3-input " ID="filecurriculum" MaxLength="18" type="file" Style="width: 400px" /><br />
                         <br />
                     </div>
                 </div>
                 <div class="w3-padding w3-col m6">
                     <div class="w3-row w3-center">
                         <div class="w3-row">
-                            <asp:Image ID="imgFotoEMP" runat="server" ImageUrl="../Resources/images/imgPerfil.jpg" Style="width: 270px; height: 270px" CssClass="w3-image" ToolTip="Imágen de perfil del alumno" />
+                            <asp:Image ID="imgFotoEmp" runat="server" ImageUrl="../Resources/images/imgPerfil.jpg" Style="width: 270px; height: 270px" CssClass="w3-image" ToolTip="Imágen de perfil del alumno" />
                         </div>
                         <div class="w3-row">
                             <div class="w3-col m5">
@@ -90,7 +90,7 @@
                                     <label onclick="showBrowseDialog()" style="cursor: pointer" title="Subír una imágen">
                                         <i class="fa fa-folder-open w3-xxlarge" style="pointer-events: none; cursor: pointer"></i>
                                     </label>
-                                    <asp:FileUpload runat="server" ID="fotoAlum" name="fotoAlum" type="file" accept="image/*" onchange="loadimage(event)" Style="display: none" />
+                                    <asp:FileUpload runat="server" ID="fotoEmp" name="fotoEmp" type="file" accept="image/*" onchange="loadimage(event)" Style="display: none" />
                                 </div>
                             </div>
                             <div class="w3-col m2" style="margin-top: -10px">
@@ -105,7 +105,10 @@
                             </div>
                         </div>
                         <div class="w3-row">
-                            <asp:Button ID="btnConfirmFoto" runat="server" Text="Button" OnClick="btnConfirmFoto_Click" CssClass="w3-button w3-amber w3-hover-blue" Width="100%" CausesValidation="false" />
+                            <asp:Button ID="btnConfirmFoto" runat="server" Text="Confirmar Foto" OnClick="btnConfirmFoto_Click" CssClass="w3-button w3-amber w3-hover-blue" Width="100%" CausesValidation="false" />
+                        </div>
+                        <div class="w3-row">
+                            <asp:Button ID="btnConfirmCurriculum" runat="server" Text="Confirmar Curriculum" OnClick="btnConfirmCurriculum_Click" CssClass="w3-button w3-amber w3-hover-blue" Width="100%" CausesValidation="false" />
                         </div>
                     </div>
                 </div>
@@ -189,7 +192,6 @@
                             <asp:AsyncPostBackTrigger ControlID="chckTutorMadre" EventName="CheckedChanged" />
                         </Triggers>
                     </asp:UpdatePanel>
-
                 </div>
             </div>--%>
 
@@ -200,10 +202,10 @@
                 <div class="w3-padding w3-col m12">
                     <div class="w3-row" style="margin-bottom: -20px">
                             <b>
-                                <asp:Label ID="lbDireccEmp" runat="server" Text="Calle, cruzamientos, Número, Colonia y Código Postal"></asp:Label>
+                                <asp:Label ID="lbDireccEmp" runat="server" Text="Dirección" ></asp:Label>
                             </b>
                             <br />
-                            <asp:TextBox runat="server" CssClass="w3-input" ID="txtDireccEmp" type="text"  /><br />
+                            <asp:TextBox runat="server" CssClass="w3-input" ID="txtDireccEmp" type="text" placeholder="Calle, cruzamientos, Número, Colonia y Código Postal" /><br />
                         <%--<div class="w3-col m3">
                             <b>
                                 <asp:Label ID="lbNumEmp" runat="server" Text="Número"></asp:Label>
@@ -725,6 +727,7 @@
                             </ContentTemplate>
                             <Triggers>
                                 <asp:PostBackTrigger ControlID="btnConfirmFoto" />
+                                <asp:PostBackTrigger ControlID="btnConfirmCurriculum" />
                                 <%--<asp:AsyncPostBackTrigger ControlID="ddlAlumnosReg" EventName="SelectedIndexChanged" />--%>
                             </Triggers>
                         </asp:UpdatePanel>
@@ -734,7 +737,7 @@
 
 
             <%--BOTON PARA REGISTRAR AL EMPLEADO--%>
-            <asp:Button CssClass="w3-button w3-amber w3-hover-blue w3-round w3-animate-right" ID="btnAgregarAlumno" runat="server" Text="Registrar" OnClick="btnAgregarAlumno_Click" CausesValidation="true" Style="width: 100%" />
+            <asp:Button CssClass="w3-button w3-amber w3-hover-blue w3-round w3-animate-right" ID="btnAgregarAlumno" runat="server" Text="Registrar" OnClick="btnAgregarEmp_Click" CausesValidation="true" Style="width: 100%" />
 
         </ContentTemplate>
         <Triggers>
@@ -750,24 +753,18 @@
     <%--SCRIPT PARA CAMBIAR AL MOMENTO LA IMAGEN DEL ALUMNO DESDE ARCHIVO--%>
     <script>
         var loadimage = function (event) {
-            $("#<%=imgFotoAlum.ClientID%>").attr('src', URL.createObjectURL(event.target.files[0]));
+            $("#<%=imgFotoEmp.ClientID%>").attr('src', URL.createObjectURL(event.target.files[0]));
         };
     </script>
     <%--SCRIPT PARA ABRIR EL FILEUPLOAD CON EL ICONO--%>
     <script>
         function showBrowseDialog() {
-            var fileuploadctrl = document.getElementById('<%=fotoAlum.ClientID%>');
+            var fileuploadctrl = document.getElementById('<%=fotoEmp.ClientID%>');
             fileuploadctrl.click();
 
         }
     </script>
-    <script>
-        function browsecurriculum() {
-            var fileuploadctrl = document.getElementById('<%=fotoAlum.ClientID%>');
-            fileuploadctrl.click();
-
-        }
-        </script>
+    
     <%--SCRIPTS DE ALERTAS--%>
     <script type="text/javascript">
         function successalert() {

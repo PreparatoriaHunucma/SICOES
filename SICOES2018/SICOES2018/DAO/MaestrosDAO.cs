@@ -83,5 +83,14 @@ namespace SICOES2018.DAO
             return ejecutarComando(cmd);
         }
 
+        //Para buscar la cantidad de maestros
+        public string buscarCount(string Columna)
+        {
+            cmd = new SqlCommand("SELECT COUNT(*) AS Cantidad FROM Maestros");
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, Columna);
+        }
+
     }
 }

@@ -379,7 +379,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Resources\Curriculum\" />
     <Folder Include="Resources\FotoPerfilAlumno\" />
+    <Folder Include="Resources\FotoPerfilMaestro\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

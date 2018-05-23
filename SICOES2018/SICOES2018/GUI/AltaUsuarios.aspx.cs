@@ -16,8 +16,8 @@ namespace SICOES2018.GUI
     {
         MaestrosBO datoEmp = new MaestrosBO();
         MaestrosDAO ejecEmp = new MaestrosDAO();
-        TipoMaestroBO datoDocs = new TipoMaestroBO();
-        TipoMaestroDAO ejecDocs = new TipoMaestroDAO();
+        TipoMaestroBO datoPermiso = new TipoMaestroBO();
+        TipoMaestroDAO ejecPermiso = new TipoMaestroDAO();
         EstadoBO datoEstado = new EstadoBO();
         EstadoDAO ejecEstado = new EstadoDAO();
         MunicipioBO datoMuni = new MunicipioBO();
@@ -74,23 +74,21 @@ namespace SICOES2018.GUI
             chckSecretariaAca.Checked = false;
             chckControl.Checked = false;
             chckDocente.Checked = false;
-            imgFotoEMP.ImageUrl = "~/Resources/images/imgPerfil.jpg";
+            imgFotoEmp.ImageUrl = "~/Resources/images/imgPerfil.jpg";
         }
 
         //////////////////////////////ALUMNO//////////////////////////////
-        protected void btnAgregarAlumno_Click(object sender, EventArgs e)
+        protected void btnAgregarEmp_Click(object sender, EventArgs e)
         {
-           // if (/*txtFechaNacAlum.Text != "" && txtNomAlumno.Text != "" && txtCurpAlum.Text != "" && txtNomTutorAlum.Text != "" && txtTelTutorAlum.Text != "" &&*/ txtNomEscProAlum.Text != "")
+            if (txtNomEmp.Text != "" && txtCedula.Text != "")
             {
-               // DateTime valFechaNac = Convert.ToDateTime(txtFechaNacAlum.Text);
+              // DateTime valFechaNac = Convert.ToDateTime(txtFechaNacAlum.Text);
                 DateTime fechaInicio = new DateTime(1900, 1, 1);
-               // if ((valFechaNac.Date >= fechaInicio.Date) && (valFechaNac.Date <= DateTime.Today))
-                {
                     guardarDatosGenerales();
                     //guardarDatosTutor();
-                    //guardarDomicilio();
+                    guardarDomicilio();
                     //guardarEscProAlum();
-                    //guardarDocumentos();
+                    guardarDocumentos();
                     datoEmp.IDTipoMaestro = 1;
                     //datoEmp.RevalidaAlumno = 1;
                     //datoEmp.NuevoAlumno = 0;
@@ -98,7 +96,7 @@ namespace SICOES2018.GUI
                     limpiarCampos();
                     ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert();", true);
                     //LlenarGridViewAlumnos(1);
-                }
+                
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
         }
@@ -109,18 +107,31 @@ namespace SICOES2018.GUI
             datoEmp.ApeMatMaestro = txtApeMatEmp.Text;
             //datoEmp.FechaNacAlum = DateTime.ParseExact(txtFechaNacAlum.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
             datoEmp.CedulaMaestro = txtCedula.Text.ToUpper();
+            datoEmp.GradoAcademicoMaestro = txtGradoEmp.Text.ToUpper();
+            datoEmp.CurriculumMaestro = Session["RutaCurriculum"].ToString();
             datoEmp.FotoMaestro = Session["RutaFoto"].ToString();
+            datoEmp.UsuarioMaestro = txtNomEmp.Text + txtApePatEmp.Text + txtCedula.Text;
+            datoEmp.ContrasenhaMaestro = "123456";
+
         }
-        //protected string guardarPerfilAlumno()
-        //{
-        //    string Cantidad = ejecAlum.buscarCount("Cantidad");
-        //    string NombreArchivo = Path.GetFileName(fotoAlum.PostedFile.FileName);
-        //    string RutaImagenes = "~/Resources/FotoPerfilAlumno/";
-        //    Bitmap ImagenEnBinario = new Bitmap(fotoAlum.PostedFile.InputStream);
-        //    System.Drawing.Image ObjetoImagengde = datoAlum.RedimencionarImagen(ImagenEnBinario, 500);
-        //    ObjetoImagengde.Save(Server.MapPath(RutaImagenes + Cantidad + "_" + NombreArchivo));
-        //    return RutaImagenes + Cantidad + "_" + NombreArchivo;
-        //}
+        protected string guardarPerfilMaestro()
+        {
+            string Cantidad = ejecEmp.buscarCount("Cantidad");
+            string NombreArchivo = Path.GetFileName(fotoEmp.PostedFile.FileName);
+            string RutaImagenes = "~/Resources/FotoPerfilMaestro/";
+            Bitmap ImagenEnBinario = new Bitmap(fotoEmp.PostedFile.InputStream);
+            System.Drawing.Image ObjetoImagengde = datoEmp.RedimencionarImagen(ImagenEnBinario, 500);
+            ObjetoImagengde.Save(Server.MapPath(RutaImagenes + Cantidad + "_" + NombreArchivo));
+            return RutaImagenes + Cantidad + "_" + NombreArchivo;
+        }
+
+        protected string guardarCurriculum()
+        {
+            string Cantidad = ejecEmp.buscarCount("Cantidad");
+            string NombreArchivo = Path.GetFileName(filecurriculum.PostedFile.FileName);
+            string RutaImagenes = "~/Resources/Curriculum/";
+            return RutaImagenes + Cantidad + "_" + NombreArchivo;
+        }
         //protected void guardarDatosTutor()
         //{
         //    //
@@ -146,8 +157,8 @@ namespace SICOES2018.GUI
         //    datoAlum.NomTutorAlumno = txtNomTutorAlum.Text;
         //    datoAlum.TelTutorAlumno = txtTelTutorAlum.Text;
 
-        //}
-        protected void guardarDomicilio()
+        //    }
+            protected void guardarDomicilio()
         {
             datoEmp.DireccionMaestro = txtDireccEmp.Text;
             //datoEmp.NumeroAlumno = txtNumAlum.Text;
@@ -155,73 +166,74 @@ namespace SICOES2018.GUI
             //datoEmp.CodigoPostalAlumno = txtCPAlum.Text;
             datoEmp.IDMunicipioMaestro = Convert.ToInt32(ddlMunicipioEmp.SelectedValue);
             datoEmp.TelMaestro = txtTelAlum.Text;
+            datoEmp.CorreoMaestro = TxtCorreoEmp.Text;
         }
         //protected void guardarEscProAlum()
         //{
         //    datoAlum.IDEscProAlumno = Convert.ToInt32(ddlEscProAlum.SelectedValue);
         //    datoAlum.IDTurno = Convert.ToInt32(ddlTurnoEscPro.SelectedValue);
         //}
-        //protected void guardarDocumentos()
-        //{
-        //    string IDDocs;
-        //    //Acta de Nacimiento
-        //    if (chckActaNacAlum.Checked == true)
-        //        datoDocs.ActaNacimiento = 1;
-        //    else
-        //        datoDocs.ActaNacimiento = 0;
-        //    //Fotografias
-        //    if (chckFotosAlum.Checked == true)
-        //        datoDocs.Fotografias = 1;
-        //    else
-        //        datoDocs.Fotografias = 0;
-        //    //Curp
-        //    if (chckCurpAlum.Checked == true)
-        //        datoDocs.Curp = 1;
-        //    else
-        //        datoDocs.Curp = 0;
-        //    //Constancia
-        //    if (chckConstanciaAlum.Checked == true)
-        //        datoDocs.Constancia = 1;
-        //    else
-        //        datoDocs.Constancia = 0;
-        //    //Compromabte domiciliario
-        //    if (chckCompDomiAlum.Checked == true)
-        //        datoDocs.CompromanteDomiciliario = 1;
-        //    else
-        //        datoDocs.CompromanteDomiciliario = 0;
-        //    //Boletas de calificaciones 
-        //    if (chckBoleCalifAlum.Checked == true)
-        //        datoDocs.BoletaCalificaciones = 1;
-        //    else
-        //        datoDocs.BoletaCalificaciones = 0;
-        //    //Certificado parcial 
-        //    if (chckCertifParcialAlum.Checked == true)
-        //        datoDocs.CertificadoParcial = 1;
-        //    else
-        //        datoDocs.CertificadoParcial = 0;
-        //    //Oficio de revalidación 
-        //    if (chckOfiRevalAlum.Checked == true)
-        //        datoDocs.OficioRevalidacion = 1;
-        //    else
-        //        datoDocs.OficioRevalidacion = 0;
-        //    //Constancia de comp. 1/2 
-        //    if (chckConstanciaMediaAlum.Checked == true)
-        //        datoDocs.ConstanciaMedia = 1;
-        //    else
-        //        datoDocs.ConstanciaMedia = 0;
-        //    //Certificado de secundaria
-        //    if (chckCertifSecunAlum.Checked == true)
-        //        datoDocs.CertificadoSecundaria = 1;
-        //    else
-        //        datoDocs.CertificadoSecundaria = 0;
-        //    if (txtrOtrosAlum.Text.Length > 0 && txtrOtrosAlum.Text != "")
-        //        datoDocs.Otros = txtrOtrosAlum.Text;
-        //    else
-        //        datoDocs.Otros = "N/A";
-        //    ejecDocs.agregarRegistroDocumentos(datoDocs);
-        //    IDDocs = ejecDocs.buscarUltimoIDDocs("IDDocumentos");
-        //    datoAlum.IDDocumentosAlumno = Convert.ToInt32(IDDocs);
-        //}
+        protected void guardarDocumentos()
+        {
+            string IDDocs;
+            //Acta de Nacimiento
+            if (chckDirectivo.Checked == true)
+                datoPermiso.Directivo = 1;
+            else
+                datoPermiso.Directivo = 0;
+            //Fotografias
+            if (chckSecretariaAdm.Checked == true)
+                datoPermiso.SecreAdmin = 1;
+            else
+                datoPermiso.SecreAdmin = 0;
+            //Curp
+            if (chckSecretariaAca.Checked == true)
+                datoPermiso.SecreAcade = 1;
+            else
+                datoPermiso.SecreAcade = 0;
+            //Constancia
+            if (chckControl.Checked == true)
+                datoPermiso.ControlEsc = 1;
+            else
+                datoPermiso.ControlEsc = 0;
+            //Compromabte domiciliario
+            if (chckDocente.Checked == true)
+                datoPermiso.Docente = 1;
+            else
+                datoPermiso.Docente = 0;
+            ////Boletas de calificaciones 
+            //if (chckBoleCalifAlum.Checked == true)
+            //    datoPermiso.BoletaCalificaciones = 1;
+            //else
+            //    datoPermiso.BoletaCalificaciones = 0;
+            ////Certificado parcial 
+            //if (chckCertifParcialAlum.Checked == true)
+            //    datoPermiso.CertificadoParcial = 1;
+            //else
+            //    datoPermiso.CertificadoParcial = 0;
+            ////Oficio de revalidación 
+            //if (chckOfiRevalAlum.Checked == true)
+            //    datoPermiso.OficioRevalidacion = 1;
+            //else
+            //    datoPermiso.OficioRevalidacion = 0;
+            ////Constancia de comp. 1/2 
+            //if (chckConstanciaMediaAlum.Checked == true)
+            //    datoPermiso.ConstanciaMedia = 1;
+            //else
+            //    datoPermiso.ConstanciaMedia = 0;
+            ////Certificado de secundaria
+            //if (chckCertifSecunAlum.Checked == true)
+            //    datoPermiso.CertificadoSecundaria = 1;
+            //else
+            //    datoPermiso.CertificadoSecundaria = 0;
+            //if (txtrOtrosAlum.Text.Length > 0 && txtrOtrosAlum.Text != "")
+            //    datoPermiso.Otros = txtrOtrosAlum.Text;
+            //else
+            //    datoPermiso.Otros = "N/A";
+            ejecPermiso.agregarRegistroTipoMaestro(datoPermiso);
+            IDDocs = ejecPermiso.buscarUltimoIDTipo("IDTipoMaestro");
+            datoEmp.IDTipoMaestro = Convert.ToInt32(IDDocs);
+        }
         //Para declarar la fecha maxima como el dia actual
         protected void rngFechaNacAlum_Init(object sender, EventArgs e)
         {
@@ -723,9 +735,9 @@ namespace SICOES2018.GUI
 
         protected void btnConfirmFoto_Click(object sender, EventArgs e)
         {
-            if (fotoAlum.HasFile)
+            if (fotoEmp.HasFile)
             {
-              //  Session["RutaFoto"] = guardarPerfilAlumno();
+                Session["RutaFoto"] = guardarPerfilMaestro();
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "fotosuccessalert();", true);
             }
             else
@@ -734,19 +746,35 @@ namespace SICOES2018.GUI
             }
 
 
-            imgFotoAlum.ImageUrl = Session["RutaFoto"].ToString();
+            imgFotoEmp.ImageUrl = Session["RutaFoto"].ToString();
 
         }
 
+        protected void btnConfirmCurriculum_Click(object sender, EventArgs e)
+        {
+            if (filecurriculum.HasFile)
+            {
+                Session["RutaCurriculum"] = guardarCurriculum();
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "fotosuccessalert();", true);
+            }
+            else
+            {
+                Session["RutaCurriculum"] = "~/Resources/images/imgPerfil.jpg";
+            }
 
-        //protected void chckRevalida_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    chckNuevoIng.Checked = false;
-        //}
 
-        //protected void chckNuevoIng_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    chckRevalida.Checked = false;
-        //}
-    }
+            imgFotoEmp.ImageUrl = Session["RutaCurriculum"].ToString();
+        }
+
+
+    //protected void chckRevalida_CheckedChanged(object sender, EventArgs e)
+    //{
+    //    chckNuevoIng.Checked = false;
+    //}
+
+    //protected void chckNuevoIng_CheckedChanged(object sender, EventArgs e)
+    //{
+    //    chckRevalida.Checked = false;
+    //}
+}
 }
