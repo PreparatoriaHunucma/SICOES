@@ -228,6 +228,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jQuery-webcam-master\jquery.webcam.js" />
+    <Content Include="Scripts\jQuery-webcam-master\jquery.webcam.min.js" />
+    <Content Include="Scripts\jQuery-webcam-master\jscam.swf" />
+    <Content Include="Scripts\jQuery-webcam-master\jscam_canvas_only.swf" />
+    <Content Include="Scripts\jQuery-webcam-master\src\jscam.xml" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
@@ -389,6 +394,13 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Scripts\jQuery-webcam-master\bower.json" />
+    <Content Include="Scripts\jQuery-webcam-master\Makefile" />
+    <Content Include="Scripts\jQuery-webcam-master\README.md" />
+    <Content Include="Scripts\jQuery-webcam-master\src\BitString.as" />
+    <Content Include="Scripts\jQuery-webcam-master\src\JPGEncoder.as" />
+    <Content Include="Scripts\jQuery-webcam-master\src\jscam.as" />
+    <Content Include="Scripts\jQuery-webcam-master\webcam.jquery.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -20,7 +20,6 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
-
         //Para agregar a un alumno al sistema (Como pre-inscrito)
         public int agregarAlumno(AlumnosBO datosAlumno)
         {
@@ -54,7 +53,6 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
-
         //Para cambiar el tipo de alumno que es [1 = Pre-Inscrito, 2 = Inscrito, 3 = De Baja]
         public int modificarTipoAlumno(AlumnosBO datosAlumno)
         {
@@ -66,7 +64,6 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
-
         //Para cambiar el tipo de alumno a inscrito y asignar a un grupo
         public int inscribirAlumno(AlumnosBO datosAlumno)
         {
@@ -79,11 +76,10 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
-
         //Para modificar la informacion del alumno dentro del sistema
         public int modificarInfoAlumno(AlumnosBO datosAlumno)
         {
-            cmd = new SqlCommand("UPDATE Alumno SET NomAlumno = @NomAlumno, ApePatAlumno = @ApePatAlumno, ApeMatAlumno = @ApeMatAlumno, TelAlumno = @TelAlumno, FotoAlumno = @FotoAlumno, CalleAlumno = @CalleAlumno, NumeroAlumno = @NumeroAlumno, ColoniaAlumno = @ColoniaAlumno, CodigoPostalAlumno = @CodigoPostalAlumno, IDMunicipioAlumno = @IDMunicipioAlumno, NomPadreAlumno = @NomPadreAlumno, TelPadreAlumno = @TelPadreAlumno, NomMadreAlumno = @NomMadreAlumno, TelMadreAlumno = @TelMadreAlumno, NomTutorAlumno = @NomTutorAlumno, TelTutorAlumno = @TelTutorAlumno, IDEscProAlumno = @IDEscProAlumno, RevalidaAlumno = @RevalidaAlumno, NuevoAlumno = @NuevoAlumno, FechaNacAlumno = @FechaNacAlumno, CurpAlumno = @CurpAlumno WHERE IDAlumno = @IDAlumno");
+            cmd = new SqlCommand("UPDATE Alumnos SET NomAlumno = @NomAlumno, ApePatAlumno = @ApePatAlumno, ApeMatAlumno = @ApeMatAlumno, TelAlumno = @TelAlumno, FotoAlumno = @FotoAlumno, CalleAlumno = @CalleAlumno, NumeroAlumno = @NumeroAlumno, ColoniaAlumno = @ColoniaAlumno, CodigoPostalAlumno = @CodigoPostalAlumno, IDMunicipioAlumno = @IDMunicipioAlumno, NomPadreAlumno = @NomPadreAlumno, TelPadreAlumno = @TelPadreAlumno, NomMadreAlumno = @NomMadreAlumno, TelMadreAlumno = @TelMadreAlumno, NomTutorAlumno = @NomTutorAlumno, TelTutorAlumno = @TelTutorAlumno, IDEscProAlumno = @IDEscProAlumno, RevalidaAlumno = @RevalidaAlumno, NuevoAlumno = @NuevoAlumno, FechaNacAlumno = @FechaNacAlumno, CurpAlumno = @CurpAlumno WHERE IDAlumno = @IDAlumno");
 
             cmd.Parameters.Add("@NomAlumno", SqlDbType.VarChar).Value = datosAlumno.NomAlumno;
             cmd.Parameters.Add("@ApePatAlumno", SqlDbType.VarChar).Value = datosAlumno.ApePatAlumno;
@@ -114,7 +110,7 @@ namespace SICOES2018.DAO
         //Para llenar los GridView de los estados
         public DataTable LlenarGridView(int IDTipoAlumno)
         {
-            SQLCommand = "SELECT IDAlumno, NomAlumno, ApePatAlumno, ApeMatAlumno, CONVERT(varchar, FechaNacAlumno, 103) AS FechaNacAlumno, NomTutorAlumno, TelTutorAlumno FROM Alumnos WHERE IDTipoAlumno = " + IDTipoAlumno +";";
+            SQLCommand = "SELECT IDAlumno, NomAlumno, ApePatAlumno, ApeMatAlumno, CONVERT(varchar, FechaNacAlumno, 103) AS FechaNacAlumno, NomTutorAlumno, TelTutorAlumno FROM Alumnos WHERE IDTipoAlumno = " + IDTipoAlumno + ";";
             return llenarTablas(SQLCommand);
         }
         //Buscar el dato de una tabla en especifico
@@ -127,6 +123,7 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return buscarDatoEspecifico(cmd, Columna);
         }
+        //Para buscar la cantidad de alumnos
         public string buscarCount(string Columna)
         {
             cmd = new SqlCommand("SELECT COUNT(*) AS Cantidad FROM Alumnos");
