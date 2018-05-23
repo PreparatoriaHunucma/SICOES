@@ -880,7 +880,7 @@ namespace SICOES2018.GUI
                 btnAgregarAlumno.Visible = true;
                 btnModifAlumno.Visible = false;
                 btnInscribirAlumno.Visible = false;
-                btnDarBajaAlumno.Visible = true;
+                btnDarBajaAlumno.Visible = false;
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "bajasuccessalert();", true);
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
