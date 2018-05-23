@@ -107,7 +107,7 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
-        //Para llenar los GridView de los estados
+        //Para llenar los GridView de los alumnos
         public DataTable LlenarGridView(int IDTipoAlumno)
         {
             SQLCommand = "SELECT IDAlumno, NomAlumno, ApePatAlumno, ApeMatAlumno, CONVERT(varchar, FechaNacAlumno, 103) AS FechaNacAlumno, NomTutorAlumno, TelTutorAlumno FROM Alumnos WHERE IDTipoAlumno = " + IDTipoAlumno + ";";

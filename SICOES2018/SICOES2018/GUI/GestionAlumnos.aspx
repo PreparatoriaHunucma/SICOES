@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/mstrpgAdmin.Master" AutoEventWireup="true" CodeBehind="RegistroAlumnos.aspx.cs" Inherits="SICOES2018.GUI.RegistroAlumnos" EnableEventValidation="true" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/mstrpgAdmin.Master" AutoEventWireup="true" CodeBehind="GestionAlumnos.aspx.cs" Inherits="SICOES2018.GUI.RegistroAlumnos" EnableEventValidation="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -7,7 +7,7 @@
 
             <div class="w3-row">
                 <div class="w3-col m8">
-                    <h2>Registro de alumnos</h2>
+                    <h2>Gestión de alumnos</h2>
                 </div>
                 <div class=" w3-col m4 w3-padding-16">
                     <input class="w3-button w3-amber w3-hover-blue  w3-right" type="button" onclick="document.getElementById('modalAlumnos').style.display = 'block'" value="Ver registros de alumnos" />
