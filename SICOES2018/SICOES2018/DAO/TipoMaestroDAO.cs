@@ -7,6 +7,7 @@ namespace SICOES2018.DAO
     public class TipoMaestroDAO : ConexionSQL
     {
         SqlCommand cmd;
+        string SQLCommand;
 
         //Para crear un registro de tipo de maestro [0 = NO ES, 1 = SI ES]
         public int agregarRegistroTipoMaestro(TipoMaestroBO datoTipoMaestro)
@@ -43,6 +44,29 @@ namespace SICOES2018.DAO
         public string buscarUltimoIDTipo(string Columna)
         {
             cmd = new SqlCommand("SELECT TOP (1) [" + Columna + "] FROM TipoMaestro order by " + Columna + " desc;");
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, Columna);
+        }
+
+        //Para llenar los GridView y DDL de los paises
+        public DataTable llenarTablasDDL()
+        {
+            SQLCommand = "SELECT * FROM Maestros";
+            return llenarTablas(SQLCommand);
+        }
+
+        //public DataTable llenarTablasDDL()
+        //{
+        //    SQLCommand = "SELECT * FROM TipoMaestro";
+        //    return llenarTablas(SQLCommand);
+        //}
+
+        public string buscarDatoPermiso(string Columna, TipoMaestroBO datosTipoMaestro)
+        {
+            cmd = new SqlCommand("SELECT " + Columna + " FROM TipoMaestro WHERE IDTipoMaestro = @IDTipoMaestro;");
+
+            cmd.Parameters.Add("@IDTipoMaestro", SqlDbType.Int).Value = datosTipoMaestro.IDTipoMaestro;
 
             cmd.CommandType = CommandType.Text;
             return buscarDatoEspecifico(cmd, Columna);

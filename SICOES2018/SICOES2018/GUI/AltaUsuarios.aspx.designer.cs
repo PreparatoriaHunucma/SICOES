@@ -274,15 +274,6 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.DropDownList ddlMunicipioEmp;
         
         /// <summary>
-        /// lbTelAlum control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTelAlum;
-        
-        /// <summary>
         /// txtTelAlum control.
         /// </summary>
         /// <remarks>
@@ -661,6 +652,15 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Label lbAlumnos;
         
         /// <summary>
+        /// ddlAlumnosReg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAlumnosReg;
+        
+        /// <summary>
         /// lbAlumnosReg control.
         /// </summary>
         /// <remarks>
@@ -668,6 +668,15 @@ namespace SICOES2018.GUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbAlumnosReg;
+        
+        /// <summary>
+        /// gvAlumnos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvAlumnos;
         
         /// <summary>
         /// btnAgregarAlumno control.

@@ -11,6 +11,7 @@ namespace SICOES2018.DAO
     public class MaestrosDAO : ConexionSQL
     {
         SqlCommand cmd;
+        string SQLCommand;
 
         //Para verificar si el maestro tiene una cuenta dentro del sistema
         public int loginMaestro(MaestrosBO datoMaestro)
@@ -87,6 +88,24 @@ namespace SICOES2018.DAO
         public string buscarCount(string Columna)
         {
             cmd = new SqlCommand("SELECT COUNT(*) AS Cantidad FROM Maestros");
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, Columna);
+        }
+
+        public DataTable LlenarGridView(int StatusMaestro)
+        {
+            SQLCommand = "SELECT IDMaestro, NomMaestro, ApePatMaestro, ApeMatMaestro, StatusMaestro FROM Maestros WHERE StatusMaestro = " + StatusMaestro + ";";
+            return llenarTablas(SQLCommand);
+            //CONVERT(varchar, FechaNacAlumno, 103) AS FechaNacAlumno,
+        }
+
+        //Buscar el dato de una tabla en especifico
+        public string buscarDatoAlumno(string Columna, MaestrosBO datosMaestro)
+        {
+            cmd = new SqlCommand("SELECT " + Columna + " FROM Maestros WHERE IDMaestro = @IDMaestro;");
+
+            cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosMaestro.IDMaestro;
 
             cmd.CommandType = CommandType.Text;
             return buscarDatoEspecifico(cmd, Columna);

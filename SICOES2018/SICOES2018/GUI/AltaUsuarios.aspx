@@ -9,7 +9,7 @@
                 <div class="w3-col m8">
                     <h2>Alta de Usuarios</h2>
                 </div>
-                <div class=" w3-col m4 w3-padding-16">
+                <div class=" w3-col m4 w3-padding-16">--
                     <input class="w3-button w3-amber w3-hover-blue  w3-right" type="button" onclick="document.getElementById('modalAlumnos').style.display = 'block'" value="Ver registros de empleados" />
                 </div>
             </div>
@@ -264,7 +264,7 @@
 
                         <div class="w3-col m3">
                             <b>
-                                <asp:Label ID="lbTelAlum" runat="server" Text="Teléfono de Contacto"></asp:Label>
+                                <%--<asp:Label ID="lbTelAlum" runat="server" Text="Teléfono de Contacto"></asp:Label>--%>
                             </b>
                             <br />
                             <asp:TextBox runat="server" CssClass="w3-input" ID="txtTelAlum" TextMode="Number" onkeypress="return this.value.length<=9" Style="width: 200px" /><br />
@@ -670,7 +670,7 @@
                                             <asp:Label ID="lbAlumnos" runat="server" Text="Seleccione de la lista que tipo de alumno desea vizualizar y posteriormente presione en el icono del a derecha para ver su información"></asp:Label>
                                         </b>
                                         <br />
-                                        <%--<asp:DropDownList CssClass="w3-dropdown-click w3-input w3-margin" ID="ddlAlumnosReg" Style="width: 20%" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlAlumnosReg_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>--%>
+                                        <asp:DropDownList CssClass="w3-dropdown-click w3-input w3-margin" ID="ddlAlumnosReg" Style="width: 20%" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlAlumnosReg_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                                     </div>
                                 </div>
                                 <div class="w3-row ">
@@ -679,13 +679,13 @@
                                             <asp:Label ID="lbAlumnosReg" runat="server" Text="Alumnos registrados"></asp:Label>
                                         </b>
                                         <div class="w3-responsive">
-                                            <%--<asp:GridView ID="gvAlumnos" runat="server" AutoGenerateColumns="False" CellPadding="6"
+                                            <asp:GridView ID="gvAlumnos" runat="server" AutoGenerateColumns="False" CellPadding="6"
                                                 CssClass="w3-table w3-striped w3-border" Style="min-height: 288px" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="5" OnPageIndexChanging="gvAlumnos_PageIndexChanging" OnRowCommand="gvAlumnos_RowCommand" DataKeyNames="IDAlumno">
                                                 <Columns>
 
                                                     <asp:TemplateField HeaderText="ID">
                                                         <ItemTemplate>
-                                                            <asp:Label ID="lbl_ID" runat="server" Text='<%#Eval("IDAlumno") %>'></asp:Label>
+                                                            <asp:Label ID="lbl_ID" runat="server" Text='<%#Eval("IDMaestro") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Nombre">
@@ -720,7 +720,7 @@
                                                     </asp:TemplateField>
                                                     <asp:ButtonField ButtonType="Link" ControlStyle-CssClass="btn btn-success btn-sm" Text="<i class='fa fa-eye w3-large'></i>" CausesValidation="False" CommandName="SelectAlum" Visible="true" />
                                                 </Columns>
-                                            </asp:GridView>--%>
+                                            </asp:GridView>
                                         </div>
                                     </div>
                                 </div>
@@ -728,7 +728,7 @@
                             <Triggers>
                                 <asp:PostBackTrigger ControlID="btnConfirmFoto" />
                                 <asp:PostBackTrigger ControlID="btnConfirmCurriculum" />
-                                <%--<asp:AsyncPostBackTrigger ControlID="ddlAlumnosReg" EventName="SelectedIndexChanged" />--%>
+                                <asp:AsyncPostBackTrigger ControlID="ddlAlumnosReg" EventName="SelectedIndexChanged" />
                             </Triggers>
                         </asp:UpdatePanel>
                     </div>
