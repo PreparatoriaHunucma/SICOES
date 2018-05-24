@@ -122,12 +122,12 @@ namespace SICOES2018.GUI
         protected void gvAlumnos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             string currentCommand = e.CommandName;
-            int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
-            int IDAlumno = Convert.ToInt32(gvAlumnos.DataKeys[currentRowIndex].Value);
-            Session["AlumModif"] = IDAlumno;
-            datoAlum.IDAlumno = IDAlumno;
             if (currentCommand == "SelectAlum")
             {
+                int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
+                int IDAlumno = Convert.ToInt32(gvAlumnos.DataKeys[currentRowIndex].Value);
+                Session["AlumModif"] = IDAlumno;
+                datoAlum.IDAlumno = IDAlumno;
                 //DATOS GENERALES
                 txtNomAlumno.Text = ejecAlum.buscarDatoAlumno("NomAlumno", datoAlum);
                 txtApePatAlumno.Text = ejecAlum.buscarDatoAlumno("ApePatAlumno", datoAlum);
