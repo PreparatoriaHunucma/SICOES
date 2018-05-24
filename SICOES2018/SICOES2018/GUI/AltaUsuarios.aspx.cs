@@ -36,7 +36,7 @@ namespace SICOES2018.GUI
                 LLenarDropDownListsPais3();
                 //LLenarDropDownListsEscuelasProc();
                 //llenarDDLTurnos();
-               LLenarDropDownListsTipoAlumno();
+               //LLenarDropDownListsTipoAlumno();
                 //LlenarGridViewEscPro();
                 LlenarGridViewAlumnos(Convert.ToInt32(ddlAlumnosReg.SelectedValue));
                 ddlPaisEmp.SelectedValue = "1";
@@ -131,7 +131,8 @@ namespace SICOES2018.GUI
         {
             string Cantidad = ejecEmp.buscarCount("Cantidad");
             string NombreArchivo = Path.GetFileName(filecurriculum.PostedFile.FileName);
-            string RutaImagenes = "~/Resources/Curriculum/";
+            string RutaImagenes = "Resources//";
+            filecurriculum.SaveAs(RutaImagenes + Cantidad + "_" + NombreArchivo);
             return RutaImagenes + Cantidad + "_" + NombreArchivo;
         }
         //protected void guardarDatosTutor()
@@ -255,19 +256,19 @@ namespace SICOES2018.GUI
             upAlumnos.Update();
         }
         ////Para llenar los drop down lists de tipos de alumnos
-        protected void LLenarDropDownListsTipoAlumno()
-        {
-            ddlAlumnosReg.DataSource = ejecTipEmp.llenarTablasDDL();
-            ddlAlumnosReg.DataTextField = "StatusMaestro";
-            ddlAlumnosReg.DataValueField = "IDMaestro";
-            ddlAlumnosReg.DataBind();
-            upAlumnos.Update();
-            if (ddlAlumnosReg.Items.Count != 0)
-            {
-                int TipoID = Convert.ToInt32(ddlAlumnosReg.SelectedValue);
-                LlenarGridViewAlumnos(TipoID);
-            }
-        }
+        //protected void LLenarDropDownListsTipoAlumno()
+        //{
+        //    ddlAlumnosReg.DataSource = ejecTipEmp.llenarTablasDDL();
+        //    ddlAlumnosReg.DataTextField = "";
+        //    ddlAlumnosReg.DataValueField = "StatusMaestro";
+        //    ddlAlumnosReg.DataBind();
+        //    upAlumnos.Update();
+        //    if (ddlAlumnosReg.Items.Count != 0)
+        //    {
+        //        int TipoID = Convert.ToInt32(ddlAlumnosReg.SelectedValue);
+        //        LlenarGridViewAlumnos(TipoID);
+        //    }
+        //}
         //Para cambiar la lista de alumnos segun el tipo
         protected void ddlAlumnosReg_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -663,41 +664,33 @@ namespace SICOES2018.GUI
         protected void gvAlumnos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             string currentCommand = e.CommandName;
-            int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
-            int IDMaestro = Convert.ToInt32(gvAlumnos.DataKeys[currentRowIndex].Value);
-            datoEmp.IDMaestro = IDMaestro;
+            
             if (currentCommand == "SelectAlum")
             {
+                int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
+                int IDMaestro = Convert.ToInt32(gvAlumnos.DataKeys[currentRowIndex].Value);
+                datoEmp.IDMaestro = IDMaestro;
                 //DATOS GENERALES
                 txtNomEmp.Text = ejecEmp.buscarDatoAlumno("NomMaestro", datoEmp);
                 txtApePatEmp.Text = ejecEmp.buscarDatoAlumno("ApePatMaestro", datoEmp);
-                txtApeMatEmp.Text = ejecEmp.buscarDatoAlumno("ApeMatAlumno", datoEmp);
+                txtApeMatEmp.Text = ejecEmp.buscarDatoAlumno("ApeMatMaestro", datoEmp);
                 //txtFechaNacEmp.Text = Convert.ToDateTime(ejecAlum.buscarDatoAlumno("FechaNacAlumno", datoAlum)).ToString("yyyy-MM-dd");
                 txtCedula.Text = ejecEmp.buscarDatoAlumno("CedulaMaestro", datoEmp);
                 txtGradoEmp.Text = ejecEmp.buscarDatoAlumno("GradoAcademicoMaestro", datoEmp);
                 imgFotoEmp.ImageUrl = ejecEmp.buscarDatoAlumno("FotoMaestro", datoEmp);
-                //DATOS DEL TUTOR
-                //txtNomPadreAlum.Text = ejecAlum.buscarDatoAlumno("NomPadreAlumno", datoAlum);
-                //txtTelPadreAlum.Text = ejecAlum.buscarDatoAlumno("TelPadreAlumno", datoAlum);
-                //txtNomMadreAlum.Text = ejecAlum.buscarDatoAlumno("NomMadreAlumno", datoAlum);
-                //txtTelMadreAlum.Text = ejecAlum.buscarDatoAlumno("TelMadreAlumno", datoAlum);
-                //txtNomTutorAlum.Text = ejecAlum.buscarDatoAlumno("NomTutorAlumno", datoAlum);
-                txtTelAlum.Text = ejecEmp.buscarDatoAlumno("TelMaestro", datoEmp);
                 //if (txtNomPadre.Text == txtNomTutorAlum.Text)
                 //    chckTutorPadre.Checked = true;
                 //if (txtNomMadreAlum.Text == txtNomTutorAlum.Text)
                 //    chckTutorMadre.Checked = true;
                 //DATOS DEL DOMICILIO
-                txtDireccEmp.Text = ejecEmp.buscarDatoAlumno("CalleAlumno", datoEmp);
-                //txtNumAlum.Text = ejecAlum.buscarDatoAlumno("NumeroAlumno", datoAlum);
-                //txtColAlum.Text = ejecAlum.buscarDatoAlumno("ColoniaAlumno", datoAlum);
-                //txtCPAlum.Text = ejecAlum.buscarDatoAlumno("CodigoPostalAlumno", datoAlum);
-                //txtTelAlum.Text = ejecAlum.buscarDatoAlumno("TelAlumno", datoAlum);
-                int IDMunicipio = Convert.ToInt32(ejecEmp.buscarDatoAlumno("IDMunicipioAlumno", datoEmp));
+                txtDireccEmp.Text = ejecEmp.buscarDatoAlumno("DireccionMaestro", datoEmp);
+                int IDMunicipio = Convert.ToInt32(ejecEmp.buscarDatoAlumno("IDMunicipioMaestro", datoEmp));
                 datoMuni.IDMunicipio = IDMunicipio;
                 int IDEstado = Convert.ToInt32(ejecMuni.buscarDatoMunicipio("IDEstado", datoMuni));
                 datoEstado.IDEstado = IDEstado;
                 int IDPais = Convert.ToInt32(ejecEstado.buscarDatoEstado("IDPais", datoEstado));
+                txtTelAlum.Text = ejecEmp.buscarDatoAlumno("TelMaestro", datoEmp);
+                TxtCorreoEmp.Text = Convert.ToString(ejecEmp.buscarDatoAlumno("CorreoMaestro", datoEmp));
                 ddlPaisEmp.SelectedValue = IDPais.ToString();
                 ddlEstadoEmp.SelectedValue = IDEstado.ToString();
                 ddlMunicipioEmp.SelectedValue = IDMunicipio.ToString();
@@ -709,7 +702,7 @@ namespace SICOES2018.GUI
                 //txtClaveEscProAlum.Text = ejecEscPro.buscarDatoEscPro("ClaveEscPro", datoEscPro);
                 //ddlTurnoEscPro.SelectedValue = ejecAlum.buscarDatoAlumno("IDTurno", datoAlum);
                 //DATOS DOCUMENTOS
-                datoTipEmp.IDTipoMaestro= Convert.ToInt32(ejecEmp.buscarDatoAlumno("IDDocumentosAlumno", datoEmp));
+                datoPermiso.IDTipoMaestro= Convert.ToInt32(ejecEmp.buscarDatoAlumno("IDTipoMaestro", datoEmp));
                 if (ejecPermiso.buscarDatoPermiso("Directivo", datoPermiso) == "1")
                     chckDirectivo.Checked = true;
                 if (ejecPermiso.buscarDatoPermiso("SecreAdmin", datoPermiso) == "1")

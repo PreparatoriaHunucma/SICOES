@@ -105,7 +105,7 @@ namespace SICOES2018.DAO
         {
             cmd = new SqlCommand("SELECT " + Columna + " FROM Maestros WHERE IDMaestro = @IDMaestro;");
 
-            cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosMaestro.IDMaestro;
+            cmd.Parameters.Add("@IDMaestro", SqlDbType.Int).Value = datosMaestro.IDMaestro;
 
             cmd.CommandType = CommandType.Text;
             return buscarDatoEspecifico(cmd, Columna);

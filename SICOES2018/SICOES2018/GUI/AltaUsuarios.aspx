@@ -9,7 +9,7 @@
                 <div class="w3-col m8">
                     <h2>Alta de Usuarios</h2>
                 </div>
-                <div class=" w3-col m4 w3-padding-16">--
+                <div class=" w3-col m4 w3-padding-16">
                     <input class="w3-button w3-amber w3-hover-blue  w3-right" type="button" onclick="document.getElementById('modalAlumnos').style.display = 'block'" value="Ver registros de empleados" />
                 </div>
             </div>
@@ -670,7 +670,7 @@
                                             <asp:Label ID="lbAlumnos" runat="server" Text="Seleccione de la lista que tipo de alumno desea vizualizar y posteriormente presione en el icono del a derecha para ver su información"></asp:Label>
                                         </b>
                                         <br />
-                                        <asp:DropDownList CssClass="w3-dropdown-click w3-input w3-margin" ID="ddlAlumnosReg" Style="width: 20%" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlAlumnosReg_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                        <asp:DropDownList CssClass="w3-dropdown-click w3-input w3-margin" ID="ddlAlumnosReg" Style="width: 20%" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlAlumnosReg_SelectedIndexChanged" AutoPostBack="true"><asp:ListItem Text="Inactivo" Value="0"></asp:ListItem><asp:ListItem Text="Activo" Value="1" Selected="True"></asp:ListItem></asp:DropDownList>
                                     </div>
                                 </div>
                                 <div class="w3-row ">
@@ -680,7 +680,7 @@
                                         </b>
                                         <div class="w3-responsive">
                                             <asp:GridView ID="gvAlumnos" runat="server" AutoGenerateColumns="False" CellPadding="6"
-                                                CssClass="w3-table w3-striped w3-border" Style="min-height: 288px" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="5" OnPageIndexChanging="gvAlumnos_PageIndexChanging" OnRowCommand="gvAlumnos_RowCommand" DataKeyNames="IDAlumno">
+                                                CssClass="w3-table w3-striped w3-border" Style="min-height: 288px" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="5" OnPageIndexChanging="gvAlumnos_PageIndexChanging" OnRowCommand="gvAlumnos_RowCommand" DataKeyNames="IDMaestro">
                                                 <Columns>
 
                                                     <asp:TemplateField HeaderText="ID">
@@ -690,32 +690,32 @@
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Nombre">
                                                         <ItemTemplate>
-                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("NomAlumno") %>'></asp:Label>
+                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("NomMaestro") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Primer apellido">
                                                         <ItemTemplate>
-                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("ApePatAlumno") %>'></asp:Label>
+                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("ApePatMaestro") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Segundo apellido">
                                                         <ItemTemplate>
-                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("ApeMatAlumno") %>'></asp:Label>
+                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("ApeMatMaestro") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Fecha de Nacimiento">
-                                                        <ItemTemplate>
+                                                  <%--  <asp:TemplateField HeaderText="Fecha de Nacimiento">
+                                                      <ItemTemplate>
                                                             <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("FechaNacAlumno") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Nombre del tutor">
-                                                        <ItemTemplate>
+                                                    </asp:TemplateField>--%>
+                                                   <%-- <asp:TemplateField HeaderText="Nombre del tutor">
+                                                       <ItemTemplate>
                                                             <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("NomTutorAlumno") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Telefono del tutor">
+                                                    </asp:TemplateField>--%>
+                                                    <asp:TemplateField HeaderText="Estatus">
                                                         <ItemTemplate>
-                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("TelTutorAlumno") %>'></asp:Label>
+                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("StatusMaestro") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:ButtonField ButtonType="Link" ControlStyle-CssClass="btn btn-success btn-sm" Text="<i class='fa fa-eye w3-large'></i>" CausesValidation="False" CommandName="SelectAlum" Visible="true" />
