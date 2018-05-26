@@ -131,9 +131,12 @@ namespace SICOES2018.GUI
         {
             string Cantidad = ejecEmp.buscarCount("Cantidad");
             string NombreArchivo = Path.GetFileName(filecurriculum.PostedFile.FileName);
-            string RutaImagenes = "Resources//";
-            filecurriculum.SaveAs(RutaImagenes + Cantidad + "_" + NombreArchivo);
-            return RutaImagenes + Cantidad + "_" + NombreArchivo;
+            string savedFileName = Server.MapPath(@"\\Resources\\" + Cantidad + NombreArchivo);
+            filecurriculum.SaveAs(savedFileName);
+            filecurriculum.Visible = false;
+            curriculumok.Text = NombreArchivo;
+            curriculumok.Visible = true;
+            return savedFileName;
         }
         //protected void guardarDatosTutor()
         //{
@@ -758,8 +761,6 @@ namespace SICOES2018.GUI
                 Session["RutaCurriculum"] = "~/Resources/images/imgPerfil.jpg";
             }
 
-
-            imgFotoEmp.ImageUrl = Session["RutaCurriculum"].ToString();
         }
 
 

@@ -75,7 +75,9 @@
                             <asp:Label ID="lbCurriculum" runat="server" Text="Curriculum"></asp:Label>
                         </b>
                         <br />
-                        <asp:FileUpload runat="server" CssClass="w3-input " ID="filecurriculum" MaxLength="18" type="file" Style="width: 400px" /><br />
+                        <asp:FileUpload runat="server" CssClass="w3-input " ID="filecurriculum" MaxLength="18" type="file" Style="width: 400px" />
+                        <asp:Label runat="server" Visible="false" id="curriculumok">Archivo</asp:Label>
+                        <br />
                         <br />
                     </div>
                 </div>
@@ -737,7 +739,9 @@
 
 
             <%--BOTON PARA REGISTRAR AL EMPLEADO--%>
+            <div class="w3-row">
             <asp:Button CssClass="w3-button w3-amber w3-hover-blue w3-round w3-animate-right" ID="btnAgregarAlumno" runat="server" Text="Registrar" OnClick="btnAgregarEmp_Click" CausesValidation="true" Style="width: 100%" />
+                </div>
 
         </ContentTemplate>
         <Triggers>
