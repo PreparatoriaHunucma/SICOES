@@ -67,11 +67,13 @@ namespace SICOES2018.DAO
         //Para cambiar el tipo de alumno a inscrito y asignar a un grupo
         public int inscribirAlumno(AlumnosBO datosAlumno)
         {
-            cmd = new SqlCommand("UPDATE Alumnos SET IDTipoAlumno = @IDTipoAlumno, IDGrupo = @IDGrupo WHERE IDAlumno = @IDAlumno");
+            cmd = new SqlCommand("UPDATE Alumnos SET IDTipoAlumno = @IDTipoAlumno, IDGrupo = @IDGrupo, UsuarioAlumno = @UsuarioAlumno, ContraseñaAlumno = @ContraseñaAlumno WHERE IDAlumno = @IDAlumno");
 
             cmd.Parameters.Add("@IDTipoAlumno", SqlDbType.Int).Value = datosAlumno.IDTipoAlumno;
             cmd.Parameters.Add("@IDGrupo", SqlDbType.Int).Value = datosAlumno.IDGrupo;
             cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosAlumno.IDAlumno;
+            cmd.Parameters.Add("@UsuarioAlumno", SqlDbType.VarChar).Value = datosAlumno.UsuarioAlumno;
+            cmd.Parameters.Add("@ContraseñaAlumno", SqlDbType.VarChar).Value = datosAlumno.ContrasenhaAlumno;
 
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
@@ -130,6 +132,12 @@ namespace SICOES2018.DAO
 
             cmd.CommandType = CommandType.Text;
             return buscarDatoEspecifico(cmd, Columna);
+        }
+        //Para llenar los GridView de los alumnos
+        public DataTable LlenarGridViewGrupos(int IDGrupo)
+        {
+            SQLCommand = "SELECT IDAlumno, NomAlumno, ApePatAlumno, ApeMatAlumno, CONVERT(varchar, FechaNacAlumno, 103) AS FechaNacAlumno, NomTutorAlumno, TelTutorAlumno FROM Alumnos WHERE IDGrupo = " + IDGrupo + ";";
+            return llenarTablas(SQLCommand);
         }
 
     }

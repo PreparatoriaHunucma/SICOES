@@ -34,7 +34,7 @@
                                 <asp:GridView ID="gvCiclos" runat="server" AutoGenerateColumns="False" CellPadding="6"
                                     CssClass="w3-table w3-striped w3-border" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="5" OnPageIndexChanging="gvCiclos_PageIndexChanging" OnRowCommand="gvCiclos_RowCommand" DataKeyNames="IDCicloEscolar">
                                     <Columns>
-                                        <asp:TemplateField HeaderText="ID">
+                                        <asp:TemplateField HeaderText="ID" Visible="false">
                                             <ItemTemplate>
                                                 <asp:Label ID="lbl_ID" runat="server" Text='<%#Eval("IDCicloEscolar") %>'></asp:Label>
                                             </ItemTemplate>
@@ -106,7 +106,7 @@
                                 <asp:GridView ID="gvPer1" runat="server" AutoGenerateColumns="False" CellPadding="6" EnableViewState="false"
                                     CssClass="w3-table w3-striped w3-border" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="5" OnPageIndexChanging="gvPer1_PageIndexChanging" OnRowCommand="gvPer1_RowCommand" DataKeyNames="IDPeriodo">
                                     <Columns>
-                                        <asp:TemplateField HeaderText="ID">
+                                        <asp:TemplateField HeaderText="ID" Visible="false">
                                             <ItemTemplate>
                                                 <asp:Label ID="lbl_ID" runat="server" Text='<%#Eval("IDPeriodo") %>'></asp:Label>
                                             </ItemTemplate>
@@ -167,7 +167,7 @@
                                 <asp:GridView ID="gvPer2" runat="server" AutoGenerateColumns="False" CellPadding="6" EnableViewState="false"
                                     CssClass="w3-table w3-striped w3-border" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="5" OnPageIndexChanging="gvPer2_PageIndexChanging" OnRowCommand="gvPer2_RowCommand" DataKeyNames="IDPeriodo">
                                     <Columns>
-                                        <asp:TemplateField HeaderText="ID">
+                                        <asp:TemplateField HeaderText="ID" Visible="false">
                                             <ItemTemplate>
                                                 <asp:Label ID="lbl_ID" runat="server" Text='<%#Eval("IDPeriodo") %>'></asp:Label>
                                             </ItemTemplate>

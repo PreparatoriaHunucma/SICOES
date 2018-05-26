@@ -7,6 +7,7 @@ namespace SICOES2018.DAO
     public class GruposDAO : ConexionSQL
     {
         SqlCommand cmd;
+        string SQLCommand;
 
         //Para crear un grupo
         public int agregarGrupo(GruposBO datosGrupo)
@@ -49,5 +50,20 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
+
+        //Para llenar los GridView de los ciclos
+        public DataTable LlenarGridView(int IDCiclo, int IDPeriodo)
+        {
+            SQLCommand = "SELECT g.IDGrupo, g.NombreGrupo, CONCAT(ce.Nombre,' - ', pe.Nombre) AS CicloPeriodo, pl.Nombre AS PlanEstudio FROM dbo.Grupos g JOIN dbo.PeriodoEscolar pe ON pe.IDPeriodo = g.IDPeriodo JOIN dbo.CicloEscolar ce ON ce.IDCicloEscolar = pe.IDCicloEscolar JOIN dbo.PlanesEstudio pl ON pl.IDPlanEstudios = g.IDPlanEstudio WHERE pe.IDCicloEscolar = " + IDCiclo + " AND pe.IDPeriodo = " + IDPeriodo + " ORDER BY g.NombreGrupo";
+            return llenarTablas(SQLCommand);
+        }
+
+        //Para llenar los GridView y DDL de los paises
+        public DataTable llenarDDLCicloActual()
+        {
+            SQLCommand = "SELECT g.* FROM dbo.Grupos g JOIN dbo.PeriodoEscolar pe ON pe.IDPeriodo = g.IDPeriodo JOIN dbo.CicloEscolar ce ON ce.IDCicloEscolar = pe.IDCicloEscolar WHERE pe.IDCicloEscolar = (SELECT ce.IDCicloEscolar FROM dbo.CicloEscolar ce WHERE ce.Status = 1) ORDER BY g.NombreGrupo";
+            return llenarTablas(SQLCommand);
+        }
+
     }
 }
