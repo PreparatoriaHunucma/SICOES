@@ -22,6 +22,8 @@ namespace SICOES2018.GUI
         EscuelasProcedenciaAlumnosDAO ejecEscPro = new EscuelasProcedenciaAlumnosDAO();
         EstadoBO datoEstado = new EstadoBO();
         EstadoDAO ejecEstado = new EstadoDAO();
+        GruposBO datoGrupo = new GruposBO();
+        GruposDAO ejecGrupo = new GruposDAO();
         MunicipioBO datoMuni = new MunicipioBO();
         MunicipioDAO ejecMuni = new MunicipioDAO();
         PaisBO datoPais = new PaisBO();
@@ -48,6 +50,7 @@ namespace SICOES2018.GUI
                 LLenarDropDownListsEstado(Convert.ToInt32(ddlPaisAlum.SelectedValue));
                 ddlEstadoAlum.SelectedValue = "1";
                 LLenarDropDownListsMunicipio(Convert.ToInt32(ddlEstadoAlum.SelectedValue));
+                LlenarDDLGrupos();
             }
             LlenarGridViewPais();
         }
@@ -245,7 +248,6 @@ namespace SICOES2018.GUI
                 datoAlum.NuevoAlumno = 0;
 
         }
-
         //Para guardar la imagen del alumno en la carpeta
         protected string guardarPerfilAlumno()
         {
@@ -865,7 +867,32 @@ namespace SICOES2018.GUI
 
         protected void btnInscribirAlumno_Click(object sender, EventArgs e)
         {
-
+            if (Session["AlumModif"] != null)
+            {
+                datoAlum.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
+                datoAlum.IDTipoAlumno = 2;
+                datoAlum.IDGrupo = Convert.ToInt32(ddlGrupos.SelectedValue);
+                string nombre = ejecAlum.buscarDatoAlumno("NomAlumno", datoAlum).ToLower();
+                string tresletras = nombre.Substring(0, 3);
+                string apellido;
+                if (ejecAlum.buscarDatoAlumno("ApePatAlumno", datoAlum).ToLower() != string.Empty)
+                    apellido = ejecAlum.buscarDatoAlumno("ApePatAlumno", datoAlum).ToLower();
+                else
+                    apellido = ejecAlum.buscarDatoAlumno("ApeMatAlumno", datoAlum).ToLower();
+                string usuario = tresletras + "." + apellido + Session["AlumModif"].ToString();
+                string contrasenha = "123456";
+                datoAlum.UsuarioAlumno = datoAlum.EncriptarMD5(usuario);
+                datoAlum.ContrasenhaAlumno = datoAlum.EncriptarMD5(contrasenha);
+                ejecAlum.inscribirAlumno(datoAlum);
+                limpiarCampos();
+                LlenarGridViewAlumnos(1);
+                btnAgregarAlumno.Visible = true;
+                btnModifAlumno.Visible = false;
+                btnInscribirAlumno.Visible = false;
+                btnDarBajaAlumno.Visible = false;
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "inscripcionsuccessalert();", true);
+            }
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
         }
 
         protected void btnDarBajaAlumno_Click(object sender, EventArgs e)
@@ -884,6 +911,23 @@ namespace SICOES2018.GUI
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "bajasuccessalert();", true);
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
+        }
+        protected void LlenarDDLGrupos()
+        {
+            ddlGrupos.DataSource = ejecGrupo.llenarDDLCicloActual();
+            ddlGrupos.DataTextField = "NombreGrupo";
+            ddlGrupos.DataValueField = "IDGrupo";
+            ddlGrupos.DataBind();
+        }
+
+        protected void LlenarGVAlumnosGrupos(int IDGrupo)
+        {
+            gvAlumnosGrupos.DataSource = ejecAlum.LlenarGridViewGrupos(IDGrupo);
+            gvAlumnosGrupos.DataBind();
+        }
+        protected void ddlGrupos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LlenarGVAlumnosGrupos(Convert.ToInt32(ddlGrupos.SelectedValue));
         }
     }
 }

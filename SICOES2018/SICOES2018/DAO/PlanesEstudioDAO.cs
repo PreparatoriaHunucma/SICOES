@@ -7,7 +7,7 @@ namespace SICOES2018.DAO
     public class PlanesEstudioDAO : ConexionSQL
     {
         SqlCommand cmd;
-
+        string SQLCommand;
         //Para crear un plan de estudio
         public int agregarPlanEstudio(PlanesEstudioBO datosPlanes)
         {
@@ -42,6 +42,13 @@ namespace SICOES2018.DAO
 
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
+        }
+
+        //Para llenar los Drop Down List de los ciclos
+        public DataTable llenarDDL()
+        {
+            SQLCommand = "SELECT * FROM PlanesEstudio WHERE Status = 1";
+            return llenarTablas(SQLCommand);
         }
 
     }

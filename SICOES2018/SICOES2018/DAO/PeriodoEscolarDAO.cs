@@ -61,5 +61,12 @@ namespace SICOES2018.DAO
             return buscarDatoEspecifico(cmd, Columna);
         }
 
+        //Para llenar los Drop Down List de los ciclos
+        public DataTable llenarDDL(int IDCiclo)
+        {
+            SQLCommand = "SELECT * FROM PeriodoEscolar WHERE IDCicloEscolar = " + IDCiclo;
+            return llenarTablas(SQLCommand);
+        }
+
     }
 }

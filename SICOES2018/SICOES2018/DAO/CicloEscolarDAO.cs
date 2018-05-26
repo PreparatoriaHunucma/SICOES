@@ -58,7 +58,7 @@ namespace SICOES2018.DAO
         //Para llenar los Drop Down List de los ciclos
         public DataTable llenarDDL()
         {
-            SQLCommand = "SELECT * FROM CicloEscolar";
+            SQLCommand = "SELECT * FROM CicloEscolar ORDER BY IDCicloEscolar DESC";
             return llenarTablas(SQLCommand);
         }
 

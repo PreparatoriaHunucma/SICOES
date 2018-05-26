@@ -7,6 +7,7 @@ namespace SICOES2018.DAO
     public class SemestresDAO : ConexionSQL
     {
         SqlCommand cmd;
+        string SQLCommand;
 
         //Para crear un semestre
         public int agregarSemestre(SemestresBO datpsSemestre)
@@ -29,6 +30,20 @@ namespace SICOES2018.DAO
 
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
+        }
+
+        //Para llenar los Drop Down List de los ciclos
+        public DataTable llenarDDLImpar()
+        {
+            SQLCommand = "SELECT * FROM dbo.Semestres WHERE IDSemestre = 1 OR IDSemestre = 3 OR IDSemestre = 5";
+            return llenarTablas(SQLCommand);
+        }
+
+        //Para llenar los Drop Down List de los ciclos
+        public DataTable llenarDDLPar()
+        {
+            SQLCommand = "SELECT * FROM dbo.Semestres WHERE IDSemestre = 2 OR IDSemestre = 4 OR IDSemestre = 6";
+            return llenarTablas(SQLCommand);
         }
 
     }
