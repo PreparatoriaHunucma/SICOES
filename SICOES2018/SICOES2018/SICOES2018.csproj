@@ -209,6 +209,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GUI\AltaUsuarios.aspx" />
+    <Content Include="GUI\GestionAsignaturas.aspx" />
     <Content Include="GUI\GestionCiclo.aspx" />
     <Content Include="GUI\GestionGrupos.aspx" />
     <Content Include="GUI\Inicio.aspx" />
@@ -391,6 +392,13 @@
     </Compile>
     <Compile Include="GUI\AltaUsuarios.aspx.designer.cs">
       <DependentUpon>AltaUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionAsignaturas.aspx.cs">
+      <DependentUpon>GestionAsignaturas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionAsignaturas.aspx.designer.cs">
+      <DependentUpon>GestionAsignaturas.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\GestionCiclo.aspx.cs">
       <DependentUpon>GestionCiclo.aspx</DependentUpon>
