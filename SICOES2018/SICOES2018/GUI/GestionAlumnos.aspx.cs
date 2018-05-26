@@ -367,7 +367,7 @@ namespace SICOES2018.GUI
         //Para declarar la fecha maxima como el dia actual
         protected void rngFechaNacAlum_Init(object sender, EventArgs e)
         {
-            ((RangeValidator)sender).MaximumValue = DateTime.Now.Date.ToString("dd-MM-yyyy");
+            ((RangeValidator)sender).MaximumValue = DateTime.Now.Date.ToString("yyyy-MM-dd");
         }
         //Para cambiar de pagina en el grid view de alumnos
         protected void gvAlumnos_PageIndexChanging(object sender, GridViewPageEventArgs e)
