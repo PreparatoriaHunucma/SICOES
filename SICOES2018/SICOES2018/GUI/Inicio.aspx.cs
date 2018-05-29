@@ -13,5 +13,10 @@ namespace SICOES2018.GUI
         {
 
         }
+
+        protected void CrystalReportViewer1_Init(object sender, EventArgs e)
+        {
+
+        }
     }
 }
