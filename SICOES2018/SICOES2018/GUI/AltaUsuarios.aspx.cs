@@ -76,6 +76,9 @@ namespace SICOES2018.GUI
             chckSecretariaAca.Checked = false;
             chckControl.Checked = false;
             chckDocente.Checked = false;
+            ChckActivo.Checked = false;
+            ChckInactivo.Checked = false;
+
             imgFotoEmp.ImageUrl = "~/Resources/images/imgPerfil.jpg";
         }
 
@@ -91,10 +94,14 @@ namespace SICOES2018.GUI
                     guardarDomicilio();
                     //guardarEscProAlum();
                     guardarDocumentos();
-                    datoEmp.IDTipoMaestro = 1;
-                    //datoEmp.RevalidaAlumno = 1;
-                    //datoEmp.NuevoAlumno = 0;
-                    ejecEmp.agregarMaestro(datoEmp);
+                //datoEmp.IDTipoMaestro = 1;
+                //datoEmp.RevalidaAlumno = 1;
+                //datoEmp.NuevoAlumno = 0;
+                if (ChckActivo.Checked == true )
+                    datoEmp.StatusMaestro = 1;
+                else
+                    datoEmp.StatusMaestro = 0;
+                ejecEmp.agregarMaestro(datoEmp);
                     limpiarCampos();
                     ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert();", true);
                     LlenarGridViewAlumnos(1);
@@ -102,6 +109,34 @@ namespace SICOES2018.GUI
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
         }
+
+        protected void btnModifAlumno_Click(object sender, EventArgs e)
+        {
+            if (txtNomEmp.Text != "" && txtCedula.Text != "" && txtTelAlum.Text != "")
+            {
+                DateTime fechaInicio = new DateTime(1900, 1, 1);
+
+                guardarDatosGeneralesModif();
+                    guardarDomicilio();
+                    guardarDocumentos();
+                if (ChckActivo.Checked == true)
+                    datoEmp.StatusMaestro = 1;
+                else
+                    datoEmp.StatusMaestro = 0;
+                datoEmp.IDMaestro= Convert.ToInt32(Session["EmpModif"]);
+                    ejecEmp.modificarInfoMaestro(datoEmp);
+                    limpiarCampos();
+                    LlenarGridViewAlumnos(1);
+                    btnAgregarAlumno.Visible = true;
+                    btnModifAlumno.Visible = false;
+
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "modifsuccessalert();", true);
+                
+            }
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
+
+        }
+
         protected void guardarDatosGenerales()
         {
             datoEmp.NomMaestro = txtNomEmp.Text;
@@ -116,6 +151,34 @@ namespace SICOES2018.GUI
             datoEmp.ContrasenhaMaestro = "123456";
 
         }
+
+        protected void guardarDatosGeneralesModif()
+        {
+            datoEmp.NomMaestro = txtNomEmp.Text;
+            datoEmp.ApePatMaestro= txtApePatEmp.Text;
+            datoEmp.ApeMatMaestro = txtApeMatEmp.Text;
+            datoEmp.CedulaMaestro = txtCedula.Text.ToUpper();
+            if (Session["RutaFoto"] != null)
+                datoEmp.FotoMaestro = Session["RutaFoto"].ToString();
+            else
+                datoEmp.FotoMaestro= imgFotoEmp.ImageUrl;
+            //if (Session["RutaCurriculum"] != null)
+            //    datoEmp.CurriculumMaestro = Session["RutaCurriculum"].ToString();
+            //else
+            //    datoEmp.CurriculumMaestro = filecurriculum.;
+
+            //if (chckRevalida.Checked == true)
+            //    datoAlum.RevalidaAlumno = 1;
+            //else
+            //    datoAlum.RevalidaAlumno = 0;
+            //if (chckNuevoIng.Checked == true)
+            //    datoAlum.NuevoAlumno = 1;
+            //else
+            //    datoAlum.NuevoAlumno = 0;
+
+        }
+
+        //Guardar foto de perfil en carpeta
         protected string guardarPerfilMaestro()
         {
             string Cantidad = ejecEmp.buscarCount("Cantidad");
@@ -127,6 +190,8 @@ namespace SICOES2018.GUI
             return RutaImagenes + Cantidad + "_" + NombreArchivo;
         }
 
+        //Guardar Curriculum en la carpeta
+
         protected string guardarCurriculum()
         {
             string Cantidad = ejecEmp.buscarCount("Cantidad");
@@ -136,34 +201,10 @@ namespace SICOES2018.GUI
             filecurriculum.Visible = false;
             curriculumok.Text = NombreArchivo;
             curriculumok.Visible = true;
+            btnResubirCurriculum.Visible = true;
             return savedFileName;
         }
-        //protected void guardarDatosTutor()
-        //{
-        //    //
-        //    if (txtNomPadreAlum.Text.Length > 0 && txtNomPadreAlum.Text != "")
-        //        datoAlum.NomPadreAlumno = txtNomPadreAlum.Text;
-        //    else
-        //        datoAlum.NomPadreAlumno = "N/A";
-        //    //
-        //    if (txtTelPadreAlum.Text.Length > 0 && txtTelPadreAlum.Text != "")
-        //        datoAlum.TelPadreAlumno = txtTelPadreAlum.Text;
-        //    else
-        //        datoAlum.TelPadreAlumno = "N/A";
-        //    //
-        //    if (txtNomMadreAlum.Text.Length > 0 && txtNomMadreAlum.Text != "")
-        //        datoAlum.NomMadreAlumno = txtNomMadreAlum.Text;
-        //    else
-        //        datoAlum.NomMadreAlumno = "N/A";
-        //    //
-        //    if (txtTelMadreAlum.Text.Length > 0 && txtTelMadreAlum.Text != "")
-        //        datoAlum.TelMadreAlumno = txtTelMadreAlum.Text;
-        //    else
-        //        datoAlum.TelMadreAlumno = "N/A";
-        //    datoAlum.NomTutorAlumno = txtNomTutorAlum.Text;
-        //    datoAlum.TelTutorAlumno = txtTelTutorAlum.Text;
-
-        //    }
+        
             protected void guardarDomicilio()
         {
             datoEmp.DireccionMaestro = txtDireccEmp.Text;
@@ -174,11 +215,7 @@ namespace SICOES2018.GUI
             datoEmp.TelMaestro = txtTelAlum.Text;
             datoEmp.CorreoMaestro = TxtCorreoEmp.Text;
         }
-        //protected void guardarEscProAlum()
-        //{
-        //    datoAlum.IDEscProAlumno = Convert.ToInt32(ddlEscProAlum.SelectedValue);
-        //    datoAlum.IDTurno = Convert.ToInt32(ddlTurnoEscPro.SelectedValue);
-        //}
+        
         protected void guardarDocumentos()
         {
             string IDDocs;
@@ -236,6 +273,9 @@ namespace SICOES2018.GUI
             //    datoPermiso.Otros = txtrOtrosAlum.Text;
             //else
             //    datoPermiso.Otros = "N/A";
+
+                        
+
             ejecPermiso.agregarRegistroTipoMaestro(datoPermiso);
             IDDocs = ejecPermiso.buscarUltimoIDTipo("IDTipoMaestro");
             datoEmp.IDTipoMaestro = Convert.ToInt32(IDDocs);
@@ -567,85 +607,6 @@ namespace SICOES2018.GUI
             }
 
         }
-
-
-
-        //////////////////////////////ESCUELAS DE PROCEDENCIA//////////////////////////////
-        //Para llenar los drop down lists de escuelas de procedencia
-        //protected void LLenarDropDownListsEscuelasProc()
-        //{
-        //    if (!IsPostBack)
-        //    {
-        //        ddlEscProAlum.DataSource = ejecEscPro.llenarDDL();
-        //        ddlEscProAlum.DataTextField = "NombreEscPro";
-        //        ddlEscProAlum.DataValueField = "IDEscProAlumNO";
-        //        ddlEscProAlum.DataBind();
-        //    }
-        //}
-        //Para llenar los campos de la escuela al momento de seleccionar la escuela
-        //protected void ddlEscProAlum_TextChanged(object sender, EventArgs e)
-        //{
-        //    datoEscPro.IDEscProAlumno = Convert.ToInt32(ddlEscProAlum.SelectedValue);
-        //    txtNomEscProAlum.Text = ejecEscPro.buscarDatoEscPro("NombreEscPro", datoEscPro);
-        //    txtClaveEscProAlum.Text = ejecEscPro.buscarDatoEscPro("ClaveEscPro", datoEscPro);
-        //}
-        //Para cambiar de pagina en los grid view
-        //protected void gvEscProReg_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        //{
-        //    gvEscProReg.PageIndex = e.NewPageIndex;
-        //    LlenarGridViewEscPro();
-
-        //}
-        //Para llenar los grid view de las escuelas
-        //protected void LlenarGridViewEscPro()
-        //{
-        //    gvEscProReg.DataSource = ejecEscPro.llenarTablas();
-        //    gvEscProReg.DataBind();
-        //    upAddEscPro.Update();
-        //    upEscProAlum.Update();
-        //    LLenarDropDownListsEscuelasProc();
-        //}
-        //Para agregar una escuela
-        //protected void btnAddEscPro_Click(object sender, EventArgs e)
-        //{
-        //    if (txtNomEscProAdd.Text.Length > 0 && txtNomEscProAdd.Text != "")
-        //    {
-        //        if (txtClaveEscProAdd.Text.Length > 0 && txtClaveEscProAdd.Text != "")
-        //        {
-        //            datoEscPro.NombreEscPro = txtNomEscProAdd.Text;
-        //            datoEscPro.ClaveEscPro = txtClaveEscProAdd.Text.ToUpper();
-        //            ejecEscPro.agregarEscuelaPro(datoEscPro);
-        //            LlenarGridViewEscPro();
-        //            lbAdvClaveEscPro.Visible = false;
-        //            txtClaveEscProAdd.Text = "";
-        //            lbAdvNomEscPro.Visible = false;
-        //            txtNomEscProAdd.Text = "";
-        //        }
-        //        else
-        //        {
-        //            lbAdvClaveEscPro.Text = "¡Ingrese el nombre de la escuela!";
-        //            lbAdvClaveEscPro.Visible = true;
-        //            lbAdvNomEscPro.Visible = false;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        lbAdvNomEscPro.Text = "¡Ingrese el nombre de la escuela!";
-        //        lbAdvNomEscPro.Visible = true;
-        //        lbAdvClaveEscPro.Visible = false;
-        //    }
-        //}
-        //Para llenar los grid view de los turnos
-        //protected void llenarDDLTurnos()
-        //{
-        //    ddlTurnoEscPro.DataSource = ejecTurno.llenarDDL();
-        //    ddlTurnoEscPro.DataTextField = "Nombre";
-        //    ddlTurnoEscPro.DataValueField = "IDTurno";
-        //    ddlTurnoEscPro.DataBind();
-        //}
-
-
-
         //////////////////////////////LOGICATUTORES//////////////////////////////
         //Cuando el padre es el tutor
         //protected void chckTutorPadre_CheckedChanged(object sender, EventArgs e)
@@ -664,9 +625,12 @@ namespace SICOES2018.GUI
         //    upTutor.Update();
         //}
 
+            //Para mostrar la información del maestro/////////////////
+
         protected void gvAlumnos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             string currentCommand = e.CommandName;
+            limpiarCampos();
             
             if (currentCommand == "SelectAlum")
             {
@@ -681,6 +645,10 @@ namespace SICOES2018.GUI
                 txtCedula.Text = ejecEmp.buscarDatoAlumno("CedulaMaestro", datoEmp);
                 txtGradoEmp.Text = ejecEmp.buscarDatoAlumno("GradoAcademicoMaestro", datoEmp);
                 imgFotoEmp.ImageUrl = ejecEmp.buscarDatoAlumno("FotoMaestro", datoEmp);
+                filecurriculum.Visible = false;
+                curriculumok.Visible = true;
+                //curriculumok.Text = ejecEmp.buscarDatoAlumno("CurriculumMaestro", datoEmp);
+                curriculumok.Text = "<a href ='"+ ejecEmp.buscarDatoAlumno("CurriculumMaestro", datoEmp) + "'>Ver Curriculum</a>";
                 //if (txtNomPadre.Text == txtNomTutorAlum.Text)
                 //    chckTutorPadre.Checked = true;
                 //if (txtNomMadreAlum.Text == txtNomTutorAlum.Text)
@@ -716,6 +684,11 @@ namespace SICOES2018.GUI
                     chckControl.Checked = true;
                 if (ejecPermiso.buscarDatoPermiso("Docente", datoPermiso) == "1")
                     chckDocente.Checked = true;
+                datoEmp.StatusMaestro = Convert.ToInt32(ejecEmp.buscarDatoStatus("StatusMaestro", datoEmp));
+                if (ejecEmp.buscarDatoStatus("StatusMaestro", datoEmp) == "1")
+                    ChckActivo.Checked = true;
+                else
+                    ChckInactivo.Checked = true;
                 //if (ejecDocs.buscarDatoDocs("BoletaCalificaciones", datoDocs) == "1")
                 //    chckBoleCalifAlum.Checked = true;
                 //if (ejecDocs.buscarDatoDocs("CertificadoParcial", datoDocs) == "1")
@@ -728,6 +701,7 @@ namespace SICOES2018.GUI
                 //    chckCertifSecunAlum.Checked = true;
                 //txtrOtrosAlum.Text = ejecDocs.buscarDatoDocs("Otros", datoDocs);
                 btnAgregarAlumno.Visible = false;
+                btnModifAlumno.Visible = true;
                 UpdatePanel1.Update();
             }
         }
@@ -762,6 +736,11 @@ namespace SICOES2018.GUI
             }
 
         }
+        protected void btnResubir_Click(object sender, EventArgs e)
+        {
+            curriculumok.Visible = false;
+            filecurriculum.Visible = true;
+        }
 
 
     //protected void chckRevalida_CheckedChanged(object sender, EventArgs e)
@@ -769,9 +748,9 @@ namespace SICOES2018.GUI
     //    chckNuevoIng.Checked = false;
     //}
 
-    //protected void chckNuevoIng_CheckedChanged(object sender, EventArgs e)
-    //{
-    //    chckRevalida.Checked = false;
-    //}
-}
+        //protected void chckNuevoIng_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    chckRevalida.Checked = false;
+        //}
+    }
 }

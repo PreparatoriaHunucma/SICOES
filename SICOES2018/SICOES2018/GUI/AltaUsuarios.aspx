@@ -76,7 +76,9 @@
                         </b>
                         <br />
                         <asp:FileUpload runat="server" CssClass="w3-input " ID="filecurriculum" MaxLength="18" type="file" Style="width: 400px" />
-                        <asp:Label runat="server" Visible="false" id="curriculumok">Archivo</asp:Label>
+                        <asp:Label runat="server" Visible="false" id="curriculumok"></asp:Label>
+                        </br>
+                        <asp:Button ID="btnResubirCurriculum" runat="server" Text="Cambiar Curriculum" OnClick="btnResubir_Click" CssClass="w3-button w3-amber w3-hover-blue" Width="100%" CausesValidation="false" Visible="false" />
                         <br />
                         <br />
                     </div>
@@ -266,7 +268,7 @@
 
                         <div class="w3-col m3">
                             <b>
-                                <%--<asp:Label ID="lbTelAlum" runat="server" Text="Teléfono de Contacto"></asp:Label>--%>
+                                <asp:Label ID="lbTelAlum" runat="server" Text="Teléfono de Contacto"></asp:Label>
                             </b>
                             <br />
                             <asp:TextBox runat="server" CssClass="w3-input" ID="txtTelAlum" TextMode="Number" onkeypress="return this.value.length<=9" Style="width: 200px" /><br />
@@ -392,6 +394,26 @@
                     <br />
                 </div>
             </div>
+           <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
+               <h4>Estatus del Maestro</h4>
+                <hr style="margin: 5px" />
+                <div class="w3-col m12">
+                    <div class="w3-row">
+                <div class="w3-col m4 w3-margin-top">
+                    <b>
+                                <asp:CheckBox runat="server" CssClass="w3-check" ID="ChckActivo" type="checkbox" Text=" Activo" />
+                            </b>
+                            <br />
+                    <b>
+                                <asp:CheckBox runat="server" CssClass="w3-check" ID="ChckInactivo" type="checkbox" Text=" Inactivo" />
+                            </b>
+                            
+                </div>
+                        </div>
+                    <br />
+                    </div>
+               </div>
+            
 
 
             <%--MODAL PARA AGREGAR UN PAIS--%>
@@ -742,10 +764,15 @@
             <div class="w3-row">
             <asp:Button CssClass="w3-button w3-amber w3-hover-blue w3-round w3-animate-right" ID="btnAgregarAlumno" runat="server" Text="Registrar" OnClick="btnAgregarEmp_Click" CausesValidation="true" Style="width: 100%" />
                 </div>
+              <div class="w3-row">
+                <%--BOTON PARA MODIFICAR INFO DEL ALUMNO--%>
+                <asp:Button CssClass="w3-margin-left w3-third w3-button w3-amber w3-hover-blue w3-round w3-animate-right" ID="btnModifAlumno" runat="server" Text="Modificar Información" OnClick="btnModifAlumno_Click" CausesValidation="true" Width="31%" Visible="false" />
+            </div>
 
         </ContentTemplate>
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="btnAgregarAlumno" EventName="Click" />
+            <asp:AsyncPostBackTrigger ControlID="btnModifAlumno" EventName="Click" />
         </Triggers>
     </asp:UpdatePanel>
 
