@@ -65,7 +65,7 @@ namespace SICOES2018.DAO
         //Para modificar la informacion del maestro dentro del sistema
         public int modificarInfoMaestro(MaestrosBO datosMaestro)
         {
-            cmd = new SqlCommand("UPDATE Maestros SET NomMaestro = @NomMaestro, ApePatMaestro = @ApePatMaestro, ApeMatMaestro = @ApeMatMaestro, TelMaestro = @TelMaestro, CorreoMaestro = @CorreoMaestro, CedulaMaestro = @CedulaMaestro, FotoMaestro = @FotoMaestro, CurriculumMaestro = @CurriculumMaestro, GradoAcademicoMaestro = @GradoAcademicoMaestro, DireccionMaestro = @DireccionMaestro, IDMunicipioMaestro = @IDMunicipioMaestro WHERE IDMaestro = @IDMaestro");
+            cmd = new SqlCommand("UPDATE Maestros SET NomMaestro = @NomMaestro, ApePatMaestro = @ApePatMaestro, ApeMatMaestro = @ApeMatMaestro, TelMaestro = @TelMaestro, CorreoMaestro = @CorreoMaestro, CedulaMaestro = @CedulaMaestro, FotoMaestro = @FotoMaestro, CurriculumMaestro = @CurriculumMaestro, GradoAcademicoMaestro = @GradoAcademicoMaestro, DireccionMaestro = @DireccionMaestro, IDMunicipioMaestro = @IDMunicipioMaestro, StatusMaestro = @StatusMaestro, IDTipoMaestro = @IDTipoMaestro  WHERE IDMaestro = @IDMaestro");
 
             cmd.Parameters.Add("@NomMaestro", SqlDbType.VarChar).Value = datosMaestro.NomMaestro;
             cmd.Parameters.Add("@ApePatMaestro", SqlDbType.VarChar).Value = datosMaestro.ApePatMaestro;
@@ -76,6 +76,8 @@ namespace SICOES2018.DAO
             cmd.Parameters.Add("@FotoMaestro", SqlDbType.VarChar).Value = datosMaestro.FotoMaestro;
             cmd.Parameters.Add("@CurriculumMaestro", SqlDbType.VarChar).Value = datosMaestro.CurriculumMaestro;
             cmd.Parameters.Add("@GradoAcademicoMaestro", SqlDbType.VarChar).Value = datosMaestro.GradoAcademicoMaestro;
+            cmd.Parameters.Add("@StatusMaestro", SqlDbType.TinyInt).Value = datosMaestro.StatusMaestro;
+            cmd.Parameters.Add("@IDTipoMaestro", SqlDbType.Int).Value = datosMaestro.IDTipoMaestro;
             cmd.Parameters.Add("@DireccionMaestro", SqlDbType.VarChar).Value = datosMaestro.DireccionMaestro;
             cmd.Parameters.Add("@IDMunicipioMaestro", SqlDbType.Int).Value = datosMaestro.IDMunicipioMaestro;
             cmd.Parameters.Add("@IDMaestro", SqlDbType.Int).Value = datosMaestro.IDMaestro;
@@ -95,7 +97,7 @@ namespace SICOES2018.DAO
 
         public DataTable LlenarGridView(int StatusMaestro)
         {
-            SQLCommand = "SELECT IDMaestro, NomMaestro, ApePatMaestro, ApeMatMaestro, StatusMaestro FROM Maestros WHERE StatusMaestro = " + StatusMaestro + ";";
+            SQLCommand = "SELECT IDMaestro, NomMaestro, ApePatMaestro, ApeMatMaestro, (CASE WHEN StatusMaestro = '1' THEN 'Activo' ELSE 'Inactivo'END) AS StatusMaestro FROM Maestros WHERE StatusMaestro =" + StatusMaestro + ";";
             return llenarTablas(SQLCommand);
             //CONVERT(varchar, FechaNacAlumno, 103) AS FechaNacAlumno,
         }
@@ -110,11 +112,11 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return buscarDatoEspecifico(cmd, Columna);
         }
-        public string buscarDatoStatus(string Columna, MaestrosBO datoStatusMaestro)
+        public string buscarDatoStatus(string Columna, MaestrosBO datosMaestro)
         {
-            cmd = new SqlCommand("SELECT " + Columna + " FROM Maestros WHERE StatusMaestro = @StatusMaestro;");
+            cmd = new SqlCommand("SELECT " + Columna + " FROM Maestros WHERE IDMaestro = @IDMaestro;");
 
-            cmd.Parameters.Add("@StatusMaestro", SqlDbType.Int).Value = datoStatusMaestro.StatusMaestro;
+            cmd.Parameters.Add("@IDMaestro", SqlDbType.Int).Value = datosMaestro.IDMaestro;
 
             cmd.CommandType = CommandType.Text;
             return buscarDatoEspecifico(cmd, Columna);

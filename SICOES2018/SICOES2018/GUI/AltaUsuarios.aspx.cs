@@ -115,7 +115,7 @@ namespace SICOES2018.GUI
             if (txtNomEmp.Text != "" && txtCedula.Text != "" && txtTelAlum.Text != "")
             {
                 DateTime fechaInicio = new DateTime(1900, 1, 1);
-
+                datoEmp.IDMaestro = Convert.ToInt32(Session["EmpModif"]);
                 guardarDatosGeneralesModif();
                     guardarDomicilio();
                     guardarDocumentos();
@@ -123,7 +123,6 @@ namespace SICOES2018.GUI
                     datoEmp.StatusMaestro = 1;
                 else
                     datoEmp.StatusMaestro = 0;
-                datoEmp.IDMaestro= Convert.ToInt32(Session["EmpModif"]);
                     ejecEmp.modificarInfoMaestro(datoEmp);
                     limpiarCampos();
                     LlenarGridViewAlumnos(1);
@@ -158,10 +157,16 @@ namespace SICOES2018.GUI
             datoEmp.ApePatMaestro= txtApePatEmp.Text;
             datoEmp.ApeMatMaestro = txtApeMatEmp.Text;
             datoEmp.CedulaMaestro = txtCedula.Text.ToUpper();
+            datoEmp.GradoAcademicoMaestro = txtGradoEmp.Text.ToUpper();
             if (Session["RutaFoto"] != null)
                 datoEmp.FotoMaestro = Session["RutaFoto"].ToString();
             else
                 datoEmp.FotoMaestro= imgFotoEmp.ImageUrl;
+            if (Session["RutaCurriculum"] != null)
+            datoEmp.CurriculumMaestro = Session["RutaCurriculum"].ToString();
+            else
+                datoEmp.CurriculumMaestro = ejecEmp.buscarDatoAlumno("CurriculumMaestro", datoEmp);
+
             //if (Session["RutaCurriculum"] != null)
             //    datoEmp.CurriculumMaestro = Session["RutaCurriculum"].ToString();
             //else
@@ -631,12 +636,13 @@ namespace SICOES2018.GUI
         {
             string currentCommand = e.CommandName;
             limpiarCampos();
-            
+
             if (currentCommand == "SelectAlum")
             {
                 int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
                 int IDMaestro = Convert.ToInt32(gvAlumnos.DataKeys[currentRowIndex].Value);
-                datoEmp.IDMaestro = IDMaestro;
+                Session["EmpModif"] = Convert.ToInt32(gvAlumnos.DataKeys[currentRowIndex].Value);
+                datoEmp.IDMaestro = Convert.ToInt32(Session["EmpModif"]); ;
                 //DATOS GENERALES
                 txtNomEmp.Text = ejecEmp.buscarDatoAlumno("NomMaestro", datoEmp);
                 txtApePatEmp.Text = ejecEmp.buscarDatoAlumno("ApePatMaestro", datoEmp);
@@ -647,6 +653,7 @@ namespace SICOES2018.GUI
                 imgFotoEmp.ImageUrl = ejecEmp.buscarDatoAlumno("FotoMaestro", datoEmp);
                 filecurriculum.Visible = false;
                 curriculumok.Visible = true;
+                Session["RutaCurriculum"] = ejecEmp.buscarDatoAlumno("CurriculumMaestro", datoEmp);
                 //curriculumok.Text = ejecEmp.buscarDatoAlumno("CurriculumMaestro", datoEmp);
                 curriculumok.Text = "<a href ='"+ ejecEmp.buscarDatoAlumno("CurriculumMaestro", datoEmp) + "'>Ver Curriculum</a>";
                 //if (txtNomPadre.Text == txtNomTutorAlum.Text)
@@ -674,6 +681,7 @@ namespace SICOES2018.GUI
                 //ddlTurnoEscPro.SelectedValue = ejecAlum.buscarDatoAlumno("IDTurno", datoAlum);
                 //DATOS DOCUMENTOS
                 datoPermiso.IDTipoMaestro= Convert.ToInt32(ejecEmp.buscarDatoAlumno("IDTipoMaestro", datoEmp));
+                
                 if (ejecPermiso.buscarDatoPermiso("Directivo", datoPermiso) == "1")
                     chckDirectivo.Checked = true;
                 if (ejecPermiso.buscarDatoPermiso("SecreAdmin", datoPermiso) == "1")
@@ -684,11 +692,13 @@ namespace SICOES2018.GUI
                     chckControl.Checked = true;
                 if (ejecPermiso.buscarDatoPermiso("Docente", datoPermiso) == "1")
                     chckDocente.Checked = true;
-                datoEmp.StatusMaestro = Convert.ToInt32(ejecEmp.buscarDatoStatus("StatusMaestro", datoEmp));
+                //datoEmp.StatusMaestro = Convert.ToInt32(ejecEmp.buscarDatoStatus("StatusMaestro", datoEmp));
+
                 if (ejecEmp.buscarDatoStatus("StatusMaestro", datoEmp) == "1")
                     ChckActivo.Checked = true;
                 else
                     ChckInactivo.Checked = true;
+               
                 //if (ejecDocs.buscarDatoDocs("BoletaCalificaciones", datoDocs) == "1")
                 //    chckBoleCalifAlum.Checked = true;
                 //if (ejecDocs.buscarDatoDocs("CertificadoParcial", datoDocs) == "1")

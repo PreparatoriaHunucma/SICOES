@@ -801,7 +801,7 @@
         function successalert() {
             swal({
                 title: 'Alumno registrado!',
-                text: 'El alumno ha sido registrado correctamente',
+                text: 'El maestro ha sido registrado correctamente',
                 type: 'success',
                 showConfirmButton: false,
                 timer: 1500
@@ -819,7 +819,7 @@
         function fotosuccessalert() {
             swal({
                 title: 'Foto guardada',
-                text: 'Continua con el registro del alumno',
+                text: 'Continua con el registro del maestro',
                 type: 'success',
                 showConfirmButton: false,
                 timer: 1500
