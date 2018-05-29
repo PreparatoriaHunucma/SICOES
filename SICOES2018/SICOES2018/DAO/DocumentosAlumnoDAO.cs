@@ -44,7 +44,7 @@ namespace SICOES2018.DAO
             cmd.Parameters.Add("@OficioRevalidacion", SqlDbType.TinyInt).Value = datosDocumentosAlumno.OficioRevalidacion;
             cmd.Parameters.Add("@ConstanciaMedia", SqlDbType.TinyInt).Value = datosDocumentosAlumno.ConstanciaMedia;
             cmd.Parameters.Add("@CertificadoSecundaria", SqlDbType.TinyInt).Value = datosDocumentosAlumno.CertificadoSecundaria;
-            cmd.Parameters.Add("@Otros", SqlDbType.TinyInt).Value = datosDocumentosAlumno.Otros;
+            cmd.Parameters.Add("@Otros", SqlDbType.VarChar).Value = datosDocumentosAlumno.Otros;
             cmd.Parameters.Add("@IDDocumentos", SqlDbType.Int).Value = datosDocumentosAlumno.IDDocumentos;
 
             cmd.CommandType = CommandType.Text;

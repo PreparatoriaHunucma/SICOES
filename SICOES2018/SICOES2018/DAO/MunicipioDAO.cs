@@ -22,9 +22,9 @@ namespace SICOES2018.DAO
         }
 
         //Para modificar el nombre del estado
-        public int modificarInfoAviso(MunicipioBO datosMunicipio)
+        public int modificarInfoMuni(MunicipioBO datosMunicipio)
         {
-            cmd = new SqlCommand("UPDATE Estadp SET Nombre = @Nombre WHERE IDMunicipio = @IDMunicipio");
+            cmd = new SqlCommand("UPDATE Municipio SET Nombre = @Nombre WHERE IDMunicipio = @IDMunicipio");
 
             cmd.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = datosMunicipio.Nombre;
             cmd.Parameters.Add("@IDMunicipio", SqlDbType.Int).Value = datosMunicipio.IDMunicipio;

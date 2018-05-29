@@ -22,22 +22,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// Control UpdatePanel1.
+        /// Control upDatosGen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
-        /// <summary>
-        /// Control upAlumnoGen.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upAlumnoGen;
+        protected global::System.Web.UI.UpdatePanel upDatosGen;
         
         /// <summary>
         /// Control chckNuevoIng.
@@ -211,13 +202,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Button btnConfirmFoto;
         
         /// <summary>
-        /// Control upTutor.
+        /// Control upDatosTut.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upTutor;
+        protected global::System.Web.UI.UpdatePanel upDatosTut;
         
         /// <summary>
         /// Control lbNomPadreAlum.
@@ -382,6 +373,15 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.TextBox txtTelTutorAlum;
         
         /// <summary>
+        /// Control upDatosDir.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upDatosDir;
+        
+        /// <summary>
         /// Control lbCalleAlum.
         /// </summary>
         /// <remarks>
@@ -452,15 +452,6 @@ namespace SICOES2018.GUI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCPAlum;
-        
-        /// <summary>
-        /// Control upDireccion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upDireccion;
         
         /// <summary>
         /// Control lbPaisAlum.
@@ -535,22 +526,22 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.TextBox txtTelAlum;
         
         /// <summary>
-        /// Control RequiredFieldValidator1.
+        /// Control upDatosEscPro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.UpdatePanel upDatosEscPro;
         
         /// <summary>
-        /// Control upEscProAlum.
+        /// Control rqNombreEscPro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upEscProAlum;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqNombreEscPro;
         
         /// <summary>
         /// Control lbEscProAlum.
@@ -623,6 +614,15 @@ namespace SICOES2018.GUI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTurnoEscPro;
+        
+        /// <summary>
+        /// Control upDatosDocs.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upDatosDocs;
         
         /// <summary>
         /// Control chckActaNacAlum.
@@ -733,13 +733,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.TextBox txtrOtrosAlum;
         
         /// <summary>
-        /// Control upAddPais.
+        /// Control upModalPais.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upAddPais;
+        protected global::System.Web.UI.UpdatePanel upModalPais;
         
         /// <summary>
         /// Control lbAddPais.
@@ -751,13 +751,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Label lbAddPais;
         
         /// <summary>
-        /// Control lbAdvAddPais.
+        /// Control rqNombrePais.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbAdvAddPais;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqNombrePais;
         
         /// <summary>
         /// Control txtAddPais.
@@ -796,13 +796,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Button btnAddNewPais;
         
         /// <summary>
-        /// Control upAddEstado.
+        /// Control upModalEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upAddEstado;
+        protected global::System.Web.UI.UpdatePanel upModalEstado;
         
         /// <summary>
         /// Control lbAddEstado.
@@ -823,13 +823,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.DropDownList ddlPaisAddEstado;
         
         /// <summary>
-        /// Control lbAdvEstado.
+        /// Control rqNombreEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbAdvEstado;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqNombreEstado;
         
         /// <summary>
         /// Control txtAddEstado.
@@ -868,13 +868,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Button btnAddEstado;
         
         /// <summary>
-        /// Control upAddMunicipio.
+        /// Control upModalMunicipio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upAddMunicipio;
+        protected global::System.Web.UI.UpdatePanel upModalMunicipio;
         
         /// <summary>
         /// Control lbAddMunicipio.
@@ -904,13 +904,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.DropDownList ddlEstadoAddMunicipio;
         
         /// <summary>
-        /// Control lbAdvMunicipio.
+        /// Control rqNombreMunicipio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbAdvMunicipio;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqNombreMunicipio;
         
         /// <summary>
         /// Control txtAddMunicipio.
@@ -922,13 +922,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.TextBox txtAddMunicipio;
         
         /// <summary>
-        /// Control Label3.
+        /// Control lbMuniReg.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lbMuniReg;
         
         /// <summary>
         /// Control gvAddMunicipio.
@@ -949,13 +949,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Button btnAddMunicipio;
         
         /// <summary>
-        /// Control upAddEscPro.
+        /// Control upModalEscPro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upAddEscPro;
+        protected global::System.Web.UI.UpdatePanel upModalEscPro;
         
         /// <summary>
         /// Control lbAddNomEscPro.
@@ -967,13 +967,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Label lbAddNomEscPro;
         
         /// <summary>
-        /// Control lbAdvNomEscPro.
+        /// Control rqNomEscPro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbAdvNomEscPro;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqNomEscPro;
         
         /// <summary>
         /// Control txtNomEscProAdd.
@@ -994,13 +994,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Label lbAddClaveEscPro;
         
         /// <summary>
-        /// Control lbAdvClaveEscPro.
+        /// Control rqClaveEscPro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbAdvClaveEscPro;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqClaveEscPro;
         
         /// <summary>
         /// Control txtClaveEscProAdd.
@@ -1039,13 +1039,22 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Button btnAddEscPro;
         
         /// <summary>
-        /// Control upAlumnos.
+        /// Control upDivModalAlumnos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upAlumnos;
+        protected global::System.Web.UI.UpdatePanel upDivModalAlumnos;
+        
+        /// <summary>
+        /// Control upModalAlumnos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upModalAlumnos;
         
         /// <summary>
         /// Control lbAlumnos.
@@ -1084,13 +1093,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.GridView gvAlumnos;
         
         /// <summary>
-        /// Control upInscripcion.
+        /// Control upModalInsc.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upInscripcion;
+        protected global::System.Web.UI.UpdatePanel upModalInsc;
         
         /// <summary>
         /// Control lbinstruccion.
@@ -1136,6 +1145,15 @@ namespace SICOES2018.GUI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnInscribirAlum;
+        
+        /// <summary>
+        /// Control upBotones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upBotones;
         
         /// <summary>
         /// Control btnAgregarAlumno.
