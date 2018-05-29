@@ -65,7 +65,7 @@ namespace SICOES2018.DAO
         //Para modificar la informacion del maestro dentro del sistema
         public int modificarInfoMaestro(MaestrosBO datosMaestro)
         {
-            cmd = new SqlCommand("UPDATE Alumno SET NomMaestro = @NomMaestro, ApePatMaestro = @ApePatMaestro, ApeMatMaestro = @ApeMatMaestro, TelMaestro = @TelMaestro, CorreoMaestro = @CorreoMaestro, CedulaMaestro = @CedulaMaestro, FotoMaestro = @FotoMaestro, CurriculumMaestro = @CurriculumMaestro, GradoAcademicoMaestro = @GradoAcademicoMaestro, DireccionMaestro = @DireccionMaestro, IDMunicipioMaestro = @IDMunicipioMaestro WHERE IDMaestro = @IDMaestro");
+            cmd = new SqlCommand("UPDATE Maestros SET NomMaestro = @NomMaestro, ApePatMaestro = @ApePatMaestro, ApeMatMaestro = @ApeMatMaestro, TelMaestro = @TelMaestro, CorreoMaestro = @CorreoMaestro, CedulaMaestro = @CedulaMaestro, FotoMaestro = @FotoMaestro, CurriculumMaestro = @CurriculumMaestro, GradoAcademicoMaestro = @GradoAcademicoMaestro, DireccionMaestro = @DireccionMaestro, IDMunicipioMaestro = @IDMunicipioMaestro WHERE IDMaestro = @IDMaestro");
 
             cmd.Parameters.Add("@NomMaestro", SqlDbType.VarChar).Value = datosMaestro.NomMaestro;
             cmd.Parameters.Add("@ApePatMaestro", SqlDbType.VarChar).Value = datosMaestro.ApePatMaestro;
@@ -106,6 +106,15 @@ namespace SICOES2018.DAO
             cmd = new SqlCommand("SELECT " + Columna + " FROM Maestros WHERE IDMaestro = @IDMaestro;");
 
             cmd.Parameters.Add("@IDMaestro", SqlDbType.Int).Value = datosMaestro.IDMaestro;
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, Columna);
+        }
+        public string buscarDatoStatus(string Columna, MaestrosBO datoStatusMaestro)
+        {
+            cmd = new SqlCommand("SELECT " + Columna + " FROM Maestros WHERE StatusMaestro = @StatusMaestro;");
+
+            cmd.Parameters.Add("@StatusMaestro", SqlDbType.Int).Value = datoStatusMaestro.StatusMaestro;
 
             cmd.CommandType = CommandType.Text;
             return buscarDatoEspecifico(cmd, Columna);

@@ -166,6 +166,15 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Label curriculumok;
         
         /// <summary>
+        /// btnResubirCurriculum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnResubirCurriculum;
+        
+        /// <summary>
         /// imgFotoEmp control.
         /// </summary>
         /// <remarks>
@@ -283,6 +292,15 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.DropDownList ddlMunicipioEmp;
         
         /// <summary>
+        /// lbTelAlum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbTelAlum;
+        
+        /// <summary>
         /// txtTelAlum control.
         /// </summary>
         /// <remarks>
@@ -353,6 +371,24 @@ namespace SICOES2018.GUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chckDocente;
+        
+        /// <summary>
+        /// ChckActivo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ChckActivo;
+        
+        /// <summary>
+        /// ChckInactivo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ChckInactivo;
         
         /// <summary>
         /// upAddPais control.
@@ -695,5 +731,14 @@ namespace SICOES2018.GUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarAlumno;
+        
+        /// <summary>
+        /// btnModifAlumno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModifAlumno;
     }
 }
