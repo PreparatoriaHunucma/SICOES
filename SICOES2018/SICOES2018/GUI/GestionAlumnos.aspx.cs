@@ -591,9 +591,11 @@ namespace SICOES2018.GUI
                     ObtenerDocumentos();
                     datoAlum.IDTipoAlumno = 1;
                     ejecAlum.agregarAlumno(datoAlum);
+                    Session["AlumnoReporteID"] = ejecAlum.buscarUltimoIDAlumno("IDAlumno");
                     LimpiarCampos();
                     LlenarGVAlumnos(1);
                     ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert();", true);
+                    Response.Redirect("~/GUI/Inicio");
                 }
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);

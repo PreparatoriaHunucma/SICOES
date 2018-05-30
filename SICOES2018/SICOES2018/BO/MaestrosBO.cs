@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace SICOES2018.BO
 {
@@ -39,5 +41,35 @@ namespace SICOES2018.BO
             g.DrawImage(Imgoriginal, 0, 0, NuevoAncho, NuevoAlto);
             return ImagenRedimencionada;
         }
+
+        public string EncriptarMD5(string texto)
+        {
+            try
+            {
+                string key = "accesopermitido";
+                byte[] keyArray;
+                byte[] Arreglo_a_cifrar = UTF8Encoding.UTF8.GetBytes(texto);
+                //Se utilizan las clases de encriptacion MD5
+                MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
+                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+                hashmd5.Clear();
+                //Arreglo TripleDES
+                TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+                tdes.Key = keyArray;
+                tdes.Mode = CipherMode.ECB;
+                tdes.Padding = PaddingMode.PKCS7;
+                ICryptoTransform cTransform = tdes.CreateEncryptor();
+                byte[] ArrayResultado = cTransform.TransformFinalBlock(Arreglo_a_cifrar, 0, Arreglo_a_cifrar.Length);
+                tdes.Clear();
+                //Se regresa el resultado en forma de una cadena
+                texto = Convert.ToBase64String(ArrayResultado, 0, ArrayResultado.Length);
+            }
+            catch (Exception)
+            {
+
+            }
+            return texto;
+        }
+
     }
 }

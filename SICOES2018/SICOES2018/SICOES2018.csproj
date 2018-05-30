@@ -208,7 +208,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="GUI\AltaUsuarios.aspx" />
+    <Content Include="GUI\GestionEmpleados.aspx" />
     <Content Include="GUI\GestionAsignaturas.aspx" />
     <Content Include="GUI\GestionCiclo.aspx" />
     <Content Include="GUI\GestionGrupos.aspx" />
@@ -228,6 +228,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Properties\PublishProfiles\EstadiaHunucma.pubxml" />
+    <Content Include="Resources\images\LoginBack1.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.min.js.map" />
@@ -386,12 +387,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="GUI\AltaUsuarios.aspx.cs">
-      <DependentUpon>AltaUsuarios.aspx</DependentUpon>
+    <Compile Include="GUI\GestionEmpleados.aspx.cs">
+      <DependentUpon>GestionEmpleados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\AltaUsuarios.aspx.designer.cs">
-      <DependentUpon>AltaUsuarios.aspx</DependentUpon>
+    <Compile Include="GUI\GestionEmpleados.aspx.designer.cs">
+      <DependentUpon>GestionEmpleados.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\GestionAsignaturas.aspx.cs">
       <DependentUpon>GestionAsignaturas.aspx</DependentUpon>
@@ -460,7 +461,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Resources\Curriculum\" />
+    <Folder Include="Curriculum\" />
     <Folder Include="Resources\FotoPerfilAlumno\" />
     <Folder Include="Resources\FotoPerfilMaestro\" />
   </ItemGroup>

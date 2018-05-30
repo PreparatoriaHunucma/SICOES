@@ -20,7 +20,7 @@
             color: #c5aa22;
         }
 
-         /*Estilos para los acordeones*/
+        /*Estilos para los acordeones*/
 
         a.accordion {
             background-color: #eee;
@@ -65,7 +65,8 @@
                 <a style="font-size: x-large; margin-top: -9px" href="#" class="w3-bar-item w3-button w3-padding-large w3-blue w3-hover-amber">
                     <img style="width: 48px; height: 48px" class="w3-circle" src="../Resources/images/logosicoes.png" />
                     SICOES</a>
-                <a style="font-size: xx-large; margin-top:-11px; margin-right:-5px" href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-amber w3-right w3-blue"><i class="fas fa-sign-out-alt"; style="font-size:x-large" aria-hidden="true"></i></a>
+                <a id="logout" onclick="Logout()" style="font-size: xx-large; margin-top:-11px; margin-right:-5px; cursor:pointer" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-amber w3-right w3-blue"><i class="fas fa-sign-out-alt"; style="font-size:x-large" aria-hidden="true"></i></a>
+                <asp:Button ID="btnLogout" runat="server" Text="Button" style="display:none" OnClick="Unnamed_Click" AutoPostBack="false"/>
 
                 <%--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 2</a>
                 <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
@@ -92,33 +93,32 @@
 
                     <div class="w3-white w3-text-grey w3-card-4 w3-animate-left">
                         <div class="w3-display-container">
-                            <img src="../Resources/images/port2.jpg" style="width: 100%" alt="Avatar">
+                            <asp:Image ID="Avatar" runat="server" Width="100%"/>
                             <div class="w3-display-bottomleft  w3-text-blue" style="background: rgba(197, 170, 34, 0.64); width: 100%">
-                                <h2 class="w3-margin-left">Jane Doe</h2>
+                                <h3 class="w3-margin-left"><asp:Label ID="lbNombre" runat="server" Text="Nombre"></asp:Label></h3>
                             </div>
                         </div>
                         <div class="w3-container">
-                            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i>Grado Académico</p>
-                            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i>ex@mail.com</p>
-                            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i>1224435534</p>
+                            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i><asp:Label ID="lbGradoAcademico" runat="server" Text="Grado Académico"></asp:Label></p>
+                            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i><asp:Label ID="lbCorreoElec" runat="server" Text="Correo electrónico"></asp:Label></p>
+                            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i><asp:Label ID="lbTeléfono" runat="server" Text="Numero de teléfono"></asp:Label></p>
                             <hr>
 
                              <%--Acordeones--%>
 
-                            <a onclick="Directivo('Directivo')" id="iconoDirectivo" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Directivo<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
+                            <a onclick="Directivo('Directivo')" id="iconoDirectivo" runat ="server" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Directivo<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
 
-                            <div id="Directivo" class="panel">
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Alta de usuarios</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Gestionar Ciclo Escolar</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Gestionar Semestres</a></p>
+                            <div id="Directivo" class="panel" runat="server">
+                                <p><a class="cursorencima" href="../GUI/GestionEmpleados.aspx" style="text-decoration: none">Gestión de empleados</a></p>
+                                <p><a class="cursorencima" href="../GUI/GestionCiclo.aspx" style="text-decoration: none">Gestión del Ciclo Escolar</a></p>
                             </div>
 
-                            <a onclick="Administrativa('Administrativa')" id="iconoAdministrativa" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Secretaría Administrativa<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
+                            <a onclick="Administrativa('Administrativa')" id="iconoAdministrativa" runat="server" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Secretaría Administrativa<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
 
-                            <div id="Administrativa" class="panel">
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Grados y Grupos</a></p>
+                            <div id="Administrativa" class="panel" runat="server">
+                                <p><a class="cursorencima" href="../GUI/GestionGrupos.aspx" style="text-decoration: none">Gestión de Grupos</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Planes de Estudio</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Asignaturas</a></p>
+                                <p><a class="cursorencima" href="../GUI/GestionAsignaturas.aspx" style="text-decoration: none">Gestión de Asignaturas</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Certificado</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Calificaciones</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Calificaciones de Acompañamiento</a></p>
@@ -127,23 +127,23 @@
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Justifiaciones</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Kardex</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Gestion del Plantel</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Baja de alumnos</a></p>
+                                <p><a class="cursorencima" href="../GUI/GestionAlumnos.aspx" style="text-decoration: none">Gestión de Alumnos</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Respaldo de información</a></p>
                             </div>
 
-                            <a onclick="Académica('Académica')" id="iconoAcadémica" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Secretaría Académica<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
-                            <div id="Académica" class="panel">
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Gestión de Docentes</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Administrar Materias</a></p>
+                            <a onclick="Académica('Académica')" id="iconoAcadémica" runat="server" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Secretaría Académica<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
+
+                            <div id="Académica" class="panel" runat="server">
+                                <p><a class="cursorencima" href="../GUI/GestionEmpleados.aspx" style="text-decoration: none">Gestión de Docentes</a></p>
+                                <p><a class="cursorencima" href="../GUI/GestionAsignaturas.aspx" style="text-decoration: none">Administrar Materias</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Credencial de Maestros</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Constancia laboral</a></p>
                             </div>
 
-                            <a onclick="Control('Control')" id="iconoControl" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Control Escolar<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
+                            <a onclick="Control('Control')" id="iconoControl" runat="server" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Control Escolar<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
 
-                            <div id="Control" class="panel">
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Inscripción de alumnos y asignación de grupos</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Baja de alumnos</a></p>
+                            <div id="Control" class="panel" runat="server">
+                                <p><a class="cursorencima" href="../GUI/GestionAlumnos.aspx" style="text-decoration: none">Gestión de Alumnos</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Calificaciones</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Aprovechamiento Escolar</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Boletas de calificación</a></p>
@@ -151,12 +151,12 @@
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Kardex</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Hojas de inscripción</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Avisos para Tutores y padres</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Información de alumnos</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Reinscripciones</a></p>
+<%--                                <p><a class="cursorencima" href="" style="text-decoration: none">Reinscripciones</a></p>--%>
                             </div>
 
-                            <a onclick="Docente('Docente')" id="iconoDocente" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Docente<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
-                            <div id="Docente" class="panel">
+                            <a onclick="Docente('Docente')" id="iconoDocente" runat="server" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Docente<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
+
+                            <div id="Docente" class="panel" runat="server">
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Calificaciones</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Lista de asistencia</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Notificaciones</a></p>
@@ -272,6 +272,12 @@
         })
 
         //FIN
+    </script>
+        <script>
+            function Logout() {
+                var fileuploadctrl = document.getElementById('<%=btnLogout.ClientID%>');
+                fileuploadctrl.click();
+            }
     </script>
 
 </body>

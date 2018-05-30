@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,12 +13,6 @@ namespace SICOES2018.GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void CrystalReportViewer1_Init(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -10,15 +10,36 @@ namespace SICOES2018.DAO
         string SQLCommand;
 
         //Para verificar si el alumno tiene una cuenta dentro del sistema
-        public int loginAlumno(AlumnosBO datosAlumno)
+        //Buscar el dato de una tabla en especifico
+        public string loginAlumno(AlumnosBO datosAlumno)
         {
-            cmd = new SqlCommand("SELECT * FROM Alumnos WHERE UsuarioAlumno = @UsuarioAlumno AND ContraseñaAlumno = @ContraseñaAlumno");
+            cmd = new SqlCommand("SELECT COUNT(*) AS Login FROM Alumnos WHERE UsuarioAlumno = @UsuarioAlumno AND ContraseñaAlumno = @ContraseñaAlumno");
 
             cmd.Parameters.Add("@UsuarioAlumno", SqlDbType.VarChar).Value = datosAlumno.UsuarioAlumno;
             cmd.Parameters.Add("@ContraseñaAlumno", SqlDbType.VarChar).Value = datosAlumno.ContrasenhaAlumno;
 
             cmd.CommandType = CommandType.Text;
-            return ejecutarComando(cmd);
+            return buscarDatoEspecifico(cmd, "Login");
+        }
+
+        public string ObtenerIDLogin(AlumnosBO datosAlumno)
+        {
+            cmd = new SqlCommand("SELECT IDAlumno FROM Alumnos WHERE UsuarioAlumno = @UsuarioAlumno AND ContraseñaAlumno = @ContraseñaAlumno");
+
+            cmd.Parameters.Add("@UsuarioAlumno", SqlDbType.VarChar).Value = datosAlumno.UsuarioAlumno;
+            cmd.Parameters.Add("@ContraseñaAlumno", SqlDbType.VarChar).Value = datosAlumno.ContrasenhaAlumno;
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, "IDAlumno");
+        }
+
+        //Buscar el dato de una tabla en especifico
+        public string buscarUltimoIDAlumno(string Columna)
+        {
+            cmd = new SqlCommand("SELECT TOP (1) [" + Columna + "] FROM Alumnos order by " + Columna + " desc;");
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, Columna);
         }
         //Para agregar a un alumno al sistema (Como pre-inscrito)
         public int agregarAlumno(AlumnosBO datosAlumno)

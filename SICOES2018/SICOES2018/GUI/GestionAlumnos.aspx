@@ -805,12 +805,6 @@
             document.getElementById("<%=btnConfirmFoto.ClientID%>").style.display = "none";
         };
     </script>
-    <script>
-        function UploadComplete(sender, args) {
-            var control = document.getElementById("<%=btnConfirmFoto.ClientID%>");
-            control.style.display = "block";
-        }
-    </script>
     <%--SCRIPT PARA ABRIR EL FILEUPLOAD CON EL ICONO--%>
     <script>
         function showBrowseDialog() {

@@ -57,31 +57,38 @@
                 </section>
             </div>
             <div class="new-account-form">
-                <h2 class="heading-w3-agile">Inicio de sesión</h2>
-                <form action="#" method="post">
-                    <div class="inputs-w3ls">
-                        <p>Usuario</p>
-                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                        <input type="email" class="email" name="Email" placeholder="" required="">
-                    </div>
-                    <div class="inputs-w3ls">
-                        <p>Contraseña</p>
-                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                        <input type="password" class="password" name="Password" placeholder="" required="">
-                    </div>
-                    <label class="anim">
-                        <%--                        <input type="checkbox" class="checkbox">
+                <form action="#" method="post" runat="server">
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            <h2 class="heading-w3-agile">Inicio de sesión</h2>
+                            <div class="inputs-w3ls">
+                                <p>Usuario</p>
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <asp:TextBox ID="txtuser" CssClass="email" runat="server" required=""></asp:TextBox>
+                            </div>
+                            <div class="inputs-w3ls">
+                                <p>Contraseña</p>
+                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                <asp:TextBox ID="txtpass" runat="server" CssClass="password" required="" TextMode="Password"></asp:TextBox>
+                            </div>
+                            <label class="anim">
+                                <%--                        <input type="checkbox" class="checkbox">
                         <span>Remember Me</span>--%>
-                        <a href="#">¿Olvidaste tu contraseña?</a>
-                    </label>
-                    <br />
-                    <input type="submit" value="Iniciar sesión">
+                                <a href="#">¿Olvidaste tu contraseña?</a>
+                            </label>
+                            <br />
+                            <asp:Button ID="btnLogin" runat="server" Text="Iniciar sesión" OnClick="btnLogin_Click"/>
+
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </form>
             </div>
             <div class="clear"></div>
 
         </div>
     </div>
+    <script src="../Scripts/sweetalert2.all.js"></script>
     <script src="../Resources/js/jquery.min.js"></script>
     <script>
         $(document).ready(function (c) {
@@ -106,6 +113,15 @@
                 }
             });
         });
+    </script>
+    <script type="text/javascript">
+        function erroralert() {
+            swal({
+                title: 'Oh oh',
+                text: 'Nombre de usuario o contraseña erroneas, intenta de nuevo',
+                type: 'error'
+            });
+        }
     </script>
     <!-- FlexSlider -->
 </body>
