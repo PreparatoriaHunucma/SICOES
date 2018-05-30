@@ -7,7 +7,7 @@ namespace SICOES2018.DAO
     public class ModalidadAsignaturasDAO : ConexionSQL
     {
         SqlCommand cmd;
-
+        string SQLCommand;
         //Para crear un aviso
         public int agregarModalidad(ModalidadAsignaturasBO datosModalidad)
         {
@@ -30,5 +30,13 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
+
+        //Para llenar los Drop Down List de los ciclos
+        public DataTable llenarDDL()
+        {
+            SQLCommand = "SELECT * FROM ModalidadAsignaturas";
+            return llenarTablas(SQLCommand);
+        }
+
     }
 }

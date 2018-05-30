@@ -7,7 +7,7 @@ namespace SICOES2018.DAO
     public class TipoAsignaturasDAO : ConexionSQL
     {
         SqlCommand cmd;
-
+        string SQLCommand;
         //Para crear un tipo de asignatura
         public int agregarTipoAlumno(TipoAsignaturasBO datosTipoAsignatura)
         {
@@ -29,6 +29,13 @@ namespace SICOES2018.DAO
 
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
+        }
+
+        //Para llenar los Drop Down List de los ciclos
+        public DataTable llenarDDL()
+        {
+            SQLCommand = "SELECT * FROM TipoAsignaturas";
+            return llenarTablas(SQLCommand);
         }
 
     }

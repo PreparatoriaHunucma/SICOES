@@ -39,6 +39,13 @@ namespace SICOES2018.DAO
             return llenarTablas(SQLCommand);
         }
 
+        public DataTable llenarDDLTodos()
+        {
+            SQLCommand = "SELECT * FROM dbo.Semestres";
+            return llenarTablas(SQLCommand);
+        }
+
+
         //Para llenar los Drop Down List de los ciclos
         public DataTable llenarDDLPar()
         {

@@ -7,6 +7,7 @@ namespace SICOES2018.DAO
     public class AsignaturasDAO : ConexionSQL
     {
         SqlCommand cmd;
+        string SQLCommand;
 
         //Para agregar una nueva asignatura al sistema
         public int agregarAsignatura(AsignaturasBO datosAsig)
@@ -61,5 +62,25 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
+
+        //Para llenar los GridView de los ciclos
+        public DataTable LlenarGridView(int IDSemestre)
+        {
+            SQLCommand = "SELECT a.IDAsignatura, a.NomAsig, s.Nombre AS Semestre, pe.Nombre AS PlanEstudio, ta.Nombre AS TipoAsig, ma.Nombre AS Modalidad FROM Asignaturas a JOIN Semestres s ON s.IDSemestre = a.IDSemestreAsig JOIN PlanesEstudio pe ON pe.IDPlanEstudios = a.IDPlanEstudios JOIN TipoAsignaturas ta ON ta.IDTipoAsig = a.IDTipoAsig JOIN ModalidadAsignaturas ma ON ma.IDModalidadAsig = a.IDModalidadAsig WHERE a.IDSemestreAsig = " + IDSemestre + "";
+            return llenarTablas(SQLCommand);
+        }
+
+        //Buscar el dato de una tabla en especifico
+        public string buscarDatoAsig(string Columna, AsignaturasBO datosAsig)
+        {
+            cmd = new SqlCommand("SELECT " + Columna + " FROM Asignaturas WHERE IDAsignatura = @IDAsignatura;");
+
+            cmd.Parameters.Add("@IDAsignatura", SqlDbType.Int).Value = datosAsig.IDAsignatura;
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, Columna);
+        }
+
+
     }
 }

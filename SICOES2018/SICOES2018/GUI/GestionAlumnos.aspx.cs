@@ -595,7 +595,6 @@ namespace SICOES2018.GUI
                     LimpiarCampos();
                     LlenarGVAlumnos(1);
                     ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert();", true);
-                    Response.Redirect("~/GUI/Inicio");
                 }
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
