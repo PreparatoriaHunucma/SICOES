@@ -175,6 +175,33 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.TextBox txtCurpAlum;
         
         /// <summary>
+        /// Control divmatricula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divmatricula;
+        
+        /// <summary>
+        /// Control lbMatriculaUADY.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbMatriculaUADY;
+        
+        /// <summary>
+        /// Control txtMatriculaUADY.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMatriculaUADY;
+        
+        /// <summary>
         /// Control imgFotoAlum.
         /// </summary>
         /// <remarks>
@@ -731,6 +758,24 @@ namespace SICOES2018.GUI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtrOtrosAlum;
+        
+        /// <summary>
+        /// Control lbSemestre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbSemestre;
+        
+        /// <summary>
+        /// Control ddlSemestre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSemestre;
         
         /// <summary>
         /// Control upModalPais.

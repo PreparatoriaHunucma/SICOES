@@ -59,9 +59,9 @@ namespace SICOES2018.DAO
         }
 
         //Para llenar los GridView y DDL de los paises
-        public DataTable llenarDDLCicloActual()
+        public DataTable llenarDDLCicloActual(int IDSemestre)
         {
-            SQLCommand = "SELECT g.* FROM dbo.Grupos g JOIN dbo.PeriodoEscolar pe ON pe.IDPeriodo = g.IDPeriodo JOIN dbo.CicloEscolar ce ON ce.IDCicloEscolar = pe.IDCicloEscolar WHERE pe.IDCicloEscolar = (SELECT ce.IDCicloEscolar FROM dbo.CicloEscolar ce WHERE ce.Status = 1) ORDER BY g.NombreGrupo";
+            SQLCommand = "SELECT g.* FROM dbo.Grupos g JOIN dbo.PeriodoEscolar pe ON pe.IDPeriodo = g.IDPeriodo JOIN dbo.CicloEscolar ce ON ce.IDCicloEscolar = pe.IDCicloEscolar WHERE pe.IDCicloEscolar = (SELECT ce.IDCicloEscolar FROM dbo.CicloEscolar ce WHERE ce.Status = 1) AND g.IDSemestre = " + IDSemestre + " ORDER BY g.NombreGrupo";
             return llenarTablas(SQLCommand);
         }
 

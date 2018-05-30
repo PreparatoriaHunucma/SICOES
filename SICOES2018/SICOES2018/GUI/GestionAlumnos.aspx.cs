@@ -32,6 +32,8 @@ namespace SICOES2018.GUI
         TiposAlumnoDAO ejecTipAlum = new TiposAlumnoDAO();
         TurnosEscuelasBO datoTurno = new TurnosEscuelasBO();
         TurnosEscuelasDAO ejecTurno = new TurnosEscuelasDAO();
+        SemestresBO datoSem = new SemestresBO();
+        SemestresDAO ejecSem = new SemestresDAO();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -50,8 +52,8 @@ namespace SICOES2018.GUI
                 LLenarDDLEstadoAlumno(Convert.ToInt32(ddlPaisAlum.SelectedValue));
                 ddlEstadoAlum.SelectedValue = "1";
                 LLenarDDLMunicipioAlumno(Convert.ToInt32(ddlEstadoAlum.SelectedValue));
-                LlenarDDLGrupos();
                 LlenarGVPais();
+                LLenarDDLSemestres();
             }
         }
 
@@ -75,6 +77,10 @@ namespace SICOES2018.GUI
                 datoAlum.NuevoAlumno = 1;
             else
                 datoAlum.NuevoAlumno = 0;
+            if (txtMatriculaUADY.Text != string.Empty)
+                datoAlum.Matricula = txtMatriculaUADY.Text;
+            else
+                datoAlum.Matricula = "No";
         }
         protected void ObtenerDatosGeneralesModif()
         {
@@ -203,6 +209,7 @@ namespace SICOES2018.GUI
             ejecDocs.agregarRegistroDocumentos(datoDocs);
             IDDocs = ejecDocs.buscarUltimoIDDocs("IDDocumentos");
             datoAlum.IDDocumentosAlumno = Convert.ToInt32(IDDocs);
+            datoAlum.IDSemestrePreinscripcion = Convert.ToInt32(ddlSemestre.SelectedValue);
         }
         protected void ObtenerDocumentosModif()
         {
@@ -347,6 +354,7 @@ namespace SICOES2018.GUI
             if (ejecDocs.buscarDatoDocs("CertificadoSecundaria", datoDocs) == "1")
                 chckCertifSecunAlum.Checked = true;
             txtrOtrosAlum.Text = ejecDocs.buscarDatoDocs("Otros", datoDocs);
+            ddlSemestre.SelectedValue = ejecAlum.buscarDatoAlumno("IDSemestrePreinscripcion", datoAlum);
         }
 
 
@@ -481,10 +489,10 @@ namespace SICOES2018.GUI
             ddlTurnoEscPro.DataValueField = "IDTurno";
             ddlTurnoEscPro.DataBind();
         }
-        protected void LlenarDDLGrupos()
+        protected void LlenarDDLGrupos(int IDSemestre)
         {
             ddlGrupos.Items.Clear();
-            ddlGrupos.DataSource = ejecGrupo.llenarDDLCicloActual();
+            ddlGrupos.DataSource = ejecGrupo.llenarDDLCicloActual(IDSemestre);
             ddlGrupos.DataTextField = "NombreGrupo";
             ddlGrupos.DataValueField = "IDGrupo";
             ddlGrupos.DataBind();
@@ -497,6 +505,14 @@ namespace SICOES2018.GUI
         {
             gvAlumnosGrupos.DataSource = ejecAlum.LlenarGridViewGrupos(IDGrupo);
             gvAlumnosGrupos.DataBind();
+        }
+        protected void LLenarDDLSemestres()
+        {
+            ddlSemestre.Items.Clear();
+            ddlSemestre.DataSource = ejecSem.llenarDDLTodos();
+            ddlSemestre.DataTextField = "Nombre";
+            ddlSemestre.DataValueField = "IDSemestre";
+            ddlSemestre.DataBind();
         }
 
 
@@ -635,6 +651,7 @@ namespace SICOES2018.GUI
                     ObtenerDomicilio();
                     ObtenerEscProAlum();
                     ObtenerDocumentosModif();
+                    datoAlum.IDSemestrePreinscripcion = Convert.ToInt32(ddlSemestre.SelectedValue);
                     ejecAlum.modificarInfoAlumno(datoAlum);
                     LimpiarCampos();
                     ddlAlumnosReg.SelectedIndex = 0;
@@ -643,6 +660,7 @@ namespace SICOES2018.GUI
                     btnModifAlumno.Visible = false;
                     btnInscribirAlumno.Visible = false;
                     btnDarBajaAlumno.Visible = false;
+                    txtMatriculaUADY.Enabled = true;
                     ActualizarUPDatos();
                     ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "modifsuccessalert();", true);
                 }
@@ -723,11 +741,14 @@ namespace SICOES2018.GUI
                 EstablecerEscProAlum();
                 EstablecerDocumentos();
                 LlenarGVAlumnos(Convert.ToInt32(ddlAlumnosReg.SelectedValue));
+                LlenarDDLGrupos(Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDSemestrePreinscripcion", datoAlum)));
                 btnAgregarAlumno.Visible = false;
                 btnModifAlumno.Visible = true;
                 btnInscribirAlumno.Visible = true;
                 btnDarBajaAlumno.Visible = true;
+                txtMatriculaUADY.Enabled = false;
                 ActualizarUPDatos();
+                ActualizarUPModals();
                 upDivModalAlumnos.Update();
             }
         }
@@ -1026,11 +1047,13 @@ namespace SICOES2018.GUI
         protected void chckRevalida_CheckedChanged(object sender, EventArgs e)
         {
             chckNuevoIng.Checked = false;
+            divmatricula.Visible = true;
         }
         //Cuando el alumno es de nuevo ingreso
         protected void chckNuevoIng_CheckedChanged(object sender, EventArgs e)
         {
             chckRevalida.Checked = false;
+            divmatricula.Visible = false;
         }
     }
 }

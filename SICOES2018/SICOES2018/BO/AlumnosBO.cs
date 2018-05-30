@@ -7,8 +7,8 @@ namespace SICOES2018.BO
 {
     public class AlumnosBO
     {
-        private int iDAlumno, iDTipoAlumno, iDMunicipioAlumno, iDDocumentosAlumno, iDEscProAlumno, iDGrupo, iDTurno;
-        private String nomAlumno, apePatAlumno, apeMatAlumno, telAlumno, fotoAlumno, calleAlumno, numeroAlumno, coloniaAlumno, codigoPostalAlumno, nomPadreAlumno, telPadreAlumno, nomMadreAlumno, telMadreAlumno, nomTutorAlumno, telTutorAlumno, curpAlumno, usuarioAlumno, contrasenhaAlumno;
+        private int iDAlumno, iDTipoAlumno, iDMunicipioAlumno, iDDocumentosAlumno, iDEscProAlumno, iDGrupo, iDTurno, iDSemestrePreinscripcion;
+        private String nomAlumno, apePatAlumno, apeMatAlumno, telAlumno, fotoAlumno, calleAlumno, numeroAlumno, coloniaAlumno, codigoPostalAlumno, nomPadreAlumno, telPadreAlumno, nomMadreAlumno, telMadreAlumno, nomTutorAlumno, telTutorAlumno, curpAlumno, usuarioAlumno, contrasenhaAlumno, matricula;
         private DateTime ingresoAlumno, fechaNacAlum;
         private short revalidaAlumno, nuevoAlumno;
 
@@ -42,6 +42,8 @@ namespace SICOES2018.BO
         public short NuevoAlumno { get => nuevoAlumno; set => nuevoAlumno = value; }
         public int IDTurno { get => iDTurno; set => iDTurno = value; }
         public DateTime FechaNacAlum { get => fechaNacAlum; set => fechaNacAlum = value; }
+        public string Matricula { get => matricula; set => matricula = value; }
+        public int IDSemestrePreinscripcion { get => iDSemestrePreinscripcion; set => iDSemestrePreinscripcion = value; }
 
         public string EncriptarMD5(string texto)
         {

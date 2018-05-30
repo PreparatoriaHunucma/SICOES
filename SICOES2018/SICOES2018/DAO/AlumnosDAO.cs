@@ -44,7 +44,7 @@ namespace SICOES2018.DAO
         //Para agregar a un alumno al sistema (Como pre-inscrito)
         public int agregarAlumno(AlumnosBO datosAlumno)
         {
-            cmd = new SqlCommand("INSERT INTO Alumnos (NomAlumno, ApePatAlumno, ApeMatAlumno, TelAlumno, IngresoAlumno, IDTipoAlumno, FotoAlumno, CalleAlumno, NumeroAlumno, ColoniaAlumno, CodigoPostalAlumno, IDMunicipioAlumno, NomPadreAlumno, TelPadreAlumno, NomMadreAlumno, TelMadreAlumno, NomTutorAlumno, TelTutorAlumno, IDDocumentosAlumno, IDEscProAlumno, RevalidaAlumno, NuevoAlumno, FechaNacAlumno, CurpAlumno, IDTurno) VALUES (@NomAlumno, @ApePatAlumno, @ApeMatAlumno, @TelAlumno, GETDATE(), @IDTipoAlumno, @FotoAlumno, @CalleAlumno, @NumeroAlumno, @ColoniaAlumno, @CodigoPostalAlumno, @IDMunicipioAlumno, @NomPadreAlumno, @TelPadreAlumno, @NomMadreAlumno, @TelMadreAlumno, @NomTutorAlumno, @TelTutorAlumno, @IDDocumentosAlumno, @IDEscProAlumno, @RevalidaAlumno, @NuevoAlumno, @FechaNacAlumno, @CurpAlumno, @IDTurno)");
+            cmd = new SqlCommand("INSERT INTO Alumnos (NomAlumno, ApePatAlumno, ApeMatAlumno, TelAlumno, IngresoAlumno, IDTipoAlumno, FotoAlumno, CalleAlumno, NumeroAlumno, ColoniaAlumno, CodigoPostalAlumno, IDMunicipioAlumno, NomPadreAlumno, TelPadreAlumno, NomMadreAlumno, TelMadreAlumno, NomTutorAlumno, TelTutorAlumno, IDDocumentosAlumno, IDEscProAlumno, RevalidaAlumno, NuevoAlumno, FechaNacAlumno, CurpAlumno, IDTurno, Matricula, IDSemestrePreinscripcion) VALUES (@NomAlumno, @ApePatAlumno, @ApeMatAlumno, @TelAlumno, GETDATE(), @IDTipoAlumno, @FotoAlumno, @CalleAlumno, @NumeroAlumno, @ColoniaAlumno, @CodigoPostalAlumno, @IDMunicipioAlumno, @NomPadreAlumno, @TelPadreAlumno, @NomMadreAlumno, @TelMadreAlumno, @NomTutorAlumno, @TelTutorAlumno, @IDDocumentosAlumno, @IDEscProAlumno, @RevalidaAlumno, @NuevoAlumno, @FechaNacAlumno, @CurpAlumno, @IDTurno, @Matricula, @IDSemestrePreinscripcion)");
 
             cmd.Parameters.Add("@NomAlumno", SqlDbType.VarChar).Value = datosAlumno.NomAlumno;
             cmd.Parameters.Add("@ApePatAlumno", SqlDbType.VarChar).Value = datosAlumno.ApePatAlumno;
@@ -70,6 +70,8 @@ namespace SICOES2018.DAO
             cmd.Parameters.Add("@FechaNacAlumno", SqlDbType.Date).Value = datosAlumno.FechaNacAlum.ToString("yyyy-MM-dd");
             cmd.Parameters.Add("@CurpAlumno", SqlDbType.VarChar).Value = datosAlumno.CurpAlumno;
             cmd.Parameters.Add("@IDTurno", SqlDbType.Int).Value = datosAlumno.IDTurno;
+            cmd.Parameters.Add("@Matricula", SqlDbType.VarChar).Value = datosAlumno.Matricula;
+            cmd.Parameters.Add("@IDSemestrePreinscripcion", SqlDbType.VarChar).Value = datosAlumno.IDSemestrePreinscripcion;
 
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
@@ -102,7 +104,7 @@ namespace SICOES2018.DAO
         //Para modificar la informacion del alumno dentro del sistema
         public int modificarInfoAlumno(AlumnosBO datosAlumno)
         {
-            cmd = new SqlCommand("UPDATE Alumnos SET NomAlumno = @NomAlumno, ApePatAlumno = @ApePatAlumno, ApeMatAlumno = @ApeMatAlumno, TelAlumno = @TelAlumno, FotoAlumno = @FotoAlumno, CalleAlumno = @CalleAlumno, NumeroAlumno = @NumeroAlumno, ColoniaAlumno = @ColoniaAlumno, CodigoPostalAlumno = @CodigoPostalAlumno, IDMunicipioAlumno = @IDMunicipioAlumno, NomPadreAlumno = @NomPadreAlumno, TelPadreAlumno = @TelPadreAlumno, NomMadreAlumno = @NomMadreAlumno, TelMadreAlumno = @TelMadreAlumno, NomTutorAlumno = @NomTutorAlumno, TelTutorAlumno = @TelTutorAlumno, IDEscProAlumno = @IDEscProAlumno, RevalidaAlumno = @RevalidaAlumno, NuevoAlumno = @NuevoAlumno, FechaNacAlumno = @FechaNacAlumno, CurpAlumno = @CurpAlumno WHERE IDAlumno = @IDAlumno");
+            cmd = new SqlCommand("UPDATE Alumnos SET NomAlumno = @NomAlumno, ApePatAlumno = @ApePatAlumno, ApeMatAlumno = @ApeMatAlumno, TelAlumno = @TelAlumno, FotoAlumno = @FotoAlumno, CalleAlumno = @CalleAlumno, NumeroAlumno = @NumeroAlumno, ColoniaAlumno = @ColoniaAlumno, CodigoPostalAlumno = @CodigoPostalAlumno, IDMunicipioAlumno = @IDMunicipioAlumno, NomPadreAlumno = @NomPadreAlumno, TelPadreAlumno = @TelPadreAlumno, NomMadreAlumno = @NomMadreAlumno, TelMadreAlumno = @TelMadreAlumno, NomTutorAlumno = @NomTutorAlumno, TelTutorAlumno = @TelTutorAlumno, IDEscProAlumno = @IDEscProAlumno, RevalidaAlumno = @RevalidaAlumno, NuevoAlumno = @NuevoAlumno, FechaNacAlumno = @FechaNacAlumno, CurpAlumno = @CurpAlumno, IDSemestrePreinscripcion = @IDSemestrePreinscripcion WHERE IDAlumno = @IDAlumno");
 
             cmd.Parameters.Add("@NomAlumno", SqlDbType.VarChar).Value = datosAlumno.NomAlumno;
             cmd.Parameters.Add("@ApePatAlumno", SqlDbType.VarChar).Value = datosAlumno.ApePatAlumno;
@@ -126,7 +128,7 @@ namespace SICOES2018.DAO
             cmd.Parameters.Add("@FechaNacAlumno", SqlDbType.Date).Value = datosAlumno.FechaNacAlum;
             cmd.Parameters.Add("@CurpAlumno", SqlDbType.VarChar).Value = datosAlumno.CurpAlumno;
             cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosAlumno.IDAlumno;
-
+            cmd.Parameters.Add("@IDSemestrePreinscripcion", SqlDbType.Int).Value = datosAlumno.IDSemestrePreinscripcion;
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
