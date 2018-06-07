@@ -40,19 +40,20 @@ namespace SICOES2018.GUI
             if (!Page.IsPostBack)
             {
                 DataBind();
+                LLenarDDLTipoAlumno();
+                ddlAlumnosReg.SelectedIndex = 0;
+                LlenarGVAlumnos(Convert.ToInt32(ddlAlumnosReg.SelectedValue));
                 LLenarDDLPaisAlumno();
                 LLenarDDLPaisEstado();
                 LlenarDDLPaisMunicipio();
-                LlenarDDLEscuelaProcedencia();
-                LlenarDDLTurnos();
-                LLenarDDLTipoAlumno();
-                LlenarGVEscuelaProcedencia();
-                LlenarGVAlumnos(Convert.ToInt32(ddlAlumnosReg.SelectedValue));
+                LlenarGVPais();
                 ddlPaisAlum.SelectedValue = "1";
                 LLenarDDLEstadoAlumno(Convert.ToInt32(ddlPaisAlum.SelectedValue));
                 ddlEstadoAlum.SelectedValue = "1";
                 LLenarDDLMunicipioAlumno(Convert.ToInt32(ddlEstadoAlum.SelectedValue));
-                LlenarGVPais();
+                ddlMunicipioAlum.SelectedValue = "2";
+                LlenarDDLEscuelaProcedencia();
+                LlenarGVEscuelaProcedencia();
                 LLenarDDLSemestres();
             }
         }
@@ -748,7 +749,6 @@ namespace SICOES2018.GUI
                 btnDarBajaAlumno.Visible = true;
                 txtMatriculaUADY.Enabled = false;
                 ActualizarUPDatos();
-                ActualizarUPModals();
                 upDivModalAlumnos.Update();
             }
         }
@@ -799,13 +799,14 @@ namespace SICOES2018.GUI
                 LLenarDDLPaisAlumno();
                 LLenarDDLPaisEstado();
                 LlenarDDLPaisMunicipio();
-                txtAddPais.Text = string.Empty;
+                txtAddPais.Text = "";
                 ActualizarUPDatos();
                 ActualizarUPModals();
             }
             else
             {
-                upModalPais.Update();
+                LlenarGVPais();
+                //upModalPais.Update();
             }
         }
         //Al presionar editar en el grid

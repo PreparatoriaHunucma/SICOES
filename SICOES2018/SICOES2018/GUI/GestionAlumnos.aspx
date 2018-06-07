@@ -27,6 +27,7 @@
                 </div>
                 <hr style="margin: 5px" />
                 <div class="w3-row">
+                    <%--DATOS--%>
                     <div class="w3-padding w3-col m6">
                         <div class="w3-row" style="margin-bottom: -20px">
                             <asp:Label ID="lbNomAlumno" runat="server" Text="Nombre(s)" Font-Bold="true"></asp:Label>
@@ -60,11 +61,12 @@
                             <asp:TextBox runat="server" CssClass="w3-input" ID="txtCurpAlum" MaxLength="18" type="text" /><br />
                         </div>
                         <div class="w3-row" style="margin-bottom: -20px" runat="server" id="divmatricula" visible="false">
-                            <asp:Label ID="lbMatriculaUADY" runat="server" Text="Si el alumno proviene de una institución incorporada a la UADY, ingrese su matricula" Font-Bold="true"></asp:Label>
+                            <asp:Label ID="lbMatriculaUADY" runat="server" Text="Matrícula de la UADY" Font-Bold="true"></asp:Label>
                             <br />
                             <asp:TextBox runat="server" CssClass="w3-input" ID="txtMatriculaUADY" MaxLength="18" type="text" /><br />
                         </div>
                     </div>
+                    <%--FOTO--%>
                     <div class="w3-padding w3-col m6">
                         <div class="w3-row w3-center">
                             <div class="w3-row">
@@ -316,14 +318,14 @@
                                 <br />
                                 <asp:CheckBox runat="server" CssClass="w3-check bigcheck" ID="chckCertifSecunAlum" type="checkbox" Text="  Certificado de secundaria" Font-Bold="true" />
                             </div>
-                            <div class="w3-col m4 w3-margin-top">
+                            <div class="w3-col m4 w3-margin-top w3-margin-bottom">
                                 <asp:Label ID="lbOtrosAlum" runat="server" Text="Otros documentos" Font-Bold="true"></asp:Label>
                                 <br />
                                 <asp:TextBox runat="server" class="w3-input" ID="txtrOtrosAlum" cols="20" Rows="2" Style="min-width: 300px; max-width: 300px" TextMode="MultiLine" placeholder="Separa los documentos con comas, ejemplo: 'Acta, Comprobante'"></asp:TextBox>
                                 <br />
                                 <asp:Label ID="lbSemestre" runat="server" Text="Semestre de inscripción" Font-Bold="true"></asp:Label>
                                 <br />
-                                <asp:DropDownList CssClass="w3-dropdown-click w3-input" ID="ddlSemestre" Style="width: 175px" runat="server" AppendDataBoundItems="true" AutoPostBack="true"></asp:DropDownList>
+                                <asp:DropDownList CssClass="w3-dropdown-click w3-input" ID="ddlSemestre" Style="width: 300px" runat="server" AppendDataBoundItems="true" AutoPostBack="true"></asp:DropDownList>
                             </div>
                         </div>
                     </div>
@@ -812,6 +814,13 @@
     <script>
         var guardarboton = function (event) {
             document.getElementById("<%=btnConfirmFoto.ClientID%>").style.display = "none";
+            swal({
+                title: 'Foto guardada',
+                text: 'Continua con el registro del alumno',
+                type: 'success',
+                showConfirmButton: false,
+                timer: 1500
+            });
         };
     </script>
     <%--SCRIPT PARA ABRIR EL FILEUPLOAD CON EL ICONO--%>

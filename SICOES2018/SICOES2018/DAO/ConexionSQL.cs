@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace SICOES2018.DAO
@@ -45,17 +46,22 @@ namespace SICOES2018.DAO
             }
             return 1;
         }
-        public DataSet ejecutarSentencia(SqlCommand sqlcomando)
+        public DataSet ejecutarSentencia(string Sentencia)
         {
             ComandoSQL = new SqlCommand();
             adaptador = new SqlDataAdapter();
+            ComandoSQL = new SqlCommand();
             DataSetAdaptador = new DataSet();
-            ComandoSQL = sqlcomando;
+
+
+            String strComandoSQL = Sentencia;
+            ComandoSQL.CommandText = strComandoSQL;
+
             ComandoSQL.Connection = this.establecerConexion();
             this.abrirConexion();
+
             adaptador.SelectCommand = ComandoSQL;
             adaptador.Fill(DataSetAdaptador);
-            this.cerrarConexion();
             return DataSetAdaptador;
         }
         public DataTable ejecutarBusqueda(SqlCommand sqlcomando)

@@ -163,5 +163,10 @@ namespace SICOES2018.DAO
             return llenarTablas(SQLCommand);
         }
 
+        public DataSet ReporteFormatoPreinscripcion(int IDAlumno, int IDMaestro)
+        {
+            SQLCommand = "EXEC ReporteFormatoPreinscripcion " + IDAlumno + "," + IDMaestro + "";
+            return ejecutarSentencia(SQLCommand);
+        }
     }
 }
