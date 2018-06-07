@@ -16,10 +16,9 @@ namespace SICOES2018.GUI
 {
     public partial class Prueba_de_carta : System.Web.UI.Page
     {
-        RepCartaCompromiso rprt = new RepCartaCompromiso();
+        FormatoCartaCompromiso rprt = new FormatoCartaCompromiso();
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
         protected void ButtonReporte_Click(object sender, EventArgs e)
         {

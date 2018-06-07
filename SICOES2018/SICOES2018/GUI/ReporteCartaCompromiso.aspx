@@ -11,7 +11,7 @@
     <asp:Button runat="server" Text="Soy un boton, presioname!" ID="ButtonReporte" OnClick="ButtonReporte_Click" />
       
         <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server"   
-            AutoDataBind="true" width="100%" />  
+            AutoDataBind="true" width="100%" ToolPanelView="None"/>  
         
     </div>  
 </asp:Content>

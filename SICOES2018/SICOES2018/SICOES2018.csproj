@@ -217,8 +217,8 @@
     <Content Include="GUI\Index.aspx" />
     <Content Include="GUI\GestionAlumnos.aspx" />
     <Content Include="GUI\ReporteCartaCompromiso.aspx" />
-    <Content Include="GUI\pruebasinmaster.aspx" />
     <Content Include="MasterPages\mstrpgAdmin.Master" />
+    <Content Include="Reports\FormatoPreinscripcion.aspx" />
     <Content Include="Resources\fonts\fontawesome-webfont.eot" />
     <Content Include="Resources\fonts\fontawesome-webfont.ttf" />
     <Content Include="Resources\fonts\fontawesome-webfont.woff" />
@@ -453,13 +453,6 @@
     <Compile Include="GUI\ReporteCartaCompromiso.aspx.designer.cs">
       <DependentUpon>ReporteCartaCompromiso.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\pruebasinmaster.aspx.cs">
-      <DependentUpon>pruebasinmaster.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GUI\pruebasinmaster.aspx.designer.cs">
-      <DependentUpon>pruebasinmaster.aspx</DependentUpon>
-    </Compile>
     <Compile Include="MasterPages\mstrpgAdmin.Master.cs">
       <DependentUpon>mstrpgAdmin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -468,15 +461,23 @@
       <DependentUpon>mstrpgAdmin.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\CrystalReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
-    </Compile>
     <Compile Include="Reports\FormatoCartaCompromiso.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FormatoCartaCompromiso.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\FormatoPreinscripcion.aspx.cs">
+      <DependentUpon>FormatoPreinscripcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\FormatoPreinscripcion.aspx.designer.cs">
+      <DependentUpon>FormatoPreinscripcion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FormatoPreinscripcion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormatoPreinscripcion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -529,13 +530,13 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\CrystalReport1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\FormatoCartaCompromiso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FormatoCartaCompromiso.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FormatoPreinscripcion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FormatoPreinscripcion.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
