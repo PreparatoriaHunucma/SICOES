@@ -60,16 +60,16 @@
       <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.3.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine">
-      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportSource">
-      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Shared">
-      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Web">
-      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Web.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Web.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
@@ -216,7 +216,7 @@
     <Content Include="GUI\Inicio.aspx" />
     <Content Include="GUI\Index.aspx" />
     <Content Include="GUI\GestionAlumnos.aspx" />
-    <Content Include="GUI\ReporteCartaCompromiso.aspx" />
+    <Content Include="Reports\ReporteCartaCompromiso.aspx" />
     <Content Include="MasterPages\mstrpgAdmin.Master" />
     <Content Include="Reports\FormatoPreinscripcion.aspx" />
     <Content Include="Resources\fonts\fontawesome-webfont.eot" />
@@ -446,11 +446,11 @@
     <Compile Include="GUI\GestionAlumnos.aspx.designer.cs">
       <DependentUpon>GestionAlumnos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ReporteCartaCompromiso.aspx.cs">
+    <Compile Include="Reports\ReporteCartaCompromiso.aspx.cs">
       <DependentUpon>ReporteCartaCompromiso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\ReporteCartaCompromiso.aspx.designer.cs">
+    <Compile Include="Reports\ReporteCartaCompromiso.aspx.designer.cs">
       <DependentUpon>ReporteCartaCompromiso.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\mstrpgAdmin.Master.cs">

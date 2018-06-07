@@ -616,7 +616,7 @@ namespace SICOES2018.GUI
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
             ActualizarUPDatos();
-            Response.Redirect()
+            
         }
         //Establecer la fecha máxima del validador
         protected void rngFechaNacAlum_Init(object sender, EventArgs e)

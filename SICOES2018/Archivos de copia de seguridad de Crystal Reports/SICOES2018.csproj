@@ -59,10 +59,18 @@
     <Reference Include="AspNet.ScriptManager.jQuery, Version=3.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.3.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
     </Reference>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Web.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
     </Reference>
@@ -200,13 +208,17 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="GUI\AltaUsuarios.aspx" />
-
+    <Content Include="GUI\GestionCalificaciones.aspx" />
+    <Content Include="GUI\GestionEmpleados.aspx" />
+    <Content Include="GUI\GestionAsignaturas.aspx" />
     <Content Include="GUI\GestionCiclo.aspx" />
+    <Content Include="GUI\GestionGrupos.aspx" />
     <Content Include="GUI\Inicio.aspx" />
     <Content Include="GUI\Index.aspx" />
     <Content Include="GUI\GestionAlumnos.aspx" />
+    <Content Include="GUI\ReporteCartaCompromiso.aspx" />
     <Content Include="MasterPages\mstrpgAdmin.Master" />
+    <Content Include="Reports\FormatoPreinscripcion.aspx" />
     <Content Include="Resources\fonts\fontawesome-webfont.eot" />
     <Content Include="Resources\fonts\fontawesome-webfont.ttf" />
     <Content Include="Resources\fonts\fontawesome-webfont.woff" />
@@ -219,6 +231,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Properties\PublishProfiles\EstadiaHunucma.pubxml" />
+    <Content Include="Resources\images\LoginBack1.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.min.js.map" />
@@ -377,20 +390,40 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="GUI\AltaUsuarios.aspx.cs">
-      <DependentUpon>AltaUsuarios.aspx</DependentUpon>
+    <Compile Include="GUI\GestionCalificaciones.aspx.cs">
+      <DependentUpon>GestionCalificaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GUI\AltaUsuarios.aspx.designer.cs">
-      <DependentUpon>AltaUsuarios.aspx</DependentUpon>
+    <Compile Include="GUI\GestionCalificaciones.aspx.designer.cs">
+      <DependentUpon>GestionCalificaciones.aspx</DependentUpon>
     </Compile>
-
+    <Compile Include="GUI\GestionEmpleados.aspx.cs">
+      <DependentUpon>GestionEmpleados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionEmpleados.aspx.designer.cs">
+      <DependentUpon>GestionEmpleados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionAsignaturas.aspx.cs">
+      <DependentUpon>GestionAsignaturas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionAsignaturas.aspx.designer.cs">
+      <DependentUpon>GestionAsignaturas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GestionCiclo.aspx.cs">
       <DependentUpon>GestionCiclo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GUI\GestionCiclo.aspx.designer.cs">
       <DependentUpon>GestionCiclo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionGrupos.aspx.cs">
+      <DependentUpon>GestionGrupos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionGrupos.aspx.designer.cs">
+      <DependentUpon>GestionGrupos.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
@@ -413,6 +446,13 @@
     <Compile Include="GUI\GestionAlumnos.aspx.designer.cs">
       <DependentUpon>GestionAlumnos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ReporteCartaCompromiso.aspx.cs">
+      <DependentUpon>ReporteCartaCompromiso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\ReporteCartaCompromiso.aspx.designer.cs">
+      <DependentUpon>ReporteCartaCompromiso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\mstrpgAdmin.Master.cs">
       <DependentUpon>mstrpgAdmin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -421,6 +461,25 @@
       <DependentUpon>mstrpgAdmin.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\FormatoCartaCompromiso.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormatoCartaCompromiso.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\FormatoPreinscripcion.aspx.cs">
+      <DependentUpon>FormatoPreinscripcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\FormatoPreinscripcion.aspx.designer.cs">
+      <DependentUpon>FormatoPreinscripcion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FormatoPreinscripcion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormatoPreinscripcion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -432,7 +491,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Resources\Curriculum\" />
+    <Folder Include="Curriculum\" />
     <Folder Include="Resources\FotoPerfilAlumno\" />
     <Folder Include="Resources\FotoPerfilMaestro\" />
   </ItemGroup>
@@ -471,7 +530,14 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\MargenesReportes.rdlc" />
+    <EmbeddedResource Include="Reports\FormatoCartaCompromiso.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FormatoCartaCompromiso.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FormatoPreinscripcion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FormatoPreinscripcion.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
