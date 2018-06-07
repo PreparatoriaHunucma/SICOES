@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/SICOES2018/SICOES2018/Reports/CartaCompromiso.xss
+/SICOES2018/SICOES2018/Reports/CartaCompromiso.xsd
+/SICOES2018/SICOES2018/Reports/CartaCompromiso.xsc

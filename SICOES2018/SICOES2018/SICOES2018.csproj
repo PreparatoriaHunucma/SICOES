@@ -215,6 +215,8 @@
     <Content Include="GUI\Inicio.aspx" />
     <Content Include="GUI\Index.aspx" />
     <Content Include="GUI\GestionAlumnos.aspx" />
+    <Content Include="GUI\ReporteCartaCompromiso.aspx" />
+    <Content Include="GUI\pruebasinmaster.aspx" />
     <Content Include="MasterPages\mstrpgAdmin.Master" />
     <Content Include="Resources\fonts\fontawesome-webfont.eot" />
     <Content Include="Resources\fonts\fontawesome-webfont.ttf" />
@@ -436,6 +438,20 @@
     <Compile Include="GUI\GestionAlumnos.aspx.designer.cs">
       <DependentUpon>GestionAlumnos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ReporteCartaCompromiso.aspx.cs">
+      <DependentUpon>ReporteCartaCompromiso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\ReporteCartaCompromiso.aspx.designer.cs">
+      <DependentUpon>ReporteCartaCompromiso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\pruebasinmaster.aspx.cs">
+      <DependentUpon>pruebasinmaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\pruebasinmaster.aspx.designer.cs">
+      <DependentUpon>pruebasinmaster.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\mstrpgAdmin.Master.cs">
       <DependentUpon>mstrpgAdmin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -448,6 +464,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FormatoPreinscripcion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\FormatoCartaCompromiso.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormatoCartaCompromiso.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -503,6 +525,10 @@
     <EmbeddedResource Include="Reports\FormatoPreinscripcion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FormatoPreinscripcion.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FormatoCartaCompromiso.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FormatoCartaCompromiso.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
