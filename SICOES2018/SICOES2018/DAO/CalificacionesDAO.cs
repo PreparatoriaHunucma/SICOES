@@ -7,6 +7,7 @@ namespace SICOES2018.DAO
     public class CalificacionesDAO :ConexionSQL
     {
         SqlCommand cmd;
+        string SQLCommand;
 
         //Para agregar una calificacion
         public int agregarCalificacion(CalificacionesBO datosCalif)
@@ -21,6 +22,14 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
+
+        public DataTable ObtenerCalificaciones()
+        {
+            SQLCommand = "select CONCAT(al.ApePatAlumno,' ',al.ApeMatAlumno, ' ', al.NomAlumno) AS Alumno, cal.Calificacion, cal.Inasistencias from Calificaciones cal join Alumnos al on al.IDAlumno = cal.IDAlumno Where cal.IDGrupo = 14 AND cal.IDAsignatura = 2 AND cal.IDMomento = 1";
+            return llenarTablas(SQLCommand);
+        }
+
+
 
         //Para modificar la calificacion de un alumno
         public int modificarCalificacion(CalificacionesBO datosCalif)
