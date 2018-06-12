@@ -70,6 +70,12 @@ namespace SICOES2018.DAO
             return llenarTablas(SQLCommand);
         }
 
+        public DataTable LlenarDDL(int Grupo)
+        {
+            SQLCommand = "select * from Asignaturas a join Grupos g ON g.IDPlanEstudio = a.IDPlanEstudios AND g.IDSemestre = a.IDSemestreAsig where g.IDGrupo = " + Grupo;
+            return llenarTablas(SQLCommand);
+        }
+
         //Buscar el dato de una tabla en especifico
         public string buscarDatoAsig(string Columna, AsignaturasBO datosAsig)
         {

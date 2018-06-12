@@ -65,5 +65,13 @@ namespace SICOES2018.DAO
             return llenarTablas(SQLCommand);
         }
 
+
+        public DataTable llenarDDL(int Periodo)
+        {
+            SQLCommand = "select * from Grupos where IDperiodo =" + Periodo;
+            return llenarTablas(SQLCommand);
+        }
+
+
     }
 }

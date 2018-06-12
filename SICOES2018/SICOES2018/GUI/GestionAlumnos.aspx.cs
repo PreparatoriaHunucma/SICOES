@@ -595,7 +595,7 @@ namespace SICOES2018.GUI
         //Al presionar el botón de agregar alumno
         protected void btnAgregarAlumno_Click(object sender, EventArgs e)
         {
-            if (txtFechaNacAlum.Text != string.Empty && txtNomAlumno.Text != string.Empty && txtCurpAlum.Text != string.Empty && txtNomTutorAlum.Text != string.Empty && txtTelTutorAlum.Text != string.Empty && txtNomEscProAlum.Text != string.Empty)
+            if (txtFechaNacAlum.Text != string.Empty && txtNomAlumno.Text != string.Empty && txtCurpAlum.Text != string.Empty && txtNomTutorAlum.Text != string.Empty && txtTelTutorAlum.Text != string.Empty && txtNomEscProAlum.Text != string.Empty && (chckNuevoIng.Checked != false || chckRevalida.Checked != false))
             {
                 DateTime valFechaNac = Convert.ToDateTime(txtFechaNacAlum.Text);
                 DateTime fechaInicio = new DateTime(1900, 1, 1);
@@ -612,11 +612,12 @@ namespace SICOES2018.GUI
                     LimpiarCampos();
                     LlenarGVAlumnos(1);
                     ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert();", true);
+                    Response.Redirect("~/Reports/FormatoPreinscripcion");
                 }
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
+            lbAdvTipo.Visible = true;
             ActualizarUPDatos();
-            
         }
         //Establecer la fecha máxima del validador
         protected void rngFechaNacAlum_Init(object sender, EventArgs e)
@@ -748,6 +749,7 @@ namespace SICOES2018.GUI
                 btnModifAlumno.Visible = true;
                 btnInscribirAlumno.Visible = true;
                 btnDarBajaAlumno.Visible = true;
+                btnReImpForPreInsc.Visible = true;
                 txtMatriculaUADY.Enabled = false;
                 ActualizarUPDatos();
                 upDivModalAlumnos.Update();
@@ -1056,6 +1058,12 @@ namespace SICOES2018.GUI
         {
             chckRevalida.Checked = false;
             divmatricula.Visible = false;
+        }
+
+        protected void btnReImpForPreInsc_Click(object sender, EventArgs e)
+        {
+            Session["AlumnoReporteID"] = Session["AlumModif"];
+            Response.Redirect("~/Reports/FormatoPreinscripcion");
         }
     }
 }

@@ -29,8 +29,8 @@ namespace SICOES2018.Reports
             connectionInfo.UserID = "DB_A3AC6D_SICOES2018_admin";
             connectionInfo.Password = "sicoeshunucma2018";
             SetDBLogonForReport(connectionInfo, rprt);
-            rprt.SetParameterValue("@IDAlumno", 33/*Convert.ToInt32(Session["AlumnoReporteID"])*/);
-            rprt.SetParameterValue("@IDMaestro", 13/*/*Convert.ToInt32(Session["IDUserLoged"])*/);
+            rprt.SetParameterValue("@IDAlumno", Convert.ToInt32(Session["AlumnoReporteID"]));
+            rprt.SetParameterValue("@IDMaestro", Convert.ToInt32(Session["IDUserLoged"]));
             crvFormatoPreinscripcion.ReportSource = rprt;
             crvFormatoPreinscripcion.DataBind();
         }

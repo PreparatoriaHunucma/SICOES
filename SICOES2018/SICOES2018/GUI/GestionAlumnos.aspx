@@ -21,6 +21,7 @@
                         <h4>DATOS GENERALES</h4>
                     </div>
                     <div class="w3-col m8 w3-right-align w3-margin-top">
+                        <asp:Label ID="lbAdvTipo" runat="server" Text="Seleccionar una opción ==>  " ForeColor="Red" Font-Size="Small" Height="10px" Visible="false"></asp:Label>
                         <asp:CheckBox ID="chckNuevoIng" runat="server" Text=" Nuevo Ingreso" OnCheckedChanged="chckNuevoIng_CheckedChanged" Font-Bold="true" AutoPostBack="true" />&nbsp&nbsp;
                         <asp:CheckBox ID="chckRevalida" runat="server" Text=" Revalida" OnCheckedChanged="chckRevalida_CheckedChanged" Font-Bold="true" AutoPostBack="true" />
                     </div>
@@ -786,7 +787,7 @@
                 <div class="w3-row">
                     <asp:Button CssClass="w3-button w3-amber w3-hover-blue w3-round" ID="btnAgregarAlumno" runat="server" Text="Pre-Inscribir al alumno" OnClick="btnAgregarAlumno_Click" ValidationGroup="vlgrDatos" Style="width: 100%" />
                 </div>
-                <div class="w3-row">
+                <div class="w3-row w3-margin-bottom">
                     <%--BOTON PARA MODIFICAR INFO DEL ALUMNO--%>
                     <asp:Button CssClass="w3-margin-left w3-third w3-button w3-amber w3-hover-blue w3-round" ID="btnModifAlumno" runat="server" Text="Modificar Información" OnClick="btnModifAlumno_Click" CausesValidation="true" Width="31%" Visible="false" />
                     <%--BOTON PARA INSCRIBIR AL ALUMNO--%>
@@ -794,6 +795,11 @@
                     <%--BOTON PARA DAR DE BAJA AL ALUMNO--%>
                     <asp:Button CssClass="w3-margin-right w3-third w3-button w3-amber w3-hover-blue w3-round" ID="btnDarBajaAlumno" runat="server" Text="Dar de baja al alumno" OnClick="btnDarBajaAlumno_Click" CausesValidation="true" Width="31%" Visible="false" />
                 </div>
+                <div class="w3-row">
+                    <%--BOTON PARA Mostrar FORMATO PREINSCRIPCION--%>
+                    <asp:Button CssClass="w3-margin-left w3-half w3-button w3-amber w3-hover-blue w3-round" ID="btnReImpForPreInsc" runat="server" Text="ReimprimirFormatoPreinscripcion" OnClick="btnReImpForPreInsc_Click" CausesValidation="true" Width="31%" Visible="false" />
+                </div>
+
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="btnAgregarAlumno" EventName="Click" />

@@ -7,6 +7,7 @@ namespace SICOES2018.DAO
     public class MaestrosGruposDAO : ConexionSQL
     {
         SqlCommand cmd;
+        string SQLCommand;
 
         //Para crear un aviso
         public int agregarMaestroGrupo(MaestroGruposBO datosMaestroGrupo)
@@ -20,6 +21,12 @@ namespace SICOES2018.DAO
 
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
+        }
+        public DataTable LlenarGridView(int IDMaestro)
+        {
+            SQLCommand = "select g.NombreGrupo, a.NomAsig from MaestroGrupos mg Join Grupos g on g.idgrupo = mg.idgrupo join Asignaturas a on a.IDAsignatura = mg.IDAsignatura where mg.IDMaestro =" + IDMaestro + " order by g.NombreGrupo";
+            return llenarTablas(SQLCommand);
+            //CONVERT(varchar, FechaNacAlumno, 103) AS FechaNacAlumno,
         }
 
         //Para modificar el registro de la asignacion del maestro

@@ -11,12 +11,14 @@ namespace SICOES2018.DAO
         //Para agregar un nuevo ciclo escolar
         public int agregarCicloEscolar(CicloEscolarBO datosCicloEsc)
         {
-            cmd = new SqlCommand("INSERT INTO CicloEscolar (Nombre, FechaInicio, FechaFin, Status) VALUES (@Nombre, @FechaInicio, @FechaFin, @Status)");
+            cmd = new SqlCommand("INSERT INTO CicloEscolar (Nombre, FechaInicio, FechaFin, Status, FechaInicioDocs, FechaFinDocs) VALUES (@Nombre, @FechaInicio, @FechaFin, @Status, @FechaInicioDocs, @FechaFinDocs)");
 
             cmd.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = datosCicloEsc.Nombre;
             cmd.Parameters.Add("@FechaInicio", SqlDbType.Date).Value = datosCicloEsc.FechaInicio.ToString("yyyy-MM-dd");
             cmd.Parameters.Add("@FechaFin", SqlDbType.Date).Value = datosCicloEsc.FechaFin.ToString("yyyy-MM-dd");
             cmd.Parameters.Add("@Status", SqlDbType.TinyInt).Value = datosCicloEsc.Status;
+            cmd.Parameters.Add("@FechaInicioDocs", SqlDbType.Date).Value = datosCicloEsc.FechaInicioDocs.ToString("yyyy-MM-dd");
+            cmd.Parameters.Add("@FechaFinDocs", SqlDbType.Date).Value = datosCicloEsc.FechaFinDocs.ToString("yyyy-MM-dd");
 
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
@@ -37,12 +39,14 @@ namespace SICOES2018.DAO
         //Para modificar la informacion del ciclo escolar
         public int modificarInfoCicloEscolar(CicloEscolarBO datosCicloEsc)
         {
-            cmd = new SqlCommand("UPDATE CicloEscolar SET Nombre = @Nombre, FechaInicio = @FechaInicio, FechaFin = @FechaFin WHERE IDCicloEscolar = @IDCicloEscolar");
+            cmd = new SqlCommand("UPDATE CicloEscolar SET Nombre = @Nombre, FechaInicio = @FechaInicio, FechaFin = @FechaFin, FechaInicioDocs = @FechaInicioDocs, FechaFinDocs = @FechaFinDocs WHERE IDCicloEscolar = @IDCicloEscolar");
 
             cmd.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = datosCicloEsc.Nombre;
             cmd.Parameters.Add("@FechaInicio", SqlDbType.Date).Value = datosCicloEsc.FechaInicio;
             cmd.Parameters.Add("@FechaFin", SqlDbType.Date).Value = datosCicloEsc.FechaFin;
             cmd.Parameters.Add("@IDCicloEscolar", SqlDbType.Int).Value = datosCicloEsc.IDCicloEscolar;
+            cmd.Parameters.Add("@FechaInicioDocs", SqlDbType.Date).Value = datosCicloEsc.FechaInicioDocs;
+            cmd.Parameters.Add("@FechaFinDocs", SqlDbType.Date).Value = datosCicloEsc.FechaFinDocs;
 
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
