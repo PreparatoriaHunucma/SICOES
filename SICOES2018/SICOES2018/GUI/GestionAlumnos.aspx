@@ -793,6 +793,8 @@
                     <asp:Button CssClass="w3-margin-left w3-margin-right w3-third w3-button w3-amber w3-hover-blue w3-round" ID="btnInscribirAlumno" runat="server" Text="Inscribir alumno" CausesValidation="true" Width="31%" Visible="false" OnClientClick="document.getElementById('modalInscripcion').style.display='block'; return false;" AutoPostBack="false" />
                     <%--BOTON PARA DAR DE BAJA AL ALUMNO--%>
                     <asp:Button CssClass="w3-margin-right w3-third w3-button w3-amber w3-hover-blue w3-round" ID="btnDarBajaAlumno" runat="server" Text="Dar de baja al alumno" OnClick="btnDarBajaAlumno_Click" CausesValidation="true" Width="31%" Visible="false" />
+                    <%--BOTON PARA CREAR CARTA DE COMPROMISO--%>
+                    <asp:Button CssClass="w3-margin-right w3-third w3-button w3-amber w3-hover-blue w3-round" ID="btnCartaCompromiso" runat="server" Text="Generar Carta Compromioso" OnClick="btnCartaCompromiso_Click" CausesValidation="true" Width="31%" Visible="false" />
                 </div>
             </ContentTemplate>
             <Triggers>

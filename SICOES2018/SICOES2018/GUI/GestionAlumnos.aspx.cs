@@ -720,6 +720,19 @@ namespace SICOES2018.GUI
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
         }
 
+        //Generar carta compromiso
+        protected void btnCartaCompromiso_Click(object sender, EventArgs e)
+        {
+            if (Session["AlumModif"] != null)
+            {
+                datoAlum.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
+                Session["AlumDocs"] = Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDDocumentosAlumno", datoAlum));
+
+
+                Response.Redirect("../Reports/ReporteCartaCompromiso.aspx");
+            }
+
+        }
 
         //////////ACCIONES CON EL GRID VIEW DE LOS ALUMNOS
         //Llenar el grid view de los alumnos al seleccionar el tipo de usuario
@@ -748,6 +761,7 @@ namespace SICOES2018.GUI
                 btnModifAlumno.Visible = true;
                 btnInscribirAlumno.Visible = true;
                 btnDarBajaAlumno.Visible = true;
+                btnCartaCompromiso.Visible = true;
                 txtMatriculaUADY.Enabled = false;
                 ActualizarUPDatos();
                 upDivModalAlumnos.Update();
