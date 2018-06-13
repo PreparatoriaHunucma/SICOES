@@ -7,6 +7,7 @@ namespace SICOES2018.DAO
     public class MomentoCalificacionDAO : ConexionSQL
     {
         SqlCommand cmd;
+        string SQLCommand;
 
         //Para crear un momento
         public int agregarMomento(MomentoCalificacionBO datosMomento)
@@ -30,5 +31,18 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
+
+        public DataTable LlenarDDL()
+        {
+            SQLCommand = "select * from MomentoCalificacion";
+            return llenarTablas(SQLCommand);
+        }
+
+        public DataTable Obtener3Momentos()
+        {
+            SQLCommand = "select top(3) IDMomento from MomentoCalificacion";
+            return llenarTablas(SQLCommand);
+        }
+
     }
 }

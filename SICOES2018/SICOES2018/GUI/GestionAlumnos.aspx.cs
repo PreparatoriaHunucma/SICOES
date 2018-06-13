@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -34,6 +35,12 @@ namespace SICOES2018.GUI
         TurnosEscuelasDAO ejecTurno = new TurnosEscuelasDAO();
         SemestresBO datoSem = new SemestresBO();
         SemestresDAO ejecSem = new SemestresDAO();
+        MomentoCalificacionBO datoMomento = new MomentoCalificacionBO();
+        MomentoCalificacionDAO ejecMomento = new MomentoCalificacionDAO();
+        AsignaturasBO datoAsig = new AsignaturasBO();
+        AsignaturasDAO ejecAsig = new AsignaturasDAO();
+        CalificacionesBO datoCalif = new CalificacionesBO();
+        CalificacionesDAO ejecCalif = new CalificacionesDAO();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -55,6 +62,7 @@ namespace SICOES2018.GUI
                 LlenarDDLEscuelaProcedencia();
                 LlenarGVEscuelaProcedencia();
                 LLenarDDLSemestres();
+                LlenarDDLTurnos();
             }
         }
 
@@ -692,6 +700,7 @@ namespace SICOES2018.GUI
                 string contrasenha = "123456";
                 datoAlum.ContrasenhaAlumno = datoAlum.EncriptarMD5(contrasenha);
                 ejecAlum.inscribirAlumno(datoAlum);
+                CalificacionesInscripcion();
                 LimpiarCampos();
                 LlenarGVAlumnos(1);
                 btnAgregarAlumno.Visible = true;
@@ -701,6 +710,25 @@ namespace SICOES2018.GUI
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "inscripcionsuccessalert();", true);
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
+        }
+
+        protected void CalificacionesInscripcion()
+        {
+            datoAlum.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
+            datoCalif.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
+            DataTable tblMomento = ejecMomento.Obtener3Momentos();
+            DataTable tblAsignaturas = ejecAsig.ObtenerAsigOblig(Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDSemestrePreinscripcion", datoAlum)));
+            foreach (DataRow rowm in tblMomento.Rows){
+                foreach (DataRow rowa in tblAsignaturas.Rows)
+                {
+                    datoCalif.IDAsignatura = Convert.ToInt32(rowa.ItemArray.GetValue(0));
+                    datoCalif.IDMomento = Convert.ToInt32(rowm.ItemArray.GetValue(0));
+                    datoCalif.Calificacion = 0;
+                    datoCalif.IDGrupo = Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDGrupo", datoAlum));
+                    datoCalif.Inasistencias = 0;
+                    ejecCalif.agregarCalificacion(datoCalif);
+                }
+            }
         }
         //Dar de baja a un alumno
         protected void btnDarBajaAlumno_Click(object sender, EventArgs e)
@@ -752,6 +780,7 @@ namespace SICOES2018.GUI
                 btnReImpForPreInsc.Visible = true;
                 txtMatriculaUADY.Enabled = false;
                 ActualizarUPDatos();
+                upModalInsc.Update();
                 upDivModalAlumnos.Update();
             }
         }

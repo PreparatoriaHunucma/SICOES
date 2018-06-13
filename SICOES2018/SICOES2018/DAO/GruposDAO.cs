@@ -65,6 +65,12 @@ namespace SICOES2018.DAO
             return llenarTablas(SQLCommand);
         }
 
+        public DataTable llenarDDLMaestros(int Periodo, int IDMaestro)
+        {
+            SQLCommand = "select DISTINCT g.IDGrupo, g.NombreGrupo from MaestroGrupos mg join Grupos g on g.IDGrupo = mg.IDGrupo where mg.IDMaestro = " + IDMaestro + " and g.IDPeriodo = " + Periodo;
+            return llenarTablas(SQLCommand);
+        }
+
 
         public DataTable llenarDDL(int Periodo)
         {
