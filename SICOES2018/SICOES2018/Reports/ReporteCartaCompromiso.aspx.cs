@@ -23,6 +23,12 @@ namespace SICOES2018.GUI
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             //cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = 33;
             //cmd.Parameters.Add("@IDDOCS", SqlDbType.Int).Value = 35;
+            ConnectionInfo connectionInfo = new ConnectionInfo();
+            connectionInfo.ServerName = "sql7001.site4now.net";
+            connectionInfo.DatabaseName = "DB_A3AC6D_SICOES2018";
+            connectionInfo.UserID = "DB_A3AC6D_SICOES2018_admin";
+            connectionInfo.Password = "sicoeshunucma2018";
+            SetDBLogonForReport(connectionInfo, rprt);
             rprt.SetParameterValue("@IDAlumno", Convert.ToInt32((Session["AlumModif"])));
             rprt.SetParameterValue("@IDDOCS", Convert.ToInt32(Session["AlumDocs"]));
             CrystalReportViewer1.ReportSource = rprt;
