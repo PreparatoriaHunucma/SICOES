@@ -1298,5 +1298,14 @@ namespace SICOES2018.GUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnReImpForPreInsc;
+        
+        /// <summary>
+        /// btnCartaCompromiso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCartaCompromiso;
     }
 }

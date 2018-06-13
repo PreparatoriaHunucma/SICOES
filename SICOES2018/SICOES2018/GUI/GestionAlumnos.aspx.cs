@@ -627,6 +627,21 @@ namespace SICOES2018.GUI
             lbAdvTipo.Visible = true;
             ActualizarUPDatos();
         }
+
+        //Generar carta compromiso
+        protected void btnCartaCompromiso_Click(object sender, EventArgs e)
+        {
+            if (Session["AlumModif"] != null)
+            {
+                datoAlum.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
+                Session["AlumDocs"] = Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDDocumentosAlumno", datoAlum));
+
+
+                Response.Redirect("../Reports/ReporteCartaCompromiso.aspx");
+            }
+
+        }
+
         //Establecer la fecha máxima del validador
         protected void rngFechaNacAlum_Init(object sender, EventArgs e)
         {
@@ -779,6 +794,7 @@ namespace SICOES2018.GUI
                 btnInscribirAlumno.Visible = true;
                 btnBajaAlumno.Visible = true;
                 btnReImpForPreInsc.Visible = true;
+                btnCartaCompromiso.Visible = true;
                 txtMatriculaUADY.Enabled = false;
                 ActualizarUPDatos();
                 upModalInsc.Update();

@@ -826,6 +826,8 @@
                 <div class="w3-row">
                     <%--BOTON PARA Mostrar FORMATO PREINSCRIPCION--%>
                     <asp:Button CssClass="w3-margin-left w3-half w3-button w3-amber w3-hover-blue w3-round" ID="btnReImpForPreInsc" runat="server" Text="ReimprimirFormatoPreinscripcion" OnClick="btnReImpForPreInsc_Click" CausesValidation="true" Width="31%" Visible="false" />
+                     <%--BOTON PARA CREAR CARTA DE COMPROMISO--%>
+                    <asp:Button CssClass="w3-margin-left w3-margin-right w3-third w3-button w3-amber w3-hover-blue w3-round" ID="btnCartaCompromiso" runat="server" Text="Generar Carta Compromioso" OnClick="btnCartaCompromiso_Click" CausesValidation="true" Width="31%" Visible="false" />
                 </div>
 
             </ContentTemplate>
