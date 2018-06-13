@@ -32,6 +32,12 @@ namespace SICOES2018.DAO
             return llenarTablas(SQLCommand);
         }
 
+        public DataTable LlenarGVConcCalif(int IDGrupo, int IDAsig)
+        {
+            SQLCommand = "EXEC ConcentradoCalificaciones " + IDGrupo + "," + IDAsig;
+            return llenarTablas(SQLCommand);
+        }
+
         //Para modificar la calificacion de un alumno
         public int modificarCalificacion(CalificacionesBO datosCalif)
         {

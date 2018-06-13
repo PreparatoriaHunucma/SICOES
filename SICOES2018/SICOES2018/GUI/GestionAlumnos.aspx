@@ -694,7 +694,6 @@
         <Triggers>
         </Triggers>
     </asp:UpdatePanel>
-
     <%--MODAL PARA INSCRIBIR A LOS ALUMNOS--%>
     <div id="modalInscripcion" class="w3-modal">
         <div class="w3-modal-content w3-animate-top w3-card-4 w3-round" style="width: 1200px; margin-top: -70px">
@@ -778,6 +777,35 @@
         </div>
     </div>
 
+    <%--MODAL PARA DAR DE BAJA AL ALUMNO--%>
+    <div id="modalBaja" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top w3-card-4 w3-round">
+            <header class="w3-container w3-blue w3-round" style="height: 50px">
+                <h3 class="w3-display-topleft w3-margin-left">Escuelas de procedencia</h3>
+                <span onclick="document.getElementById('modalBaja').style.display='none'"
+                    class="w3-button w3-display-topright w3-hover-amber w3-round">&times;</span>
+            </header>
+            <div class="w3-container" style="min-height: 330px; max-height: 330px">
+                <div class="w3-row">
+                    <asp:Label ID="lbTipoBaja" runat="server" Text="Tipo de baja" Font-Bold="true" ></asp:Label><br />
+                    <asp:DropDownList CssClass="w3-dropdown-click w3-input w3-margin" ID="ddlTipoBaja" Style="width: 20%" runat="server" AppendDataBoundItems="true">
+                        <asp:ListItem Value="1">Voluntaria</asp:ListItem>
+                        <asp:ListItem Value="2">Por Reglamento</asp:ListItem>
+                        <asp:ListItem Value="3">Por Sistema</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <div class="w3-row w3-padding">
+                    <asp:Label ID="lbMotivos" runat="server" Text="Motivos:" Font-Bold="true" CssClass="w3-margin-bottom"></asp:Label><br />
+                    <asp:TextBox CssClass="w3-input w3-margin" ID="txtMotivos" Width="100%" Style="max-width: 100%; min-width: 100%; max-height: 150px; min-height: 150px" runat="server" TextMode="MultiLine"></asp:TextBox>
+                </div>
+                <div class="w3-row">
+                    <asp:Button ID="btnDarBajaAlumno" runat="server" Text="Agregar país" CssClass="w3-padding w3-button w3-blue w3-hover-amber w3-display-bottommiddle" OnClick="btnDarBajaAlumno_Click" Style="width: 300px" ValidationGroup="vlgrDatosAddPais" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <%--BOTONES--%>
     <div class="w3-row w3-animate-right">
@@ -793,7 +821,7 @@
                     <%--BOTON PARA INSCRIBIR AL ALUMNO--%>
                     <asp:Button CssClass="w3-margin-left w3-margin-right w3-third w3-button w3-amber w3-hover-blue w3-round" ID="btnInscribirAlumno" runat="server" Text="Inscribir alumno" CausesValidation="true" Width="31%" Visible="false" OnClientClick="document.getElementById('modalInscripcion').style.display='block'; return false;" AutoPostBack="false" />
                     <%--BOTON PARA DAR DE BAJA AL ALUMNO--%>
-                    <asp:Button CssClass="w3-margin-right w3-third w3-button w3-amber w3-hover-blue w3-round" ID="btnDarBajaAlumno" runat="server" Text="Dar de baja al alumno" OnClick="btnDarBajaAlumno_Click" CausesValidation="true" Width="31%" Visible="false" />
+                    <asp:Button CssClass="w3-margin-right w3-third w3-button w3-amber w3-hover-blue w3-round" ID="btnBajaAlumno" runat="server" Text="Dar de baja al alumno" CausesValidation="true" Width="31%" Visible="false" OnClientClick="document.getElementById('modalBaja').style.display='block'; return false;" AutoPostBack="false" />
                 </div>
                 <div class="w3-row">
                     <%--BOTON PARA Mostrar FORMATO PREINSCRIPCION--%>
@@ -805,7 +833,6 @@
                 <asp:AsyncPostBackTrigger ControlID="btnAgregarAlumno" EventName="Click" />
                 <asp:AsyncPostBackTrigger ControlID="btnModifAlumno" EventName="Click" />
                 <asp:AsyncPostBackTrigger ControlID="btnInscribirAlumno" EventName="Click" />
-                <asp:AsyncPostBackTrigger ControlID="btnDarBajaAlumno" EventName="Click" />
             </Triggers>
         </asp:UpdatePanel>
     </div>

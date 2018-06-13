@@ -152,8 +152,8 @@
                             <a onclick="Control('Control')" id="iconoControl" runat="server" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Control Escolar<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
 
                             <div id="Control" class="panel" runat="server">
-                                <p><a class="cursorencima" href="../GUI/GestionAlumnos.aspx" style="text-decoration: none">Gestión de Alumnos</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Calificaciones</a></p>
+                                <p><a class="cursorencima" href="../GUI/GestionAlumnos.aspx" style="text-decoration: none">Gestión de alumnos</a></p>
+                                <p><a class="cursorencima" href="../GUI/GestionConcentradoCalificaciones.aspx" style="text-decoration: none">Concentrado de calificaciones</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Aprovechamiento Escolar</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Boletas de calificación</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Asistencia de Alumnos</a></p>

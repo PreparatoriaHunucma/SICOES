@@ -670,7 +670,8 @@ namespace SICOES2018.GUI
                     btnAgregarAlumno.Visible = true;
                     btnModifAlumno.Visible = false;
                     btnInscribirAlumno.Visible = false;
-                    btnDarBajaAlumno.Visible = false;
+                    btnBajaAlumno.Visible = false;
+                    btnReImpForPreInsc.Visible = false;
                     txtMatriculaUADY.Enabled = true;
                     ActualizarUPDatos();
                     ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "modifsuccessalert();", true);
@@ -706,7 +707,7 @@ namespace SICOES2018.GUI
                 btnAgregarAlumno.Visible = true;
                 btnModifAlumno.Visible = false;
                 btnInscribirAlumno.Visible = false;
-                btnDarBajaAlumno.Visible = false;
+                btnBajaAlumno.Visible = false;
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "inscripcionsuccessalert();", true);
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
@@ -743,7 +744,7 @@ namespace SICOES2018.GUI
                 btnAgregarAlumno.Visible = true;
                 btnModifAlumno.Visible = false;
                 btnInscribirAlumno.Visible = false;
-                btnDarBajaAlumno.Visible = false;
+                btnBajaAlumno.Visible = false;
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "bajasuccessalert();", true);
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
@@ -776,7 +777,7 @@ namespace SICOES2018.GUI
                 btnAgregarAlumno.Visible = false;
                 btnModifAlumno.Visible = true;
                 btnInscribirAlumno.Visible = true;
-                btnDarBajaAlumno.Visible = true;
+                btnBajaAlumno.Visible = true;
                 btnReImpForPreInsc.Visible = true;
                 txtMatriculaUADY.Enabled = false;
                 ActualizarUPDatos();

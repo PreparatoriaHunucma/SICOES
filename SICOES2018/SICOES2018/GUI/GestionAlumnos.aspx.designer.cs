@@ -1201,6 +1201,51 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Button btnInscribirAlum;
         
         /// <summary>
+        /// lbTipoBaja control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbTipoBaja;
+        
+        /// <summary>
+        /// ddlTipoBaja control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoBaja;
+        
+        /// <summary>
+        /// lbMotivos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbMotivos;
+        
+        /// <summary>
+        /// txtMotivos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMotivos;
+        
+        /// <summary>
+        /// btnDarBajaAlumno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDarBajaAlumno;
+        
+        /// <summary>
         /// upBotones control.
         /// </summary>
         /// <remarks>
@@ -1237,13 +1282,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Button btnInscribirAlumno;
         
         /// <summary>
-        /// btnDarBajaAlumno control.
+        /// btnBajaAlumno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDarBajaAlumno;
+        protected global::System.Web.UI.WebControls.Button btnBajaAlumno;
         
         /// <summary>
         /// btnReImpForPreInsc control.

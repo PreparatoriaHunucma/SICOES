@@ -10,15 +10,15 @@
 namespace SICOES2018.Reports {
     
     
-    public partial class FormatoPreinscripcion1 {
+    public partial class ConcentradoCalificaciones1 {
         
         /// <summary>
-        /// crvFormatoPreinscripcion control.
+        /// cvrConcentradoCalif control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer crvFormatoPreinscripcion;
+        protected global::CrystalDecisions.Web.CrystalReportViewer cvrConcentradoCalif;
     }
 }

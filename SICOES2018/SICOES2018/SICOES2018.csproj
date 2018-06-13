@@ -214,6 +214,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GUI\GestionCalificaciones.aspx" />
+    <Content Include="GUI\GestionConcentradoCalificaciones.aspx" />
     <Content Include="GUI\GestionEmpleados.aspx" />
     <Content Include="GUI\GestionAsignaturas.aspx" />
     <Content Include="GUI\GestionCiclo.aspx" />
@@ -221,6 +222,7 @@
     <Content Include="GUI\Inicio.aspx" />
     <Content Include="GUI\Index.aspx" />
     <Content Include="GUI\GestionAlumnos.aspx" />
+    <Content Include="Reports\ConcentradoCalificaciones.aspx" />
     <Content Include="Reports\ReporteCartaCompromiso.aspx" />
     <Content Include="MasterPages\mstrpgAdmin.Master" />
     <Content Include="Reports\FormatoPreinscripcion.aspx" />
@@ -408,6 +410,13 @@
     <Compile Include="GUI\GestionCalificaciones.aspx.designer.cs">
       <DependentUpon>GestionCalificaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GestionConcentradoCalificaciones.aspx.cs">
+      <DependentUpon>GestionConcentradoCalificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionConcentradoCalificaciones.aspx.designer.cs">
+      <DependentUpon>GestionConcentradoCalificaciones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GestionEmpleados.aspx.cs">
       <DependentUpon>GestionEmpleados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -456,6 +465,19 @@
     </Compile>
     <Compile Include="GUI\GestionAlumnos.aspx.designer.cs">
       <DependentUpon>GestionAlumnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ConcentradoCalificaciones.aspx.cs">
+      <DependentUpon>ConcentradoCalificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ConcentradoCalificaciones.aspx.designer.cs">
+      <DependentUpon>ConcentradoCalificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ConcentradoCalificaciones.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConcentradoCalificaciones.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\FormatoPreinscripcion.cs">
       <AutoGen>True</AutoGen>
@@ -541,6 +563,10 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\ConcentradoCalificaciones.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ConcentradoCalificaciones.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\FormatoCartaCompromiso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FormatoCartaCompromiso.cs</LastGenOutput>
