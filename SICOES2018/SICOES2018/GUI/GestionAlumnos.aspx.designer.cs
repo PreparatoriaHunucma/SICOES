@@ -31,6 +31,15 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.UpdatePanel upDatosGen;
         
         /// <summary>
+        /// lbAdvTipo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbAdvTipo;
+        
+        /// <summary>
         /// chckNuevoIng control.
         /// </summary>
         /// <remarks>
@@ -1237,12 +1246,12 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Button btnDarBajaAlumno;
         
         /// <summary>
-        /// btnCartaCompromiso control.
+        /// btnReImpForPreInsc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCartaCompromiso;
+        protected global::System.Web.UI.WebControls.Button btnReImpForPreInsc;
     }
 }

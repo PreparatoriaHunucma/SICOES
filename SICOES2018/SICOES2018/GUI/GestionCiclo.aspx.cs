@@ -75,6 +75,8 @@ namespace SICOES2018.GUI
             txtNomCiclo.Text = string.Empty;
             txtFechaInicioCiclo.Text = string.Empty;
             txtFechaFinCiclo.Text = string.Empty;
+            txtInicioDocs.Text = string.Empty;
+            txtFinDocs.Text = string.Empty;
             checkStatusCiclo.Checked = false;
             Session.Contents.Remove("CicloModif");
         }
@@ -105,6 +107,9 @@ namespace SICOES2018.GUI
                 txtNomCiclo.Text = ejecCiclo.buscarDatoCiclo("Nombre", datoCiclo);
                 txtFechaInicioCiclo.Text = Convert.ToDateTime(ejecCiclo.buscarDatoCiclo("FechaInicio", datoCiclo)).ToString("yyyy-MM-dd");
                 txtFechaFinCiclo.Text = Convert.ToDateTime(ejecCiclo.buscarDatoCiclo("FechaFin", datoCiclo)).ToString("yyyy-MM-dd");
+                txtInicioDocs.Text = Convert.ToDateTime(ejecCiclo.buscarDatoCiclo("FechaInicioDocs", datoCiclo)).ToString("yyyy-MM-dd");
+                txtFinDocs.Text = Convert.ToDateTime(ejecCiclo.buscarDatoCiclo("FechaFinDocs", datoCiclo)).ToString("yyyy-MM-dd");
+
                 int Status = Convert.ToInt32(ejecCiclo.buscarDatoCiclo("Status", datoCiclo));
                 if (Status == 1)
                     checkStatusCiclo.Checked = true;
@@ -124,11 +129,13 @@ namespace SICOES2018.GUI
         }
         protected void btnAddCiclo_Click(object sender, EventArgs e)
         {
-            if (txtNomCiclo.Text != "" && txtFechaInicioCiclo.Text != "" && txtFechaFinCiclo.Text != "")
+            if (txtNomCiclo.Text != "" && txtFechaInicioCiclo.Text != "" && txtFechaFinCiclo.Text != "" && txtInicioDocs.Text != "" && txtFinDocs.Text != "")
             {
                 datoCiclo.Nombre = txtNomCiclo.Text;
                 datoCiclo.FechaInicio = DateTime.ParseExact(txtFechaInicioCiclo.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
                 datoCiclo.FechaFin = DateTime.ParseExact(txtFechaFinCiclo.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
+                datoCiclo.FechaInicioDocs = DateTime.ParseExact(txtInicioDocs.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
+                datoCiclo.FechaFinDocs = DateTime.ParseExact(txtFinDocs.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
                 if (checkStatusCiclo.Checked == true)
                     datoCiclo.Status = 1;
                 else
@@ -147,12 +154,14 @@ namespace SICOES2018.GUI
         }
         protected void btnModCiclo_Click(object sender, EventArgs e)
         {
-            if (txtNomCiclo.Text != "" && txtFechaInicioCiclo.Text != "" && txtFechaFinCiclo.Text != "")
+            if (txtNomCiclo.Text != "" && txtFechaInicioCiclo.Text != "" && txtFechaFinCiclo.Text != "" && txtInicioDocs.Text != "" && txtFinDocs.Text != "")
             {
                 datoCiclo.IDCicloEscolar = Convert.ToInt32(Session["CicloModif"]);
                 datoCiclo.Nombre = txtNomCiclo.Text;
                 datoCiclo.FechaInicio = DateTime.ParseExact(txtFechaInicioCiclo.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
                 datoCiclo.FechaFin = DateTime.ParseExact(txtFechaFinCiclo.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
+                datoCiclo.FechaInicioDocs = DateTime.ParseExact(txtInicioDocs.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
+                datoCiclo.FechaFinDocs = DateTime.ParseExact(txtFinDocs.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
                 if (checkStatusCiclo.Checked == true)
                     datoCiclo.Status = 1;
                 else

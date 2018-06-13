@@ -26,6 +26,14 @@ namespace SICOES2018.GUI
         TipoMaestroDAO ejecTipEmp = new TipoMaestroDAO();
         PaisBO datoPais = new PaisBO();
         PaisDAO ejecPais = new PaisDAO();
+        PeriodoEscolarBO datoPer = new PeriodoEscolarBO();
+        PeriodoEscolarDAO ejecPer = new PeriodoEscolarDAO();
+        GruposBO datoGrupo = new GruposBO();
+        GruposDAO ejecGrupo = new GruposDAO();
+        AsignaturasBO datoAsig = new AsignaturasBO();
+        AsignaturasDAO ejecAsig = new AsignaturasDAO();
+        MaestroGruposBO datoMaestroGrupo = new MaestroGruposBO();
+        MaestrosGruposDAO ejecMaestrosGrupos = new MaestrosGruposDAO();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,8 +46,9 @@ namespace SICOES2018.GUI
                 LlenarGVMaestros(Convert.ToInt32(ddlMaestrosReg.SelectedValue));
                 ddlPaisEmp.SelectedValue = "1";
                 LLenarDDLEstadoEmpleado(Convert.ToInt32(ddlPaisEmp.SelectedValue));
-                ddlEstadoEmp.SelectedValue = "1";
                 LlenarDDLMunicipioEmpleado(Convert.ToInt32(ddlEstadoEmp.SelectedValue));
+                LLenarDDLPeriodoAsignacion();
+                ddlPeriodo.SelectedIndex = 0;
             }
             LlenarGVPais();
 
@@ -164,6 +173,13 @@ namespace SICOES2018.GUI
             gvAlumnos.DataSource = ejecEmp.LlenarGridView(StatusMaestro);
             gvAlumnos.DataBind();
         }
+
+        protected void LlenarGVAsignaciones()
+        {
+            gvAsignaciones.DataSource = ejecMaestrosGrupos.LlenarGridView(Convert.ToInt32(Session["EmpModif"]));
+            gvAsignaciones.DataBind();
+        }
+
         protected void LLenarDDLPaisEmpleado()
         {
             ddlPaisEmp.Items.Clear();
@@ -176,6 +192,41 @@ namespace SICOES2018.GUI
                 LLenarDDLEstadoEmpleado(Convert.ToInt32(ddlPaisEmp.SelectedValue));
             }
         }
+        protected void LLenarDDLPeriodoAsignacion()
+        {
+            ddlPeriodo.Items.Clear();
+            ddlPeriodo.DataSource = ejecPer.llenarDDLCicloActivo();
+            ddlPeriodo.DataTextField = "Nombre";
+            ddlPeriodo.DataValueField = "IDPeriodo";
+            ddlPeriodo.DataBind();
+            if (ddlPeriodo.Items.Count != 0)
+            {
+                LLenarDDLGruposAsignacion(Convert.ToInt32(ddlPeriodo.SelectedValue));
+            }
+        }
+        protected void LLenarDDLGruposAsignacion(int Periodo)
+        {
+            ddlGrupo.Items.Clear();
+            ddlGrupo.DataSource = ejecGrupo.llenarDDL(Periodo);
+            ddlGrupo.DataTextField = "NombreGrupo";
+            ddlGrupo.DataValueField = "IDGrupo";
+            ddlGrupo.DataBind();
+            if (ddlGrupo.Items.Count != 0)
+            {
+                LLenarDDLMateriasAsignacion(Convert.ToInt32(ddlGrupo.SelectedValue));
+            }
+        }
+
+        protected void LLenarDDLMateriasAsignacion(int Grupo)
+        {
+            ddlMateria.Items.Clear();
+            ddlMateria.DataSource = ejecAsig.LlenarDDL(Grupo);
+            ddlMateria.DataTextField = "NomAsig";
+            ddlMateria.DataValueField = "IDAsignatura";
+            ddlMateria.DataBind();
+        }
+
+
         protected void LLenarDDLPaisEstado()
         {
             ddlPaisAddEstado.Items.Clear();
@@ -361,6 +412,7 @@ namespace SICOES2018.GUI
                 LlenarGVMaestros(1);
                 btnAgregarAlumno.Visible = true;
                 btnModifAlumno.Visible = false;
+                btnAsignarGrupo.Visible = false;
                 filecurriculum.Visible = true;
                 curriculumok.Visible = false;
                 ActualizarDatos();
@@ -445,8 +497,13 @@ namespace SICOES2018.GUI
                 else
                     ChckInactivo.Checked = true;
 
+
+                LlenarGVAsignaciones();
+                UpdatePanel1.Update();
+
                 btnAgregarAlumno.Visible = false;
                 btnModifAlumno.Visible = true;
+                btnAsignarGrupo.Visible = true;
             }
             ActualizarDatos();
         }
@@ -656,6 +713,33 @@ namespace SICOES2018.GUI
         {
             if (chckDocente.Checked == false)
                 chckDirectivo.Checked = false;
+
+        }
+
+        protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LLenarDDLGruposAsignacion(Convert.ToInt32(ddlPeriodo.SelectedValue));
+        }
+
+        protected void ddlGrupo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LLenarDDLMateriasAsignacion(Convert.ToInt32(ddlGrupo.SelectedValue));
+        }
+
+        protected void btnAsignar_Click(object sender, EventArgs e)
+        {
+            datoMaestroGrupo.IDMaestro = Convert.ToInt32(Session["EmpModif"]);
+            datoMaestroGrupo.IDGrupo = Convert.ToInt32(ddlGrupo.SelectedValue);
+            datoMaestroGrupo.IDPeriodo = Convert.ToInt32(ddlPeriodo.SelectedValue);
+            datoMaestroGrupo.IDAsignatura = Convert.ToInt32(ddlMateria.SelectedValue);
+            ejecMaestrosGrupos.agregarMaestroGrupo(datoMaestroGrupo);
+            LlenarGVAsignaciones();
+        }
+
+        protected void gvAsignaciones_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvAsignaciones.PageIndex = e.NewPageIndex;
+            LlenarGVAsignaciones();
 
         }
     }

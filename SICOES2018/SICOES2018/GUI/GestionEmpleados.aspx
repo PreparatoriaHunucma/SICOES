@@ -48,7 +48,7 @@
                         <div class="w3-row" style="margin-bottom: -20px">
                             <asp:Label ID="lbGradoEmp" runat="server" Text="Último Grado Académico" Font-Bold="true"></asp:Label>
                             <br />
-                            <asp:TextBox runat="server" CssClass="w3-input" ID="txtGradoEmp" MaxLength="18" type="text" Style="width: 400px" /><br />
+                            <asp:TextBox runat="server" CssClass="w3-input" ID="txtGradoEmp" type="text" Style="width: 400px" /><br />
                         </div>
                         <div class="w3-row" style="margin-bottom: -20px">
                             <asp:Label ID="lbCurriculum" runat="server" Text="Curriculum" Font-Bold="true"></asp:Label>
@@ -170,15 +170,15 @@
                         <hr style="margin: 5px" />
                         <div class="w3-col m12">
                             <div class="w3-row">
-                                <asp:CheckBox runat="server" CssClass="w3-check" ID="chckDirectivo" type="checkbox" Text=" Directivo" Font-Bold="true" OnCheckedChanged="chckDirectivo_CheckedChanged" AutoPostBack="true"/>
+                                <asp:CheckBox runat="server" CssClass="w3-check" ID="chckDirectivo" type="checkbox" Text=" Directivo" Font-Bold="true" OnCheckedChanged="chckDirectivo_CheckedChanged" AutoPostBack="true" />
                                 <br />
-                                <asp:CheckBox runat="server" CssClass="w3-check" ID="chckSecretariaAdm" type="checkbox" Text=" Secretaría Académica" Font-Bold="true" OnCheckedChanged="chckSecretariaAdm_CheckedChanged" AutoPostBack="true"/>
+                                <asp:CheckBox runat="server" CssClass="w3-check" ID="chckSecretariaAdm" type="checkbox" Text=" Secretaría Académica" Font-Bold="true" OnCheckedChanged="chckSecretariaAdm_CheckedChanged" AutoPostBack="true" />
                                 <br />
-                                <asp:CheckBox runat="server" CssClass="w3-check" ID="chckSecretariaAca" type="checkbox" Text=" Secretaría Administrativa" Font-Bold="true" OnCheckedChanged="chckSecretariaAca_CheckedChanged" AutoPostBack="true"/>
+                                <asp:CheckBox runat="server" CssClass="w3-check" ID="chckSecretariaAca" type="checkbox" Text=" Secretaría Administrativa" Font-Bold="true" OnCheckedChanged="chckSecretariaAca_CheckedChanged" AutoPostBack="true" />
                                 <br />
-                                <asp:CheckBox runat="server" CssClass="w3-check" ID="chckControl" type="checkbox" Text=" Control Escolar" Font-Bold="true" OnCheckedChanged="chckControl_CheckedChanged" AutoPostBack="true"/>
+                                <asp:CheckBox runat="server" CssClass="w3-check" ID="chckControl" type="checkbox" Text=" Control Escolar" Font-Bold="true" OnCheckedChanged="chckControl_CheckedChanged" AutoPostBack="true" />
                                 <br />
-                                <asp:CheckBox runat="server" CssClass="w3-check" ID="chckDocente" type="checkbox" Text=" Docente" Font-Bold="true" OnCheckedChanged="chckDocente_CheckedChanged" AutoPostBack="true"/>
+                                <asp:CheckBox runat="server" CssClass="w3-check" ID="chckDocente" type="checkbox" Text=" Docente" Font-Bold="true" OnCheckedChanged="chckDocente_CheckedChanged" AutoPostBack="true" />
                                 <br />
                             </div>
                             <br />
@@ -471,11 +471,11 @@
                                                             <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("FechaNacAlumno") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>--%>
-                                             <asp:TemplateField HeaderText="Usuario">
-                                                       <ItemTemplate>
-                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("Usuario") %>'></asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Usuario">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("Usuario") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Estatus">
                                                 <ItemTemplate>
                                                     <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("StatusMaestro") %>'></asp:Label>
@@ -495,6 +495,52 @@
             </div>
         </div>
     </div>
+    <%--MODAL PARA ASIGNAR UN GRUPO--%>
+    <div id="modalAsigGrupo" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top w3-card-4 w3-round">
+            <header class="w3-container w3-blue w3-round" style="height: 50px">
+                <h3 class="w3-display-topleft w3-margin-left">Asignación de grupos</h3>
+                <span onclick="document.getElementById('modalAsigGrupo').style.display='none'"
+                    class="w3-button w3-display-topright w3-hover-amber w3-round">&times;</span>
+            </header>
+            <div class="w3-container" style="min-height: 300px; max-height: 300px">
+                <div class="w3-row w3-padding-16">
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            <div class="w3-col m6">
+                                <b>
+                                    <asp:Label ID="lbInstrucAsig" runat="server" Text="Selecciona el periodo, grupo y materia correspondiente que se le asignará al maestro"></asp:Label>
+                                </b>
+                                <asp:DropDownList CssClass="w3-dropdown-click w3-input w3-margin" ID="ddlPeriodo" Style="width: 80%" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlPeriodo_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                <asp:DropDownList CssClass="w3-dropdown-click w3-input w3-margin" ID="ddlGrupo" Style="width: 80%" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlGrupo_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                <asp:DropDownList CssClass="w3-dropdown-click w3-input w3-margin" ID="ddlMateria" Style="width: 80%" runat="server" AppendDataBoundItems="true" AutoPostBack="true"></asp:DropDownList>
+                            </div>
+                            <div class="w3-col m6">
+                                <b>
+                                    <asp:Label ID="lbAsignaciones" runat="server" Text="Información asignada al maestro"></asp:Label>
+                                </b>
+                                <div class="w3-responsive">
+                                    <asp:GridView ID="gvAsignaciones" runat="server" CssClass="w3-table w3-striped w3-border" Style="min-height: 212px" AutoGenerateColumns="False" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="3" OnPageIndexChanging="gvAsignaciones_PageIndexChanging">
+                                        <Columns>
+                                            <asp:BoundField DataField="NomAsig" HeaderText="Asignatura" />
+                                            <asp:BoundField DataField="NombreGrupo" HeaderText="Grupo" />
+                                        </Columns>
+                                    </asp:GridView>
+                                </div>
+                            </div>
+                            <div class="w3-row">
+                                <asp:Button ID="btnAsignar" runat="server" Text="Asignar al maestro" CssClass="w3-padding w3-button w3-blue w3-hover-amber w3-display-bottommiddle" OnClick="btnAsignar_Click" Style="width: 300px" />
+                            </div>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="ddlPeriodo" EventName="SelectedIndexChanged" />
+                            <asp:AsyncPostBackTrigger ControlID="ddlGrupo" EventName="SelectedIndexChanged" />
+                        </Triggers>
+                    </asp:UpdatePanel>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <div class="w3-animate-right">
@@ -507,6 +553,7 @@
                 <div class="w3-row">
                     <%--BOTON PARA MODIFICAR INFO DEL ALUMNO--%>
                     <asp:Button CssClass="w3-margin-left w3-third w3-button w3-amber w3-hover-blue w3-round" ID="btnModifAlumno" runat="server" Text="Modificar Información" OnClick="btnModifAlumno_Click" CausesValidation="true" Width="31%" Visible="false" ValidationGroup="vlgrDatosEmp" />
+                    <asp:Button CssClass="w3-margin-left w3-third w3-button w3-amber w3-hover-blue w3-round" ID="btnAsignarGrupo" runat="server" Text="Asignar Grupos" OnClientClick="document.getElementById('modalAsigGrupo').style.display='block'; return false;" CausesValidation="true" Width="31%" Visible="false" ValidationGroup="vlgrDatosEmp" />
                 </div>
             </ContentTemplate>
             <Triggers>

@@ -13,19 +13,31 @@
                         <div class="w3-padding w3-col m6">
                             <asp:Label ID="lbNomCiclo" runat="server" Text="Nombre del ciclo escolar" Font-Bold="true"></asp:Label>
                             <asp:RequiredFieldValidator ID="rqNomCiclo" runat="server" ErrorMessage="¡Ingrese un nombre!" ControlToValidate="txtNomCiclo" ForeColor="Red" Font-Size="Small" Height="10px" ValidationGroup="vlgrCiclo"></asp:RequiredFieldValidator>
-                            <asp:TextBox ID="txtNomCiclo" runat="server" CssClass="w3-input w3-margin-bottom" placeholder="Ciclo escolar 20XX - 20XX"></asp:TextBox>
-                            <asp:Button ID="btnAddCiclo" runat="server" Text="Crear ciclo escolar" CssClass="w3-button w3-amber w3-hover-blue w3-margin" Width="93%" OnClick="btnAddCiclo_Click" ValidationGroup="vlgrCiclo" />
-                            <asp:Button ID="btnModCiclo" runat="server" Text="Modificar información del ciclo escolar" CssClass="w3-button w3-amber w3-hover-blue w3-margin" Width="93%" Visible="false" OnClick="btnModCiclo_Click" ValidationGroup="vlgrCiclo" />
-                        </div>
-                        <div class="w3-padding w3-col m6">
+                            <asp:TextBox ID="txtNomCiclo" runat="server" CssClass="w3-input " placeholder="Ciclo escolar 20XX - 20XX"></asp:TextBox>
                             <asp:Label ID="lbFechaInicio" runat="server" Text="Inicio del ciclo" Font-Bold="true"></asp:Label>
                             <asp:RequiredFieldValidator ID="rqFechaInicio" runat="server" ErrorMessage="¡Ingrese una fecha!" ControlToValidate="txtFechaInicioCiclo" ForeColor="Red" Font-Size="Small" Height="10px" ValidationGroup="vlgrCiclo"></asp:RequiredFieldValidator>
                             <asp:TextBox ID="txtFechaInicioCiclo" runat="server" CssClass="w3-input w3-margin-bottom" TextMode="Date"></asp:TextBox>
+                            <asp:Label ID="lbInicioDocs" runat="server" Text="Inicio de entrega de documentos" Font-Bold="true"></asp:Label>
+                            <asp:RequiredFieldValidator ID="rqInicioDocs" runat="server" ErrorMessage="¡Ingrese una fecha!" ControlToValidate="txtInicioDocs" ForeColor="Red" Font-Size="Small" Height="10px" ValidationGroup="vlgrCiclo"></asp:RequiredFieldValidator>
+                            <asp:TextBox ID="txtInicioDocs" runat="server" CssClass="w3-input w3-margin-bottom" TextMode="Date"></asp:TextBox>
+
+                        </div>
+                        <div class="w3-padding w3-col m6">
+                            <br />
+                            <asp:CheckBox ID="checkStatusCiclo" runat="server" Text="  Estado del ciclo escolar" Font-Bold="true" CssClass="w3-margin-top " />
+                            <br />
+                            <br />
                             <asp:Label ID="lbFechaFin" runat="server" Text="Fin del ciclo" Font-Bold="true"></asp:Label>
                             <asp:RequiredFieldValidator ID="rqFechaFin" runat="server" ErrorMessage="¡Ingrese una fecha!" ControlToValidate="txtFechaFinCiclo" ForeColor="Red" Font-Size="Small" Height="10px" ValidationGroup="vlgrCiclo"></asp:RequiredFieldValidator>
                             <asp:TextBox ID="txtFechaFinCiclo" runat="server" CssClass="w3-input w3-margin-bottom" TextMode="Date"></asp:TextBox>
-                            <asp:CheckBox ID="checkStatusCiclo" runat="server" Text="  Estado del ciclo escolar" Font-Bold="true" />
+                            <asp:Label ID="lbFinDocs" runat="server" Text="Fin de entrega de documentos" Font-Bold="true"></asp:Label>
+                            <asp:RequiredFieldValidator ID="rqFinDocs" runat="server" ErrorMessage="¡Ingrese una fecha!" ControlToValidate="txtFinDocs" ForeColor="Red" Font-Size="Small" Height="10px" ValidationGroup="vlgrCiclo"></asp:RequiredFieldValidator>
+                            <asp:TextBox ID="txtFinDocs" runat="server" CssClass="w3-input w3-margin-bottom" TextMode="Date"></asp:TextBox>
+
                         </div>
+                        <asp:Button ID="btnAddCiclo" runat="server" Text="Crear ciclo escolar" CssClass="w3-button w3-amber w3-hover-blue" Width="100%" OnClick="btnAddCiclo_Click" ValidationGroup="vlgrCiclo"/>
+                        <asp:Button ID="btnModCiclo" runat="server" Text="Modificar información del ciclo escolar" CssClass="w3-button w3-amber w3-hover-blue " Width="100%" Visible="false" OnClick="btnModCiclo_Click" ValidationGroup="vlgrCiclo" />
+
                     </div>
                     <div class="w3-row">
                         <div class="w3-col m12 w3-padding">

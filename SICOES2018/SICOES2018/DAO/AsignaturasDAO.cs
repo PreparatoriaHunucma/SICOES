@@ -70,6 +70,18 @@ namespace SICOES2018.DAO
             return llenarTablas(SQLCommand);
         }
 
+        public DataTable LlenarDDL(int Grupo)
+        {
+            SQLCommand = "select * from Asignaturas a join Grupos g ON g.IDPlanEstudio = a.IDPlanEstudios AND g.IDSemestre = a.IDSemestreAsig where g.IDGrupo = " + Grupo;
+            return llenarTablas(SQLCommand);
+        }
+
+        public DataTable LlenarDDLMaestros(int Grupo, int Maestro)
+        {
+            SQLCommand = "select a.IDAsignatura, a.NomAsig from MaestroGrupos mg join Asignaturas a on a.IDAsignatura = mg.IDAsignatura where IDMaestro = " + Maestro + " and IDGrupo = " + Grupo;
+            return llenarTablas(SQLCommand);
+        }
+
         //Buscar el dato de una tabla en especifico
         public string buscarDatoAsig(string Columna, AsignaturasBO datosAsig)
         {
@@ -81,6 +93,11 @@ namespace SICOES2018.DAO
             return buscarDatoEspecifico(cmd, Columna);
         }
 
+        public DataTable ObtenerAsigOblig(int Semestre)
+        {
+            SQLCommand = "select IDAsignatura from Asignaturas where idtipoasig = 1 and IDSemestreAsig =" + Semestre;
+            return llenarTablas(SQLCommand);
+        }
 
     }
 }

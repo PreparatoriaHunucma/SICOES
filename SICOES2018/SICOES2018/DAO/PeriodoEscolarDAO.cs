@@ -68,5 +68,12 @@ namespace SICOES2018.DAO
             return llenarTablas(SQLCommand);
         }
 
+        //Para llenar los Drop Down List de los ciclos
+        public DataTable llenarDDLCicloActivo()
+        {
+            SQLCommand = "select pe.IDPeriodo, pe.Nombre from Periodoescolar pe join cicloescolar ce on ce.IDCicloEscolar = pe.IDCicloEscolar where ce.Status = 1";
+            return llenarTablas(SQLCommand);
+        }
+
     }
 }
