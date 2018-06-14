@@ -58,6 +58,14 @@ namespace SICOES2018.DAO
             return llenarTablas(SQLCommand);
         }
 
+        public DataTable LlenarGVAlumnosXGrupos(int IDGrupo)
+        {
+            SQLCommand = "SELECT a.IDAlumno, CONCAT(a.ApePatAlumno, ' ', a.ApeMatAlumno, ' ', a.NomAlumno) AS Alumno FROM dbo.Grupos g JOIN dbo.Alumnos a ON a.IDGrupo = g.IDGrupo WHERE g.IDGrupo = " + IDGrupo + " ORDER BY Alumno";
+            return llenarTablas(SQLCommand);
+        }
+
+
+
         //Para llenar los GridView y DDL de los paises
         public DataTable llenarDDLCicloActual(int IDSemestre)
         {
