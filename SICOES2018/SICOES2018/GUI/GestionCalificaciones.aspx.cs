@@ -102,7 +102,7 @@ namespace SICOES2018.GUI
         [WebMethod]
         public static bool ModificarRegistro(List<tblExcel> tblExcel)
         {
-            string strconn = "Data Source=sql7001.site4now.net;Initial Catalog=DB_A3AC6D_SICOES2018;User Id=DB_A3AC6D_SICOES2018_admin;Password=sicoeshunucma2018;";
+            string strconn = "Data Source=sql5037.site4now.net;Initial Catalog=DB_A26FD9_SICOESHunucma;User Id= DB_A26FD9_SICOESHunucma_admin;Password=sicoeshunucma2018;";
             SqlConnection con;
             SqlCommand cmd;
             con = new SqlConnection(strconn);

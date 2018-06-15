@@ -17,15 +17,15 @@ namespace SICOES2018.Reports
         {
             rprt.Load(Server.MapPath(@"~/Reports/BoletaTodos.rpt"));
             rprt.FileName = Server.MapPath(@"~/Reports/BoletaTodos.rpt");
-            SqlConnection con = new SqlConnection(@"Data Source = sql7001.site4now.net; Initial Catalog = DB_A3AC6D_SICOES2018; User Id = DB_A3AC6D_SICOES2018_admin; Password = sicoeshunucma2018;");
+            SqlConnection con = new SqlConnection(@"Data Source=sql5037.site4now.net;Initial Catalog=DB_A26FD9_SICOESHunucma;User Id= DB_A26FD9_SICOESHunucma_admin;Password=sicoeshunucma2018;");
             SqlCommand cmd = new SqlCommand("BoletaTodo", con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             //cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = 33;
             //cmd.Parameters.Add("@IDDOCS", SqlDbType.Int).Value = 35;
             ConnectionInfo connectionInfo = new ConnectionInfo();
-            connectionInfo.ServerName = "sql7001.site4now.net";
-            connectionInfo.DatabaseName = "DB_A3AC6D_SICOES2018";
-            connectionInfo.UserID = "DB_A3AC6D_SICOES2018_admin";
+            connectionInfo.ServerName = "sql5037.site4now.net";
+            connectionInfo.DatabaseName = "DB_A26FD9_SICOESHunucma";
+            connectionInfo.UserID = "DB_A26FD9_SICOESHunucma_admin";
             connectionInfo.Password = "sicoeshunucma2018";
             SetDBLogonForReport(connectionInfo, rprt);
             rprt.SetParameterValue("@IDAlumno", Convert.ToInt32(Session["AlumnoReporteID"]));
