@@ -20,8 +20,10 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressAnonymousAuthentication>
+    </IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>
+    </IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -219,6 +221,7 @@
     <Content Include="GUI\GestionAsignaturas.aspx" />
     <Content Include="GUI\GestionCiclo.aspx" />
     <Content Include="GUI\GestionGrupos.aspx" />
+    <Content Include="GUI\GestionPlantel.aspx" />
     <Content Include="GUI\Inicio.aspx" />
     <Content Include="GUI\Index.aspx" />
     <Content Include="GUI\GestionAlumnos.aspx" />
@@ -444,6 +447,13 @@
     </Compile>
     <Compile Include="GUI\GestionGrupos.aspx.designer.cs">
       <DependentUpon>GestionGrupos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionPlantel.aspx.cs">
+      <DependentUpon>GestionPlantel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionPlantel.aspx.designer.cs">
+      <DependentUpon>GestionPlantel.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>

@@ -135,7 +135,7 @@
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Constancias de Esstudio</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Justifiaciones</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Kardex</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Gestion del Plantel</a></p>
+                                <p><a class="cursorencima" href="../GUI/GestionPlantel.aspx" style="text-decoration: none">Gestion del Plantel</a></p>
                                 <p><a class="cursorencima" href="../GUI/GestionAlumnos.aspx" style="text-decoration: none">Gestión de Alumnos</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Respaldo de información</a></p>
                             </div>
