@@ -78,13 +78,13 @@
                                 <div class="w3-col m2" style="margin-top: -10px">
                                     <label class="w3-xxlarge">|</label>
                                 </div>
-                                <div class="w3-col m5">
+<%--                                <div class="w3-col m5">
                                     <div class="image-upload w3-left">
                                         <label style="cursor: pointer" title="Tomar una fotografía" onclick="document.getElementById('modalTomarFoto').style.display='block'">
                                             <i class="fa fa-camera-retro w3-xxlarge" style="pointer-events: none; cursor: pointer"></i>
                                         </label>
                                     </div>
-                                </div>
+                                </div>--%>
                             </div>
                             <div class="w3-row">
                                 <asp:Button ID="btnConfirmFoto" runat="server" Text="Confirmar Foto" OnClick="btnConfirmFoto_Click" CssClass="w3-button w3-amber w3-hover-blue" Width="100%" CausesValidation="false" Style="display: none" OnClientClick="guardarboton(event)" />

@@ -97,15 +97,26 @@ namespace SICOES2018.GUI
         }
         protected string ObtenerCurriculum()
         {
+            string path;
+            string filename = filecurriculum.FileName;
             string Cantidad = ejecEmp.buscarCount("Cantidad");
-            string NombreArchivo = Path.GetFileName(filecurriculum.PostedFile.FileName);
-            string savedFileName = Server.MapPath(@"\\Curriculum\\" + Cantidad + "_" + NombreArchivo);
-            filecurriculum.SaveAs(savedFileName);
-            filecurriculum.Visible = false;
-            curriculumok.Text = NombreArchivo;
+            filecurriculum.PostedFile.SaveAs(Server.MapPath("~\\Curriculum\\" + Cantidad + "_" + filename.Trim()));
+
+            path = "\\Curriculum\\" + Cantidad + "_" + filename.Trim();
+            curriculumok.Text = filename;
             curriculumok.Visible = true;
             btnResubirCurriculum.Visible = true;
-            return savedFileName;
+            return path;
+
+            //string Cantidad = ejecEmp.buscarCount("Cantidad");
+            //string NombreArchivo = Path.GetFileName(filecurriculum.PostedFile.FileName);
+            //string savedFileName = Server.MapPath(@"\\Curriculum\\" + Cantidad + "_" + NombreArchivo);
+            //filecurriculum.SaveAs(savedFileName);
+            //filecurriculum.Visible = false;
+            //curriculumok.Text = NombreArchivo;
+            //curriculumok.Visible = true;
+            //btnResubirCurriculum.Visible = true;
+            //return savedFileName;
         }
         protected void ObtenerDomicilio()
         {
