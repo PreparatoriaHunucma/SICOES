@@ -101,7 +101,6 @@ namespace SICOES2018.GUI
             ActualizarUPDatos();
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "modifsuccessalert();", true);
         }
-
         private void ObtenerDomicilio()
         {
             datoEscuela.CalleEsc = txtCallAlum.Text;
