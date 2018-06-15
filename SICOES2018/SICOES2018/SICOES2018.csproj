@@ -215,6 +215,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="GUI\GestionBoletas.aspx" />
     <Content Include="GUI\GestionCalificaciones.aspx" />
     <Content Include="GUI\GestionConcentradoCalificaciones.aspx" />
     <Content Include="GUI\GestionEmpleados.aspx" />
@@ -225,10 +226,16 @@
     <Content Include="GUI\Inicio.aspx" />
     <Content Include="GUI\Index.aspx" />
     <Content Include="GUI\GestionAlumnos.aspx" />
+    <Content Include="GUI\ListaAsistenciaGeneral.aspx" />
+    <Content Include="GUI\ListaAsistenciaMaestro.aspx" />
+    <Content Include="Reports\BoletaParcial.aspx" />
+    <Content Include="Reports\BoletaSemestre.aspx" />
+    <Content Include="Reports\BoletaTodos.aspx" />
     <Content Include="Reports\ConcentradoCalificaciones.aspx" />
     <Content Include="Reports\ReporteCartaCompromiso.aspx" />
     <Content Include="MasterPages\mstrpgAdmin.Master" />
     <Content Include="Reports\FormatoPreinscripcion.aspx" />
+    <Content Include="Reports\SolicitudBaja.aspx" />
     <Content Include="Resources\fonts\fontawesome-webfont.eot" />
     <Content Include="Resources\fonts\fontawesome-webfont.ttf" />
     <Content Include="Resources\fonts\fontawesome-webfont.woff" />
@@ -372,6 +379,7 @@
     <Compile Include="BO\PeriodoEscolarBO.cs" />
     <Compile Include="BO\PlanesEstudioBO.cs" />
     <Compile Include="BO\SemestresBO.cs" />
+    <Compile Include="BO\SolicitudBajaBO.cs" />
     <Compile Include="BO\TipoAlumnoBO.cs" />
     <Compile Include="BO\TipoAsignaturasBO.cs" />
     <Compile Include="BO\TipoMaestroBO.cs" />
@@ -398,6 +406,7 @@
     <Compile Include="DAO\PeriodoEscolarDAO.cs" />
     <Compile Include="DAO\PlanesEstudioDAO.cs" />
     <Compile Include="DAO\SemestresDAO.cs" />
+    <Compile Include="DAO\SolicitudBajaDAO.cs" />
     <Compile Include="DAO\TipoAsignaturasDAO.cs" />
     <Compile Include="DAO\TipoMaestroDAO.cs" />
     <Compile Include="DAO\TiposAlumnoDAO.cs" />
@@ -406,6 +415,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="GUI\GestionBoletas.aspx.cs">
+      <DependentUpon>GestionBoletas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionBoletas.aspx.designer.cs">
+      <DependentUpon>GestionBoletas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GestionCalificaciones.aspx.cs">
       <DependentUpon>GestionCalificaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -476,6 +492,59 @@
     <Compile Include="GUI\GestionAlumnos.aspx.designer.cs">
       <DependentUpon>GestionAlumnos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ListaAsistenciaGeneral.aspx.cs">
+      <DependentUpon>ListaAsistenciaGeneral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\ListaAsistenciaGeneral.aspx.designer.cs">
+      <DependentUpon>ListaAsistenciaGeneral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ListaAsistenciaMaestro.aspx.cs">
+      <DependentUpon>ListaAsistenciaMaestro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\ListaAsistenciaMaestro.aspx.designer.cs">
+      <DependentUpon>ListaAsistenciaMaestro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BoletaSemestre.aspx.cs">
+      <DependentUpon>BoletaSemestre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\BoletaSemestre.aspx.designer.cs">
+      <DependentUpon>BoletaSemestre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BoletaSemestre.cs">
+      <DependentUpon>BoletaSemestre.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\BoletaTodos.aspx.cs">
+      <DependentUpon>BoletaTodos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\BoletaTodos.aspx.designer.cs">
+      <DependentUpon>BoletaTodos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BoletaTodos.cs">
+      <DependentUpon>BoletaTodos.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\BoletaParcial.aspx.cs">
+      <DependentUpon>BoletaParcial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\BoletaParcial.aspx.designer.cs">
+      <DependentUpon>BoletaParcial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BoletaParcial.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoletaParcial.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\ConcentradoCalificaciones.aspx.cs">
       <DependentUpon>ConcentradoCalificaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -493,6 +562,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FormatoPreinscripcion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ListaAsistenciaGeneral.cs">
+      <DependentUpon>ListaAsistenciaGeneral.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\ListaAsistenciaMaestro.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListaAsistenciaMaestro.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\ReporteCartaCompromiso.aspx.cs">
@@ -522,6 +603,19 @@
     </Compile>
     <Compile Include="Reports\FormatoPreinscripcion.aspx.designer.cs">
       <DependentUpon>FormatoPreinscripcion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SolicitudBaja.aspx.cs">
+      <DependentUpon>SolicitudBaja.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\SolicitudBaja.aspx.designer.cs">
+      <DependentUpon>SolicitudBaja.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SolicitudBaja.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SolicitudBaja.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
@@ -573,6 +667,18 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\BoletaSemestre.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BoletaSemestre.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BoletaTodos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BoletaTodos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BoletaParcial.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BoletaParcial.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ConcentradoCalificaciones.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ConcentradoCalificaciones.cs</LastGenOutput>
@@ -584,6 +690,18 @@
     <EmbeddedResource Include="Reports\FormatoPreinscripcion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FormatoPreinscripcion.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ListaAsistenciaGeneral.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListaAsistenciaGeneral.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ListaAsistenciaMaestro.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListaAsistenciaMaestro.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SolicitudBaja.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SolicitudBaja.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

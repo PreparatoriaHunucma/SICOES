@@ -10,7 +10,7 @@
 namespace SICOES2018.GUI {
     
     
-    public partial class GestionCalificaciones {
+    public partial class GestionBoletas {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -22,49 +22,31 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// txtVal1 control.
+        /// upGrupos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField txtVal1;
+        protected global::System.Web.UI.UpdatePanel upGrupos;
         
         /// <summary>
-        /// lbPeriodoCalif control.
+        /// lbPeriodo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPeriodoCalif;
+        protected global::System.Web.UI.WebControls.Label lbPeriodo;
         
         /// <summary>
-        /// ddlPeriodoCalif control.
+        /// ddlPeriodo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPeriodoCalif;
-        
-        /// <summary>
-        /// lbMomento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbMomento;
-        
-        /// <summary>
-        /// ddlMomento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMomento;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPeriodo;
         
         /// <summary>
         /// lbGrupo control.
@@ -85,21 +67,21 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.DropDownList ddlGrupo;
         
         /// <summary>
-        /// lbAsig control.
+        /// lbAlumnosReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbAsig;
+        protected global::System.Web.UI.WebControls.Label lbAlumnosReg;
         
         /// <summary>
-        /// ddlAsig control.
+        /// gvAlumnos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAsig;
+        protected global::System.Web.UI.WebControls.GridView gvAlumnos;
     }
 }

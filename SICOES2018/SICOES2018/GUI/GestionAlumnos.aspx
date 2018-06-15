@@ -799,7 +799,7 @@
                     <asp:TextBox CssClass="w3-input w3-margin" ID="txtMotivos" Width="100%" Style="max-width: 100%; min-width: 100%; max-height: 150px; min-height: 150px" runat="server" TextMode="MultiLine"></asp:TextBox>
                 </div>
                 <div class="w3-row">
-                    <asp:Button ID="btnDarBajaAlumno" runat="server" Text="Agregar país" CssClass="w3-padding w3-button w3-blue w3-hover-amber w3-display-bottommiddle" OnClick="btnDarBajaAlumno_Click" Style="width: 300px" ValidationGroup="vlgrDatosAddPais" />
+                    <asp:Button ID="btnDarBajaAlumno" runat="server" Text="Dar de baja" CssClass="w3-padding w3-button w3-blue w3-hover-amber w3-display-bottommiddle" OnClick="btnDarBajaAlumno_Click1" Style="width: 300px" />
                 </div>
             </div>
         </div>

@@ -41,6 +41,8 @@ namespace SICOES2018.GUI
         AsignaturasDAO ejecAsig = new AsignaturasDAO();
         CalificacionesBO datoCalif = new CalificacionesBO();
         CalificacionesDAO ejecCalif = new CalificacionesDAO();
+        SolicitudBajaBO datoSoli = new SolicitudBajaBO();
+        SolicitudBajaDAO ejecSoli = new SolicitudBajaDAO();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -69,6 +71,7 @@ namespace SICOES2018.GUI
         //////////OBTENER DATOS DEL ALUMNO DE LOS CAMPOS
         protected void ObtenerDatosGenerales()
         {
+
             datoAlum.NomAlumno = txtNomAlumno.Text;
             datoAlum.ApePatAlumno = txtApePatAlumno.Text;
             datoAlum.ApeMatAlumno = txtApeMatAlumno.Text;
@@ -78,6 +81,11 @@ namespace SICOES2018.GUI
                 datoAlum.FotoAlumno = Session["RutaFoto"].ToString();
             else
                 datoAlum.FotoAlumno = "~/Resources/images/imgPerfil.jpg";
+            if (Session["RutaFoto"] != null)
+                datoAlum.FotoTabla1 = "<img src='" + datoAlum.FotoAlumno.Substring(1) + "' class='w3-image' style='width:100%; height:100px'>";
+            else
+                datoAlum.FotoTabla1 = "<img src='/Resources/images/imgPerfil.jpg' class='w3-image' style='width:100%; height:100px'>";
+
             if (chckRevalida.Checked == true)
                 datoAlum.RevalidaAlumno = 1;
             else
@@ -102,6 +110,10 @@ namespace SICOES2018.GUI
                 datoAlum.FotoAlumno = Session["RutaFoto"].ToString();
             else
                 datoAlum.FotoAlumno = imgFotoAlum.ImageUrl;
+            if (Session["RutaFoto"] != null)
+                datoAlum.FotoTabla1 = "<img src='" + datoAlum.FotoAlumno.Substring(1) + "' class='w3-image' style='width:100%; height:100px'>";
+            else
+                datoAlum.FotoTabla1 = "<img src='" + imgFotoAlum.ImageUrl.Substring(1) + "' class='w3-image' style='width:100%; height:100px'>";
 
             if (chckRevalida.Checked == true)
                 datoAlum.RevalidaAlumno = 1;
@@ -734,7 +746,8 @@ namespace SICOES2018.GUI
             datoCalif.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
             DataTable tblMomento = ejecMomento.Obtener3Momentos();
             DataTable tblAsignaturas = ejecAsig.ObtenerAsigOblig(Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDSemestrePreinscripcion", datoAlum)));
-            foreach (DataRow rowm in tblMomento.Rows){
+            foreach (DataRow rowm in tblMomento.Rows)
+            {
                 foreach (DataRow rowa in tblAsignaturas.Rows)
                 {
                     datoCalif.IDAsignatura = Convert.ToInt32(rowa.ItemArray.GetValue(0));
@@ -749,20 +762,6 @@ namespace SICOES2018.GUI
         //Dar de baja a un alumno
         protected void btnDarBajaAlumno_Click(object sender, EventArgs e)
         {
-            if (Session["AlumModif"] != null)
-            {
-                datoAlum.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
-                datoAlum.IDTipoAlumno = 3;
-                ejecAlum.modificarTipoAlumno(datoAlum);
-                LimpiarCampos();
-                LlenarGVAlumnos(1);
-                btnAgregarAlumno.Visible = true;
-                btnModifAlumno.Visible = false;
-                btnInscribirAlumno.Visible = false;
-                btnBajaAlumno.Visible = false;
-                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "bajasuccessalert();", true);
-            }
-            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
         }
 
 
@@ -794,7 +793,6 @@ namespace SICOES2018.GUI
                 btnInscribirAlumno.Visible = true;
                 btnBajaAlumno.Visible = true;
                 btnReImpForPreInsc.Visible = true;
-                btnCartaCompromiso.Visible = true;
                 txtMatriculaUADY.Enabled = false;
                 ActualizarUPDatos();
                 upModalInsc.Update();
@@ -1110,6 +1108,49 @@ namespace SICOES2018.GUI
         {
             Session["AlumnoReporteID"] = Session["AlumModif"];
             Response.Redirect("~/Reports/FormatoPreinscripcion");
+        }
+
+        protected void btnDarBajaAlumno_Click1(object sender, EventArgs e)
+        {
+            if (Session["AlumModif"] != null)
+            {
+                datoAlum.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
+                datoAlum.IDTipoAlumno = 3;
+                ejecAlum.modificarTipoAlumno(datoAlum);
+                datoSoli.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
+                datoSoli.TipoBaja = ddlTipoBaja.SelectedItem.ToString();
+                datoSoli.Motivo = txtMotivos.Text;
+                ejecSoli.agregarAviso(datoSoli);
+                int IDSolicitud = Convert.ToInt32(ejecSoli.buscarUltimoIDAlumno("IDSolicitud"));
+                datoSoli.IDSolicitud = IDSolicitud;
+                string IDSolicitudFinal;
+                if (IDSolicitud < 10)
+                {
+                    IDSolicitudFinal = "00" + IDSolicitud.ToString();
+                }
+                else if (IDSolicitud > 9 && IDSolicitud < 100)
+                {
+                    IDSolicitudFinal = "0" + IDSolicitud.ToString();
+                }
+                else
+                {
+                    IDSolicitudFinal = IDSolicitud.ToString();
+                }
+                datoSoli.NoOficio = IDSolicitudFinal;
+                ejecSoli.modificarEstadoAviso(datoSoli);
+                Session["SolicitudReporteID"] = IDSolicitud;
+                LimpiarCampos();
+                LlenarGVAlumnos(1);
+                btnAgregarAlumno.Visible = true;
+                btnModifAlumno.Visible = false;
+                btnInscribirAlumno.Visible = false;
+                btnBajaAlumno.Visible = false;
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "bajasuccessalert();", true);
+                Response.Redirect("~/Reports/SolicitudBaja");
+
+            }
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
+
         }
     }
 }
