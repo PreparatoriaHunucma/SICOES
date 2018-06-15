@@ -10,6 +10,7 @@
         </div>
         <hr style="margin: 5px" />
 
+        <asp:HiddenField runat="server" ID="txtVal1"/>
         <div class="w3-row w3-padding">
             <div class="w3-col m4">
                 <div class="w3-row">
@@ -39,17 +40,32 @@
         </div>
 
         <script type="text/javascript">
+
             function tablacalificaciones() {
+
                 configuracion = {
                     data: <%= ObtenerRegistros()%>,
-                    colWidths: [0.1, 500, 100, 100],
-                    colHeaders: ['IDCalificacion', 'Alumno', 'Calificación', 'Inasistencias'],
+                    colWidths: [100, 0.1, 500, 100, 100],
+                    colHeaders: ['Foto', 'IDCalificacion', 'Alumno', 'Calificación', 'Inasistencias'],
                     columns: [
+                        { data: 'FotoTabla', renderer: 'html', readOnly: true },
                         { data: 'IDCalificacion', readOnly: true },
                         { data: 'Alumno', readOnly: true },
                         { data: 'Calificacion', type: 'numeric', format: '0.00' },
                         { data: 'Inasistencias', type: 'numeric', format: '0' }
                     ],
+                    beforeChange: function (changes, source) {
+                        for (var i = changes.length - 1; i >= 0; i--) {
+                            // gently don't accept the word "foo" (remove the change at index i)
+                            if (changes[i][3] > document.getElementById('<%=txtVal1.ClientID%>').value) {
+                                changes.splice(i, 1);
+                            }
+                            // if any of pasted cells contains the word "nuke", reject the whole paste
+                            else if (changes[i][3] === 'nuke') {
+                                return false;
+                            }
+                        }
+                    },
                     afterCreateRow: function (index, numberOfRows) {
                         DatosPersonas.splice(index, numberOfRows);
                     },
@@ -75,6 +91,7 @@
                 };
                 tblExcel = new Handsontable(document.getElementById('tablacalif'), configuracion);
                 tblExcel.render();
+
             }
         </script>
     </div>

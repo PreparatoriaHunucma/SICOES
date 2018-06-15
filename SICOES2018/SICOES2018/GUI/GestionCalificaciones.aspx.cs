@@ -39,7 +39,7 @@ namespace SICOES2018.GUI
                 LlenarDDLMomento();
                 ddlMomento.SelectedIndex = 0;
                 ScriptManager.RegisterStartupScript(this, GetType(), "text", "tablacalificaciones();", true);
-
+                ModificarMaximo();
             }
 
         }
@@ -88,6 +88,15 @@ namespace SICOES2018.GUI
         }
 
 
+        protected void ModificarMaximo()
+        {
+            int momento = Convert.ToInt32(ddlMomento.SelectedValue);
+            if (momento < 3)
+                txtVal1.Value = "70";
+            else
+                txtVal1.Value = "30";
+
+        }
 
 
         [WebMethod]
@@ -133,24 +142,29 @@ namespace SICOES2018.GUI
         {
             LlenarDDLGrupo(Convert.ToInt32(Session["IDUserLoged"]), Convert.ToInt32(ddlPeriodoCalif.SelectedValue));
             ScriptManager.RegisterStartupScript(this, GetType(), "text", "tablacalificaciones();", true);
+            ModificarMaximo();
+
         }
 
         protected void ddlGrupoAsig_SelectedIndexChanged(object sender, EventArgs e)
         {
             LlenarDDLAsignatura(Convert.ToInt32(Session["IDUserLoged"]), Convert.ToInt32(ddlGrupo.SelectedValue));
             ScriptManager.RegisterStartupScript(this, GetType(), "text", "tablacalificaciones();", true);
+            ModificarMaximo();
 
         }
 
         protected void ddlMomento_SelectedIndexChanged(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "text", "tablacalificaciones();", true);
+            ModificarMaximo();
 
         }
 
         protected void ddlAsig_SelectedIndexChanged(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "text", "tablacalificaciones();", true);
+            ModificarMaximo();
 
         }
     }

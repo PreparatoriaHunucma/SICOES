@@ -71,6 +71,7 @@ namespace SICOES2018.GUI
         //////////OBTENER DATOS DEL ALUMNO DE LOS CAMPOS
         protected void ObtenerDatosGenerales()
         {
+
             datoAlum.NomAlumno = txtNomAlumno.Text;
             datoAlum.ApePatAlumno = txtApePatAlumno.Text;
             datoAlum.ApeMatAlumno = txtApeMatAlumno.Text;
@@ -80,6 +81,11 @@ namespace SICOES2018.GUI
                 datoAlum.FotoAlumno = Session["RutaFoto"].ToString();
             else
                 datoAlum.FotoAlumno = "~/Resources/images/imgPerfil.jpg";
+            if (Session["RutaFoto"] != null)
+                datoAlum.FotoTabla1 = "<img src='" + datoAlum.FotoAlumno.Substring(1) + "' class='w3-image' style='width:100%; height:100px'>";
+            else
+                datoAlum.FotoTabla1 = "<img src='/Resources/images/imgPerfil.jpg' class='w3-image' style='width:100%; height:100px'>";
+
             if (chckRevalida.Checked == true)
                 datoAlum.RevalidaAlumno = 1;
             else
@@ -104,6 +110,10 @@ namespace SICOES2018.GUI
                 datoAlum.FotoAlumno = Session["RutaFoto"].ToString();
             else
                 datoAlum.FotoAlumno = imgFotoAlum.ImageUrl;
+            if (Session["RutaFoto"] != null)
+                datoAlum.FotoTabla1 = "<img src='" + datoAlum.FotoAlumno.Substring(1) + "' class='w3-image' style='width:100%; height:100px'>";
+            else
+                datoAlum.FotoTabla1 = "<img src='" + imgFotoAlum.ImageUrl.Substring(1) + "' class='w3-image' style='width:100%; height:100px'>";
 
             if (chckRevalida.Checked == true)
                 datoAlum.RevalidaAlumno = 1;

@@ -226,6 +226,7 @@
     <Content Include="GUI\ListaAsistenciaGeneral.aspx" />
     <Content Include="GUI\ListaAsistenciaMaestro.aspx" />
     <Content Include="Reports\BoletaParcial.aspx" />
+    <Content Include="Reports\BoletaSemestre.aspx" />
     <Content Include="Reports\BoletaTodos.aspx" />
     <Content Include="Reports\ConcentradoCalificaciones.aspx" />
     <Content Include="Reports\ReporteCartaCompromiso.aspx" />
@@ -495,6 +496,19 @@
     <Compile Include="GUI\ListaAsistenciaMaestro.aspx.designer.cs">
       <DependentUpon>ListaAsistenciaMaestro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\BoletaSemestre.aspx.cs">
+      <DependentUpon>BoletaSemestre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\BoletaSemestre.aspx.designer.cs">
+      <DependentUpon>BoletaSemestre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BoletaSemestre.cs">
+      <DependentUpon>BoletaSemestre.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\BoletaTodos.aspx.cs">
       <DependentUpon>BoletaTodos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -643,6 +657,10 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\BoletaSemestre.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BoletaSemestre.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\BoletaTodos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BoletaTodos.cs</LastGenOutput>

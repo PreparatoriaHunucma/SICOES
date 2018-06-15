@@ -8,7 +8,7 @@ namespace SICOES2018.BO
     public class AlumnosBO
     {
         private int iDAlumno, iDTipoAlumno, iDMunicipioAlumno, iDDocumentosAlumno, iDEscProAlumno, iDGrupo, iDTurno, iDSemestrePreinscripcion;
-        private String nomAlumno, apePatAlumno, apeMatAlumno, telAlumno, fotoAlumno, calleAlumno, numeroAlumno, coloniaAlumno, codigoPostalAlumno, nomPadreAlumno, telPadreAlumno, nomMadreAlumno, telMadreAlumno, nomTutorAlumno, telTutorAlumno, curpAlumno, usuarioAlumno, contrasenhaAlumno, matricula;
+        private String nomAlumno, apePatAlumno, apeMatAlumno, telAlumno, fotoAlumno, calleAlumno, numeroAlumno, coloniaAlumno, codigoPostalAlumno, nomPadreAlumno, telPadreAlumno, nomMadreAlumno, telMadreAlumno, nomTutorAlumno, telTutorAlumno, curpAlumno, usuarioAlumno, contrasenhaAlumno, matricula, FotoTabla;
         private DateTime ingresoAlumno, fechaNacAlum;
         private short revalidaAlumno, nuevoAlumno;
 
@@ -44,6 +44,7 @@ namespace SICOES2018.BO
         public DateTime FechaNacAlum { get => fechaNacAlum; set => fechaNacAlum = value; }
         public string Matricula { get => matricula; set => matricula = value; }
         public int IDSemestrePreinscripcion { get => iDSemestrePreinscripcion; set => iDSemestrePreinscripcion = value; }
+        public string FotoTabla1 { get => FotoTabla; set => FotoTabla = value; }
 
         public string EncriptarMD5(string texto)
         {

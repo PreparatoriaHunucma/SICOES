@@ -111,6 +111,8 @@ namespace SICOES2018.GUI
             {
                 int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
                 Session["AlumnoReporteID"] = Convert.ToInt32(gvAlumnos.DataKeys[currentRowIndex].Value);
+                Session["GrupoReporteID"] = ddlGrupo.SelectedValue;
+                Response.Redirect("~/Reports/BoletaSemestre");
 
             }
 
