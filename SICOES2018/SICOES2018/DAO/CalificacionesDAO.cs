@@ -28,7 +28,7 @@ namespace SICOES2018.DAO
 
         public DataTable ObtenerCalificaciones(int IDGrupo, int IDAsig, int IDMomento)
         {
-            SQLCommand = "select al.FotoTabla, cal.IDCalificacion, CONCAT(al.ApePatAlumno,' ',al.ApeMatAlumno, ' ', al.NomAlumno) AS Alumno, cal.Calificacion, cal.Inasistencias from Calificaciones cal join Alumnos al on al.IDAlumno = cal.IDAlumno AND al.IDGrupo = cal.IDGrupo Where cal.IDGrupo = " + IDGrupo + " AND cal.IDAsignatura = " + IDAsig + " AND cal.IDMomento = " + IDMomento + " ORDER BY Alumno";
+            SQLCommand = "select distinct al.FotoTabla, cal.IDCalificacion, CONCAT(al.ApePatAlumno,' ',al.ApeMatAlumno, ' ', al.NomAlumno) AS Alumno, cal.Calificacion, cal.Inasistencias from Calificaciones cal join Alumnos al on al.IDAlumno = cal.IDAlumno AND al.IDGrupo = cal.IDGrupo Where cal.IDGrupo = " + IDGrupo + " AND cal.IDAsignatura = " + IDAsig + " AND cal.IDMomento = " + IDMomento + " ORDER BY Alumno";
             return llenarTablas(SQLCommand);
         }
 

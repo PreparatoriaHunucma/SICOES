@@ -22,9 +22,9 @@ namespace SICOES2018.GUI
             {
                 LlenarGridViewCiclosEscolares();
                 LlenarDropDownListCiclosEscolaresPer1();
-                LlenarGridViewPer1(Convert.ToInt32(ddlCicloEscolarAddPeriodoA.SelectedValue));
+                //LlenarGridViewPer1(Convert.ToInt32(ddlCicloEscolarAddPeriodoA.SelectedValue));
                 LlenarDropDownListCiclosEscolaresPer2();
-                LlenarGridViewPer2(Convert.ToInt32(ddlCicloEscolarAddPeriodoB.SelectedValue));
+                //LlenarGridViewPer2(Convert.ToInt32(ddlCicloEscolarAddPeriodoB.SelectedValue));
             }
         }
         protected void LlenarGridViewCiclosEscolares()
@@ -35,6 +35,7 @@ namespace SICOES2018.GUI
         }
         protected void LlenarDropDownListCiclosEscolaresPer1()
         {
+            ddlCicloEscolarAddPeriodoA.Items.Clear();
             ddlCicloEscolarAddPeriodoA.DataSource = ejecCiclo.llenarDDL();
             ddlCicloEscolarAddPeriodoA.DataTextField = "Nombre";
             ddlCicloEscolarAddPeriodoA.DataValueField = "IDCicloEscolar";
@@ -53,6 +54,7 @@ namespace SICOES2018.GUI
         }
         protected void LlenarDropDownListCiclosEscolaresPer2()
         {
+            ddlCicloEscolarAddPeriodoB.Items.Clear();
             ddlCicloEscolarAddPeriodoB.DataSource = ejecCiclo.llenarDDL();
             ddlCicloEscolarAddPeriodoB.DataTextField = "Nombre";
             ddlCicloEscolarAddPeriodoB.DataValueField = "IDCicloEscolar";
@@ -144,6 +146,8 @@ namespace SICOES2018.GUI
                 LimpiarCampos();
                 LlenarGridViewCiclosEscolares();
                 LlenarDropDownListCiclosEscolaresPer1();
+                LlenarDropDownListCiclosEscolaresPer2();
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert();", true);
             }
             else

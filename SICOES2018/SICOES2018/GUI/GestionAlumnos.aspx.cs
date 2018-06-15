@@ -735,7 +735,10 @@ namespace SICOES2018.GUI
                 btnModifAlumno.Visible = false;
                 btnInscribirAlumno.Visible = false;
                 btnBajaAlumno.Visible = false;
+                btnReImpForPreInsc.Visible = false;
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "inscripcionsuccessalert();", true);
+                ActualizarUPDatos();
+                ActualizarUPModals();
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
         }

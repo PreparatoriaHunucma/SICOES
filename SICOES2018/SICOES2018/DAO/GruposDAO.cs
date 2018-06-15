@@ -39,7 +39,7 @@ namespace SICOES2018.DAO
         //Para modificar la informacion del grupo
         public int modificarInfoAviso(GruposBO datosGrupo)
         {
-            cmd = new SqlCommand("UPDATE Aviso SET NombreGrupo = @NombreGrupo, IDPeriodo = @IDPeriodo, IDPlanEstudio = @IDPlanEstudio, IDSemestre = @IDSemestre WHERE IDGrupo = @IDGrupo");
+            cmd = new SqlCommand("UPDATE Grupos SET NombreGrupo = @NombreGrupo, IDPeriodo = @IDPeriodo, IDPlanEstudio = @IDPlanEstudio, IDSemestre = @IDSemestre WHERE IDGrupo = @IDGrupo");
 
             cmd.Parameters.Add("@NombreGrupo", SqlDbType.VarChar).Value = datosGrupo.NombreGrupo;
             cmd.Parameters.Add("@IDPeriodo", SqlDbType.Int).Value = datosGrupo.IDPeriodo;
@@ -79,6 +79,15 @@ namespace SICOES2018.DAO
             return llenarTablas(SQLCommand);
         }
 
+        public string buscarDatoGrupo(string Columna, GruposBO datosAlumno)
+        {
+            cmd = new SqlCommand("SELECT " + Columna + " FROM Grupos WHERE IDGrupo = @IDGrupo;");
+
+            cmd.Parameters.Add("@IDGrupo", SqlDbType.Int).Value = datosAlumno.IDGrupo;
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, Columna);
+        }
 
         public DataTable llenarDDL(int Periodo)
         {

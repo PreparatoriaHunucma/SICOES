@@ -57,7 +57,7 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:ButtonField ButtonType="Link" ControlStyle-CssClass="btn btn-success btn-sm" Text="<i class='fa fa-eye w3-large'></i>" CausesValidation="False" CommandName="SelectCiclo" Visible="true" />
+                                    <asp:ButtonField ButtonType="Link" ControlStyle-CssClass="btn btn-success btn-sm" Text="<i class='fa fa-eye w3-large'></i>" CausesValidation="False" CommandName="SelectGrupo" Visible="true" />
                                 </Columns>
                             </asp:GridView>
                             <%--                            <asp:Label ID="lbFechaInicio" runat="server" Text="Inicio del ciclo" Font-Bold="true"></asp:Label>

@@ -137,7 +137,24 @@ namespace SICOES2018.GUI
 
         protected void btnModGrupo_Click(object sender, EventArgs e)
         {
-
+            if (txtNomGrupo.Text != string.Empty)
+            {
+                datoGrupo.IDGrupo = Convert.ToInt32(Session["GrupoModif"]);
+                datoGrupo.NombreGrupo = txtNomGrupo.Text;
+                datoGrupo.IDPeriodo = Convert.ToInt32(ddlPeriodoGrupo.SelectedValue);
+                datoGrupo.IDPlanEstudio = Convert.ToInt32(ddlPlanGrupo.SelectedValue);
+                datoGrupo.IDSemestre = Convert.ToInt32(ddlSemestreGrupo.SelectedValue);
+                ejecGrupo.modificarInfoAviso(datoGrupo);
+                LimpiarCamposAddGrupo();
+                btnAddGrupo.Visible = true;
+                btnModGrupo.Visible = false;
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert();", true);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
+            }
+            LlenarGridViewGrupos(Convert.ToInt32(ddlCicloGrupo.SelectedValue), Convert.ToInt32(ddlPeriodoGrupo.SelectedValue));
         }
 
         protected void gvGrupos_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -149,6 +166,17 @@ namespace SICOES2018.GUI
 
         protected void gvGrupos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            string currentCommand = e.CommandName;
+            if (currentCommand == "SelectGrupo")
+            {
+                int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
+                Session["GrupoModif"] = Convert.ToInt32(gvGrupos.DataKeys[currentRowIndex].Value);
+                datoGrupo.IDGrupo = Convert.ToInt32(Session["GrupoModif"]);
+                txtNomGrupo.Text = ejecGrupo.buscarDatoGrupo("NombreGrupo", datoGrupo);
+                btnAddGrupo.Visible = false;
+                btnModGrupo.Visible = true;
+                upGrupos.Update();
+            }
 
         }
     }
