@@ -62,8 +62,14 @@ namespace SICOES2018.GUI
             datoEmp.ApeMatMaestro = txtApeMatEmp.Text;
             datoEmp.CedulaMaestro = txtCedula.Text.ToUpper();
             datoEmp.GradoAcademicoMaestro = txtGradoEmp.Text;
-            datoEmp.CurriculumMaestro = Session["RutaCurriculum"].ToString();
-            datoEmp.FotoMaestro = Session["RutaFoto"].ToString();
+            if (Session["RutaCurriculum"] != null)
+                datoEmp.CurriculumMaestro = Session["RutaCurriculum"].ToString();
+            else
+                datoEmp.CurriculumMaestro = "/Curriculum/NoCV.pdf";
+            if (Session["RutaFoto"] != null)
+                datoEmp.FotoMaestro = Session["RutaFoto"].ToString();
+            else
+                datoEmp.FotoMaestro = imgFotoEmp.ImageUrl;
 
 
         }
@@ -102,7 +108,7 @@ namespace SICOES2018.GUI
             string Cantidad = ejecEmp.buscarCount("Cantidad");
             filecurriculum.PostedFile.SaveAs(Server.MapPath("~\\Curriculum\\" + Cantidad + "_" + filename.Trim()));
 
-            path = "\\Curriculum\\" + Cantidad + "_" + filename.Trim();
+            path = "/Curriculum/" + Cantidad + "_" + filename.Trim();
             curriculumok.Text = filename;
             curriculumok.Visible = true;
             btnResubirCurriculum.Visible = true;
@@ -426,6 +432,7 @@ namespace SICOES2018.GUI
                 btnAsignarGrupo.Visible = false;
                 filecurriculum.Visible = true;
                 curriculumok.Visible = false;
+                btnResubirCurriculum.Visible = false;
                 ActualizarDatos();
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "modifsuccessalert();", true);
 
@@ -440,7 +447,7 @@ namespace SICOES2018.GUI
             }
             else
             {
-                Session["RutaCurriculum"] = "~/Resources/images/imgPerfil.jpg";
+                Session["RutaCurriculum"] = "/Curriculum/NoCV.pdf";
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "fotosuccessalert();", true);
         }
@@ -515,6 +522,7 @@ namespace SICOES2018.GUI
                 btnAgregarAlumno.Visible = false;
                 btnModifAlumno.Visible = true;
                 btnAsignarGrupo.Visible = true;
+                btnResubirCurriculum.Visible = true;
             }
             ActualizarDatos();
         }
