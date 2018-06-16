@@ -172,9 +172,9 @@
                             <div class="w3-row">
                                 <asp:CheckBox runat="server" CssClass="w3-check" ID="chckDirectivo" type="checkbox" Text=" Directivo" Font-Bold="true" OnCheckedChanged="chckDirectivo_CheckedChanged" AutoPostBack="true" />
                                 <br />
-                                <asp:CheckBox runat="server" CssClass="w3-check" ID="chckSecretariaAdm" type="checkbox" Text=" Secretaría Académica" Font-Bold="true" OnCheckedChanged="chckSecretariaAdm_CheckedChanged" AutoPostBack="true" />
+                                <asp:CheckBox runat="server" CssClass="w3-check" ID="chckSecretariaAca" type="checkbox" Text=" Secretaría Académica" Font-Bold="true" OnCheckedChanged="chckSecretariaAdm_CheckedChanged" AutoPostBack="true" />
                                 <br />
-                                <asp:CheckBox runat="server" CssClass="w3-check" ID="chckSecretariaAca" type="checkbox" Text=" Secretaría Administrativa" Font-Bold="true" OnCheckedChanged="chckSecretariaAca_CheckedChanged" AutoPostBack="true" />
+                                <asp:CheckBox runat="server" CssClass="w3-check" ID="chckSecretariaAdm" type="checkbox" Text=" Secretaría Administrativa" Font-Bold="true" OnCheckedChanged="chckSecretariaAca_CheckedChanged" AutoPostBack="true" />
                                 <br />
                                 <asp:CheckBox runat="server" CssClass="w3-check" ID="chckControl" type="checkbox" Text=" Control Escolar" Font-Bold="true" OnCheckedChanged="chckControl_CheckedChanged" AutoPostBack="true" />
                                 <br />

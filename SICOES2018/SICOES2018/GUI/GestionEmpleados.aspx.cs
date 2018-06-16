@@ -133,26 +133,32 @@ namespace SICOES2018.GUI
         }
         protected void ObtenerPermisos()
         {
+            //
             if (chckDirectivo.Checked == true)
                 datoPermiso.Directivo = 1;
             else
                 datoPermiso.Directivo = 0;
+            //
             if (chckSecretariaAdm.Checked == true)
                 datoPermiso.SecreAdmin = 1;
             else
                 datoPermiso.SecreAdmin = 0;
+            //
             if (chckSecretariaAca.Checked == true)
                 datoPermiso.SecreAcade = 1;
             else
                 datoPermiso.SecreAcade = 0;
+            //
             if (chckControl.Checked == true)
                 datoPermiso.ControlEsc = 1;
             else
                 datoPermiso.ControlEsc = 0;
+            //
             if (chckDocente.Checked == true)
                 datoPermiso.Docente = 1;
             else
                 datoPermiso.Docente = 0;
+            //
             ejecPermiso.agregarRegistroTipoMaestro(datoPermiso);
             datoEmp.IDTipoMaestro = Convert.ToInt32(ejecPermiso.buscarUltimoIDTipo("IDTipoMaestro"));
         }

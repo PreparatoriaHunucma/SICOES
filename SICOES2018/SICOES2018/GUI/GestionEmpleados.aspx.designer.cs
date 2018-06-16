@@ -346,15 +346,6 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.CheckBox chckDirectivo;
         
         /// <summary>
-        /// chckSecretariaAdm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chckSecretariaAdm;
-        
-        /// <summary>
         /// chckSecretariaAca control.
         /// </summary>
         /// <remarks>
@@ -362,6 +353,15 @@ namespace SICOES2018.GUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chckSecretariaAca;
+        
+        /// <summary>
+        /// chckSecretariaAdm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chckSecretariaAdm;
         
         /// <summary>
         /// chckControl control.
