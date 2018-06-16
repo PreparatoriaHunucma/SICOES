@@ -1123,6 +1123,7 @@ namespace SICOES2018.GUI
                 datoSoli.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
                 datoSoli.TipoBaja = ddlTipoBaja.SelectedItem.ToString();
                 datoSoli.Motivo = txtMotivos.Text;
+                datoSoli.IDPeriodo = (Convert.ToInt32(ejecAlum.ObtenerPeriodoBaja(datoAlum)));
                 ejecSoli.agregarAviso(datoSoli);
                 int IDSolicitud = Convert.ToInt32(ejecSoli.buscarUltimoIDAlumno("IDSolicitud"));
                 datoSoli.IDSolicitud = IDSolicitud;

@@ -31,8 +31,8 @@ namespace SICOES2018.Reports
             rprt.SetParameterValue("@IDAlumno", Convert.ToInt32(Session["AlumnoReporteID"]));
             rprt.SetParameterValue("@IDMomento", Convert.ToInt32(Session["MomentoReporteID"]));
             rprt.SetParameterValue("@IDGrupo", Convert.ToInt32(Session["GrupoReporteID"]));
-            cvrBoletaParcial.ReportSource = rprt;
-            cvrBoletaParcial.DataBind();
+            BoletaParcial.ReportSource = rprt;
+            BoletaParcial.DataBind();
 
         }
         private void SetDBLogonForReport(ConnectionInfo connectionInfo, ReportDocument reportDocument)

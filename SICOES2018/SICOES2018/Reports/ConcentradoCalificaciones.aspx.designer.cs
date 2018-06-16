@@ -13,12 +13,12 @@ namespace SICOES2018.Reports {
     public partial class ConcentradoCalificaciones1 {
         
         /// <summary>
-        /// cvrConcentradoCalif control.
+        /// ConcentradoDeCalificaciones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer cvrConcentradoCalif;
+        protected global::CrystalDecisions.Web.CrystalReportViewer ConcentradoDeCalificaciones;
     }
 }

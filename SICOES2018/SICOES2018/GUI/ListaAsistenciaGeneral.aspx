@@ -33,7 +33,7 @@
                     <asp:Button runat="server" ID="Generar" OnClick="Generar_Click" />
                 </div>--%>
                 <div class="w3-row w3-padding">
-                    <CR:CrystalReportViewer ID="crvFormatoPreinscripcion" runat="server" AutoDataBind="true" ToolPanelView="None" />
+                    <CR:CrystalReportViewer ID="ListaDeAsistencia" runat="server" AutoDataBind="true" ToolPanelView="None" />
                 </div>
             </ContentTemplate>
             <Triggers>

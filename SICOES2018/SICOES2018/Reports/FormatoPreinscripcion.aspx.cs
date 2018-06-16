@@ -31,8 +31,8 @@ namespace SICOES2018.Reports
             SetDBLogonForReport(connectionInfo, rprt);
             rprt.SetParameterValue("@IDAlumno", Convert.ToInt32(Session["AlumnoReporteID"]));
             rprt.SetParameterValue("@IDMaestro", Convert.ToInt32(Session["IDUserLoged"]));
-            crvFormatoPreinscripcion.ReportSource = rprt;
-            crvFormatoPreinscripcion.DataBind();
+            FormatoPreinscripcion.ReportSource = rprt;
+            FormatoPreinscripcion.DataBind();
         }
 
         private void SetDBLogonForReport(ConnectionInfo connectionInfo, ReportDocument reportDocument)

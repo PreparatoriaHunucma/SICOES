@@ -30,8 +30,8 @@ namespace SICOES2018.Reports
             SetDBLogonForReport(connectionInfo, rprt);
             int id = Convert.ToInt32(Session["SolicitudReporteID"]);
             rprt.SetParameterValue("@IDSolicitud", id);
-            cvrSolicitudBaja.ReportSource = rprt;
-            cvrSolicitudBaja.DataBind();
+            SolicitudBaja.ReportSource = rprt;
+            SolicitudBaja.DataBind();
 
         }
         private void SetDBLogonForReport(ConnectionInfo connectionInfo, ReportDocument reportDocument)

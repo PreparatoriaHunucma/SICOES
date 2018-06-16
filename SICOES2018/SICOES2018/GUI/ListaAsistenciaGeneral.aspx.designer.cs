@@ -85,12 +85,12 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.DropDownList ddlAsig;
         
         /// <summary>
-        /// crvFormatoPreinscripcion control.
+        /// ListaDeAsistencia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer crvFormatoPreinscripcion;
+        protected global::CrystalDecisions.Web.CrystalReportViewer ListaDeAsistencia;
     }
 }

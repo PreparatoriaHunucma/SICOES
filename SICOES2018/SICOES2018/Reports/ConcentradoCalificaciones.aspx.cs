@@ -30,8 +30,8 @@ namespace SICOES2018.Reports
             SetDBLogonForReport(connectionInfo, rprt);
             rprt.SetParameterValue("@IDGrupo", Convert.ToInt32(Session["GrupoReporteID"]));
             rprt.SetParameterValue("@IDAsignatura", Convert.ToInt32(Session["AsigReporteID"]));
-            cvrConcentradoCalif.ReportSource = rprt;
-            cvrConcentradoCalif.DataBind();
+            ConcentradoDeCalificaciones.ReportSource = rprt;
+            ConcentradoDeCalificaciones.DataBind();
 
         }
         private void SetDBLogonForReport(ConnectionInfo connectionInfo, ReportDocument reportDocument)

@@ -6,6 +6,6 @@
         <a href="../GUI/GestionAlumnos.aspx"><i class="fa fa-arrow-left w3-large"></i>Regresar</a>
     </div>
     <div class="w3-row w3-padding">
-        <CR:CrystalReportViewer ID="crvFormatoPreinscripcion" runat="server" AutoDataBind="true" ToolPanelView="None" />
+        <CR:CrystalReportViewer ID="FormatoPreinscripcion" runat="server" AutoDataBind="true" ToolPanelView="None" />
     </div>
 </asp:Content>

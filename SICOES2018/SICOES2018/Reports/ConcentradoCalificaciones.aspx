@@ -7,6 +7,6 @@
         <a href="../GUI/GestionConcentradoCalificaciones.aspx"><i class="fa fa-arrow-left w3-large"></i>Regresar</a>
     </div>
     <div class="w3-row w3-padding w3-center">
-        <CR:CrystalReportViewer ID="cvrConcentradoCalif" runat="server" AutoDataBind="true" ToolPanelView="None" />
+        <CR:CrystalReportViewer ID="ConcentradoDeCalificaciones" runat="server" AutoDataBind="true" ToolPanelView="None" />
     </div>
 </asp:Content>

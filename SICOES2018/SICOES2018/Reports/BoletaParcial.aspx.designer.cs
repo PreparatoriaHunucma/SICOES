@@ -13,12 +13,12 @@ namespace SICOES2018.Reports {
     public partial class BoletaParcial1 {
         
         /// <summary>
-        /// cvrBoletaParcial control.
+        /// BoletaParcial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer cvrBoletaParcial;
+        protected global::CrystalDecisions.Web.CrystalReportViewer BoletaParcial;
     }
 }

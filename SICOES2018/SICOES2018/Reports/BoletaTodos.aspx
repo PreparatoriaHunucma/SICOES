@@ -7,6 +7,6 @@
         <a href="../GUI/GestionBoletas.aspx"><i class="fa fa-arrow-left w3-large"></i>Regresar</a>
     </div>
     <div class="w3-row w3-padding w3-center">
-        <CR:CrystalReportViewer ID="cvrBoletaTodos" runat="server" AutoDataBind="true" ToolPanelView="None" />
+        <CR:CrystalReportViewer ID="BoletaSemestralDesglosada" runat="server" AutoDataBind="true" ToolPanelView="None" />
     </div>
 </asp:Content>

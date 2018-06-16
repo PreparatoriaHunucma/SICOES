@@ -15,11 +15,12 @@ namespace SICOES2018.DAO
         //Para crear un aviso
         public int agregarAviso(SolicitudBajaBO datosSolicitud)
         {
-            cmd = new SqlCommand("INSERT INTO SolicitudBaja (TipoBaja, Motivo, IDAlumno) VALUES (@TipoBaja, @Motivo, @IDAlumno)");
+            cmd = new SqlCommand("INSERT INTO SolicitudBaja (TipoBaja, Motivo, IDAlumno, IDPeriodo) VALUES (@TipoBaja, @Motivo, @IDAlumno, @IDPeriodo)");
 
             cmd.Parameters.Add("@TipoBaja", SqlDbType.VarChar).Value = datosSolicitud.TipoBaja;
             cmd.Parameters.Add("@Motivo", SqlDbType.VarChar).Value = datosSolicitud.Motivo;
             cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosSolicitud.IDAlumno;
+            cmd.Parameters.Add("@IDPeriodo", SqlDbType.Int).Value = datosSolicitud.IDPeriodo;
 
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);

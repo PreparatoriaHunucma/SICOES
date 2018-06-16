@@ -13,12 +13,12 @@ namespace SICOES2018.Reports {
     public partial class BoletaSemestre1 {
         
         /// <summary>
-        /// cvrBoletaSemestre control.
+        /// BoletaSemestral control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer cvrBoletaSemestre;
+        protected global::CrystalDecisions.Web.CrystalReportViewer BoletaSemestral;
     }
 }

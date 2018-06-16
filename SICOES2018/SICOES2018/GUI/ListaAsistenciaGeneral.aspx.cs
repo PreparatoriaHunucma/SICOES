@@ -123,8 +123,8 @@ namespace SICOES2018.GUI
             SetDBLogonForReport(connectionInfo, rprt);
             rprt.SetParameterValue("@IDGrupo", Convert.ToInt32(ddlGrupo.SelectedValue));
             rprt.SetParameterValue("@IDAsignatura", Convert.ToInt32(ddlAsig.SelectedValue));
-            crvFormatoPreinscripcion.ReportSource = rprt;
-            crvFormatoPreinscripcion.DataBind();
+            ListaDeAsistencia.ReportSource = rprt;
+            ListaDeAsistencia.DataBind();
 
         }
 
