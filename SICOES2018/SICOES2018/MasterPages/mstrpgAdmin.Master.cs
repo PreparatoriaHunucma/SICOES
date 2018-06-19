@@ -36,6 +36,22 @@ namespace SICOES2018.MasterPages
                 { Control.Visible = false; iconoControl.Visible = false; }
                 if (ejecTipMae.buscarDatoPermiso("Docente", datoTipMae) == "0")
                 { Docente.Visible = false; iconoDocente.Visible = false; }
+
+                string CicloActivo = ejecMaestro.buscarCicloActivo();
+                string Periodo1 = ejecMaestro.buscarPeriodoActivo1(CicloActivo);
+                string Periodo2 = ejecMaestro.buscarPeriodoActivo2(CicloActivo);
+                if (Convert.ToInt32(ejecMaestro.buscarGrupos(Periodo1, Session["IDUserLoged"].ToString())) != 0)
+                {
+                    botoncalif.Visible = true;
+                    botonlista.Visible = true;
+                    btnchat.Visible = true;
+                }
+                else if (Convert.ToInt32(ejecMaestro.buscarGrupos(Periodo2, Session["IDUserLoged"].ToString())) != 0)
+                {
+                    botoncalif.Visible = true;
+                    botonlista.Visible = true;
+                    btnchat.Visible = true;
+                }
             }
             else
             {

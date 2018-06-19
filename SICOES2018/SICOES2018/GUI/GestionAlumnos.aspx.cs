@@ -699,6 +699,7 @@ namespace SICOES2018.GUI
                     btnInscribirAlumno.Visible = false;
                     btnBajaAlumno.Visible = false;
                     btnReImpForPreInsc.Visible = false;
+                    btnInfoAlumno.Visible = false;
                     txtMatriculaUADY.Enabled = true;
                     ActualizarUPDatos();
                     ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "modifsuccessalert();", true);
@@ -736,6 +737,7 @@ namespace SICOES2018.GUI
                 btnInscribirAlumno.Visible = false;
                 btnBajaAlumno.Visible = false;
                 btnReImpForPreInsc.Visible = false;
+                btnInfoAlumno.Visible = false;
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "inscripcionsuccessalert();", true);
                 ActualizarUPDatos();
                 ActualizarUPModals();
@@ -796,6 +798,7 @@ namespace SICOES2018.GUI
                 btnInscribirAlumno.Visible = true;
                 btnBajaAlumno.Visible = true;
                 btnReImpForPreInsc.Visible = true;
+                btnInfoAlumno.Visible = true;
                 txtMatriculaUADY.Enabled = false;
                 ActualizarUPDatos();
                 upModalInsc.Update();
@@ -1154,6 +1157,13 @@ namespace SICOES2018.GUI
 
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
+
+        }
+
+        protected void btnInfoAlumno_Click(object sender, EventArgs e)
+        {
+            Session["AlumnoReporteID"] = Session["AlumModif"];
+            Response.Redirect("~/Reports/FormatoInfoAlumno");
 
         }
     }

@@ -781,6 +781,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="GUI\AvisosPadres.aspx" />
     <Content Include="GUI\GestionBoletas.aspx" />
     <Content Include="GUI\GestionCalificaciones.aspx" />
     <Content Include="GUI\GestionConcentradoCalificaciones.aspx" />
@@ -798,6 +799,7 @@
     <Content Include="Reports\BoletaSemestre.aspx" />
     <Content Include="Reports\BoletaTodos.aspx" />
     <Content Include="Reports\ConcentradoCalificaciones.aspx" />
+    <Content Include="Reports\FormatoInfoAlumno.aspx" />
     <Content Include="Reports\ReporteCartaCompromiso.aspx" />
     <Content Include="MasterPages\mstrpgAdmin.Master" />
     <Content Include="Reports\FormatoPreinscripcion.aspx" />
@@ -928,6 +930,7 @@
     <Compile Include="BO\AlumnosBO.cs" />
     <Compile Include="BO\AsignaturasBO.cs" />
     <Compile Include="BO\AvisoBO.cs" />
+    <Compile Include="BO\AvisosPadresBO.cs" />
     <Compile Include="BO\CalificacionesBO.cs" />
     <Compile Include="BO\CicloEscolarBO.cs" />
     <Compile Include="BO\DatosEscuelaBO.cs" />
@@ -954,6 +957,7 @@
     <Compile Include="DAO\AlumnosDAO.cs" />
     <Compile Include="DAO\AsignaturasDAO.cs" />
     <Compile Include="DAO\AvisoDAO.cs" />
+    <Compile Include="DAO\AvisosPadresDAO.cs" />
     <Compile Include="DAO\CalificacionesDAO.cs" />
     <Compile Include="DAO\CicloEscolarDAO.cs" />
     <Compile Include="DAO\ConexionSQL.cs" />
@@ -982,6 +986,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="GUI\AvisosPadres.aspx.cs">
+      <DependentUpon>AvisosPadres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\AvisosPadres.aspx.designer.cs">
+      <DependentUpon>AvisosPadres.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GestionBoletas.aspx.cs">
       <DependentUpon>GestionBoletas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1073,6 +1084,12 @@
     <Compile Include="GUI\ListaAsistenciaMaestro.aspx.designer.cs">
       <DependentUpon>ListaAsistenciaMaestro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\AvisosPadres.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AvisosPadres.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\BoletaSemestre.aspx.cs">
       <DependentUpon>BoletaSemestre.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1124,6 +1141,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConcentradoCalificaciones.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\FormatoInfoAlumno.aspx.cs">
+      <DependentUpon>FormatoInfoAlumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\FormatoInfoAlumno.aspx.designer.cs">
+      <DependentUpon>FormatoInfoAlumno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FormatoInfoAlumno.cs">
+      <DependentUpon>FormatoInfoAlumno.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Reports\FormatoPreinscripcion.cs">
       <AutoGen>True</AutoGen>
@@ -1234,6 +1264,10 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\AvisosPadres.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AvisosPadres.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\BoletaSemestre.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BoletaSemestre.cs</LastGenOutput>
@@ -1253,6 +1287,10 @@
     <EmbeddedResource Include="Reports\FormatoCartaCompromiso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FormatoCartaCompromiso.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FormatoInfoAlumno.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FormatoInfoAlumno.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\FormatoPreinscripcion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

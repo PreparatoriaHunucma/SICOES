@@ -787,7 +787,7 @@
             </header>
             <div class="w3-container" style="min-height: 330px; max-height: 330px">
                 <div class="w3-row">
-                    <asp:Label ID="lbTipoBaja" runat="server" Text="Tipo de baja" Font-Bold="true" ></asp:Label><br />
+                    <asp:Label ID="lbTipoBaja" runat="server" Text="Tipo de baja" Font-Bold="true"></asp:Label><br />
                     <asp:DropDownList CssClass="w3-dropdown-click w3-input w3-margin" ID="ddlTipoBaja" Style="width: 20%" runat="server" AppendDataBoundItems="true">
                         <asp:ListItem Value="1">Voluntaria</asp:ListItem>
                         <asp:ListItem Value="2">Por Reglamento</asp:ListItem>
@@ -825,9 +825,11 @@
                 </div>
                 <div class="w3-row">
                     <%--BOTON PARA Mostrar FORMATO PREINSCRIPCION--%>
-                    <asp:Button CssClass="w3-margin-left w3-half w3-button w3-amber w3-hover-blue w3-round" ID="btnReImpForPreInsc" runat="server" Text="ReimprimirFormatoPreinscripcion" OnClick="btnReImpForPreInsc_Click" CausesValidation="true" Width="31%" Visible="false" />
-                     <%--BOTON PARA CREAR CARTA DE COMPROMISO--%>
+                    <asp:Button CssClass="w3-margin-left w3-half w3-button w3-amber w3-hover-blue w3-round" ID="btnReImpForPreInsc" runat="server" Text="Reimprimir Formato de Preinscripcion" OnClick="btnReImpForPreInsc_Click" CausesValidation="true" Width="31%" Visible="false" />
+                    <%--BOTON PARA CREAR CARTA DE COMPROMISO--%>
                     <asp:Button CssClass="w3-margin-left w3-margin-right w3-third w3-button w3-amber w3-hover-blue w3-round" ID="btnCartaCompromiso" runat="server" Text="Generar Carta Compromioso" OnClick="btnCartaCompromiso_Click" CausesValidation="true" Width="31%" Visible="false" />
+                    <%--BOTON PARA Mostrar FORMATO PREINSCRIPCION--%>
+                    <asp:Button CssClass="w3-margin-left w3-half w3-button w3-amber w3-hover-blue w3-round" ID="btnInfoAlumno" runat="server" Text="Imprimir Información del alumno" OnClick="btnInfoAlumno_Click" CausesValidation="true" Width="31%" Visible="false" />
                 </div>
 
             </ContentTemplate>

@@ -115,6 +115,36 @@ namespace SICOES2018.DAO
             return buscarDatoEspecifico(cmd, Columna);
         }
 
+        public string buscarCicloActivo()
+        {
+            cmd = new SqlCommand("select IDCicloEscolar from CicloEscolar where status = 1");
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, "IDCicloEscolar");
+        }
+        public string buscarPeriodoActivo1(string Ciclo)
+        {
+            cmd = new SqlCommand("select top(1) IDPeriodo from PeriodoEscolar where idcicloescolar = " + Ciclo + " order by idperiodo asc");
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, "IDPeriodo");
+        }
+        public string buscarPeriodoActivo2(string Ciclo)
+        {
+            cmd = new SqlCommand("select top(1) IDPeriodo from PeriodoEscolar where idcicloescolar = " + Ciclo + " order by idperiodo desc");
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, "IDPeriodo");
+        }
+        public string buscarGrupos(string Periodo, string Maestro)
+        {
+            cmd = new SqlCommand("select count(*) as cantidad  from MaestroGrupos where idmaestro = " + Maestro + " and idperiodo = 3");
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, "cantidad");
+        }
+
+
         public DataTable LlenarGridView(int StatusMaestro)
         {
             SQLCommand = "SELECT IDMaestro, NomMaestro, ApePatMaestro, ApeMatMaestro, (CASE WHEN StatusMaestro = '1' THEN 'Activo' ELSE 'Inactivo'END) AS StatusMaestro, LOWER(CONCAT(LEFT(NomMaestro,3),'.',ApePatMaestro,IDMaestro)) AS Usuario FROM Maestros WHERE StatusMaestro =" + StatusMaestro + ";";
