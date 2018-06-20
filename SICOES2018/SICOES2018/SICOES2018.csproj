@@ -782,8 +782,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GUI\AvisosPadres.aspx" />
+    <Content Include="GUI\FechaCalificacion.aspx" />
     <Content Include="GUI\GestionBoletas.aspx" />
     <Content Include="GUI\GestionCalificaciones.aspx" />
+    <Content Include="GUI\GestionCalificacionesAprobacion.aspx" />
     <Content Include="GUI\GestionConcentradoCalificaciones.aspx" />
     <Content Include="GUI\GestionEmpleados.aspx" />
     <Content Include="GUI\GestionAsignaturas.aspx" />
@@ -938,6 +940,7 @@
     <Compile Include="BO\DocumentosAlumnoBO.cs" />
     <Compile Include="BO\EscuelasProcedenciaAlumnosBO.cs" />
     <Compile Include="BO\EstadoBO.cs" />
+    <Compile Include="BO\FechaCalificacionBO.cs" />
     <Compile Include="BO\GrupoAsignaturaBO.cs" />
     <Compile Include="BO\GruposBO.cs" />
     <Compile Include="BO\MaestroGruposBO.cs" />
@@ -966,6 +969,7 @@
     <Compile Include="DAO\DocumentosAlumnoDAO.cs" />
     <Compile Include="DAO\EscuelasProcedenciaAlumnosDAO.cs" />
     <Compile Include="DAO\EstadoDAO.cs" />
+    <Compile Include="DAO\FechaCalificacionDAO.cs" />
     <Compile Include="DAO\GruposDAO.cs" />
     <Compile Include="DAO\GruposAsignaturaDAO.cs" />
     <Compile Include="DAO\MaestrosDAO.cs" />
@@ -993,6 +997,13 @@
     <Compile Include="GUI\AvisosPadres.aspx.designer.cs">
       <DependentUpon>AvisosPadres.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FechaCalificacion.aspx.cs">
+      <DependentUpon>FechaCalificacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\FechaCalificacion.aspx.designer.cs">
+      <DependentUpon>FechaCalificacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GestionBoletas.aspx.cs">
       <DependentUpon>GestionBoletas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1006,6 +1017,13 @@
     </Compile>
     <Compile Include="GUI\GestionCalificaciones.aspx.designer.cs">
       <DependentUpon>GestionCalificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionCalificacionesAprobacion.aspx.cs">
+      <DependentUpon>GestionCalificacionesAprobacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionCalificacionesAprobacion.aspx.designer.cs">
+      <DependentUpon>GestionCalificacionesAprobacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\GestionConcentradoCalificaciones.aspx.cs">
       <DependentUpon>GestionConcentradoCalificaciones.aspx</DependentUpon>

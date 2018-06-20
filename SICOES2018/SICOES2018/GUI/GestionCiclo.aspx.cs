@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,10 @@ namespace SICOES2018.GUI
         CicloEscolarDAO ejecCiclo = new CicloEscolarDAO();
         PeriodoEscolarBO datoPer = new PeriodoEscolarBO();
         PeriodoEscolarDAO ejecPer = new PeriodoEscolarDAO();
+        FechaCalificacionBO datoFechaCalif = new FechaCalificacionBO();
+        FechaCalificacionDAO ejecFechaCalif = new FechaCalificacionDAO();
+        MomentoCalificacionBO datoMom = new MomentoCalificacionBO();
+        MomentoCalificacionDAO ejecMom = new MomentoCalificacionDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -210,6 +215,19 @@ namespace SICOES2018.GUI
                     datoPer.FechaFin = DateTime.ParseExact(txtFechaFinPer1.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
                     datoPer.IDCicloEscolar = Convert.ToInt32(ddlCicloEscolarAddPeriodoA.SelectedValue);
                     ejecPer.agregarPeriodo(datoPer);
+
+                    DataTable tblMomento = ejecMom.Obtener3Momentos();
+                    foreach (DataRow rowm in tblMomento.Rows)
+                    {
+                        datoFechaCalif.IDPeriodo = Convert.ToInt32(ejecFechaCalif.buscarUltimoIDPeriodo());
+                        datoFechaCalif.IDMomento = Convert.ToInt32(rowm.ItemArray.GetValue(0));
+                        datoFechaCalif.FechaInicioCalif = DateTime.ParseExact(txtFechaInicioPer1.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
+                        datoFechaCalif.FechaFinCalif = DateTime.ParseExact(txtFechaFinPer1.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
+                        ejecFechaCalif.agregarAviso(datoFechaCalif);
+
+                    }
+
+
                     LimpiarCamposPer1();
                     LlenarGridViewPer1(Convert.ToInt32(ddlCicloEscolarAddPeriodoA.SelectedValue));
                     ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "per1successalert();", true);
@@ -343,6 +361,18 @@ namespace SICOES2018.GUI
                     datoPer.FechaFin = DateTime.ParseExact(txtFechaFinPer2.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
                     datoPer.IDCicloEscolar = Convert.ToInt32(ddlCicloEscolarAddPeriodoB.SelectedValue);
                     ejecPer.agregarPeriodo(datoPer);
+
+                    DataTable tblMomento = ejecMom.Obtener3Momentos();
+                    foreach (DataRow rowm in tblMomento.Rows)
+                    {
+                        datoFechaCalif.IDPeriodo = Convert.ToInt32(ejecFechaCalif.buscarUltimoIDPeriodo());
+                        datoFechaCalif.IDMomento = Convert.ToInt32(rowm.ItemArray.GetValue(0));
+                        datoFechaCalif.FechaInicioCalif = DateTime.ParseExact(txtFechaInicioPer2.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
+                        datoFechaCalif.FechaFinCalif = DateTime.ParseExact(txtFechaFinPer2.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
+                        ejecFechaCalif.agregarAviso(datoFechaCalif);
+
+                    }
+
                     LimpiarCamposPer2();
                     LlenarGridViewPer2(Convert.ToInt32(ddlCicloEscolarAddPeriodoB.SelectedValue));
                     ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "per1successalert();", true);

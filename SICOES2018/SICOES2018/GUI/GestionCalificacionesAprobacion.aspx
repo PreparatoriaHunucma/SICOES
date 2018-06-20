@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/mstrpgAdmin.Master" AutoEventWireup="true" CodeBehind="GestionCalificaciones.aspx.cs" Inherits="SICOES2018.GUI.GestionCalificaciones" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/mstrpgAdmin.Master" AutoEventWireup="true" CodeBehind="GestionCalificacionesAprobacion.aspx.cs" Inherits="SICOES2018.GUI.GestionCalificacionesAprobacion" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -9,8 +9,7 @@
             <h4>APLICACIÓN DE CALIFICACIONES</h4>
         </div>
         <hr style="margin: 5px" />
-
-        <asp:HiddenField runat="server" ID="txtVal1"/>
+        <asp:HiddenField runat="server" ID="txtVal1" />
         <div class="w3-row w3-padding">
             <div class="w3-col m4">
                 <div class="w3-row">
@@ -36,9 +35,11 @@
             </div>
         </div>
         <div class="w3-row w3-padding">
+            <asp:Button OnClick="btnAprobar_Click" CssClass=" w3-third w3-button w3-amber w3-hover-blue w3-right" ID="btnAprobar" runat="server" Text="Aprobar calificaciones" CausesValidation="true" Width="25%" AutoPostBack="false" />
+        </div>
+        <div class="w3-row w3-padding">
             <div id="tablacalif"></div>
         </div>
-
         <script type="text/javascript">
 
             function tablacalificaciones() {
@@ -94,5 +95,8 @@
 
             }
         </script>
+
+
+
     </div>
 </asp:Content>

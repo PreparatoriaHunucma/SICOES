@@ -1,19 +1,18 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using SICOES2018.BO;
+using SICOES2018.DAO;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Newtonsoft.Json;
-using SICOES2018.BO;
-using SICOES2018.DAO;
 
 namespace SICOES2018.GUI
 {
-    public partial class GestionCalificaciones : System.Web.UI.Page
+    public partial class GestionCalificacionesAprobacion : System.Web.UI.Page
     {
         CalificacionesBO datoCalif = new CalificacionesBO();
         CalificacionesDAO ejecCalif = new CalificacionesDAO();
@@ -35,9 +34,9 @@ namespace SICOES2018.GUI
                 DataBind();
                 LlenarDDLPeriodo();
                 ddlPeriodoCalif.SelectedIndex = 0;
-                LlenarDDLGrupo(Convert.ToInt32(Session["IDUserLoged"]), Convert.ToInt32(ddlPeriodoCalif.SelectedValue));
+                LlenarDDLGrupo(Convert.ToInt32(ddlPeriodoCalif.SelectedValue));
                 ddlGrupo.SelectedIndex = 0;
-                LlenarDDLAsignatura(Convert.ToInt32(Session["IDUserLoged"]), Convert.ToInt32(ddlGrupo.SelectedValue));
+                LlenarDDLAsignatura(Convert.ToInt32(ddlGrupo.SelectedValue));
                 ddlAsig.SelectedIndex = 0;
                 Fechas();
                 ddlMomento.SelectedIndex = 0;
@@ -46,7 +45,6 @@ namespace SICOES2018.GUI
             }
 
         }
-
         protected void Fechas()
         {
             datoFC.IDPeriodo = Convert.ToInt32(ddlPeriodoCalif.SelectedValue);
@@ -80,27 +78,27 @@ namespace SICOES2018.GUI
             ddlPeriodoCalif.DataBind();
             if (ddlPeriodoCalif.Items.Count != 0)
             {
-                LlenarDDLGrupo(Convert.ToInt32(Session["IDUserLoged"]), Convert.ToInt32(ddlPeriodoCalif.SelectedValue));
+                LlenarDDLGrupo(Convert.ToInt32(ddlPeriodoCalif.SelectedValue));
             }
         }
 
-        protected void LlenarDDLGrupo(int IDMaestro, int Periodo)
+        protected void LlenarDDLGrupo(int Periodo)
         {
             ddlGrupo.Items.Clear();
-            ddlGrupo.DataSource = ejecGrupo.llenarDDLMaestros(Periodo, IDMaestro);
+            ddlGrupo.DataSource = ejecGrupo.llenarDDL(Periodo);
             ddlGrupo.DataTextField = "NombreGrupo";
             ddlGrupo.DataValueField = "IDGrupo";
             ddlGrupo.DataBind();
             if (ddlGrupo.Items.Count != 0)
             {
-                LlenarDDLAsignatura(Convert.ToInt32(Session["IDUserLoged"]), Convert.ToInt32(ddlGrupo.SelectedValue));
+                LlenarDDLAsignatura(Convert.ToInt32(ddlGrupo.SelectedValue));
             }
         }
 
-        protected void LlenarDDLAsignatura(int IDMaestro, int IDGrupo)
+        protected void LlenarDDLAsignatura(int IDGrupo)
         {
             ddlAsig.Items.Clear();
-            ddlAsig.DataSource = ejecAsig.LlenarDDLMaestros(IDGrupo, IDMaestro);
+            ddlAsig.DataSource = ejecAsig.LlenarDDL(IDGrupo);
             ddlAsig.DataTextField = "NomAsig";
             ddlAsig.DataValueField = "IDAsignatura";
             ddlAsig.DataBind();
@@ -174,7 +172,7 @@ namespace SICOES2018.GUI
 
         protected void ddlPeriodoCalif_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LlenarDDLGrupo(Convert.ToInt32(Session["IDUserLoged"]), Convert.ToInt32(ddlPeriodoCalif.SelectedValue));
+            LlenarDDLGrupo(Convert.ToInt32(ddlPeriodoCalif.SelectedValue));
             ScriptManager.RegisterStartupScript(this, GetType(), "text", "tablacalificaciones();", true);
             ModificarMaximo();
 
@@ -182,7 +180,7 @@ namespace SICOES2018.GUI
 
         protected void ddlGrupoAsig_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LlenarDDLAsignatura(Convert.ToInt32(Session["IDUserLoged"]), Convert.ToInt32(ddlGrupo.SelectedValue));
+            LlenarDDLAsignatura(Convert.ToInt32(ddlGrupo.SelectedValue));
             ScriptManager.RegisterStartupScript(this, GetType(), "text", "tablacalificaciones();", true);
             ModificarMaximo();
 
@@ -199,6 +197,11 @@ namespace SICOES2018.GUI
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "text", "tablacalificaciones();", true);
             ModificarMaximo();
+
+        }
+
+        protected void btnAprobar_Click(object sender, EventArgs e)
+        {
 
         }
     }
