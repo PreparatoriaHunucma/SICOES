@@ -156,6 +156,8 @@
                                 <p><a class="cursorencima" href="../GUI/GestionConcentradoCalificaciones.aspx" style="text-decoration: none">Concentrado de calificaciones</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Aprovechamiento Escolar</a></p>
                                 <p><a class="cursorencima" href="../GUI/GestionBoletas.aspx" style="text-decoration: none">Boletas de calificaciones</a></p>
+                                <p><a class="cursorencima" href="../GUI/FechaCalificacion.aspx" style="text-decoration: none">Control de captura de calificaciones</a></p>
+                                <p><a class="cursorencima" href="../GUI/GestionCalificacionesAprobacion.aspx" style="text-decoration: none">Aprobación de calificaciones</a></p>
                                 <p><a class="cursorencima" href="../GUI/ListaAsistenciaGeneral.aspx" style="text-decoration: none">General listas de asistencia</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Kardex</a></p>
                                 <p><a class="cursorencima" href="../GUI/AvisosPadres.aspx" style="text-decoration: none">Avisos para Tutores y padres</a></p>
