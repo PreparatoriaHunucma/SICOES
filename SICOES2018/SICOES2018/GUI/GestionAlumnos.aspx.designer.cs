@@ -787,13 +787,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.DropDownList ddlSemestre;
         
         /// <summary>
-        /// upModalPais control.
+        /// upAddPais control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upModalPais;
+        protected global::System.Web.UI.UpdatePanel upAddPais;
         
         /// <summary>
         /// lbAddPais control.
@@ -805,13 +805,13 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Label lbAddPais;
         
         /// <summary>
-        /// rqNombrePais control.
+        /// lbAdvAddPais control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqNombrePais;
+        protected global::System.Web.UI.WebControls.Label lbAdvAddPais;
         
         /// <summary>
         /// txtAddPais control.

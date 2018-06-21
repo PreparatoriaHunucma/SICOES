@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Drawing;
-using System.Globalization;
-using System.IO;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
-using System.Web.Services;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
 using SICOES2018.BO;
 using SICOES2018.DAO;
+using System.Web.UI.WebControls;
+using System.Drawing;
+using System.IO;
 
 namespace SICOES2018.GUI
 {
-    public partial class AltaUsuarios : System.Web.UI.Page
+    public partial class GestionDocentes : System.Web.UI.Page
     {
         MaestrosBO datoEmp = new MaestrosBO();
         MaestrosDAO ejecEmp = new MaestrosDAO();
@@ -133,57 +132,13 @@ namespace SICOES2018.GUI
         }
         protected void ObtenerPermisos()
         {
-            //
-            if (chckDirectivo.Checked == true)
-                datoPermiso.Directivo = 1;
-            else
-                datoPermiso.Directivo = 0;
-            //
-            if (chckSecretariaAdm.Checked == true)
-                datoPermiso.SecreAdmin = 1;
-            else
-                datoPermiso.SecreAdmin = 0;
-            //
-            if (chckSecretariaAca.Checked == true)
-                datoPermiso.SecreAcade = 1;
-            else
-                datoPermiso.SecreAcade = 0;
-            //
-            if (chckControl.Checked == true)
-                datoPermiso.ControlEsc = 1;
-            else
-                datoPermiso.ControlEsc = 0;
-            //
-            if (chckDocente.Checked == true)
                 datoPermiso.Docente = 1;
-            else
-                datoPermiso.Docente = 0;
-            //
             ejecPermiso.agregarRegistroTipoMaestro(datoPermiso);
             datoEmp.IDTipoMaestro = Convert.ToInt32(ejecPermiso.buscarUltimoIDTipo("IDTipoMaestro"));
         }
         protected void ObtenerPermisosModif()
         {
-            if (chckDirectivo.Checked == true)
-                datoPermiso.Directivo = 1;
-            else
-                datoPermiso.Directivo = 0;
-            if (chckSecretariaAdm.Checked == true)
-                datoPermiso.SecreAdmin = 1;
-            else
-                datoPermiso.SecreAdmin = 0;
-            if (chckSecretariaAca.Checked == true)
-                datoPermiso.SecreAcade = 1;
-            else
-                datoPermiso.SecreAcade = 0;
-            if (chckControl.Checked == true)
-                datoPermiso.ControlEsc = 1;
-            else
-                datoPermiso.ControlEsc = 0;
-            if (chckDocente.Checked == true)
                 datoPermiso.Docente = 1;
-            else
-                datoPermiso.Docente = 0;
             datoEmp.IDMaestro = Convert.ToInt32(Session["EmpModif"]);
             datoPermiso.IDTipoMaestro = Convert.ToInt32(ejecEmp.buscarDatoAlumno("IDTipoMaestro", datoEmp));
             ejecPermiso.modificarTipoMaestro(datoPermiso);
@@ -193,7 +148,7 @@ namespace SICOES2018.GUI
         //////////Llenar grid views y drop down lists
         protected void LlenarGVMaestros(int StatusMaestro)
         {
-            gvAlumnos.DataSource = ejecEmp.LlenarGridView(StatusMaestro);
+            gvAlumnos.DataSource = ejecEmp.LlenarGridViewDocentes(StatusMaestro);
             gvAlumnos.DataBind();
         }
 
@@ -329,6 +284,9 @@ namespace SICOES2018.GUI
 
         protected void LimpiarCampos()
         {
+            ChckActivo.Checked = false;
+            ChckInactivo.Checked = false;
+            ESTATUSDELPERSONAL.Visible = false;
             txtNomEmp.Text = String.Empty;
             txtApePatEmp.Text = String.Empty;
             txtApeMatEmp.Text = String.Empty;
@@ -337,29 +295,29 @@ namespace SICOES2018.GUI
             txtTelAlum.Text = String.Empty;
             TxtCorreoEmp.Text = String.Empty;
             txtGradoEmp.Text = string.Empty;
-            chckDirectivo.Checked = false;
-            chckSecretariaAdm.Checked = false;
-            chckSecretariaAca.Checked = false;
-            chckControl.Checked = false;
-            chckDocente.Checked = false;
-            ChckActivo.Checked = false;
-            ChckInactivo.Checked = false;
+            //chckDirectivo.Checked = false;
+            //chckSecretariaAdm.Checked = false;
+            //chckSecretariaAca.Checked = false;
+            //chckControl.Checked = false;
+            //chckDocente.Checked = false;
+            
+
             imgFotoEmp.ImageUrl = "~/Resources/images/imgPerfil.jpg";
         }
-        protected void LimpiarCheckboxes()
-        {
-            chckDirectivo.Checked = false;
-            chckControl.Checked = false;
-            chckDocente.Checked = false;
-            chckSecretariaAca.Checked = false;
-            chckSecretariaAdm.Checked = false;
-        }
+        //protected void LimpiarCheckboxes()
+        //{
+        //    chckDirectivo.Checked = false;
+        //    chckControl.Checked = false;
+        //    chckDocente.Checked = false;
+        //    chckSecretariaAca.Checked = false;
+        //    chckSecretariaAdm.Checked = false;
+        //}
         protected void ActualizarDatos()
         {
             upDatosDir.Update();
             upDatosEstatus.Update();
             upDatosGen.Update();
-            upDatosPermisos.Update();
+           // upDatosPermisos.Update();
             upBotones.Update();
         }
         protected void ActualizarModals()
@@ -477,10 +435,13 @@ namespace SICOES2018.GUI
 
             if (currentCommand == "SelectAlum")
             {
+                ChckActivo.Visible = true;
+                ChckInactivo.Visible = true;
+                ESTATUSDELPERSONAL.Visible = true;
                 int currentRowIndex = Int32.Parse(e.CommandArgument.ToString());
                 Session["EmpModif"] = Convert.ToInt32(gvAlumnos.DataKeys[currentRowIndex].Value);
                 datoEmp.IDMaestro = Convert.ToInt32(Session["EmpModif"]); ;
-                LimpiarCheckboxes();
+                //LimpiarCheckboxes();
 
                 txtNomEmp.Text = ejecEmp.buscarDatoAlumno("NomMaestro", datoEmp);
                 txtApePatEmp.Text = ejecEmp.buscarDatoAlumno("ApePatMaestro", datoEmp);
@@ -505,19 +466,19 @@ namespace SICOES2018.GUI
                 ddlEstadoEmp.SelectedValue = IDEstado.ToString();
                 ddlMunicipioEmp.SelectedValue = IDMunicipio.ToString();
 
-                datoPermiso.IDTipoMaestro = Convert.ToInt32(ejecEmp.buscarDatoAlumno("IDTipoMaestro", datoEmp));
-                if (ejecPermiso.buscarDatoPermiso("Directivo", datoPermiso) == "1")
-                    chckDirectivo.Checked = true;
-                if (ejecPermiso.buscarDatoPermiso("SecreAdmin", datoPermiso) == "1")
-                    chckSecretariaAdm.Checked = true;
-                if (ejecPermiso.buscarDatoPermiso("SecreAcade", datoPermiso) == "1")
-                    chckSecretariaAca.Checked = true;
-                if (ejecPermiso.buscarDatoPermiso("ControlEsc", datoPermiso) == "1")
-                    chckControl.Checked = true;
-                if (ejecPermiso.buscarDatoPermiso("Docente", datoPermiso) == "1")
-                    chckDocente.Checked = true;
+                //datoPermiso.IDTipoMaestro = Convert.ToInt32(ejecEmp.buscarDatoAlumno("IDTipoMaestro", datoEmp));
+                //if (ejecPermiso.buscarDatoPermiso("Directivo", datoPermiso) == "1")
+                //    chckDirectivo.Checked = true;
+                //if (ejecPermiso.buscarDatoPermiso("SecreAdmin", datoPermiso) == "1")
+                //    chckSecretariaAdm.Checked = true;
+                //if (ejecPermiso.buscarDatoPermiso("SecreAcade", datoPermiso) == "1")
+                //    chckSecretariaAca.Checked = true;
+                //if (ejecPermiso.buscarDatoPermiso("ControlEsc", datoPermiso) == "1")
+                //    chckControl.Checked = true;
+                //if (ejecPermiso.buscarDatoPermiso("Docente", datoPermiso) == "1")
+                //    chckDocente.Checked = true;
                 if (ejecEmp.buscarDatoStatus("StatusMaestro", datoEmp) == "1")
-                    ChckActivo.Checked = true;
+                   ChckActivo.Checked = true;
                 else
                     ChckInactivo.Checked = true;
 
@@ -527,8 +488,6 @@ namespace SICOES2018.GUI
 
                 btnAgregarAlumno.Visible = false;
                 btnModifAlumno.Visible = true;
-                ChckActivo.Visible = true;
-                ChckInactivo.Visible = true;
                 btnAsignarGrupo.Visible = true;
                 btnResubirCurriculum.Visible = true;
             }
@@ -744,43 +703,43 @@ namespace SICOES2018.GUI
             ChckInactivo.Checked = false;
         }
 
-        protected void chckDirectivo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chckDirectivo.Checked == true)
-            {
-                chckControl.Checked = true;
-                chckSecretariaAca.Checked = true;
-                chckSecretariaAdm.Checked = true;
-                chckDocente.Checked = true;
-            }
-        }
+        //protected void chckDirectivo_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (chckDirectivo.Checked == true)
+        //    {
+        //        chckControl.Checked = true;
+        //        chckSecretariaAca.Checked = true;
+        //        chckSecretariaAdm.Checked = true;
+        //        chckDocente.Checked = true;
+        //    }
+        //}
 
-        protected void chckSecretariaAdm_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chckSecretariaAdm.Checked == false)
-                chckDirectivo.Checked = false;
-        }
+        //protected void chckSecretariaAdm_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (chckSecretariaAdm.Checked == false)
+        //        chckDirectivo.Checked = false;
+        //}
 
-        protected void chckSecretariaAca_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chckSecretariaAca.Checked == false)
-                chckDirectivo.Checked = false;
+        //protected void chckSecretariaAca_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (chckSecretariaAca.Checked == false)
+        //        chckDirectivo.Checked = false;
 
-        }
+        //}
 
-        protected void chckControl_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chckControl.Checked == false)
-                chckDirectivo.Checked = false;
+        //protected void chckControl_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (chckControl.Checked == false)
+        //        chckDirectivo.Checked = false;
 
-        }
+        //}
 
-        protected void chckDocente_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chckDocente.Checked == false)
-                chckDirectivo.Checked = false;
+        //protected void chckDocente_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (chckDocente.Checked == false)
+        //        chckDirectivo.Checked = false;
 
-        }
+        //}
 
         protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {

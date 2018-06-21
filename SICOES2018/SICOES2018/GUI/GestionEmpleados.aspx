@@ -5,7 +5,7 @@
 
     <div class="w3-row">
         <div class="w3-col m8">
-            <h2>Gestión de empleados</h2>
+            <h2>Gestión de Empleados</h2>
         </div>
         <div class=" w3-col m4 w3-padding-16">
             <input class="w3-button w3-amber w3-hover-blue  w3-right" type="button" onclick="document.getElementById('modalAlumnos').style.display = 'block'" value="Ver registros de empleados" />
@@ -194,7 +194,7 @@
                 </asp:UpdatePanel>
             </div>
         </div>
-        <div class="w3-col m6">
+        <div class="w3-col m6"">
             <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
                 <asp:UpdatePanel ID="upDatosEstatus" runat="server" UpdateMode="Conditional">
                     <ContentTemplate>
@@ -202,9 +202,9 @@
                         <hr style="margin: 5px" />
                         <div class="w3-col m12">
                             <div class="w3-row">
-                                <asp:CheckBox runat="server" CssClass="w3-check" ID="ChckActivo" type="checkbox" Text=" Activo" Font-Bold="true" OnCheckedChanged="ChckActivo_CheckedChanged" AutoPostBack="true" />
+                                <asp:CheckBox runat="server" CssClass="w3-check" ID="ChckActivo" type="checkbox" Text=" Activo" Font-Bold="true" OnCheckedChanged="ChckActivo_CheckedChanged" AutoPostBack="true" Visible ="false"/>
                                 <br />
-                                <asp:CheckBox runat="server" CssClass="w3-check" ID="ChckInactivo" type="checkbox" Text=" Inactivo" Font-Bold="true" OnCheckedChanged="ChckInactivo_CheckedChanged" AutoPostBack="true" />
+                                <asp:CheckBox runat="server" CssClass="w3-check" ID="ChckInactivo" type="checkbox" Text=" Inactivo" Font-Bold="true" OnCheckedChanged="ChckInactivo_CheckedChanged" AutoPostBack="true" Visible ="false"/>
                             </div>
                             <br />
                         </div>
@@ -248,7 +248,6 @@
                                     <asp:GridView ID="gvAddPais" runat="server" AutoGenerateColumns="False" CellPadding="6" OnRowCancelingEdit="gvAddPais_RowCancelingEdit"
                                         OnRowEditing="gvAddPais_RowEditing" OnRowUpdating="gvAddPais_RowUpdating" CssClass="w3-table w3-striped w3-border" Style="min-height: 212px" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="3" OnPageIndexChanging="gvAddPais_PageIndexChanging" EnableViewState="false">
                                         <Columns>
-
                                             <asp:TemplateField HeaderText="ID">
                                                 <ItemTemplate>
                                                     <asp:Label ID="lbl_ID" runat="server" Text='<%#Eval("IDPais") %>'></asp:Label>
@@ -264,11 +263,11 @@
                                             </asp:TemplateField>
                                             <asp:TemplateField>
                                                 <ItemTemplate>
-                                                    <asp:LinkButton ID="btn_Edit" runat="server" CommandName="Edit"> <i class="fa fa-pencil-alt"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btn_Edit" runat="server" CommandName="Edit" ToolTip="Editar el nombre del país"> <i class="fa fa-pencil-alt"></i></asp:LinkButton>
                                                 </ItemTemplate>
                                                 <EditItemTemplate>
-                                                    <asp:LinkButton ID="btn_Update" runat="server" Text="Update" CommandName="Update" CausesValidation="false">  <i class="fa fa-check"></i></asp:LinkButton>
-                                                    <asp:LinkButton ID="btn_Cancel" runat="server" Text="Cancel" CommandName="Cancel"> <i class="fa fa-times"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btn_Update" runat="server" Text="Update" CommandName="Update" CausesValidation="false" ToolTip="Aplicar cambios">  <i class="fa fa-check"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btn_Cancel" runat="server" Text="Cancel" CommandName="Cancel" ToolTip="Descartar cambios"> <i class="fa fa-times"></i></asp:LinkButton>
                                                 </EditItemTemplate>
                                             </asp:TemplateField>
                                         </Columns>
@@ -300,24 +299,18 @@
                     <asp:UpdatePanel ID="upAddEstado" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
                             <div class="w3-col m6">
-                                <b>
-                                    <asp:Label ID="lbAddEstado" runat="server" Text="Selecciona un país y escribe el nombre del estado"></asp:Label>
-                                </b>
+                                  <asp:Label ID="lbAddEstado" runat="server" Text="Selecciona un país y escribe el nombre del estado" Font-Bold="true"></asp:Label>
                                 <asp:DropDownList CssClass="w3-dropdown-click w3-input w3-margin" ID="ddlPaisAddEstado" Style="width: 80%" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlPaisAddEstado_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-
-                                <asp:Label ID="lbAdvEstado" runat="server" Text="Label" Visible="false" ForeColor="Red" Font-Size="Small" Height="10px"></asp:Label>
+                                <asp:RequiredFieldValidator ID="rqNombreEstado" runat="server" ControlToValidate="txtAddPais" ErrorMessage="¡Ingrese el nombre del estado!" ViewStateMode="Inherit" ForeColor="Red" Font-Size="Small" Height="10px" ValidationGroup="vlgrDatosAddEstado"></asp:RequiredFieldValidator>
                                 <asp:TextBox CssClass="w3-input w3-margin" ID="txtAddEstado" Width="80%" runat="server"></asp:TextBox>
                             </div>
                             <div class="w3-col m6">
-                                <b>
                                     <asp:Label ID="lbVerEstado" runat="server" Text="Estados registrados"></asp:Label>
-                                </b>
                                 <div class="w3-responsive">
-                                    <asp:GridView ID="gvAddEstado" runat="server" AutoGenerateColumns="False" CellPadding="6" OnRowCancelingEdit="gvAddEstado_RowCancelingEdit"
+                                   <asp:GridView ID="gvAddEstado" runat="server" AutoGenerateColumns="False" CellPadding="6" OnRowCancelingEdit="gvAddEstado_RowCancelingEdit"
                                         OnRowEditing="gvAddEstado_RowEditing" OnRowUpdating="gvAddEstado_RowUpdating" CssClass="w3-table w3-striped w3-border" Style="min-height: 212px" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="3" OnPageIndexChanging="gvAddEstado_PageIndexChanging" EnableViewState="false">
                                         <Columns>
-
-                                            <asp:TemplateField HeaderText="ID">
+                                            <asp:TemplateField HeaderText="ID" Visible="false">
                                                 <ItemTemplate>
                                                     <asp:Label ID="lbl_IDAddEstado" runat="server" Text='<%#Eval("IDEstado") %>'></asp:Label>
                                                 </ItemTemplate>
@@ -332,11 +325,11 @@
                                             </asp:TemplateField>
                                             <asp:TemplateField>
                                                 <ItemTemplate>
-                                                    <asp:LinkButton ID="btn_Edit" runat="server" CommandName="Edit" CausesValidation="false"> <i class="fa fa-pencil"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btn_EditEstado" runat="server" CommandName="Edit" CausesValidation="false"><i class="fa fa-pencil-alt"></i></asp:LinkButton>
                                                 </ItemTemplate>
                                                 <EditItemTemplate>
-                                                    <asp:LinkButton ID="btn_Update" runat="server" Text="Update" CommandName="Update" CausesValidation="false">  <i class="fa fa-check"></i></asp:LinkButton>
-                                                    <asp:LinkButton ID="btn_Cancel" runat="server" Text="Cancel" CommandName="Cancel"> <i class="fa fa-times"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btn_UpdateEstado" runat="server" Text="Update" CommandName="Update" CausesValidation="false">  <i class="fa fa-check"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btn_CancelEstado" runat="server" Text="Cancel" CommandName="Cancel"> <i class="fa fa-times"></i></asp:LinkButton>
                                                 </EditItemTemplate>
                                             </asp:TemplateField>
                                         </Columns>
@@ -344,7 +337,7 @@
                                 </div>
                             </div>
                             <div class="w3-row">
-                                <asp:Button ID="btnAddEstado" runat="server" Text="Agregar estado" CssClass="w3-padding w3-button w3-blue w3-hover-amber w3-display-bottommiddle" OnClick="btnAddEstado_Click" Style="width: 300px" />
+                                 <asp:Button ID="btnAddEstado" runat="server" Text="Agregar estado" CssClass="w3-padding w3-button w3-blue w3-hover-amber w3-display-bottommiddle" OnClick="btnAddEstado_Click" Style="width: 300px" CausesValidation="false" />
                             </div>
                         </ContentTemplate>
                         <Triggers>
@@ -379,13 +372,33 @@
                             </div>
                             <div class="w3-col m6">
                                 <b>
-                                    <asp:Label ID="Label3" runat="server" Text="Estados registrados"></asp:Label>
+                                    <asp:Label ID="lbMuniReg" runat="server" Text="Estados registrados"></asp:Label>
                                 </b>
                                 <div class="w3-responsive">
-                                    <asp:GridView ID="gvAddMunicipio" runat="server" CssClass="w3-table w3-striped w3-border" Style="min-height: 212px" AutoGenerateColumns="False" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="3" OnPageIndexChanging="gvAddMunicipio_PageIndexChanging">
-                                        <Columns>
-                                            <asp:BoundField DataField="IDMunicipio" HeaderText="ID" HeaderStyle-Height="20px" ItemStyle-Height="10px" FooterStyle-Height="20px" />
-                                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                    <asp:GridView ID="gvAddMunicipio" runat="server" CssClass="w3-table w3-striped w3-border" Style="min-height: 212px" AutoGenerateColumns="False" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="3" OnPageIndexChanging="gvAddMunicipio_PageIndexChanging" OnRowCancelingEdit="gvAddMunicipio_RowCancelingEdit" OnRowEditing="gvAddMunicipio_RowEditing" OnRowUpdating="gvAddMunicipio_RowUpdating">
+                                       <Columns>
+                                            <asp:TemplateField HeaderText="ID" Visible="false">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lbl_IDAddMuni" runat="server" Text='<%#Eval("IDMunicipio") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Nombre">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lbl_NameAddMuni" runat="server" Text='<%#Eval("Nombre") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="txt_NameAddMuni" CssClass="w3-input" Style="min-height: 20px; max-height: 20px" runat="server" Text='<%#Eval("Nombre") %>'></asp:TextBox>
+                                                </EditItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:LinkButton ID="btn_EditMuni" runat="server" CommandName="Edit" CausesValidation="false"><i class="fa fa-pencil-alt"></i></asp:LinkButton>
+                                                </ItemTemplate>
+                                                <EditItemTemplate>
+                                                    <asp:LinkButton ID="btn_UpdateMuni" runat="server" Text="Update" CommandName="Update" CausesValidation="false">  <i class="fa fa-check"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btn_CancelMuni" runat="server" Text="Cancel" CommandName="Cancel"> <i class="fa fa-times"></i></asp:LinkButton>
+                                                </EditItemTemplate>
+                                            </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
                                 </div>

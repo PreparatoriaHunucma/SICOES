@@ -143,7 +143,7 @@
                             <a onclick="Académica('Académica')" id="iconoAcadémica" runat="server" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Secretaría Académica<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
 
                             <div id="Académica" class="panel" runat="server">
-                                <p><a class="cursorencima" href="../GUI/GestionEmpleados.aspx" style="text-decoration: none">Gestión de Docentes</a></p>
+                                <p><a class="cursorencima" href="../GUI/GestionDocentes.aspx" style="text-decoration: none">Gestión de Docentes</a></p>
                                 <p><a class="cursorencima" href="../GUI/GestionAsignaturas.aspx" style="text-decoration: none">Administrar Materias</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Credencial de Maestros</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Constancia laboral</a></p>

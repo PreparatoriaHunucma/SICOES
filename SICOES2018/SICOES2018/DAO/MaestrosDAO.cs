@@ -58,6 +58,28 @@ namespace SICOES2018.DAO
             return ejecutarComando(cmd);
         }
 
+        public int agregarDocente(MaestrosBO datosMaestro)
+        {
+            cmd = new SqlCommand("INSERT INTO Maestros (NomMaestro, ApePatMaestro, ApeMatMaestro, TelMaestro, CorreoMaestro, CedulaMaestro, IngresoMaestro, FotoMaestro, CurriculumMaestro, IDTipoMaestro, GradoAcademicoMaestro, DireccionMaestro, IDMunicipioMaestro, StatusMaestro) VALUES (@NomMaestro, @ApePatMaestro, @ApeMatMaestro, @TelMaestro, @CorreoMaestro, @CedulaMaestro, GETDATE(), @FotoMaestro, @CurriculumMaestro, @IDTipoMaestro, @GradoAcademicoMaestro, @DireccionMaestro, @IDMunicipioMaestro, @StatusMaestro)");
+
+            cmd.Parameters.Add("@NomMaestro", SqlDbType.VarChar).Value = datosMaestro.NomMaestro;
+            cmd.Parameters.Add("@ApePatMaestro", SqlDbType.VarChar).Value = datosMaestro.ApePatMaestro;
+            cmd.Parameters.Add("@ApeMatMaestro", SqlDbType.VarChar).Value = datosMaestro.ApeMatMaestro;
+            cmd.Parameters.Add("@TelMaestro", SqlDbType.VarChar).Value = datosMaestro.TelMaestro;
+            cmd.Parameters.Add("@CorreoMaestro", SqlDbType.VarChar).Value = datosMaestro.CorreoMaestro;
+            cmd.Parameters.Add("@CedulaMaestro", SqlDbType.VarChar).Value = datosMaestro.CedulaMaestro;
+            cmd.Parameters.Add("@FotoMaestro", SqlDbType.VarChar).Value = datosMaestro.FotoMaestro;
+            cmd.Parameters.Add("@CurriculumMaestro", SqlDbType.VarChar).Value = datosMaestro.CurriculumMaestro;
+            cmd.Parameters.Add("@IDTipoMaestro", SqlDbType.Int).Value = datosMaestro.IDTipoMaestro;
+            cmd.Parameters.Add("@GradoAcademicoMaestro", SqlDbType.VarChar).Value = datosMaestro.GradoAcademicoMaestro;
+            cmd.Parameters.Add("@DireccionMaestro", SqlDbType.VarChar).Value = datosMaestro.DireccionMaestro;
+            cmd.Parameters.Add("@IDMunicipioMaestro", SqlDbType.Int).Value = datosMaestro.IDMunicipioMaestro;
+            cmd.Parameters.Add("@StatusMaestro", SqlDbType.TinyInt).Value = datosMaestro.StatusMaestro;
+            cmd.CommandType = CommandType.Text;
+
+            return ejecutarComando(cmd);
+        }
+
         //Para cambiar el estado del maestro [0 = DE BAJA, 1 = ACTIVO]
         public int modificarEstadoMaestro(MaestrosBO datosMaestro)
         {
@@ -148,6 +170,13 @@ namespace SICOES2018.DAO
         public DataTable LlenarGridView(int StatusMaestro)
         {
             SQLCommand = "SELECT IDMaestro, NomMaestro, ApePatMaestro, ApeMatMaestro, (CASE WHEN StatusMaestro = '1' THEN 'Activo' ELSE 'Inactivo'END) AS StatusMaestro, LOWER(CONCAT(LEFT(NomMaestro,3),'.',ApePatMaestro,IDMaestro)) AS Usuario FROM Maestros WHERE StatusMaestro =" + StatusMaestro + ";";
+            return llenarTablas(SQLCommand);
+            //CONVERT(varchar, FechaNacAlumno, 103) AS FechaNacAlumno,
+        }
+
+        public DataTable LlenarGridViewDocentes(int StatusMaestro)
+        {
+            SQLCommand = "SELECT IDMaestro, NomMaestro, ApePatMaestro, ApeMatMaestro, (CASE WHEN StatusMaestro = '1' THEN 'Activo' ELSE 'Inactivo'END) AS StatusMaestro, LOWER(CONCAT(LEFT(NomMaestro,3),'.',ApePatMaestro,IDMaestro)) AS Usuario From TipoMaestro INNER JOIN Maestros on TipoMaestro.IDTipoMaestro = Maestros.IDMaestro Where Maestros.StatusMaestro = "+StatusMaestro+" AND Docente = 1";
             return llenarTablas(SQLCommand);
             //CONVERT(varchar, FechaNacAlumno, 103) AS FechaNacAlumno,
         }
