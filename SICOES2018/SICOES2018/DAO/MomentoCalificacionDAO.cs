@@ -48,6 +48,11 @@ namespace SICOES2018.DAO
             SQLCommand = "select top(3) IDMomento from MomentoCalificacion";
             return llenarTablas(SQLCommand);
         }
+        public DataTable ObtenerTodosMomentosMomentos()
+        {
+            SQLCommand = "select IDMomento from MomentoCalificacion";
+            return llenarTablas(SQLCommand);
+        }
 
     }
 }

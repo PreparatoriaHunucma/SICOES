@@ -41,6 +41,8 @@ namespace SICOES2018.GUI
         AsignaturasDAO ejecAsig = new AsignaturasDAO();
         CalificacionesBO datoCalif = new CalificacionesBO();
         CalificacionesDAO ejecCalif = new CalificacionesDAO();
+        CalificacionesAlumnoBO datoCalifA = new CalificacionesAlumnoBO();
+        CalificacionesAlumnoDAO ejecCalifA = new CalificacionesAlumnoDAO();
         SolicitudBajaBO datoSoli = new SolicitudBajaBO();
         SolicitudBajaDAO ejecSoli = new SolicitudBajaDAO();
 
@@ -730,6 +732,7 @@ namespace SICOES2018.GUI
                 datoAlum.ContrasenhaAlumno = datoAlum.EncriptarMD5(contrasenha);
                 ejecAlum.inscribirAlumno(datoAlum);
                 CalificacionesInscripcion();
+                CalificacionesAlumnoInscripcion();
                 LimpiarCampos();
                 LlenarGVAlumnos(1);
                 btnAgregarAlumno.Visible = true;
@@ -764,6 +767,27 @@ namespace SICOES2018.GUI
                 }
             }
         }
+
+        protected void CalificacionesAlumnoInscripcion()
+        {
+            datoAlum.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
+            datoCalifA.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
+            DataTable tblMomento = ejecMomento.Obtener3Momentos();
+            DataTable tblAsignaturas = ejecAsig.ObtenerAsigOblig(Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDSemestrePreinscripcion", datoAlum)));
+            foreach (DataRow rowm in tblMomento.Rows)
+            {
+                foreach (DataRow rowa in tblAsignaturas.Rows)
+                {
+                    datoCalifA.IDAsignatura = Convert.ToInt32(rowa.ItemArray.GetValue(0));
+                    datoCalifA.IDMomento = Convert.ToInt32(rowm.ItemArray.GetValue(0));
+                    datoCalifA.Calificacion = 0;
+                    datoCalifA.IDGrupo = Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDGrupo", datoAlum));
+                    datoCalifA.Inasistencias = 0;
+                    ejecCalifA.agregarCalificacion(datoCalifA);
+                }
+            }
+        }
+
         //Dar de baja a un alumno
         protected void btnDarBajaAlumno_Click(object sender, EventArgs e)
         {

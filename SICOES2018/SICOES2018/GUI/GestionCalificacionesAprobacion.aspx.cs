@@ -3,6 +3,7 @@ using SICOES2018.BO;
 using SICOES2018.DAO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -26,6 +27,8 @@ namespace SICOES2018.GUI
         MomentoCalificacionDAO ejecMom = new MomentoCalificacionDAO();
         FechaCalificacionBO datoFC = new FechaCalificacionBO();
         FechaCalificacionDAO ejecFC = new FechaCalificacionDAO();
+        CalificacionesAlumnoBO datoCA = new CalificacionesAlumnoBO();
+        CalificacionesAlumnoDAO ejecCA = new CalificacionesAlumnoDAO();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -148,10 +151,13 @@ namespace SICOES2018.GUI
             }
             return true;
         }
+
         public class tblExcel
         {
             public tblExcel() { }
             public int IDCalificacion { get; set; }
+            public int IDAlumno { get; set; }
+
             public Decimal Calificacion { get; set; }
             public int Inasistencias { get; set; }
         }
@@ -202,7 +208,27 @@ namespace SICOES2018.GUI
 
         protected void btnAprobar_Click(object sender, EventArgs e)
         {
-
+            int Momento = 0;
+            int Grupo = Convert.ToInt32(ddlGrupo.SelectedValue);
+            int Asig = Convert.ToInt32(ddlAsig.SelectedValue);
+            if (ddlMomento.Items.Count != 0)
+            {
+                Momento = Int32.Parse(ddlMomento.SelectedValue);
+            }
+            DataTable tblCalificaciones = ejecCalif.ObtenerCalificaciones(Grupo, Asig, Momento);
+            foreach (DataRow rowc in tblCalificaciones.Rows)
+            {
+                datoCA.Calificacion = Convert.ToInt32(rowc.ItemArray.GetValue(5));
+                datoCA.Inasistencias = Convert.ToInt32(rowc.ItemArray.GetValue(6));
+                datoCA.IDAlumno = Convert.ToInt32(rowc.ItemArray.GetValue(1));
+                datoCA.IDAsignatura = Asig;
+                datoCA.IDMomento = Momento;
+                datoCA.IDGrupo = Grupo;
+                ejecCA.modificarCalificacion(datoCA);
+            }
+            ScriptManager.RegisterStartupScript(this, GetType(), "text", "tablacalificaciones();", true);
+            ModificarMaximo();
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert();", true);
         }
     }
 }

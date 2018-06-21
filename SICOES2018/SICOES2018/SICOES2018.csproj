@@ -782,6 +782,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GUI\AvisosPadres.aspx" />
+    <Content Include="GUI\ConsultaCalificaciones.aspx" />
     <Content Include="GUI\FechaCalificacion.aspx" />
     <Content Include="GUI\GestionBoletas.aspx" />
     <Content Include="GUI\GestionCalificaciones.aspx" />
@@ -795,6 +796,7 @@
     <Content Include="GUI\Inicio.aspx" />
     <Content Include="GUI\Index.aspx" />
     <Content Include="GUI\GestionAlumnos.aspx" />
+    <Content Include="GUI\InicioAlumno.aspx" />
     <Content Include="GUI\ListaAsistenciaGeneral.aspx" />
     <Content Include="GUI\ListaAsistenciaMaestro.aspx" />
     <Content Include="Reports\BoletaParcial.aspx" />
@@ -817,6 +819,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="MasterPages\mstrpgAlumno.Master" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\EstadiaHunucma.pubxml" />
     <Content Include="Resources\images\LoginBack1.jpg" />
@@ -933,6 +936,7 @@
     <Compile Include="BO\AsignaturasBO.cs" />
     <Compile Include="BO\AvisoBO.cs" />
     <Compile Include="BO\AvisosPadresBO.cs" />
+    <Compile Include="BO\CalificacionesAlumnoBO.cs" />
     <Compile Include="BO\CalificacionesBO.cs" />
     <Compile Include="BO\CicloEscolarBO.cs" />
     <Compile Include="BO\DatosEscuelaBO.cs" />
@@ -961,6 +965,7 @@
     <Compile Include="DAO\AsignaturasDAO.cs" />
     <Compile Include="DAO\AvisoDAO.cs" />
     <Compile Include="DAO\AvisosPadresDAO.cs" />
+    <Compile Include="DAO\CalificacionesAlumnoDAO.cs" />
     <Compile Include="DAO\CalificacionesDAO.cs" />
     <Compile Include="DAO\CicloEscolarDAO.cs" />
     <Compile Include="DAO\ConexionSQL.cs" />
@@ -996,6 +1001,13 @@
     </Compile>
     <Compile Include="GUI\AvisosPadres.aspx.designer.cs">
       <DependentUpon>AvisosPadres.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ConsultaCalificaciones.aspx.cs">
+      <DependentUpon>ConsultaCalificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\ConsultaCalificaciones.aspx.designer.cs">
+      <DependentUpon>ConsultaCalificaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\FechaCalificacion.aspx.cs">
       <DependentUpon>FechaCalificacion.aspx</DependentUpon>
@@ -1088,6 +1100,13 @@
     <Compile Include="GUI\GestionAlumnos.aspx.designer.cs">
       <DependentUpon>GestionAlumnos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\InicioAlumno.aspx.cs">
+      <DependentUpon>InicioAlumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\InicioAlumno.aspx.designer.cs">
+      <DependentUpon>InicioAlumno.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ListaAsistenciaGeneral.aspx.cs">
       <DependentUpon>ListaAsistenciaGeneral.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1101,6 +1120,13 @@
     </Compile>
     <Compile Include="GUI\ListaAsistenciaMaestro.aspx.designer.cs">
       <DependentUpon>ListaAsistenciaMaestro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\mstrpgAlumno.Master.cs">
+      <DependentUpon>mstrpgAlumno.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\mstrpgAlumno.Master.designer.cs">
+      <DependentUpon>mstrpgAlumno.Master</DependentUpon>
     </Compile>
     <Compile Include="Reports\AvisosPadres.cs">
       <AutoGen>True</AutoGen>

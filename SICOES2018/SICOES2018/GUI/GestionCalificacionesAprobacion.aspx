@@ -35,21 +35,21 @@
             </div>
         </div>
         <div class="w3-row w3-padding">
-            <asp:Button OnClick="btnAprobar_Click" CssClass=" w3-third w3-button w3-amber w3-hover-blue w3-right" ID="btnAprobar" runat="server" Text="Aprobar calificaciones" CausesValidation="true" Width="25%" AutoPostBack="false" />
+            <asp:Button OnClick="btnAprobar_Click" OnClientClick="successalert();" CssClass=" w3-third w3-button w3-amber w3-hover-blue w3-right" ID="btnAprobar" runat="server" Text="Aprobar calificaciones" CausesValidation="true" Width="25%" AutoPostBack="false" />
         </div>
         <div class="w3-row w3-padding">
-            <div id="tablacalif"></div>
+            <div id="tablacalif" class="w3-margin-left"></div>
         </div>
         <script type="text/javascript">
-
             function tablacalificaciones() {
-
                 configuracion = {
                     data: <%= ObtenerRegistros()%>,
-                    colWidths: [100, 0.1, 500, 100, 100],
-                    colHeaders: ['Foto', 'IDCalificacion', 'Alumno', 'Calificación', 'Inasistencias'],
+                    colWidths: [110, 0.1, 0.1, 0.1, 500, 100, 100],
+                    colHeaders: ['Foto', 'IDAlumno', 'IDAsignatura', 'IDCalificacion', 'Alumno', 'Calificación', 'Inasistencias'],
                     columns: [
                         { data: 'FotoTabla', renderer: 'html', readOnly: true },
+                        { data: 'IDAsignatura', readOnly: true },
+                        { data: 'IDAlumno', readOnly: true },
                         { data: 'IDCalificacion', readOnly: true },
                         { data: 'Alumno', readOnly: true },
                         { data: 'Calificacion', type: 'numeric', format: '0.00' },
@@ -57,11 +57,9 @@
                     ],
                     beforeChange: function (changes, source) {
                         for (var i = changes.length - 1; i >= 0; i--) {
-                            // gently don't accept the word "foo" (remove the change at index i)
                             if (changes[i][3] > document.getElementById('<%=txtVal1.ClientID%>').value) {
                                 changes.splice(i, 1);
                             }
-                            // if any of pasted cells contains the word "nuke", reject the whole paste
                             else if (changes[i][3] === 'nuke') {
                                 return false;
                             }
@@ -74,7 +72,6 @@
                         if (accionesHandsontable != 'loadData') {
                             //Leer todos los registros modificados
                             registrosModificados.forEach(function (elemento) {
-                                //console.log(elemento);
                                 var fila = tblExcel.getData()[elemento[0]];
                                 console.log(fila);
                                 $.ajax({
@@ -92,11 +89,20 @@
                 };
                 tblExcel = new Handsontable(document.getElementById('tablacalif'), configuracion);
                 tblExcel.render();
+            }
 
+        </script>
+        <script type="text/javascript">
+            function successalert() {
+                swal({
+                    title: '¡Calificaciones aprobadas!',
+                    text: 'El alumno podrá ver estas calificaciones',
+                    type: 'success',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
             }
         </script>
-
-
 
     </div>
 </asp:Content>

@@ -10,7 +10,7 @@
         </div>
         <hr style="margin: 5px" />
 
-        <asp:HiddenField runat="server" ID="txtVal1"/>
+        <asp:HiddenField runat="server" ID="txtVal1" />
         <div class="w3-row w3-padding">
             <div class="w3-col m4">
                 <div class="w3-row">
@@ -45,9 +45,10 @@
 
                 configuracion = {
                     data: <%= ObtenerRegistros()%>,
-                    colWidths: [100, 0.1, 500, 100, 100],
-                    colHeaders: ['Foto', 'IDCalificacion', 'Alumno', 'Calificación', 'Inasistencias'],
+                    colWidths: [0.1, 100, 0.1, 500, 100, 100],
+                    colHeaders: ['IDAlumno', 'Foto', 'IDCalificacion', 'Alumno', 'Calificación', 'Inasistencias'],
                     columns: [
+                        { data: 'IDAlumno', readOnly: true },
                         { data: 'FotoTabla', renderer: 'html', readOnly: true },
                         { data: 'IDCalificacion', readOnly: true },
                         { data: 'Alumno', readOnly: true },
