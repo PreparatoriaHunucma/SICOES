@@ -609,7 +609,7 @@ namespace SICOES2018.GUI
             upModalEstado.Update();
             upModalInsc.Update();
             upModalMunicipio.Update();
-            upModalPais.Update();
+            //upModalPais.Update();
         }
 
 
@@ -863,7 +863,7 @@ namespace SICOES2018.GUI
         {
             gvAddPais.PageIndex = e.NewPageIndex;
             LlenarGVPais();
-            upModalPais.Update();
+            //upModalPais.Update();
         }
         //Para agregar un país
         protected void btnAddNewPais_Click(object sender, EventArgs e)

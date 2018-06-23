@@ -73,7 +73,9 @@
     <Reference Include="CrystalDecisions.Shared">
       <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
     </Reference>
-    <Reference Include="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Web.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
     </Reference>
@@ -788,10 +790,12 @@
     <Content Include="GUI\GestionCalificaciones.aspx" />
     <Content Include="GUI\GestionCalificacionesAprobacion.aspx" />
     <Content Include="GUI\GestionConcentradoCalificaciones.aspx" />
+    <Content Include="GUI\GestionDocentes.aspx" />
     <Content Include="GUI\GestionEmpleados.aspx" />
     <Content Include="GUI\GestionAsignaturas.aspx" />
     <Content Include="GUI\GestionCiclo.aspx" />
     <Content Include="GUI\GestionGrupos.aspx" />
+    <Content Include="GUI\GestionModelosEducativos.aspx" />
     <Content Include="GUI\GestionPlantel.aspx" />
     <Content Include="GUI\Inicio.aspx" />
     <Content Include="GUI\Index.aspx" />
@@ -799,6 +803,7 @@
     <Content Include="GUI\InicioAlumno.aspx" />
     <Content Include="GUI\ListaAsistenciaGeneral.aspx" />
     <Content Include="GUI\ListaAsistenciaMaestro.aspx" />
+    <Content Include="GUI\RespaldoBaseDeDatos.aspx" />
     <Content Include="Reports\BoletaParcial.aspx" />
     <Content Include="Reports\BoletaSemestre.aspx" />
     <Content Include="Reports\BoletaTodos.aspx" />
@@ -1044,6 +1049,13 @@
     <Compile Include="GUI\GestionConcentradoCalificaciones.aspx.designer.cs">
       <DependentUpon>GestionConcentradoCalificaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GestionDocentes.aspx.cs">
+      <DependentUpon>GestionDocentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionDocentes.aspx.designer.cs">
+      <DependentUpon>GestionDocentes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GestionEmpleados.aspx.cs">
       <DependentUpon>GestionEmpleados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1071,6 +1083,13 @@
     </Compile>
     <Compile Include="GUI\GestionGrupos.aspx.designer.cs">
       <DependentUpon>GestionGrupos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionModelosEducativos.aspx.cs">
+      <DependentUpon>GestionModelosEducativos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionModelosEducativos.aspx.designer.cs">
+      <DependentUpon>GestionModelosEducativos.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\GestionPlantel.aspx.cs">
       <DependentUpon>GestionPlantel.aspx</DependentUpon>
@@ -1128,6 +1147,13 @@
     <Compile Include="MasterPages\mstrpgAlumno.Master.designer.cs">
       <DependentUpon>mstrpgAlumno.Master</DependentUpon>
     </Compile>
+    <Compile Include="GUI\RespaldoBaseDeDatos.aspx.cs">
+      <DependentUpon>RespaldoBaseDeDatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\RespaldoBaseDeDatos.aspx.designer.cs">
+      <DependentUpon>RespaldoBaseDeDatos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\AvisosPadres.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1184,6 +1210,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ConcentradoCalificaciones.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ConstanciaLaboral1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConstanciaLaboral.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\FormatoInfoAlumno.aspx.cs">
@@ -1327,6 +1359,10 @@
     <EmbeddedResource Include="Reports\ConcentradoCalificaciones.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ConcentradoCalificaciones.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ConstanciaLaboral.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ConstanciaLaboral1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\FormatoCartaCompromiso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

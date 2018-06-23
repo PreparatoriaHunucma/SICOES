@@ -10,7 +10,7 @@
 namespace SICOES2018.GUI {
     
     
-    public partial class AltaUsuarios {
+    public partial class GestionDocentes {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -328,60 +328,6 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.TextBox TxtCorreoEmp;
         
         /// <summary>
-        /// upDatosPermisos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upDatosPermisos;
-        
-        /// <summary>
-        /// chckDirectivo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chckDirectivo;
-        
-        /// <summary>
-        /// chckSecretariaAca control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chckSecretariaAca;
-        
-        /// <summary>
-        /// chckSecretariaAdm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chckSecretariaAdm;
-        
-        /// <summary>
-        /// chckControl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chckControl;
-        
-        /// <summary>
-        /// chckDocente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chckDocente;
-        
-        /// <summary>
         /// upDatosEstatus control.
         /// </summary>
         /// <remarks>
@@ -389,6 +335,15 @@ namespace SICOES2018.GUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel upDatosEstatus;
+        
+        /// <summary>
+        /// ESTATUSDELPERSONAL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ESTATUSDELPERSONAL;
         
         /// <summary>
         /// ChckActivo control.

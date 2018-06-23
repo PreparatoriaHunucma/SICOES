@@ -348,12 +348,15 @@
                     class="w3-button w3-display-topright w3-hover-amber w3-round">&times;</span>
             </header>
             <div class="w3-container" style="min-height: 300px; max-height: 300px">
-                <asp:UpdatePanel ID="upModalPais" runat="server" UpdateMode="Conditional">
-                    <ContentTemplate>
-                        <div class="w3-row w3-padding-16">
+                <div class="w3-row w3-padding-16">
+                    <asp:UpdatePanel ID="upAddPais" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>
                             <div class="w3-col m6">
-                                <asp:Label ID="lbAddPais" runat="server" Text="Ingresa el nombre del país" Font-Bold="true"></asp:Label>
-                                <asp:RequiredFieldValidator ID="rqNombrePais" runat="server" ControlToValidate="txtAddPais" ErrorMessage="¡Ingrese el nombre del país!" ViewStateMode="Inherit" ForeColor="Red" Font-Size="Small" Height="10px" ValidationGroup="vlgrDatosAddPais"></asp:RequiredFieldValidator>
+                                <b>
+                                    <asp:Label ID="lbAddPais" runat="server" Text="Ingresa el nombre del país"></asp:Label>
+                                </b>
+                                <asp:Label ID="lbAdvAddPais" runat="server" Text="Label" Visible="false" ForeColor="Red" Font-Size="Small" Height="10px"></asp:Label>
+
                                 <asp:TextBox CssClass="w3-input w3-margin" ID="txtAddPais" Width="80%" runat="server"></asp:TextBox>
                             </div>
                             <div class="w3-col m6">
@@ -365,7 +368,7 @@
                                     <asp:GridView ID="gvAddPais" runat="server" AutoGenerateColumns="False" CellPadding="6" OnRowCancelingEdit="gvAddPais_RowCancelingEdit"
                                         OnRowEditing="gvAddPais_RowEditing" OnRowUpdating="gvAddPais_RowUpdating" CssClass="w3-table w3-striped w3-border" Style="min-height: 212px" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="3" OnPageIndexChanging="gvAddPais_PageIndexChanging" EnableViewState="false">
                                         <Columns>
-                                            <asp:TemplateField HeaderText="ID" Visible="false">
+                                            <asp:TemplateField HeaderText="ID">
                                                 <ItemTemplate>
                                                     <asp:Label ID="lbl_ID" runat="server" Text='<%#Eval("IDPais") %>'></asp:Label>
                                                 </ItemTemplate>
@@ -380,7 +383,7 @@
                                             </asp:TemplateField>
                                             <asp:TemplateField>
                                                 <ItemTemplate>
-                                                    <asp:LinkButton ID="btn_Edit" runat="server" CommandName="Edit" ToolTip="Editar el nombre del país"><i class="fa fa-pencil-alt"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="btn_Edit" runat="server" CommandName="Edit" ToolTip="Editar el nombre del país"> <i class="fa fa-pencil-alt"></i></asp:LinkButton>
                                                 </ItemTemplate>
                                                 <EditItemTemplate>
                                                     <asp:LinkButton ID="btn_Update" runat="server" Text="Update" CommandName="Update" CausesValidation="false" ToolTip="Aplicar cambios">  <i class="fa fa-check"></i></asp:LinkButton>
@@ -391,14 +394,15 @@
                                     </asp:GridView>
                                 </div>
                             </div>
-                        </div>
-                        <div class="w3-row">
-                            <asp:Button ID="btnAddNewPais" runat="server" Text="Agregar país" CssClass="w3-padding w3-button w3-blue w3-hover-amber w3-display-bottommiddle" OnClick="btnAddNewPais_Click" Style="width: 300px" ValidationGroup="vlgrDatosAddPais" />
-                        </div>
-                    </ContentTemplate>
-                    <Triggers>
-                    </Triggers>
-                </asp:UpdatePanel>
+                            <div class="w3-row">
+                                <asp:Button ID="btnAddNewPais" runat="server" Text="Agregar país" CssClass="w3-padding w3-button w3-blue w3-hover-amber w3-display-bottommiddle" OnClick="btnAddNewPais_Click" Style="width: 300px" />
+                            </div>
+                        </ContentTemplate>
+                        <Triggers>
+                        </Triggers>
+                    </asp:UpdatePanel>
+
+                </div>
             </div>
         </div>
     </div>
