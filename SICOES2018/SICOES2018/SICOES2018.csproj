@@ -803,6 +803,8 @@
     <Content Include="GUI\InicioAlumno.aspx" />
     <Content Include="GUI\ListaAsistenciaGeneral.aspx" />
     <Content Include="GUI\ListaAsistenciaMaestro.aspx" />
+    <Content Include="GUI\Mensajes.aspx" />
+    <Content Include="GUI\MensajesAlumno.aspx" />
     <Content Include="GUI\RespaldoBaseDeDatos.aspx" />
     <Content Include="Reports\BoletaParcial.aspx" />
     <Content Include="Reports\BoletaSemestre.aspx" />
@@ -954,6 +956,7 @@
     <Compile Include="BO\GruposBO.cs" />
     <Compile Include="BO\MaestroGruposBO.cs" />
     <Compile Include="BO\MaestrosBO.cs" />
+    <Compile Include="BO\MensajesBO.cs" />
     <Compile Include="BO\ModalidadAsignaturasBO.cs" />
     <Compile Include="BO\MomentoCalificacionBO.cs" />
     <Compile Include="BO\MunicipioBO.cs" />
@@ -984,6 +987,7 @@
     <Compile Include="DAO\GruposAsignaturaDAO.cs" />
     <Compile Include="DAO\MaestrosDAO.cs" />
     <Compile Include="DAO\MaestrosGruposDAO.cs" />
+    <Compile Include="DAO\MensajesDAO.cs" />
     <Compile Include="DAO\ModalidadAsignaturasDAO.cs" />
     <Compile Include="DAO\MomentoCalificacionDAO.cs" />
     <Compile Include="DAO\MunicipioDAO.cs" />
@@ -1140,6 +1144,20 @@
     <Compile Include="GUI\ListaAsistenciaMaestro.aspx.designer.cs">
       <DependentUpon>ListaAsistenciaMaestro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Mensajes.aspx.cs">
+      <DependentUpon>Mensajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Mensajes.aspx.designer.cs">
+      <DependentUpon>Mensajes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\MensajesAlumno.aspx.cs">
+      <DependentUpon>MensajesAlumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\MensajesAlumno.aspx.designer.cs">
+      <DependentUpon>MensajesAlumno.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\mstrpgAlumno.Master.cs">
       <DependentUpon>mstrpgAlumno.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1235,6 +1253,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FormatoPreinscripcion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\KardexAlumno.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KardexAlumno.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\ListaAsistenciaGeneral.cs">
@@ -1375,6 +1399,10 @@
     <EmbeddedResource Include="Reports\FormatoPreinscripcion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FormatoPreinscripcion.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\KardexAlumno.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>KardexAlumno.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ListaAsistenciaGeneral.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

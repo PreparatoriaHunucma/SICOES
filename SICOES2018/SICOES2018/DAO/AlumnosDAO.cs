@@ -142,6 +142,13 @@ namespace SICOES2018.DAO
             SQLCommand = "SELECT IDAlumno, NomAlumno, ApePatAlumno, ApeMatAlumno, CONVERT(varchar, FechaNacAlumno, 103) AS FechaNacAlumno, NomTutorAlumno, TelTutorAlumno FROM Alumnos WHERE IDTipoAlumno = " + IDTipoAlumno + ";";
             return llenarTablas(SQLCommand);
         }
+
+        public DataTable ObtenerIDGrupo(int IDGrupo)
+        {
+            SQLCommand = "SELECT IDAlumno FROM Alumnos WHERE IDGrupo = " + IDGrupo + ";";
+            return llenarTablas(SQLCommand);
+        }
+
         //Buscar el dato de una tabla en especifico
         public string buscarDatoAlumno(string Columna, AlumnosBO datosAlumno)
         {

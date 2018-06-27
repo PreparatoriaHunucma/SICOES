@@ -113,8 +113,8 @@
 
                             <%--Acordeones--%>
 
-                                <p><a class="cursorencima" href="../GUI/GestionEmpleados.aspx" style="text-decoration: none">Consulta de calificaciones</a></p>
-                                <p><a class="cursorencima" href="../GUI/GestionCiclo.aspx" style="text-decoration: none">Mensajes</a></p>
+                                <p><a class="cursorencima" href="../GUI/ConsultaCalificaciones.aspx" style="text-decoration: none">Consulta de calificaciones</a></p>
+                                <p><a class="cursorencima" href="../GUI/MensajesAlumno.aspx" style="text-decoration: none">Mensajes</a></p>
 
 
                             <%--<p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
