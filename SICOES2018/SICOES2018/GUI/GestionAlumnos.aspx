@@ -899,7 +899,8 @@
                 showConfirmButton: false,
                 timer: 2000
             });
-        } function inscripcionsuccessalert() {
+        }
+        function inscripcionsuccessalert() {
             swal({
                 title: '¡Alumno inscrito!',
                 text: 'El alumno ha sido inscrito correctamente',

@@ -169,7 +169,7 @@
                             <div id="Docente" class="panel" runat="server">
                                 <p runat="server" id="botoncalif" visible="false"><a class="cursorencima" href="../GUI/GestionCalificaciones.aspx" style="text-decoration: none">Captura de calificaciones</a></p>
                                 <p runat="server" id="botonlista" visible="false"><a class="cursorencima" href="../GUI/ListaAsistenciaMaestro.aspx" style="text-decoration: none">Lista de asistencia</a></p>
-                                <p runat="server" id="btnchat" visible="false"><a class="cursorencima" href="" style="text-decoration: none">Notificaciones</a></p>
+                                <p runat="server" id="btnchat" visible="false"><a class="cursorencima" href="../GUI/Mensajes.aspx" style="text-decoration: none">Mensajes</a></p>
                             </div>
 
                             <%--<p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
@@ -227,8 +227,8 @@
         </div>
 
         <footer class="w3-container w3-blue w3-center w3-margin-top w3-padding">
-            <img style="width: 100px; height: 100px; margin-left: 200px" class="w3-circle w3-left" src="../Resources/images/logouady.jpg" />
-            <img style="width: 100px; height: 100px" class="w3-circle w3-center" src="../Resources/images/logoprepahunucma.jpeg" />
+            <img style="width: 60px; height: 100px; margin-left: 200px" class="w3-circle w3-left" src="http://sicoes-001-site1.dtempurl.com/Logos/LogoUadyDoradoSinFondo.png" />
+            <img style="width: 100px; height: 100px" class="w3-circle w3-center" src="http://sicoes-001-site1.dtempurl.com/Logos/LogoPrepaDoradoSinFondo.png" />
             <img style="width: 100px; height: 100px; margin-right: 200px" class="w3-circle w3-right" src="../Resources/images/logosicoes.png" />
         </footer>
     </form>

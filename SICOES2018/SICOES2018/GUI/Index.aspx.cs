@@ -31,7 +31,7 @@ namespace SICOES2018.GUI
                 {
                     Session["IDUserLoged"] = ejeAlum.ObtenerIDLogin(datoAlum);
                     datoAlum.IDAlumno = Convert.ToInt32(Session["IDUserLoged"]);
-                    Response.Redirect("~/GUI/Inicio");
+                    Response.Redirect("~/GUI/InicioAlumno");
                 }
                 else
                 {

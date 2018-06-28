@@ -1,0 +1,239 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="mstrpgAlumno.master.cs" Inherits="SICOES2018.MasterPages.mstrpgAlumno" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Portal SICOES Docente</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../Resources/CSS/w3.css" rel="stylesheet" />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <style>
+        html, body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Roboto", sans-serif
+        }
+
+        a.cursorencima:hover, a.ex1:active {
+            color: #c5aa22;
+        }
+
+        /*Estilos para los acordeones*/
+
+        a.accordion {
+            background-color: #eee;
+            cursor: pointer;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+            a.accordion.active, button.accordion:hover {
+                background-color: #ddd;
+            }
+
+        div.panel {
+            padding: 0px 0px 0px 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.6s ease-in-out;
+            opacity: 0;
+            list-style-type: none;
+            color: #000 !important;
+            background-color: #f1f1f1 !important;
+        }
+
+            div.panel.show {
+                opacity: 1;
+                max-height: 500px;
+            }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link media="screen" href="../Content/handsontable/handsontable.full.css" rel="stylesheet" />
+    <script data-jsfiddle="common" src="../Scripts/handsontable/handsontable.full.js"></script>
+    <script src="../Scripts/handsontable/ruleJS.all.full.js"></script>
+    <script src="../Scripts/handsontable/handsontable.formula.js"></script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Navbar -->
+        <div class="w3-top">
+            <div class="w3-bar w3-blue w3-card w3-left-align w3-large w3-animate-opacity" style="height: 55px">
+                <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+                <a style="font-size: x-large; margin-top: -9px" href="#" class="w3-bar-item w3-button w3-padding-large w3-blue w3-hover-amber">
+                    <img style="width: 48px; height: 48px" class="w3-circle" src="../Resources/images/logosicoes.png" />
+                    SICOES</a>
+                <a id="logout" onclick="Logout()" style="font-size: xx-large; margin-top:-11px; margin-right:-5px; cursor:pointer" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-amber w3-right w3-blue"><i class="fas fa-sign-out-alt"; style="font-size:x-large" aria-hidden="true"></i></a>
+                <asp:Button ID="btnLogout" runat="server" Text="Button" Style="display: none" OnClick="Unnamed_Click" AutoPostBack="false" />
+
+                <%--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 2</a>
+                <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
+                <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>--%>
+            </div>
+
+            <!-- Navbar on small screens -->
+            <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+                <%--<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>--%>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!-- Page Container -->
+        <div class="w3-content w3-margin-top" style="max-width: 1400px;">
+
+            <!-- The Grid -->
+            <div class="w3-row-padding">
+                <!-- Left Column -->
+                <div class="w3-quarter">
+
+                    <div class="w3-white w3-text-grey w3-card-4 w3-animate-left">
+                        <div class="w3-display-container">
+                            <asp:Image ID="Avatar" runat="server" Width="100%" />
+                            <div class="w3-display-bottomleft  w3-text-blue" style="background: rgba(197, 170, 34, 0.64); width: 100%">
+                                <h3 class="w3-margin-left">
+                                    <asp:Label ID="lbNombre" runat="server" Text="Nombre"></asp:Label></h3>
+                            </div>
+                        </div>
+                        <div class="w3-container">
+                            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i>
+                                <asp:Label ID="lbGradoAcademico" runat="server" Text="Matricula"></asp:Label></p>
+                            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i>
+                                <asp:Label ID="lbCorreoElec" runat="server" Text="Curp"></asp:Label></p>
+                            <hr>
+
+                            <%--Acordeones--%>
+
+                                <p><a class="cursorencima" href="../GUI/ConsultaCalificaciones.aspx" style="text-decoration: none">Consulta de calificaciones</a></p>
+                                <p><a class="cursorencima" href="../GUI/MensajesAlumno.aspx" style="text-decoration: none">Mensajes</a></p>
+
+
+                            <%--<p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+                            <p>Adobe Photoshop</p>
+                            <div class="w3-light-grey w3-round-xlarge w3-small">
+                                <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width: 90%">90%</div>
+                            </div>
+                            <p>Photography</p>
+                            <div class="w3-light-grey w3-round-xlarge w3-small">
+                                <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width: 80%">
+                                    <div class="w3-center w3-text-white">80%</div>
+                                </div>
+                            </div>
+                            <p>Illustrator</p>
+                            <div class="w3-light-grey w3-round-xlarge w3-small">
+                                <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width: 75%">75%</div>
+                            </div>
+                            <p>Media</p>
+                            <div class="w3-light-grey w3-round-xlarge w3-small">
+                                <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width: 50%">50%</div>
+                            </div>
+                            <br>
+
+                            <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+                            <p>English</p>
+                            <div class="w3-light-grey w3-round-xlarge">
+                                <div class="w3-round-xlarge w3-teal" style="height: 24px; width: 100%"></div>
+                            </div>
+                            <p>Spanish</p>
+                            <div class="w3-light-grey w3-round-xlarge">
+                                <div class="w3-round-xlarge w3-teal" style="height: 24px; width: 55%"></div>
+                            </div>
+                            <p>German</p>
+                            <div class="w3-light-grey w3-round-xlarge">
+                                <div class="w3-round-xlarge w3-teal" style="height: 24px; width: 25%"></div>
+                            </div>
+                            <br>--%>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- End Left Column -->
+                </div>
+
+                <!-- Right Column -->
+                <div class="w3-threequarter">
+                    <div class="">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <!-- End Right Column -->
+                </div>
+            </div>
+
+            <!-- End Page Container -->
+        </div>
+
+        <footer class="w3-container w3-blue w3-center w3-margin-top w3-padding">
+            <img style="width: 60px; height: 100px; margin-left: 200px" class="w3-circle w3-left" src="http://sicoes-001-site1.dtempurl.com/Logos/LogoUadyDoradoSinFondo.png" />
+            <img style="width: 100px; height: 100px" class="w3-circle w3-center" src="http://sicoes-001-site1.dtempurl.com/Logos/LogoPrepaDoradoSinFondo.png" />
+            <img style="width: 100px; height: 100px; margin-right: 200px" class="w3-circle w3-right" src="../Resources/images/logosicoes.png" />
+        </footer>
+    </form>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="../Scripts/sweetalert2.all.js"></script>
+
+    <script>
+        //Variables y método para animaciones de expansión y contracción de acordeones
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].onclick = function () {
+                this.classList.toggle("active");
+                this.nextElementSibling.classList.toggle("show");
+            }
+        }
+
+        //Fin
+
+        //Metodos para cambio de iconos de acordeones al expandir y contraer
+        $('#iconoDirectivo').click(function () {
+            icon = $(this).find("i");
+            icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+            $('#iconoDirectivo').toggleClass('w3-amber w3-blue');
+        })
+
+        $('#iconoAdministrativa').click(function () {
+            icon = $(this).find("i");
+            icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+            $('#iconoAdministrativa').toggleClass('w3-amber w3-blue');
+        })
+
+        $('#iconoAcadémica').click(function () {
+            icon = $(this).find("i");
+            icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+            $('#iconoAcadémica').toggleClass('w3-amber w3-blue');
+        })
+
+        $('#iconoControl').click(function () {
+            icon = $(this).find("i");
+            icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+            $('#iconoControl').toggleClass('w3-amber w3-blue');
+        })
+
+        $('#iconoDocente').click(function () {
+            icon = $(this).find("i");
+            icon.toggleClass("fas fa-angle-double-down fas fa-angle-double-up")
+            $('#iconoDocente').toggleClass('w3-amber w3-blue');
+        })
+
+        //FIN
+    </script>
+    <script>
+        function Logout() {
+            var fileuploadctrl = document.getElementById('<%=btnLogout.ClientID%>');
+            fileuploadctrl.click();
+        }
+    </script>
+
+</body>
+</html>
