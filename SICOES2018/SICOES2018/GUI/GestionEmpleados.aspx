@@ -46,7 +46,27 @@
                             <asp:TextBox runat="server" CssClass="w3-input" ID="txtCedula" MaxLength="18" type="text" Style="width: 400px" /><br />
                         </div>
                         <div class="w3-row" style="margin-bottom: -20px">
-                            <asp:Label ID="lbGradoEmp" runat="server" Text="Último Grado Académico" Font-Bold="true"></asp:Label>
+                            <asp:Label ID="lbSexo" runat="server" Text="Sexo" Font-Bold="true"></asp:Label>
+                            <br />
+                            <asp:CheckBox runat="server" CssClass="w3-check" ID="chckHombre" type="checkbox" Text=" Hombre" Font-Bold="true" OnCheckedChanged="chckHombre_CheckedChanged" AutoPostBack="true" />
+                            <asp:CheckBox runat="server" CssClass="w3-check w3-margin-left" ID="chckMujer" type="checkbox" Text=" Mujer" Font-Bold="true" OnCheckedChanged="chckMujer_CheckedChanged" AutoPostBack="true" />
+                            <br />
+                            <br />
+                            <asp:Label ID="lblultgrado" runat="server" Text="Ultimo Grado Académico" Font-Bold="true"></asp:Label>
+                            <br />
+                           
+                            <asp:DropDownList ID="ddlUltGrado" runat="server" CssClass="w3-dropdown-click w3-input" Style="width: 175px" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlUltGrado_SelectedIndexChanged">
+                                <asp:ListItem Value="T.S.U.">T.S.U.</asp:ListItem>
+                                <asp:ListItem Value="Ingenieria" >Ingenieria</asp:ListItem>
+                                <asp:ListItem Value="Licenciatura" >Licenciatura</asp:ListItem>
+                                <asp:ListItem Value="Maestría" >Maestría</asp:ListItem>
+                                <asp:ListItem Value="Doctorado">Doctorado</asp:ListItem>
+                            </asp:DropDownList>
+                            <br />
+                            <br />
+                            </div>
+                        <div class="w3-row" style="margin-bottom: -20px">
+                            <asp:Label ID="lbGradoEmp" runat="server" Text="Carrera" Font-Bold="true"></asp:Label>
                             <br />
                             <asp:TextBox runat="server" CssClass="w3-input" ID="txtGradoEmp" type="text" Style="width: 400px" /><br />
                         </div>
@@ -194,20 +214,22 @@
                 </asp:UpdatePanel>
             </div>
         </div>
-        <div class="w3-col m6"">
+        <div class="w3-col m6">
             <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
                 <asp:UpdatePanel ID="upDatosEstatus" runat="server" UpdateMode="Conditional">
                     <ContentTemplate>
+                        <div runat="server" id="ESTATUSPERSONAL" Visible ="false">
                         <h4>ESTATUS DEL PERSONAL</h4>
                         <hr style="margin: 5px" />
                         <div class="w3-col m12">
                             <div class="w3-row">
-                                <asp:CheckBox runat="server" CssClass="w3-check" ID="ChckActivo" type="checkbox" Text=" Activo" Font-Bold="true" OnCheckedChanged="ChckActivo_CheckedChanged" AutoPostBack="true" Visible ="false"/>
+                                <asp:CheckBox runat="server" CssClass="w3-check" ID="ChckActivo" type="checkbox" Text=" Activo" Font-Bold="true" OnCheckedChanged="ChckActivo_CheckedChanged" AutoPostBack="true"/>
                                 <br />
-                                <asp:CheckBox runat="server" CssClass="w3-check" ID="ChckInactivo" type="checkbox" Text=" Inactivo" Font-Bold="true" OnCheckedChanged="ChckInactivo_CheckedChanged" AutoPostBack="true" Visible ="false"/>
+                                <asp:CheckBox runat="server" CssClass="w3-check" ID="ChckInactivo" type="checkbox" Text=" Inactivo" Font-Bold="true" OnCheckedChanged="ChckInactivo_CheckedChanged" AutoPostBack="true"/>
                             </div>
                             <br />
                         </div>
+                            </div>
                     </ContentTemplate>
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="ChckActivo" EventName="CheckedChanged" />

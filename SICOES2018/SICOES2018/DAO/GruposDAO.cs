@@ -36,6 +36,15 @@ namespace SICOES2018.DAO
             return ejecutarComando(cmd);
         }
 
+        public int eliminarGrupo(GruposBO datosGrupo)
+        {
+            cmd = new SqlCommand("DELETE FROM Grupos WHERE IDGrupo = @IDGrupo");
+
+            cmd.Parameters.Add("@IDGrupo", SqlDbType.Int).Value = datosGrupo.IDGrupo;
+
+            cmd.CommandType = CommandType.Text;
+            return ejecutarComando(cmd);
+        }
         //Para modificar la informacion del grupo
         public int modificarInfoAviso(GruposBO datosGrupo)
         {

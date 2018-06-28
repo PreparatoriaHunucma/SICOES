@@ -62,9 +62,17 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
+        public int eliminarInfoAsig(AsignaturasBO datosAsig)
+        {
+            cmd = new SqlCommand("DELETE FROM Asignaturas WHERE IDAsignatura = @IDAsignatura");
+            cmd.Parameters.Add("@IDAsignatura", SqlDbType.Int).Value = datosAsig.IDAsignatura;
 
-        //Para llenar los GridView de los ciclos
-        public DataTable LlenarGridView(int IDSemestre)
+            cmd.CommandType = CommandType.Text;
+            return ejecutarComando(cmd);
+        }
+
+            //Para llenar los GridView de los ciclos
+            public DataTable LlenarGridView(int IDSemestre)
         {
             SQLCommand = "SELECT a.IDAsignatura, a.NomAsig, s.Nombre AS Semestre, pe.Nombre AS PlanEstudio, ta.Nombre AS TipoAsig, ma.Nombre AS Modalidad FROM Asignaturas a JOIN Semestres s ON s.IDSemestre = a.IDSemestreAsig JOIN PlanesEstudio pe ON pe.IDPlanEstudios = a.IDPlanEstudios JOIN TipoAsignaturas ta ON ta.IDTipoAsig = a.IDTipoAsig JOIN ModalidadAsignaturas ma ON ma.IDModalidadAsig = a.IDModalidadAsig WHERE a.IDSemestreAsig = " + IDSemestre + "";
             return llenarTablas(SQLCommand);

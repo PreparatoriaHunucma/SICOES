@@ -14,15 +14,20 @@ namespace SICOES2018.DAO
 
         public ConexionSQL()
         {
-           // con = new SqlConnection("Data Source=sql7001.site4now.net;Initial Catalog=DB_A3AC6D_SICOES2018;User Id=DB_A3AC6D_SICOES2018_admin;Password=sicoeshunucma2018;");
-           con = new SqlConnection("Data Source=sql5037.site4now.net;Initial Catalog=DB_A26FD9_SICOESHunucma;User Id= DB_A26FD9_SICOESHunucma_admin;Password=sicoeshunucma2018;");
+            //Conexion Local
+            con = new SqlConnection("Data Source=DESKTOP-L9DKEN0;Initial Catalog=DB_A26FD9_SICOESHunucma;Integrated Security=True");
+            //Conexion Estadía
+            // con = new SqlConnection("Data Source=sql7001.site4now.net;Initial Catalog=DB_A3AC6D_SICOES2018;User Id=DB_A3AC6D_SICOES2018_admin;Password=sicoeshunucma2018;");
+            //Conexcion SICOES
+            //con = new SqlConnection("Data Source=sql5037.site4now.net;Initial Catalog=DB_A26FD9_SICOESHunucma;User Id= DB_A26FD9_SICOESHunucma_admin;Password=sicoeshunucma2018;");
             //sirve para establecer las consultas e instrucciones SQL que se ejecutarán en el servidor
             exec = new SqlCommand();
         }
         public SqlConnection establecerConexion()
         {
+            string cs =("Data Source = DESKTOP-L9DKEN0; Initial Catalog = DB_A26FD9_SICOESHunucma;Integrated Security=True");
             //string cs = "Data Source=sql7001.site4now.net;Initial Catalog=DB_A3AC6D_SICOES2018;User Id=DB_A3AC6D_SICOES2018_admin;Password=sicoeshunucma2018;";
-            string cs = "Data Source=sql5037.site4now.net;Initial Catalog=DB_A26FD9_SICOESHunucma;User Id= DB_A26FD9_SICOESHunucma_admin;Password=sicoeshunucma2018;";
+           // string cs = "Data Source=sql5037.site4now.net;Initial Catalog=DB_A26FD9_SICOESHunucma;User Id= DB_A26FD9_SICOESHunucma_admin;Password=sicoeshunucma2018;";
             con = new SqlConnection(cs);
             return con;
         }

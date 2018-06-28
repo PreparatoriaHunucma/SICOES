@@ -12,10 +12,10 @@
                     <div class="w3-row">
                         <div class="w3-padding w3-col m6">
                             <asp:Label ID="lbCicloGrupo" runat="server" Text="Ciclo escolar" Font-Bold="true"></asp:Label>
-                            <asp:DropDownList ID="ddlCicloGrupo" runat="server" CssClass="w3-input" OnSelectedIndexChanged="ddlCicloGrupo_SelectedIndexChanged" AppendDataBoundItems="true" AutoPostBack="true"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlCicloGrupo" runat="server" CssClass="w3-input w3-margin-bottom" OnSelectedIndexChanged="ddlCicloGrupo_SelectedIndexChanged" AppendDataBoundItems="true" AutoPostBack="true"></asp:DropDownList>
 
-                            <asp:Label ID="lbPeriodoGrupo" runat="server" Text="Periodo escolar" Font-Bold="true" CssClass="w3-margin-left"></asp:Label>
-                            <asp:DropDownList ID="ddlPeriodoGrupo" runat="server" CssClass="w3-input w3-margin-left w3-margin-bottom" OnSelectedIndexChanged="ddlPeriodoGrupo_SelectedIndexChanged" AppendDataBoundItems="true" AutoPostBack="true"></asp:DropDownList>
+                            <asp:Label ID="lbPeriodoGrupo" runat="server" Text="Periodo escolar" Font-Bold="true"></asp:Label>
+                            <asp:DropDownList ID="ddlPeriodoGrupo" runat="server" CssClass="w3-input w3-margin-bottom" OnSelectedIndexChanged="ddlPeriodoGrupo_SelectedIndexChanged" AppendDataBoundItems="true" AutoPostBack="true"></asp:DropDownList>
 
                             <asp:Label ID="lbSemestreGrupo" runat="server" Text="Semestre escolar" Font-Bold="true"></asp:Label>
                             <asp:DropDownList ID="ddlSemestreGrupo" runat="server" CssClass="w3-input w3-margin-bottom" AppendDataBoundItems="true" AutoPostBack="true"></asp:DropDownList>
@@ -29,6 +29,7 @@
 
                             <asp:Button ID="btnAddGrupo" runat="server" Text="Crear grupo" CssClass="w3-button w3-amber w3-hover-blue w3-margin" Width="93%" OnClick="btnAddGrupo_Click" ValidationGroup="vlgrGrupo" />
                             <asp:Button ID="btnModGrupo" runat="server" Text="Modificar información del grupo" CssClass="w3-button w3-amber w3-hover-blue w3-margin" Width="93%" Visible="false" OnClick="btnModGrupo_Click" ValidationGroup="vlgrGrupo" />
+                            <asp:Button ID="btnElimGrupo" runat="server" Text="Eliminar grupo" CssClass="w3-button w3-amber w3-hover-blue w3-margin" Width="93%" Visible="false" OnClick="btnElimGrupo_Click" ValidationGroup="vlgrGrupo" />
                         </div>
 
                         <div class="w3-padding w3-col m6">
@@ -82,6 +83,15 @@
             swal({
                 title: '¡Grupo registrado!',
                 text: 'El grupo ha sido registrado con éxito',
+                type: 'success',
+                showConfirmButton: false,
+                timer: 2000
+            });
+        }
+        function Elimalert() {
+            swal({
+                title: '¡Grupo Eliminado!',
+                text: 'El grupo ha sido eliminado con éxito',
                 type: 'success',
                 showConfirmButton: false,
                 timer: 2000

@@ -49,6 +49,7 @@ namespace SICOES2018.GUI
                 LlenarDDLMunicipioEmpleado(Convert.ToInt32(ddlEstadoEmp.SelectedValue));
                 LLenarDDLPeriodoAsignacion();
                 ddlPeriodo.SelectedIndex = 0;
+                
             }
             LlenarGVPais();
 
@@ -61,7 +62,7 @@ namespace SICOES2018.GUI
             datoEmp.ApePatMaestro = txtApePatEmp.Text;
             datoEmp.ApeMatMaestro = txtApeMatEmp.Text;
             datoEmp.CedulaMaestro = txtCedula.Text.ToUpper();
-            datoEmp.GradoAcademicoMaestro = txtGradoEmp.Text;
+            
             if (Session["RutaCurriculum"] != null)
                 datoEmp.CurriculumMaestro = Session["RutaCurriculum"].ToString();
             else
@@ -344,6 +345,9 @@ namespace SICOES2018.GUI
             chckDocente.Checked = false;
             ChckActivo.Checked = false;
             ChckInactivo.Checked = false;
+            chckHombre.Checked = false;
+            chckMujer.Checked = false;
+            ddlUltGrado.SelectedIndex = 0;
             imgFotoEmp.ImageUrl = "~/Resources/images/imgPerfil.jpg";
         }
         protected void LimpiarCheckboxes()
@@ -353,6 +357,8 @@ namespace SICOES2018.GUI
             chckDocente.Checked = false;
             chckSecretariaAca.Checked = false;
             chckSecretariaAdm.Checked = false;
+            chckHombre.Checked = false;
+            chckMujer.Checked = false;
         }
         protected void ActualizarDatos()
         {
@@ -378,10 +384,43 @@ namespace SICOES2018.GUI
                 ObtenerDatosGenerales();
                 ObtenerDomicilio();
                 ObtenerPermisos();
-                if (ChckActivo.Checked == true)
-                    datoEmp.StatusMaestro = 1;
-                else
-                    datoEmp.StatusMaestro = 0;
+
+                if (chckHombre.Checked == true)
+
+                    datoEmp.Sexo = 1;
+
+                if (chckMujer.Checked == true)
+
+                    datoEmp.Sexo = 2;
+
+                if (ddlUltGrado.Items[0].Selected)
+
+                    datoEmp.UltimoGrado = ddlUltGrado.Text;
+
+                if (ddlUltGrado.Items[1].Selected)
+
+                    datoEmp.UltimoGrado = "Ing.";
+
+                if (ddlUltGrado.Items[2].Selected)
+
+                    datoEmp.UltimoGrado = "Lic.";
+
+                if (ddlUltGrado.Items[3].Selected)
+
+                    datoEmp.UltimoGrado = "Mtr.";
+
+                if (ddlUltGrado.Items[4].Selected && chckHombre.Checked == true)
+
+                    datoEmp.UltimoGrado = "Dr.";
+
+                if (ddlUltGrado.Items[4].Selected && chckMujer.Checked == true)
+
+                    datoEmp.UltimoGrado = "Dra.";
+
+                datoEmp.GradoAcademicoMaestro = txtGradoEmp.Text;
+
+
+                datoEmp.StatusMaestro = 1;
                 ejecEmp.agregarMaestro(datoEmp);
 
                 datoEmp.IDMaestro = Convert.ToInt32(ejecEmp.buscarUltimoID("IDMaestro"));
@@ -426,6 +465,41 @@ namespace SICOES2018.GUI
                 ObtenerDatosGeneralesModif();
                 ObtenerDomicilio();
                 ObtenerPermisosModif();
+
+                if (chckHombre.Checked == true)
+
+                    datoEmp.Sexo = 1;
+
+                if (chckMujer.Checked == true)
+
+                    datoEmp.Sexo = 2;
+
+                if (ddlUltGrado.Items[0].Selected)
+
+                    datoEmp.UltimoGrado = ddlUltGrado.Text;
+
+                if (ddlUltGrado.Items[1].Selected)
+
+                    datoEmp.UltimoGrado = "Ing.";
+
+                if (ddlUltGrado.Items[2].Selected)
+
+                    datoEmp.UltimoGrado = "Lic.";
+
+                if (ddlUltGrado.Items[3].Selected)
+
+                    datoEmp.UltimoGrado = "Mtr.";
+
+                if (ddlUltGrado.Items[4].Selected && chckHombre.Checked == true)
+
+                    datoEmp.UltimoGrado = "Dr.";
+
+                if (ddlUltGrado.Items[4].Selected && chckMujer.Checked == true)
+
+                    datoEmp.UltimoGrado = "Dra.";
+
+                datoEmp.GradoAcademicoMaestro = txtGradoEmp.Text;
+
                 if (ChckActivo.Checked == true)
                     datoEmp.StatusMaestro = 1;
                 else
@@ -438,6 +512,7 @@ namespace SICOES2018.GUI
                 btnAsignarGrupo.Visible = false;
                 filecurriculum.Visible = true;
                 curriculumok.Visible = false;
+                ESTATUSPERSONAL.Visible = false;
                 btnResubirCurriculum.Visible = false;
                 ActualizarDatos();
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "modifsuccessalert();", true);
@@ -472,6 +547,7 @@ namespace SICOES2018.GUI
         }
         protected void gvAlumnos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            ESTATUSPERSONAL.Visible = true;
             string currentCommand = e.CommandName;
             LimpiarCampos();
 
@@ -487,6 +563,23 @@ namespace SICOES2018.GUI
                 txtApeMatEmp.Text = ejecEmp.buscarDatoAlumno("ApeMatMaestro", datoEmp);
                 txtCedula.Text = ejecEmp.buscarDatoAlumno("CedulaMaestro", datoEmp);
                 txtGradoEmp.Text = ejecEmp.buscarDatoAlumno("GradoAcademicoMaestro", datoEmp);
+                if (ejecEmp.buscarDatoAlumno("Sexo", datoEmp) == "1")
+                    chckHombre.Checked = true;
+                if (ejecEmp.buscarDatoAlumno("Sexo", datoEmp) == "2")
+                    chckMujer.Checked = true;
+                if (ejecEmp.buscarDatoAlumno("UltimoGrado", datoEmp) == "T.S.U")
+                    ddlUltGrado.SelectedIndex = 0;
+                if (ejecEmp.buscarDatoAlumno("UltimoGrado", datoEmp) == "Ing.")
+                    ddlUltGrado.SelectedIndex = 1;
+                if (ejecEmp.buscarDatoAlumno("UltimoGrado", datoEmp) == "Lic.")
+                    ddlUltGrado.SelectedIndex = 2;
+                if (ejecEmp.buscarDatoAlumno("UltimoGrado", datoEmp) == "Mtr.")
+                    ddlUltGrado.SelectedIndex = 3;
+                if (ejecEmp.buscarDatoAlumno("UltimoGrado", datoEmp) == "Dr.")
+                    ddlUltGrado.SelectedIndex = 4;
+                if (ejecEmp.buscarDatoAlumno("UltimoGrado", datoEmp) == "Dra.")
+                    ddlUltGrado.SelectedIndex = 4;
+
                 imgFotoEmp.ImageUrl = ejecEmp.buscarDatoAlumno("FotoMaestro", datoEmp);
                 filecurriculum.Visible = false;
                 curriculumok.Visible = true;
@@ -527,8 +620,9 @@ namespace SICOES2018.GUI
 
                 btnAgregarAlumno.Visible = false;
                 btnModifAlumno.Visible = true;
-                ChckActivo.Visible = true;
-                ChckInactivo.Visible = true;
+                //ChckActivo.Visible = true;
+                //ChckInactivo.Visible = true;
+                
                 btnAsignarGrupo.Visible = true;
                 btnResubirCurriculum.Visible = true;
             }
@@ -613,6 +707,10 @@ namespace SICOES2018.GUI
             LlenarGVPais();
         }
 
+        protected void ddlUltGrado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ddlUltGrado.DataBind();
+        }
 
         //////////////////////////////ACCIONES CON LOS ESTADOS
         protected void ddlEstadoEmp_SelectedIndexChanged(object sender, EventArgs e)
@@ -743,7 +841,16 @@ namespace SICOES2018.GUI
         {
             ChckInactivo.Checked = false;
         }
+        protected void chckHombre_CheckedChanged(object sender, EventArgs e)
+        {
+           
+            
+        }
 
+        protected void chckMujer_CheckedChanged(object sender, EventArgs e)
+        {
+          
+        }
         protected void chckDirectivo_CheckedChanged(object sender, EventArgs e)
         {
             if (chckDirectivo.Checked == true)

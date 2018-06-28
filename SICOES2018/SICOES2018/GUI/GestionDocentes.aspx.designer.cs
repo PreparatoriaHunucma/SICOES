@@ -121,6 +121,51 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.TextBox txtCedula;
         
         /// <summary>
+        /// lbSexo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbSexo;
+        
+        /// <summary>
+        /// chckHombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chckHombre;
+        
+        /// <summary>
+        /// chckMujer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chckMujer;
+        
+        /// <summary>
+        /// lblultgrado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblultgrado;
+        
+        /// <summary>
+        /// ddlUltGrado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlUltGrado;
+        
+        /// <summary>
         /// lbGradoEmp control.
         /// </summary>
         /// <remarks>

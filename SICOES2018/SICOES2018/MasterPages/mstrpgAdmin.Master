@@ -118,7 +118,7 @@
                             <a onclick="Directivo('Directivo')" id="iconoDirectivo" runat="server" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Directivo<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
 
                             <div id="Directivo" class="panel" runat="server">
-                                <p><a class="cursorencima" href="../GUI/GestionEmpleados.aspx" style="text-decoration: none">Gestión de empleados</a></p>
+                                <p><a class="cursorencima" href="../GUI/GestionEmpleados.aspx" style="text-decoration: none">Gestión de Empleados</a></p>
                                 <p><a class="cursorencima" href="../GUI/GestionCiclo.aspx" style="text-decoration: none">Gestión del Ciclo Escolar</a></p>
                             </div>
 
@@ -126,18 +126,18 @@
 
                             <div id="Administrativa" class="panel" runat="server">
                                 <p><a class="cursorencima" href="../GUI/GestionGrupos.aspx" style="text-decoration: none">Gestión de Grupos</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Planes de Estudio</a></p>
+                                <p><a class="cursorencima" href="../GUI/GestionModelosEducativos.aspx" style="text-decoration: none">Modelos Educativos</a></p>
                                 <p><a class="cursorencima" href="../GUI/GestionAsignaturas.aspx" style="text-decoration: none">Gestión de Asignaturas</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Certificado</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Calificaciones</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Calificaciones de Acompañamiento</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Credencial de estudiantes</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Constancias de Esstudio</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Credencial de Estudiantes</a></p>
+                                <p><a class="cursorencima" href="" style="text-decoration: none">Constancias de Estudio</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Justifiaciones</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Kardex</a></p>
                                 <p><a class="cursorencima" href="../GUI/GestionPlantel.aspx" style="text-decoration: none">Gestion del Plantel</a></p>
                                 <p><a class="cursorencima" href="../GUI/GestionAlumnos.aspx" style="text-decoration: none">Gestión de Alumnos</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Respaldo de información</a></p>
+                                <p><a class="cursorencima" href="../GUI/RespaldoBaseDeDatos.aspx" style="text-decoration: none">Respaldo de información</a></p>
                             </div>
 
                             <a onclick="Académica('Académica')" id="iconoAcadémica" runat="server" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Secretaría Académica<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
@@ -146,7 +146,7 @@
                                 <p><a class="cursorencima" href="../GUI/GestionDocentes.aspx" style="text-decoration: none">Gestión de Docentes</a></p>
                                 <p><a class="cursorencima" href="../GUI/GestionAsignaturas.aspx" style="text-decoration: none">Administrar Materias</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Credencial de Maestros</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Constancia laboral</a></p>
+                                <p><a class="cursorencima" href="../GUI/GenerarConstanciaLaboral" style="text-decoration: none">Constancia laboral</a></p>
                             </div>
 
                             <a onclick="Control('Control')" id="iconoControl" runat="server" class="accordion w3-button w3-block w3-left-align w3-amber w3-hover-blue w3-round-large" style="margin-bottom: 3px">Control Escolar<i class="fas fa-angle-double-down w3-xlarge" style="float: right;"></i></a>
