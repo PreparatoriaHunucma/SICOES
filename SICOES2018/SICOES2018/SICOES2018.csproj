@@ -1255,10 +1255,10 @@
       <DependentUpon>FormatoPreinscripcion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\KardexAlumno.cs">
+    <Compile Include="Reports\KardexCompleto.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>KardexAlumno.rpt</DependentUpon>
+      <DependentUpon>KardexCompleto.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\ListaAsistenciaGeneral.cs">
@@ -1271,6 +1271,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ListaAsistenciaMaestro.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MateriasNoCursadas.cs">
+      <DependentUpon>MateriasNoCursadas.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\MateriasCursadas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MateriasCursadas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\ReporteCartaCompromiso.aspx.cs">
@@ -1400,9 +1412,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FormatoPreinscripcion.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\KardexAlumno.rpt">
+    <EmbeddedResource Include="Reports\KardexCompleto.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>KardexAlumno.cs</LastGenOutput>
+      <LastGenOutput>KardexCompleto.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ListaAsistenciaGeneral.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1411,6 +1423,14 @@
     <EmbeddedResource Include="Reports\ListaAsistenciaMaestro.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ListaAsistenciaMaestro.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MateriasNoCursadas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MateriasNoCursadas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MateriasCursadas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MateriasCursadas.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SolicitudBaja.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
