@@ -90,7 +90,7 @@ namespace SICOES2018.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_AsigCur {
+        public CrystalDecisions.Shared.IParameterField Parameter_IDAlumno {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }

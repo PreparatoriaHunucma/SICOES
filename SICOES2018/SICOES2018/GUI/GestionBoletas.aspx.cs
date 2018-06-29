@@ -129,5 +129,12 @@ namespace SICOES2018.GUI
         {
             LlenarGVAlum(Convert.ToInt32(ddlGrupo.SelectedValue));
         }
+
+        protected void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Session["GrupoReporteID"] = ddlGrupo.SelectedValue;
+            Response.Redirect("~/Reports/BoletaSemestreGrupo");
+
+        }
     }
 }

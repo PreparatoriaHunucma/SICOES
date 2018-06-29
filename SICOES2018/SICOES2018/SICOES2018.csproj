@@ -796,6 +796,7 @@
     <Content Include="GUI\GestionAsignaturas.aspx" />
     <Content Include="GUI\GestionCiclo.aspx" />
     <Content Include="GUI\GestionGrupos.aspx" />
+    <Content Include="GUI\GestionKardex.aspx" />
     <Content Include="GUI\GestionModelosEducativos.aspx" />
     <Content Include="GUI\GestionPlantel.aspx" />
     <Content Include="GUI\Inicio.aspx" />
@@ -806,14 +807,17 @@
     <Content Include="GUI\ListaAsistenciaMaestro.aspx" />
     <Content Include="GUI\Mensajes.aspx" />
     <Content Include="GUI\MensajesAlumno.aspx" />
+    <Content Include="GUI\Reinscripcion.aspx" />
     <Content Include="GUI\RespaldoBaseDeDatos.aspx" />
     <Content Include="Reports\BoletaParcial.aspx" />
     <Content Include="Reports\BoletaSemestre.aspx" />
+    <Content Include="Reports\BoletaSemestreGrupo.aspx" />
     <Content Include="Reports\BoletaTodos.aspx" />
     <Content Include="Reports\ConcentradoCalificaciones.aspx" />
     <Content Include="Reports\ConstanciaLaboral.aspx" />
     <Content Include="Reports\ConstanciaLaboralSinMaterias.aspx" />
     <Content Include="Reports\FormatoInfoAlumno.aspx" />
+    <Content Include="Reports\Kardex.aspx" />
     <Content Include="Reports\ReporteCartaCompromiso.aspx" />
     <Content Include="MasterPages\mstrpgAdmin.Master" />
     <Content Include="Reports\FormatoPreinscripcion.aspx" />
@@ -1098,6 +1102,13 @@
     <Compile Include="GUI\GestionGrupos.aspx.designer.cs">
       <DependentUpon>GestionGrupos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GestionKardex.aspx.cs">
+      <DependentUpon>GestionKardex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionKardex.aspx.designer.cs">
+      <DependentUpon>GestionKardex.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GestionModelosEducativos.aspx.cs">
       <DependentUpon>GestionModelosEducativos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1168,6 +1179,13 @@
     <Compile Include="GUI\MensajesAlumno.aspx.designer.cs">
       <DependentUpon>MensajesAlumno.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Reinscripcion.aspx.cs">
+      <DependentUpon>Reinscripcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Reinscripcion.aspx.designer.cs">
+      <DependentUpon>Reinscripcion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\mstrpgAlumno.Master.cs">
       <DependentUpon>mstrpgAlumno.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1200,6 +1218,19 @@
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\BoletaSemestreGrupo.aspx.cs">
+      <DependentUpon>BoletaSemestreGrupo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\BoletaSemestreGrupo.aspx.designer.cs">
+      <DependentUpon>BoletaSemestreGrupo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BoletaSemestreGrupo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoletaSemestreGrupo.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\BoletaTodos.aspx.cs">
       <DependentUpon>BoletaTodos.aspx</DependentUpon>
@@ -1285,10 +1316,17 @@
       <DependentUpon>FormatoPreinscripcion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\KardexCompleto.cs">
+    <Compile Include="Reports\Kardex.aspx.cs">
+      <DependentUpon>Kardex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Kardex.aspx.designer.cs">
+      <DependentUpon>Kardex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Kardex.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>KardexCompleto.rpt</DependentUpon>
+      <DependentUpon>Kardex.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\ListaAsistenciaGeneral.cs">
@@ -1303,17 +1341,17 @@
       <DependentUpon>ListaAsistenciaMaestro.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\MateriasCursadas.cs">
+      <DependentUpon>MateriasCursadas.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\MateriasNoCursadas.cs">
       <DependentUpon>MateriasNoCursadas.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reports\MateriasCursadas.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MateriasCursadas.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\ReporteCartaCompromiso.aspx.cs">
       <DependentUpon>ReporteCartaCompromiso.aspx</DependentUpon>
@@ -1415,6 +1453,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BoletaSemestre.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BoletaSemestreGrupo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BoletaSemestreGrupo.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\BoletaTodos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BoletaTodos.cs</LastGenOutput>
@@ -1447,9 +1489,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FormatoPreinscripcion.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\KardexCompleto.rpt">
+    <EmbeddedResource Include="Reports\Kardex.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>KardexCompleto.cs</LastGenOutput>
+      <LastGenOutput>Kardex.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ListaAsistenciaGeneral.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1459,13 +1501,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ListaAsistenciaMaestro.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\MateriasNoCursadas.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>MateriasNoCursadas.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\MateriasCursadas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>MateriasCursadas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MateriasNoCursadas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MateriasNoCursadas.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SolicitudBaja.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

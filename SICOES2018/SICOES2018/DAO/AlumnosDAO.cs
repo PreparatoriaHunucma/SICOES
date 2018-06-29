@@ -90,6 +90,23 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
+
+
+
+
+        public int ReinscribirAlumno(AlumnosBO datosAlumno)
+        {
+            cmd = new SqlCommand("UPDATE Alumnos SET IDGrupo = @IDGrupo, IDSemestrePreinscripcion = @IDSemestrePreinscripcion WHERE IDAlumno = @IDAlumno");
+
+            cmd.Parameters.Add("@IDSemestrePreinscripcion", SqlDbType.Int).Value = datosAlumno.IDSemestrePreinscripcion;
+            cmd.Parameters.Add("@IDGrupo", SqlDbType.Int).Value = datosAlumno.IDGrupo;
+            cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosAlumno.IDAlumno;
+
+            cmd.CommandType = CommandType.Text;
+            return ejecutarComando(cmd);
+        }
+
+
         //Para cambiar el tipo de alumno a inscrito y asignar a un grupo
         public int inscribirAlumno(AlumnosBO datosAlumno)
         {

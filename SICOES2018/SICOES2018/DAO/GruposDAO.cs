@@ -24,6 +24,16 @@ namespace SICOES2018.DAO
             return ejecutarComando(cmd);
         }
 
+        public string buscarDatoAlumno(string Columna, GruposBO datosGrupo)
+        {
+            cmd = new SqlCommand("SELECT " + Columna + " FROM Grupos WHERE IDGrupo = @IDGrupo;");
+
+            cmd.Parameters.Add("@IDGrupo", SqlDbType.Int).Value = datosGrupo.IDGrupo;
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, Columna);
+        }
+
         //Para modificar el estado del grupo
         public int modificarEstadoGrupo(GruposBO datosGrupo)
         {

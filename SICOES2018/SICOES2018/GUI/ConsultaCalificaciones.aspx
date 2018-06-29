@@ -48,7 +48,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Promedio">
                                 <ItemTemplate>
-                                    <asp:Label ID="lbl_ClaveAddEscPro" runat="server" Text='<%#Eval("promedio") %>'></asp:Label>
+                                    <asp:Label ID="lbl_ClaveAddEscPro" runat="server" Text='<%#Eval("cal4") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
