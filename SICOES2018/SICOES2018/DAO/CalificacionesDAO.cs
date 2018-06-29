@@ -12,7 +12,7 @@ namespace SICOES2018.DAO
         //Para agregar una calificacion
         public int agregarCalificacion(CalificacionesBO datosCalif)
         {
-            cmd = new SqlCommand("INSERT INTO Calificaciones (IDAlumno, IDAsignatura, IDMomento, Calificacion, IDGrupo, Inasistencias) VALUES (@IDAlumno, @IDAsignatura, @IDMomento, @Calificacion, @IDGrupo, @Inasistencias)");
+            cmd = new SqlCommand("INSERT INTO Calificaciones (IDAlumno, IDAsignatura, IDMomento, Calificacion, IDGrupo, Inasistencias, FechaCaptura) VALUES (@IDAlumno, @IDAsignatura, @IDMomento, @Calificacion, @IDGrupo, @Inasistencias, GETDATE())");
 
             cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosCalif.IDAlumno;
             cmd.Parameters.Add("@IDAsignatura", SqlDbType.Int).Value = datosCalif.IDAsignatura;

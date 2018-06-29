@@ -752,7 +752,7 @@ namespace SICOES2018.GUI
         {
             datoAlum.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
             datoCalif.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
-            DataTable tblMomento = ejecMomento.Obtener3Momentos();
+            DataTable tblMomento = ejecMomento.ObtenerTodosMomentosMomentos();
             DataTable tblAsignaturas = ejecAsig.ObtenerAsigOblig(Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDSemestrePreinscripcion", datoAlum)));
             foreach (DataRow rowm in tblMomento.Rows)
             {
@@ -772,7 +772,7 @@ namespace SICOES2018.GUI
         {
             datoAlum.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
             datoCalifA.IDAlumno = Convert.ToInt32(Session["AlumModif"]);
-            DataTable tblMomento = ejecMomento.Obtener3Momentos();
+            DataTable tblMomento = ejecMomento.ObtenerTodosMomentosMomentos();
             DataTable tblAsignaturas = ejecAsig.ObtenerAsigOblig(Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDSemestrePreinscripcion", datoAlum)));
             foreach (DataRow rowm in tblMomento.Rows)
             {

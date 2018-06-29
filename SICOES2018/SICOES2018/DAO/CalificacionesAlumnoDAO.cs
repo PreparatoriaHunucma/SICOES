@@ -16,7 +16,7 @@ namespace SICOES2018.DAO
         //Para agregar una calificacion
         public int agregarCalificacion(CalificacionesAlumnoBO datosCalif)
         {
-            cmd = new SqlCommand("INSERT INTO CalificacionesAlumno (IDAlumno, IDAsignatura, IDMomento, Calificacion, IDGrupo, Inasistencias) VALUES (@IDAlumno, @IDAsignatura, @IDMomento, @Calificacion, @IDGrupo, @Inasistencias)");
+            cmd = new SqlCommand("INSERT INTO CalificacionesAlumno (IDAlumno, IDAsignatura, IDMomento, Calificacion, IDGrupo, Inasistencias, FechaCaptura) VALUES (@IDAlumno, @IDAsignatura, @IDMomento, @Calificacion, @IDGrupo, @Inasistencias, GETDATE())");
 
             cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosCalif.IDAlumno;
             cmd.Parameters.Add("@IDAsignatura", SqlDbType.Int).Value = datosCalif.IDAsignatura;
@@ -58,7 +58,7 @@ namespace SICOES2018.DAO
         //Para modificar la calificacion de un alumno
         public int modificarCalificacion(CalificacionesAlumnoBO datosCalif)
         {
-            cmd = new SqlCommand("UPDATE CalificacionesAlumno SET Calificacion = @Calificacion, Inasistencias = @Inasistencias WHERE IDAlumno = @IDAlumno AND IDAsignatura = @IDAsignatura AND IDMomento = @IDMomento AND IDGrupo = @IDGrupo");
+            cmd = new SqlCommand("UPDATE CalificacionesAlumno SET Calificacion = @Calificacion, Inasistencias = @Inasistencias, FechaCaptura = GETDATE() WHERE IDAlumno = @IDAlumno AND IDAsignatura = @IDAsignatura AND IDMomento = @IDMomento AND IDGrupo = @IDGrupo");
 
             cmd.Parameters.Add("@Calificacion", SqlDbType.Decimal).Value = datosCalif.Calificacion;
             cmd.Parameters.Add("@Inasistencias", SqlDbType.Int).Value = datosCalif.Inasistencias;

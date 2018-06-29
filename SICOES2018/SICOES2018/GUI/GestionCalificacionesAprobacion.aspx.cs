@@ -32,6 +32,8 @@ namespace SICOES2018.GUI
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtValFechas1.Value = "0";
+
             if (!Page.IsPostBack)
             {
                 DataBind();
@@ -41,8 +43,9 @@ namespace SICOES2018.GUI
                 ddlGrupo.SelectedIndex = 0;
                 LlenarDDLAsignatura(Convert.ToInt32(ddlGrupo.SelectedValue));
                 ddlAsig.SelectedIndex = 0;
-                Fechas();
+                LlenarDDLMomento();
                 ddlMomento.SelectedIndex = 0;
+                Fechas();
                 ScriptManager.RegisterStartupScript(this, GetType(), "text", "tablacalificaciones();", true);
                 ModificarMaximo();
             }
@@ -58,17 +61,27 @@ namespace SICOES2018.GUI
             DateTime FechaFinMomento2 = Convert.ToDateTime(ejecFC.buscarDatoFechaCalif("FechaFinCalif", datoFC, 2));
             DateTime FechaFinMomento3 = Convert.ToDateTime(ejecFC.buscarDatoFechaCalif("FechaFinCalif", datoFC, 3));
             DateTime Hoy = DateTime.Today;
-            if (Hoy >= FechaInicioMomento1.Date && Hoy <= FechaFinMomento1.Date)
+
+            if (Convert.ToInt32(ddlMomento.SelectedValue) == 1)
             {
-                LlenarDDLMomento(1);
+                if (Hoy >= FechaInicioMomento1.Date && Hoy <= FechaFinMomento1.Date)
+                {
+                    txtValFechas1.Value = "1";
+                }
             }
-            else if (Hoy >= FechaInicioMomento2.Date && Hoy <= FechaFinMomento2.Date)
+            else if (Convert.ToInt32(ddlMomento.SelectedValue) == 2)
             {
-                LlenarDDLMomento(2);
+                if (Hoy >= FechaInicioMomento2.Date && Hoy <= FechaFinMomento2.Date)
+                {
+                    txtValFechas1.Value = "1";
+                }
             }
-            else if (Hoy >= FechaInicioMomento3.Date && Hoy <= FechaFinMomento3.Date)
+            else if (Convert.ToInt32(ddlMomento.SelectedValue) == 3)
             {
-                LlenarDDLMomento(3);
+                if (Hoy >= FechaInicioMomento3.Date && Hoy <= FechaFinMomento3.Date)
+                {
+                    txtValFechas1.Value = "1";
+                }
             }
         }
 
@@ -106,10 +119,10 @@ namespace SICOES2018.GUI
             ddlAsig.DataValueField = "IDAsignatura";
             ddlAsig.DataBind();
         }
-        protected void LlenarDDLMomento(int IDMomento)
+        protected void LlenarDDLMomento()
         {
             ddlMomento.Items.Clear();
-            ddlMomento.DataSource = ejecMom.LlenarDDLMomentoEspecifico(IDMomento);
+            ddlMomento.DataSource = ejecMom.LlenarDDL();
             ddlMomento.DataTextField = "Nombre";
             ddlMomento.DataValueField = "IDMomento";
             ddlMomento.DataBind();
@@ -139,7 +152,7 @@ namespace SICOES2018.GUI
             con = new SqlConnection(strconn);
             foreach (var Elemento in tblExcel)
             {
-                cmd = new SqlCommand("UPDATE Calificaciones SET Calificacion = @Calificacion, Inasistencias = @Inasistencias WHERE IDCalificacion = @IDCalificacion", con);
+                cmd = new SqlCommand("UPDATE Calificaciones SET Calificacion = @Calificacion, Inasistencias = @Inasistencias, FechaCaptura = GETDATE() WHERE IDCalificacion = @IDCalificacion", con);
 
                 cmd.Parameters.AddWithValue("@Calificacion", Elemento.Calificacion);
                 cmd.Parameters.AddWithValue("@Inasistencias", Elemento.Inasistencias);
@@ -196,6 +209,7 @@ namespace SICOES2018.GUI
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "text", "tablacalificaciones();", true);
             ModificarMaximo();
+            Fechas();
 
         }
 
