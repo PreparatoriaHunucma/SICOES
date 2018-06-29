@@ -44,6 +44,17 @@ namespace SICOES2018.DAO
             return ejecutarComando(cmd);
         }
 
+        public int eliminarPlanEstudio(PlanesEstudioBO datosPlanes)
+        {
+            cmd = new SqlCommand("DELETE FROM PlanesEstudio WHERE IDPlanEstudios = @IDPlanEstudios");
+
+            cmd.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = datosPlanes.Nombre;
+            cmd.Parameters.Add("@IDPlanEstudios", SqlDbType.Int).Value = datosPlanes.IDPlanEstudios;
+
+            cmd.CommandType = CommandType.Text;
+            return ejecutarComando(cmd);
+        }
+
         //Para llenar los Drop Down List de los ciclos
         public DataTable llenarDDL()
         {

@@ -110,10 +110,11 @@ namespace SICOES2018.GUI
                 datoAsig.HorasNoPre = Convert.ToInt32(txtHorasNoPre.Text);
                 datoAsig.Duracion = datoAsig.HorasPre + datoAsig.HorasNoPre;
                 ejecAsig.agregarAsignatura(datoAsig);
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert();", true);
                 LlenarGVAsignaturas(Convert.ToInt32(ddlSemestre.SelectedValue));
                 LimpiarCampos();
                 upAsignatura.Update();
-                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert();", true);
+                
             }
             else
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
@@ -136,18 +137,59 @@ namespace SICOES2018.GUI
                 datoAsig.Duracion = datoAsig.HorasPre + datoAsig.HorasNoPre;
                 ejecAsig.modificarInfoAsig(datoAsig);
                 LlenarGVAsignaturas(Convert.ToInt32(ddlSemestre.SelectedValue));
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "modifsuccessalert();", true);
                 btnAddAsig.Visible = true;
                 btnModAsig.Visible = false;
+                btnElimAsig.Visible = false;
                 LimpiarCampos();
                 upAsignatura.Update();
-                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "modifsuccessalert();", true);
+                
             }
             else
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
 
         }
 
-        protected void gvAsignaturas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void btnElimAsig_Click(object sender, EventArgs e)
+        {
+
+            if (txtNomAsig.Text != string.Empty)
+            {
+                try
+                {
+                    datoAsig.IDAsignatura = Convert.ToInt32(Session["AsigModif"]);
+                    //datoAsig.NomAsig = txtNomAsig.Text;
+                    //datoAsig.IDSemestreAsig = Convert.ToInt32(ddlSemestre.SelectedValue);
+                    //datoAsig.IDTipoAsig = Convert.ToInt32(ddlTipoAsig.SelectedValue);
+                    //datoAsig.IDModalidadAsig = Convert.ToInt32(ddlModalidad.SelectedValue);
+                    //datoAsig.IDPlanEstudios = Convert.ToInt32(ddlPlan.SelectedValue);
+                    //datoAsig.CreditosAsig = Convert.ToInt32(txtCreditosAsig.Text);
+                    //datoAsig.RequisitosAsig = txtRequisitos.Text;
+                    //datoAsig.HorasPre = Convert.ToInt32(txtHorasPre.Text);
+                    //datoAsig.HorasNoPre = Convert.ToInt32(txtHorasNoPre.Text);
+                    //datoAsig.Duracion = datoAsig.HorasPre + datoAsig.HorasNoPre;
+                    ejecAsig.eliminarInfoAsig(datoAsig);
+                    LlenarGVAsignaturas(Convert.ToInt32(ddlSemestre.SelectedValue));
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "elimsuccessalert();", true);
+                    btnAddAsig.Visible = true;
+                    btnModAsig.Visible = false;
+                    btnElimAsig.Visible = false;
+                    LimpiarCampos();
+                    upAsignatura.Update();
+                }
+
+                catch
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
+                }
+            }
+            else
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
+
+            
+        }
+
+            protected void gvAsignaturas_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvAsignaturas.PageIndex = e.NewPageIndex;
             LlenarGVAsignaturas(Convert.ToInt32(ddlSemestre.SelectedValue));
@@ -175,6 +217,7 @@ namespace SICOES2018.GUI
                 LlenarGVAsignaturas(Convert.ToInt32(ddlSemestre.SelectedValue));
                 btnAddAsig.Visible = false;
                 btnModAsig.Visible = true;
+                btnElimAsig.Visible = true;
                 upAsignatura.Update();
             }
         }

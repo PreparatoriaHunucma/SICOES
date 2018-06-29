@@ -7,8 +7,8 @@ namespace SICOES2018.BO
 {
     public class MaestrosBO
     {
-        private int iDMaestro, iDTipoMaestro, iDMunicipioMaestro;
-        private String nomMaestro, apePatMaestro, apeMatMaestro, telMaestro, correoMaestro, fotoMaestro, curriculumMaestro, gradoAcademicoMaestro, direccionMaestro, usuarioMaestro, contrasenhaMaestro, cedulaMaestro;
+        private int iDMaestro, iDTipoMaestro, iDMunicipioMaestro, sexo;
+        private String nomMaestro, apePatMaestro, apeMatMaestro, telMaestro, correoMaestro, fotoMaestro, curriculumMaestro, gradoAcademicoMaestro, direccionMaestro, usuarioMaestro, contrasenhaMaestro, cedulaMaestro, ultimoGrado;
         private DateTime ingresoMaestro;
         private short statusMaestro;
 
@@ -29,7 +29,8 @@ namespace SICOES2018.BO
         public short StatusMaestro { get => statusMaestro; set => statusMaestro = value; }
         public string CedulaMaestro { get => cedulaMaestro; set => cedulaMaestro = value; }
         public int IDMunicipioMaestro { get => iDMunicipioMaestro; set => iDMunicipioMaestro = value; }
-
+        public int Sexo { get => sexo; set => sexo = value; }
+        public string UltimoGrado { get => ultimoGrado; set => ultimoGrado = value; }
         public System.Drawing.Image RedimencionarImagen(System.Drawing.Image Imgoriginal, int Altoimg)
         {
             var Radio = (double)Altoimg / Imgoriginal.Height;//diferencia entre la imagenes

@@ -38,7 +38,7 @@ namespace SICOES2018.DAO
         //Para agregar a un docente al sistema
         public int agregarMaestro(MaestrosBO datosMaestro)
         {
-            cmd = new SqlCommand("INSERT INTO Maestros (NomMaestro, ApePatMaestro, ApeMatMaestro, TelMaestro, CorreoMaestro, CedulaMaestro, IngresoMaestro, FotoMaestro, CurriculumMaestro, IDTipoMaestro, GradoAcademicoMaestro, DireccionMaestro, IDMunicipioMaestro, StatusMaestro) VALUES (@NomMaestro, @ApePatMaestro, @ApeMatMaestro, @TelMaestro, @CorreoMaestro, @CedulaMaestro, GETDATE(), @FotoMaestro, @CurriculumMaestro, @IDTipoMaestro, @GradoAcademicoMaestro, @DireccionMaestro, @IDMunicipioMaestro, @StatusMaestro)");
+            cmd = new SqlCommand("INSERT INTO Maestros (NomMaestro, ApePatMaestro, ApeMatMaestro, TelMaestro, CorreoMaestro, CedulaMaestro, IngresoMaestro, FotoMaestro, CurriculumMaestro, IDTipoMaestro, GradoAcademicoMaestro, DireccionMaestro, IDMunicipioMaestro, StatusMaestro, Sexo, UltimoGrado) VALUES (@NomMaestro, @ApePatMaestro, @ApeMatMaestro, @TelMaestro, @CorreoMaestro, @CedulaMaestro, GETDATE(), @FotoMaestro, @CurriculumMaestro, @IDTipoMaestro, @GradoAcademicoMaestro, @DireccionMaestro, @IDMunicipioMaestro, @StatusMaestro, @Sexo, @UltimoGrado)");
 
             cmd.Parameters.Add("@NomMaestro", SqlDbType.VarChar).Value = datosMaestro.NomMaestro;
             cmd.Parameters.Add("@ApePatMaestro", SqlDbType.VarChar).Value = datosMaestro.ApePatMaestro;
@@ -53,6 +53,8 @@ namespace SICOES2018.DAO
             cmd.Parameters.Add("@DireccionMaestro", SqlDbType.VarChar).Value = datosMaestro.DireccionMaestro;
             cmd.Parameters.Add("@IDMunicipioMaestro", SqlDbType.Int).Value = datosMaestro.IDMunicipioMaestro;
             cmd.Parameters.Add("@StatusMaestro", SqlDbType.TinyInt).Value = datosMaestro.StatusMaestro;
+            cmd.Parameters.Add("@Sexo", SqlDbType.TinyInt).Value = datosMaestro.Sexo;
+            cmd.Parameters.Add("@UltimoGrado", SqlDbType.VarChar).Value = datosMaestro.UltimoGrado;
             cmd.CommandType = CommandType.Text;
 
             return ejecutarComando(cmd);
@@ -60,7 +62,7 @@ namespace SICOES2018.DAO
 
         public int agregarDocente(MaestrosBO datosMaestro)
         {
-            cmd = new SqlCommand("INSERT INTO Maestros (NomMaestro, ApePatMaestro, ApeMatMaestro, TelMaestro, CorreoMaestro, CedulaMaestro, IngresoMaestro, FotoMaestro, CurriculumMaestro, IDTipoMaestro, GradoAcademicoMaestro, DireccionMaestro, IDMunicipioMaestro, StatusMaestro) VALUES (@NomMaestro, @ApePatMaestro, @ApeMatMaestro, @TelMaestro, @CorreoMaestro, @CedulaMaestro, GETDATE(), @FotoMaestro, @CurriculumMaestro, @IDTipoMaestro, @GradoAcademicoMaestro, @DireccionMaestro, @IDMunicipioMaestro, @StatusMaestro)");
+            cmd = new SqlCommand("INSERT INTO Maestros (NomMaestro, ApePatMaestro, ApeMatMaestro, TelMaestro, CorreoMaestro, CedulaMaestro, IngresoMaestro, FotoMaestro, CurriculumMaestro, IDTipoMaestro, GradoAcademicoMaestro, DireccionMaestro, IDMunicipioMaestro, StatusMaestro, Sexo, UltimoGrado) VALUES (@NomMaestro, @ApePatMaestro, @ApeMatMaestro, @TelMaestro, @CorreoMaestro, @CedulaMaestro, GETDATE(), @FotoMaestro, @CurriculumMaestro, @IDTipoMaestro, @GradoAcademicoMaestro, @DireccionMaestro, @IDMunicipioMaestro, @StatusMaestro, @Sexo, @UltimoGrado)");
 
             cmd.Parameters.Add("@NomMaestro", SqlDbType.VarChar).Value = datosMaestro.NomMaestro;
             cmd.Parameters.Add("@ApePatMaestro", SqlDbType.VarChar).Value = datosMaestro.ApePatMaestro;
@@ -75,6 +77,8 @@ namespace SICOES2018.DAO
             cmd.Parameters.Add("@DireccionMaestro", SqlDbType.VarChar).Value = datosMaestro.DireccionMaestro;
             cmd.Parameters.Add("@IDMunicipioMaestro", SqlDbType.Int).Value = datosMaestro.IDMunicipioMaestro;
             cmd.Parameters.Add("@StatusMaestro", SqlDbType.TinyInt).Value = datosMaestro.StatusMaestro;
+            cmd.Parameters.Add("@Sexo", SqlDbType.TinyInt).Value = datosMaestro.Sexo;
+            cmd.Parameters.Add("@UltimoGrado", SqlDbType.VarChar).Value = datosMaestro.UltimoGrado;
             cmd.CommandType = CommandType.Text;
 
             return ejecutarComando(cmd);
@@ -108,7 +112,7 @@ namespace SICOES2018.DAO
         //Para modificar la informacion del maestro dentro del sistema
         public int modificarInfoMaestro(MaestrosBO datosMaestro)
         {
-            cmd = new SqlCommand("UPDATE Maestros SET NomMaestro = @NomMaestro, ApePatMaestro = @ApePatMaestro, ApeMatMaestro = @ApeMatMaestro, TelMaestro = @TelMaestro, CorreoMaestro = @CorreoMaestro, CedulaMaestro = @CedulaMaestro, FotoMaestro = @FotoMaestro, CurriculumMaestro = @CurriculumMaestro, GradoAcademicoMaestro = @GradoAcademicoMaestro, DireccionMaestro = @DireccionMaestro, IDMunicipioMaestro = @IDMunicipioMaestro, StatusMaestro = @StatusMaestro WHERE IDMaestro = @IDMaestro");
+            cmd = new SqlCommand("UPDATE Maestros SET NomMaestro = @NomMaestro, ApePatMaestro = @ApePatMaestro, ApeMatMaestro = @ApeMatMaestro, TelMaestro = @TelMaestro, CorreoMaestro = @CorreoMaestro, CedulaMaestro = @CedulaMaestro, FotoMaestro = @FotoMaestro, CurriculumMaestro = @CurriculumMaestro, GradoAcademicoMaestro = @GradoAcademicoMaestro, DireccionMaestro = @DireccionMaestro, IDMunicipioMaestro = @IDMunicipioMaestro, StatusMaestro = @StatusMaestro, Sexo = @Sexo, UltimoGrado = @UltimoGrado WHERE IDMaestro = @IDMaestro");
 
             cmd.Parameters.Add("@NomMaestro", SqlDbType.VarChar).Value = datosMaestro.NomMaestro;
             cmd.Parameters.Add("@ApePatMaestro", SqlDbType.VarChar).Value = datosMaestro.ApePatMaestro;
@@ -123,6 +127,8 @@ namespace SICOES2018.DAO
             cmd.Parameters.Add("@DireccionMaestro", SqlDbType.VarChar).Value = datosMaestro.DireccionMaestro;
             cmd.Parameters.Add("@IDMunicipioMaestro", SqlDbType.Int).Value = datosMaestro.IDMunicipioMaestro;
             cmd.Parameters.Add("@IDMaestro", SqlDbType.Int).Value = datosMaestro.IDMaestro;
+            cmd.Parameters.Add("@Sexo", SqlDbType.TinyInt).Value = datosMaestro.Sexo;
+            cmd.Parameters.Add("@UltimoGrado", SqlDbType.VarChar).Value = datosMaestro.UltimoGrado;
 
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
@@ -166,6 +172,13 @@ namespace SICOES2018.DAO
             return buscarDatoEspecifico(cmd, "cantidad");
         }
 
+        public string CuentaGrupos(string Maestro)
+        {
+            cmd = new SqlCommand("select count(*) as cantidad  from MaestroGrupos where idmaestro = " + Maestro + "");
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, "cantidad");
+        }
 
         public DataTable LlenarGridView(int StatusMaestro)
         {

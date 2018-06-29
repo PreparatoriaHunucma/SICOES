@@ -27,25 +27,30 @@ namespace SICOES2018.GUI
             //con.ConnectionString = @"Server=MyPC\SqlServer2k8;database=" + YourDBName + ";uid=sa;pwd=password;";  
 
             //IF Window Authentication then Connection String  
-            con = new SqlConnection("Data Source=sql5037.site4now.net;Initial Catalog=DB_A26FD9_SICOESHunucma;User Id=DB_A26FD9_SICOESHunucma_admin;Password=sicoeshunucma2018;");
+            con = new SqlConnection("Data Source=DESKTOP-L9DKEN0;Initial Catalog=DB_A26FD9_SICOESHunucma;Integrated Security=True");
 
-            string backupDIR = "C:\\BackupDB";
+            string backupDIR = Server.MapPath(@"~/Respaldos");
+            string nombre = DateTime.Now.ToString("ddMMyyyy_HHmmss");
             if (!System.IO.Directory.Exists(backupDIR))
             {
                 System.IO.Directory.CreateDirectory(backupDIR);
             }
             try
             {
+                
                 con.Open();
-                sqlcmd = new SqlCommand("backup database DB_A26FD9_SICOESHunucma to disk='" + backupDIR + "\\" + DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".Bak'", con);
+                sqlcmd = new SqlCommand("backup database DB_A26FD9_SICOESHunucma to disk='" + backupDIR + "\\" + nombre+ ".Bak'", con);
                 sqlcmd.ExecuteNonQuery();
                 con.Close();
-                lblError.Text = "Backup database successfully";
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "respaldosuccessalert();", true);
+                bdok.Text = "<a href ='" + backupDIR + "/" + nombre + ".bak'>Descargar Respaldo</a>";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                lblError.Text = "Error Occured During DB backup process !<br>" + ex.ToString();
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
             }
+
+            
         }
     }
 }

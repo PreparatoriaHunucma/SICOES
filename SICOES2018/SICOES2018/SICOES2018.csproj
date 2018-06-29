@@ -786,6 +786,7 @@
     <Content Include="GUI\AvisosPadres.aspx" />
     <Content Include="GUI\ConsultaCalificaciones.aspx" />
     <Content Include="GUI\FechaCalificacion.aspx" />
+    <Content Include="GUI\GenerarConstanciaLaboral.aspx" />
     <Content Include="GUI\GestionBoletas.aspx" />
     <Content Include="GUI\GestionCalificaciones.aspx" />
     <Content Include="GUI\GestionCalificacionesAprobacion.aspx" />
@@ -810,6 +811,8 @@
     <Content Include="Reports\BoletaSemestre.aspx" />
     <Content Include="Reports\BoletaTodos.aspx" />
     <Content Include="Reports\ConcentradoCalificaciones.aspx" />
+    <Content Include="Reports\ConstanciaLaboral.aspx" />
+    <Content Include="Reports\ConstanciaLaboralSinMaterias.aspx" />
     <Content Include="Reports\FormatoInfoAlumno.aspx" />
     <Content Include="Reports\ReporteCartaCompromiso.aspx" />
     <Content Include="MasterPages\mstrpgAdmin.Master" />
@@ -1025,6 +1028,13 @@
     <Compile Include="GUI\FechaCalificacion.aspx.designer.cs">
       <DependentUpon>FechaCalificacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GenerarConstanciaLaboral.aspx.cs">
+      <DependentUpon>GenerarConstanciaLaboral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GenerarConstanciaLaboral.aspx.designer.cs">
+      <DependentUpon>GenerarConstanciaLaboral.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GestionBoletas.aspx.cs">
       <DependentUpon>GestionBoletas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1230,10 +1240,30 @@
       <DependentUpon>ConcentradoCalificaciones.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\ConstanciaLaboral.aspx.cs">
+      <DependentUpon>ConstanciaLaboral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ConstanciaLaboral.aspx.designer.cs">
+      <DependentUpon>ConstanciaLaboral.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ConstanciaLaboral1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ConstanciaLaboral.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ConstanciaLaboralSinMaterias.aspx.cs">
+      <DependentUpon>ConstanciaLaboralSinMaterias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ConstanciaLaboralSinMaterias.aspx.designer.cs">
+      <DependentUpon>ConstanciaLaboralSinMaterias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ConstanciaLaboralSinMaterias.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConstanciaLaboralSinMaterias.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\FormatoInfoAlumno.aspx.cs">
@@ -1340,6 +1370,7 @@
     <Folder Include="Curriculum\" />
     <Folder Include="Resources\FotoPerfilAlumno\" />
     <Folder Include="Resources\FotoPerfilMaestro\" />
+    <Folder Include="Respaldos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -1399,6 +1430,10 @@
     <EmbeddedResource Include="Reports\ConstanciaLaboral.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ConstanciaLaboral1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ConstanciaLaboralSinMaterias.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ConstanciaLaboralSinMaterias.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\FormatoCartaCompromiso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

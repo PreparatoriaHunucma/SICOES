@@ -148,6 +148,15 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.Button btnModGrupo;
         
         /// <summary>
+        /// btnElimGrupo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnElimGrupo;
+        
+        /// <summary>
         /// lbGruposReg control.
         /// </summary>
         /// <remarks>

@@ -148,7 +148,31 @@ namespace SICOES2018.GUI
                 LimpiarCamposAddGrupo();
                 btnAddGrupo.Visible = true;
                 btnModGrupo.Visible = false;
+                btnElimGrupo.Visible = false;
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert();", true);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
+            }
+            LlenarGridViewGrupos(Convert.ToInt32(ddlCicloGrupo.SelectedValue), Convert.ToInt32(ddlPeriodoGrupo.SelectedValue));
+        }
+
+        protected void btnElimGrupo_Click(object sender, EventArgs e)
+        {
+            if (txtNomGrupo.Text != string.Empty)
+            {
+                datoGrupo.IDGrupo = Convert.ToInt32(Session["GrupoModif"]);
+                //datoGrupo.NombreGrupo = txtNomGrupo.Text;
+                //datoGrupo.IDPeriodo = Convert.ToInt32(ddlPeriodoGrupo.SelectedValue);
+                //datoGrupo.IDPlanEstudio = Convert.ToInt32(ddlPlanGrupo.SelectedValue);
+                //datoGrupo.IDSemestre = Convert.ToInt32(ddlSemestreGrupo.SelectedValue);
+                ejecGrupo.eliminarGrupo(datoGrupo);
+                LimpiarCamposAddGrupo();
+                btnAddGrupo.Visible = true;
+                btnModGrupo.Visible = false;
+                btnElimGrupo.Visible = false;
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Elimalert();", true);
             }
             else
             {
@@ -175,6 +199,7 @@ namespace SICOES2018.GUI
                 txtNomGrupo.Text = ejecGrupo.buscarDatoGrupo("NombreGrupo", datoGrupo);
                 btnAddGrupo.Visible = false;
                 btnModGrupo.Visible = true;
+                btnElimGrupo.Visible = true;
                 upGrupos.Update();
             }
 
