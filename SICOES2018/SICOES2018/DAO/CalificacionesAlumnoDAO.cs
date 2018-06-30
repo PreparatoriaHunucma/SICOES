@@ -70,6 +70,19 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
+        public int modificarCalificacionMismoSemestre(CalificacionesAlumnoBO datosCalif)
+        {
+            cmd = new SqlCommand("UPDATE CalificacionesAlumno SET IDGrupo = @IDGrupo WHERE IDAlumno = @IDAlumno AND IDAsignatura = @IDAsignatura AND IDMomento = @IDMomento");
+
+            cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosCalif.IDAlumno;
+            cmd.Parameters.Add("@IDAsignatura", SqlDbType.Int).Value = datosCalif.IDAsignatura;
+            cmd.Parameters.Add("@IDMomento", SqlDbType.Int).Value = datosCalif.IDMomento;
+            cmd.Parameters.Add("@IDGrupo", SqlDbType.Int).Value = datosCalif.IDGrupo;
+
+            cmd.CommandType = CommandType.Text;
+            return ejecutarComando(cmd);
+        }
+
 
     }
 }

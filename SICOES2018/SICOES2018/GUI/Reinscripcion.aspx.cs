@@ -125,13 +125,15 @@ namespace SICOES2018.GUI
         protected void ddlCicloEscolarRe_SelectedIndexChanged(object sender, EventArgs e)
         {
             LlenarDDLPeriodoRe(Convert.ToInt32(ddlCicloEscolarRe.SelectedValue));
-            //upGrupoRe.Update();
+            LlenarGVAlumno(Convert.ToInt32(ddlGrupoRe.SelectedValue));
+            UpdatePanel1.Update();
         }
 
         protected void ddlPeriodoRe_SelectedIndexChanged(object sender, EventArgs e)
         {
             LlenarDDLGruposRe(Convert.ToInt32(ddlPeriodoRe.SelectedValue));
-            //upGrupoRe.Update();
+            LlenarGVAlumno(Convert.ToInt32(ddlGrupoRe.SelectedValue));
+            UpdatePanel1.Update();
         }
 
         protected void ddlGrupoRe_SelectedIndexChanged(object sender, EventArgs e)
@@ -179,15 +181,33 @@ namespace SICOES2018.GUI
                         datoAlum.IDAlumno = Convert.ToInt32(IDAlumno);
                         datoAlum.IDGrupo = Convert.ToInt32(ddlGrupo.SelectedValue);
                         datoAlum.IDSemestrePreinscripcion = Convert.ToInt32(ejecGrupo.buscarDatoAlumno("IDSemestre", datoGrupo));
-                        ejecAlum.ReinscribirAlumno(datoAlum);
-                        CalificacionesInscripcion(Convert.ToInt32(IDAlumno));
-                        CalificacionesAlumnoInscripcion(Convert.ToInt32(IDAlumno));
+                        int IDSemestreAlumno = Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDSemestrePreinscripcion", datoAlum));
+                        int IDSemestreNuevoGrupo = Convert.ToInt32(ejecGrupo.buscarDatoAlumno("IDSemestre", datoGrupo));
+                        if (IDSemestreAlumno > IDSemestreNuevoGrupo)
+                        {
+                            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
+                        }
+                        else
+                        {
+                            if (IDSemestreAlumno == IDSemestreNuevoGrupo)
+                            {
+                                ejecAlum.ReinscribirAlumno(datoAlum);
+                                CalificacionesInscripcionMismoSemestre(Convert.ToInt32(IDAlumno));
+                                CalificacionesAlumnoInscripcionMismoSemestre(Convert.ToInt32(IDAlumno));
+                            }
+                            else
+                            {
+                                ejecAlum.ReinscribirAlumno(datoAlum);
+                                CalificacionesInscripcion(Convert.ToInt32(IDAlumno));
+                                CalificacionesAlumnoInscripcion(Convert.ToInt32(IDAlumno));
+                            }
+                            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert();", true);
+                        }
                     }
                 }
             }
-            LlenarGVAlumno(Convert.ToInt32(ddlGrupo.SelectedValue));
+            LlenarGVAlumno(Convert.ToInt32(ddlGrupoRe.SelectedValue));
             UpdatePanel1.Update();
-            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert();", true);
         }
         protected void CalificacionesInscripcion(int IDAlumno)
         {
@@ -225,6 +245,42 @@ namespace SICOES2018.GUI
                     datoCalifA.IDGrupo = Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDGrupo", datoAlum));
                     datoCalifA.Inasistencias = 0;
                     ejecCalifA.agregarCalificacion(datoCalifA);
+                }
+            }
+        }
+
+        protected void CalificacionesInscripcionMismoSemestre(int IDAlumno)
+        {
+            datoAlum.IDAlumno = IDAlumno;
+            datoCalif.IDAlumno = IDAlumno;
+            DataTable tblMomento = ejecMomento.ObtenerTodosMomentosMomentos();
+            DataTable tblAsignaturas = ejecAsig.ObtenerAsigOblig(Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDSemestrePreinscripcion", datoAlum)));
+            foreach (DataRow rowm in tblMomento.Rows)
+            {
+                foreach (DataRow rowa in tblAsignaturas.Rows)
+                {
+                    datoCalif.IDAsignatura = Convert.ToInt32(rowa.ItemArray.GetValue(0));
+                    datoCalif.IDMomento = Convert.ToInt32(rowm.ItemArray.GetValue(0));
+                    datoCalif.IDGrupo = Convert.ToInt32(ddlGrupo.SelectedValue);
+                    ejecCalif.modificarCalificacionMismoSemestre(datoCalif);
+                }
+            }
+        }
+
+        protected void CalificacionesAlumnoInscripcionMismoSemestre(int IDAlumno)
+        {
+            datoAlum.IDAlumno = IDAlumno;
+            datoCalifA.IDAlumno = IDAlumno;
+            DataTable tblMomento = ejecMomento.ObtenerTodosMomentosMomentos();
+            DataTable tblAsignaturas = ejecAsig.ObtenerAsigOblig(Convert.ToInt32(ejecAlum.buscarDatoAlumno("IDSemestrePreinscripcion", datoAlum)));
+            foreach (DataRow rowm in tblMomento.Rows)
+            {
+                foreach (DataRow rowa in tblAsignaturas.Rows)
+                {
+                    datoCalifA.IDAsignatura = Convert.ToInt32(rowa.ItemArray.GetValue(0));
+                    datoCalifA.IDMomento = Convert.ToInt32(rowm.ItemArray.GetValue(0));
+                    datoCalifA.IDGrupo = Convert.ToInt32(ddlGrupo.SelectedValue);
+                    ejecCalifA.modificarCalificacionMismoSemestre(datoCalifA);
                 }
             }
         }

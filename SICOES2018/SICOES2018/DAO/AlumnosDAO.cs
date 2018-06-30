@@ -121,6 +121,29 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return ejecutarComando(cmd);
         }
+
+
+
+        public int BorrarCalificaciones(AlumnosBO datosAlumno)
+        {
+            cmd = new SqlCommand("DELETE FROM Calificaciones WHERE IDAlumno = @IDAlumno");
+
+            cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosAlumno.IDAlumno;
+
+            cmd.CommandType = CommandType.Text;
+            return ejecutarComando(cmd);
+        }
+        public int BorrarCalificacionesAlumno(AlumnosBO datosAlumno)
+        {
+            cmd = new SqlCommand("DELETE FROM CalificacionesAlumno WHERE IDAlumno = @IDAlumno");
+
+            cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosAlumno.IDAlumno;
+
+            cmd.CommandType = CommandType.Text;
+            return ejecutarComando(cmd);
+        }
+
+
         //Para modificar la informacion del alumno dentro del sistema
         public int modificarInfoAlumno(AlumnosBO datosAlumno)
         {
@@ -176,6 +199,18 @@ namespace SICOES2018.DAO
             cmd.CommandType = CommandType.Text;
             return buscarDatoEspecifico(cmd, Columna);
         }
+
+
+        public string BuscarCalificacionesAlumno(AlumnosBO datosAlumno)
+        {
+            cmd = new SqlCommand("SELECT COUNT(*) AS Cantidad FROM Calificaciones WHERE IDAlumno = @IDAlumno;");
+
+            cmd.Parameters.Add("@IDAlumno", SqlDbType.Int).Value = datosAlumno.IDAlumno;
+
+            cmd.CommandType = CommandType.Text;
+            return buscarDatoEspecifico(cmd, "Cantidad");
+        }
+
         public string ObtenerPeriodoBaja(AlumnosBO datosAlumno)
         {
             cmd = new SqlCommand("select g.IDPeriodo from alumnos a join Grupos g on g.IDGrupo = a.IDGrupo WHERE IDAlumno = @IDAlumno;");

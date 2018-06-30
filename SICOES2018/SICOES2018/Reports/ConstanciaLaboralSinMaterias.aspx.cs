@@ -1,7 +1,6 @@
 ﻿using System;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;

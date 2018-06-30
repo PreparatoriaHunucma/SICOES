@@ -28,7 +28,8 @@ namespace SICOES2018.Reports
             connectionInfo.UserID = "DB_A26FD9_SICOESHunucma_admin";
             connectionInfo.Password = "sicoeshunucma2018";
             SetDBLogonForReport(connectionInfo, rprt);
-            rprt.SetParameterValue("@IDGrupo", Convert.ToInt32(Session["GrupoReporteID"]));
+            int IDGrupo = Convert.ToInt32(Session["GrupoReporteID"]);
+            rprt.SetParameterValue("@IDGrupo", IDGrupo);
             BoletaSemestral.ReportSource = rprt;
             BoletaSemestral.DataBind();
 

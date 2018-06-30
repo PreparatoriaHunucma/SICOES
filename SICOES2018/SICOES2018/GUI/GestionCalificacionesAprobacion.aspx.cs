@@ -83,6 +83,11 @@ namespace SICOES2018.GUI
                     txtValFechas1.Value = "1";
                 }
             }
+            else if (Convert.ToInt32(ddlMomento.SelectedValue) == 4)
+            {
+                    txtValFechas1.Value = "1";
+            }
+
         }
 
         protected void LlenarDDLPeriodo()

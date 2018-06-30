@@ -11,7 +11,6 @@ namespace SICOES2018.DAO
     public class FechaCalificacionDAO : ConexionSQL
     {
         SqlCommand cmd;
-        string SQLCommand;
 
         //Para crear un aviso
         public int agregarAviso(FechaCalificacionBO datoFechaCalif)

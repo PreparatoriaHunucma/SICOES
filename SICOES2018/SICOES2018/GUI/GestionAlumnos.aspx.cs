@@ -612,6 +612,16 @@ namespace SICOES2018.GUI
             //upModalPais.Update();
         }
 
+        protected void Validar()
+        {
+            reqCurpAlum.Validate();
+            reqFechaNacAlum.Validate();
+            reqNomAlum.Validate();
+            reqNomTutorAlum.Validate();
+            reqTelTutorAlum.Validate();
+            rngFechaNacAlum.Validate();
+            rqNombreEscPro.Validate();
+        }
 
         //////////////////////////////ACCIONES CON LOS ALUMNOS
         //Al presionar el botón de agregar alumno
@@ -622,6 +632,7 @@ namespace SICOES2018.GUI
                 DateTime valFechaNac = Convert.ToDateTime(txtFechaNacAlum.Text);
                 DateTime fechaInicio = new DateTime(1900, 1, 1);
                 if ((valFechaNac.Date >= fechaInicio.Date) && (valFechaNac.Date <= DateTime.Today))
+
                 {
                     ObtenerDatosGenerales();
                     ObtenerDatosTutor();
@@ -637,9 +648,13 @@ namespace SICOES2018.GUI
                     Response.Redirect("~/Reports/FormatoPreinscripcion");
                 }
             }
-            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
-            lbAdvTipo.Visible = true;
-            ActualizarUPDatos();
+            else
+            {
+                Validar();
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
+                lbAdvTipo.Visible = true;
+                ActualizarUPDatos();
+            }
         }
 
         //Generar carta compromiso
@@ -730,22 +745,50 @@ namespace SICOES2018.GUI
                 datoAlum.UsuarioAlumno = datoAlum.EncriptarMD5(usuario);
                 string contrasenha = "123456";
                 datoAlum.ContrasenhaAlumno = datoAlum.EncriptarMD5(contrasenha);
-                ejecAlum.inscribirAlumno(datoAlum);
-                CalificacionesInscripcion();
-                CalificacionesAlumnoInscripcion();
-                LimpiarCampos();
-                LlenarGVAlumnos(1);
-                btnAgregarAlumno.Visible = true;
-                btnModifAlumno.Visible = false;
-                btnInscribirAlumno.Visible = false;
-                btnBajaAlumno.Visible = false;
-                btnReImpForPreInsc.Visible = false;
-                btnInfoAlumno.Visible = false;
-                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "inscripcionsuccessalert();", true);
-                ActualizarUPDatos();
-                ActualizarUPModals();
+                int Calificaciones = Convert.ToInt32(ejecAlum.BuscarCalificacionesAlumno(datoAlum));
+                if (Calificaciones > 0)
+                {
+                    ejecAlum.BorrarCalificaciones(datoAlum);
+                    ejecAlum.BorrarCalificacionesAlumno(datoAlum);
+                    ejecAlum.inscribirAlumno(datoAlum);
+                    CalificacionesInscripcion();
+                    CalificacionesAlumnoInscripcion();
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "inscripcionsuccessalert();", true);
+                    LimpiarCampos();
+                    LlenarGVAlumnos(1);
+                    btnAgregarAlumno.Visible = true;
+                    btnModifAlumno.Visible = false;
+                    btnInscribirAlumno.Visible = false;
+                    btnBajaAlumno.Visible = false;
+                    btnReImpForPreInsc.Visible = false;
+                    btnInfoAlumno.Visible = false;
+                    ActualizarUPDatos();
+                    ActualizarUPModals();
+                    divModalInscripcion.Update();
+                }
+                else
+                {
+                    ejecAlum.inscribirAlumno(datoAlum);
+                    CalificacionesInscripcion();
+                    CalificacionesAlumnoInscripcion();
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "inscripcionsuccessalert();", true);
+                    LimpiarCampos();
+                    LlenarGVAlumnos(1);
+                    btnAgregarAlumno.Visible = true;
+                    btnModifAlumno.Visible = false;
+                    btnInscribirAlumno.Visible = false;
+                    btnBajaAlumno.Visible = false;
+                    btnReImpForPreInsc.Visible = false;
+                    btnInfoAlumno.Visible = false;
+                    ActualizarUPDatos();
+                    ActualizarUPModals();
+                    divModalInscripcion.Update();
+                }
             }
-            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "erroralert();", true);
+            }
         }
 
         protected void CalificacionesInscripcion()

@@ -699,88 +699,93 @@
         </Triggers>
     </asp:UpdatePanel>
     <%--MODAL PARA INSCRIBIR A LOS ALUMNOS--%>
-    <div id="modalInscripcion" class="w3-modal">
-        <div class="w3-modal-content w3-animate-top w3-card-4 w3-round" style="width: 1200px; margin-top: -70px">
-            <header class="w3-container w3-blue w3-round" style="height: 50px">
-                <h3 class="w3-display-topleft w3-margin-left">Alumnos</h3>
-                <span onclick="document.getElementById('modalInscripcion').style.display='none'"
-                    class="w3-button w3-display-topright w3-hover-amber w3-round">&times;</span>
-            </header>
-            <div class="w3-container" style="min-height: 480px; max-height: 480px">
-                <div class="w3-row w3-margin-top">
-                    <div class="w3-col m12">
-                        <asp:UpdatePanel ID="upModalInsc" runat="server" UpdateMode="Conditional">
-                            <ContentTemplate>
-                                <div class="w3-row">
-                                    <asp:Label ID="lbinstruccion" runat="server" Text="Seleccione el grupo al que el alumno pertenecerá y presione el botón para asignarle ese grupo" Font-Bold="true" CssClass="w3-margin-bottom"></asp:Label><br />
-                                    <asp:DropDownList CssClass="w3-dropdown-click w3-input w3-margin" ID="ddlGrupos" Style="width: 20%" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlGrupos_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                                </div>
-                                <div class="w3-row ">
-                                    <div class="w3-col m12">
-                                        <b>
-                                            <asp:Label ID="lbAlumnosGrupos" runat="server" Text="Alumnos registrados al grupo seleccionado"></asp:Label>
-                                        </b>
-                                        <div class="w3-responsive">
-                                            <asp:GridView ID="gvAlumnosGrupos" runat="server" AutoGenerateColumns="False" CellPadding="6"
-                                                CssClass="w3-table w3-striped w3-border" Style="min-height: 288px" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="5" OnPageIndexChanging="gvAlumnos_PageIndexChanging" OnRowCommand="gvAlumnos_RowCommand" DataKeyNames="IDAlumno">
-                                                <Columns>
-
-                                                    <asp:TemplateField HeaderText="ID" Visible="false">
-                                                        <ItemTemplate>
-                                                            <asp:Label ID="lbl_ID" runat="server" Text='<%#Eval("IDAlumno") %>'></asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Nombre">
-                                                        <ItemTemplate>
-                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("NomAlumno") %>'></asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Primer apellido">
-                                                        <ItemTemplate>
-                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("ApePatAlumno") %>'></asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Segundo apellido">
-                                                        <ItemTemplate>
-                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("ApeMatAlumno") %>'></asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Fecha de Nacimiento">
-                                                        <ItemTemplate>
-                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("FechaNacAlumno") %>'></asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Nombre del tutor">
-                                                        <ItemTemplate>
-                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("NomTutorAlumno") %>'></asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Telefono del tutor">
-                                                        <ItemTemplate>
-                                                            <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("TelTutorAlumno") %>'></asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:ButtonField ButtonType="Link" ControlStyle-CssClass="btn btn-success btn-sm" Text="<i class='fa fa-eye w3-large'></i>" CausesValidation="False" CommandName="SelectAlum" Visible="true" />
-                                                </Columns>
-                                            </asp:GridView>
+    <asp:UpdatePanel ID="divModalInscripcion" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <div id="modalInscripcion" class="w3-modal">
+                <div class="w3-modal-content w3-animate-top w3-card-4 w3-round" style="width: 1200px; margin-top: -70px">
+                    <header class="w3-container w3-blue w3-round" style="height: 50px">
+                        <h3 class="w3-display-topleft w3-margin-left">Alumnos</h3>
+                        <span onclick="document.getElementById('modalInscripcion').style.display='none'"
+                            class="w3-button w3-display-topright w3-hover-amber w3-round">&times;</span>
+                    </header>
+                    <div class="w3-container" style="min-height: 480px; max-height: 480px">
+                        <div class="w3-row w3-margin-top">
+                            <div class="w3-col m12">
+                                <asp:UpdatePanel ID="upModalInsc" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <div class="w3-row">
+                                            <asp:Label ID="lbinstruccion" runat="server" Text="Seleccione el grupo al que el alumno pertenecerá y presione el botón para asignarle ese grupo" Font-Bold="true" CssClass="w3-margin-bottom"></asp:Label><br />
+                                            <asp:DropDownList CssClass="w3-dropdown-click w3-input w3-margin" ID="ddlGrupos" Style="width: 20%" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlGrupos_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="w3-row">
-                                    <asp:Button ID="btnInscribirAlum" runat="server" Text="Inscribir Alumno" CssClass="w3-padding w3-button w3-blue w3-hover-amber w3-display-bottommiddle" OnClick="btnInscribirAlumno_Click" Style="width: 300px" />
-                                </div>
-                            </ContentTemplate>
-                            <Triggers>
-                                <asp:AsyncPostBackTrigger ControlID="ddlGrupos" EventName="SelectedIndexChanged" />
-                                <asp:AsyncPostBackTrigger ControlID="btnInscribirAlum" EventName="Click" />
-                            </Triggers>
-                        </asp:UpdatePanel>
+                                        <div class="w3-row ">
+                                            <div class="w3-col m12">
+                                                <b>
+                                                    <asp:Label ID="lbAlumnosGrupos" runat="server" Text="Alumnos registrados al grupo seleccionado"></asp:Label>
+                                                </b>
+                                                <div class="w3-responsive">
+                                                    <asp:GridView ID="gvAlumnosGrupos" runat="server" AutoGenerateColumns="False" CellPadding="6"
+                                                        CssClass="w3-table w3-striped w3-border" Style="min-height: 288px" GridLines="None" ShowHeaderWhenEmpty="True" AllowPaging="true" PageSize="5" OnPageIndexChanging="gvAlumnos_PageIndexChanging" OnRowCommand="gvAlumnos_RowCommand" DataKeyNames="IDAlumno">
+                                                        <Columns>
+
+                                                            <asp:TemplateField HeaderText="ID" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lbl_ID" runat="server" Text='<%#Eval("IDAlumno") %>'></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Nombre">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("NomAlumno") %>'></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Primer apellido">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("ApePatAlumno") %>'></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Segundo apellido">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("ApeMatAlumno") %>'></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Fecha de Nacimiento">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("FechaNacAlumno") %>'></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Nombre del tutor">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("NomTutorAlumno") %>'></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Telefono del tutor">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lbl_Name" runat="server" Text='<%#Eval("TelTutorAlumno") %>'></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:ButtonField ButtonType="Link" ControlStyle-CssClass="btn btn-success btn-sm" Text="<i class='fa fa-eye w3-large'></i>" CausesValidation="False" CommandName="SelectAlum" Visible="true" />
+                                                        </Columns>
+                                                    </asp:GridView>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w3-row">
+                                            <asp:Button ID="btnInscribirAlum" runat="server" Text="Inscribir Alumno" CssClass="w3-padding w3-button w3-blue w3-hover-amber w3-display-bottommiddle" OnClick="btnInscribirAlumno_Click" Style="width: 300px" />
+                                        </div>
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="ddlGrupos" EventName="SelectedIndexChanged" />
+                                        <asp:AsyncPostBackTrigger ControlID="btnInscribirAlum" EventName="Click" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
+        </ContentTemplate>
+        <Triggers>
+        </Triggers>
+    </asp:UpdatePanel>
     <%--MODAL PARA DAR DE BAJA AL ALUMNO--%>
     <div id="modalBaja" class="w3-modal">
         <div class="w3-modal-content w3-animate-top w3-card-4 w3-round">
@@ -817,7 +822,7 @@
             <ContentTemplate>
                 <%--BOTON PARA REGISTRAR AL ALUMNO--%>
                 <div class="w3-row">
-                    <asp:Button CssClass="w3-button w3-amber w3-hover-blue w3-round" ID="btnAgregarAlumno" runat="server" Text="Pre-Inscribir al alumno" OnClick="btnAgregarAlumno_Click" ValidationGroup="vlgrDatos" Style="width: 100%" />
+                    <asp:Button CssClass="w3-button w3-amber w3-hover-blue w3-round" ID="btnAgregarAlumno" runat="server" Text="Pre-Inscribir al alumno" OnClick="btnAgregarAlumno_Click" CausesValidation="false" Style="width: 100%" />
                 </div>
                 <div class="w3-row w3-margin-bottom">
                     <%--BOTON PARA MODIFICAR INFO DEL ALUMNO--%>
@@ -925,6 +930,15 @@
                 text: 'Hubo un problema al guardar la información, verifica los datos',
                 type: 'error'
             });
+        }
+    </script>
+    <script type="text/javascript">
+        function show() {
+            if (confirm('r u sure?')) {
+                return true;
+            } else {
+                return false;
+            }
         }
     </script>
 </asp:Content>

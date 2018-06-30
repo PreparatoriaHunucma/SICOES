@@ -48,11 +48,11 @@
                 if (document.getElementById('<%=txtValFechas1.ClientID%>').value == 1) {
                     configuracion = {
                         data: <%= ObtenerRegistros()%>,
-                        colWidths: [0.1, 100, 0.1, 500, 100, 100],
-                        colHeaders: ['IDAlumno', 'Foto', 'IDCalificacion', 'Alumno', 'Calificación', 'Inasistencias'],
+                        colWidths: [100, 0.1, 0.1, 500, 100, 100],
+                        colHeaders: ['Foto', 'IDAlumno', 'IDCalificacion', 'Alumno', 'Calificación', 'Inasistencias'],
                         columns: [
-                            { data: 'IDAlumno', readOnly: true },
                             { data: 'FotoTabla', renderer: 'html', readOnly: true },
+                            { data: 'IDAlumno', readOnly: true },
                             { data: 'IDCalificacion', readOnly: true },
                             { data: 'Alumno', readOnly: true },
                             { data: 'Calificacion', type: 'numeric', format: '0' },
@@ -97,11 +97,11 @@
                 if (document.getElementById('<%=txtValFechas1.ClientID%>').value == 0) {
                     configuracion = {
                         data: <%= ObtenerRegistros()%>,
-                        colWidths: [0.1, 100, 0.1, 500, 100, 100],
-                        colHeaders: ['IDAlumno', 'Foto', 'IDCalificacion', 'Alumno', 'Calificación', 'Inasistencias'],
+                        colWidths: [100, 0.1, 0.1, 500, 100, 100],
+                        colHeaders: ['Foto', 'IDAlumno', 'IDCalificacion', 'Alumno', 'Calificación', 'Inasistencias'],
                         columns: [
-                            { data: 'IDAlumno', readOnly: true },
                             { data: 'FotoTabla', renderer: 'html', readOnly: true },
+                            { data: 'IDAlumno', readOnly: true },
                             { data: 'IDCalificacion', readOnly: true },
                             { data: 'Alumno', readOnly: true },
                             { data: 'Calificacion', readOnly: true, type: 'numeric', format: '0' },

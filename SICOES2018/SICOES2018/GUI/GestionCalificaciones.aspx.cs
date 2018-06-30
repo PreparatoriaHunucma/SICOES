@@ -82,6 +82,11 @@ namespace SICOES2018.GUI
                     txtValFechas1.Value = "1";
                 }
             }
+            if (Convert.ToInt32(ddlMomento.SelectedValue) == 4)
+            {
+                    txtValFechas1.Value = "1";
+            }
+
         }
 
         protected void LlenarDDLPeriodo()
@@ -212,6 +217,23 @@ namespace SICOES2018.GUI
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "text", "tablacalificaciones();", true);
             ModificarMaximo();
+
+        }
+
+        protected void btnConcentradoParcial_Click(object sender, EventArgs e)
+        {
+            Session["GrupoReporteID"] = ddlGrupo.SelectedValue;
+            Session["AsigReporteID"] = ddlAsig.SelectedValue;
+            Session["MomentoReporteID"] = ddlMomento.SelectedValue;
+            Response.Redirect("~/Reports/ConcentradoCalificacionesMaestro");
+
+        }
+
+        protected void btnConcentradoFinal_Click(object sender, EventArgs e)
+        {
+            Session["GrupoReporteID"] = ddlGrupo.SelectedValue;
+            Session["AsigReporteID"] = ddlAsig.SelectedValue;
+            Response.Redirect("~/Reports/ConcentradoCalificacionesFinalMaestro");
 
         }
     }

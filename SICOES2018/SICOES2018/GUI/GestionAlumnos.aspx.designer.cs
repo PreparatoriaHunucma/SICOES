@@ -1147,6 +1147,15 @@ namespace SICOES2018.GUI {
         protected global::System.Web.UI.WebControls.GridView gvAlumnos;
         
         /// <summary>
+        /// divModalInscripcion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel divModalInscripcion;
+        
+        /// <summary>
         /// upModalInsc control.
         /// </summary>
         /// <remarks>

@@ -39,6 +39,14 @@
         <div class="w3-row w3-padding">
             <div id="tablacalif"></div>
         </div>
+        <div class="w3-row">
+            <div class="w3-col m4 w3-padding">
+                <asp:Button OnClick="btnConcentradoParcial_Click" CssClass=" w3-third w3-button w3-amber w3-hover-blue w3-right" ID="btnConcentradoParcial" runat="server" Text="Imprimir concentrado del reporte" CausesValidation="true" Width="100%" AutoPostBack="false" />
+            </div>
+            <div class="w3-col m4 w3-padding">
+                <asp:Button OnClick="btnConcentradoFinal_Click" CssClass=" w3-third w3-button w3-amber w3-hover-blue w3-right" ID="btnConcentradoFinal" runat="server" Text="Imprimir concentrado final" CausesValidation="true" Width="100%" AutoPostBack="false" />
+            </div>
+        </div>
 
         <script type="text/javascript">
             configuracion;
@@ -46,11 +54,11 @@
                 if (document.getElementById('<%=txtValFechas1.ClientID%>').value == 1) {
                     configuracion = {
                         data: <%= ObtenerRegistros()%>,
-                        colWidths: [0.1, 100, 0.1, 500, 100, 100],
-                        colHeaders: ['IDAlumno', 'Foto', 'IDCalificacion', 'Alumno', 'Calificación', 'Inasistencias'],
+                        colWidths: [100, 0.1, 0.1, 500, 100, 100],
+                        colHeaders: ['Foto', 'IDAlumno', 'IDCalificacion', 'Alumno', 'Calificación', 'Inasistencias'],
                         columns: [
-                            { data: 'IDAlumno', readOnly: true },
                             { data: 'FotoTabla', renderer: 'html', readOnly: true },
+                            { data: 'IDAlumno', readOnly: true },
                             { data: 'IDCalificacion', readOnly: true },
                             { data: 'Alumno', readOnly: true },
                             { data: 'Calificacion', type: 'numeric', format: '0' },

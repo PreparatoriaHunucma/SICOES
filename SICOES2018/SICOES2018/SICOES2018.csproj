@@ -67,6 +67,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="CrystalDecisions.ReportSource">
       <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
     </Reference>
@@ -809,11 +812,14 @@
     <Content Include="GUI\MensajesAlumno.aspx" />
     <Content Include="GUI\Reinscripcion.aspx" />
     <Content Include="GUI\RespaldoBaseDeDatos.aspx" />
+    <Content Include="Reports\Aviso.aspx" />
     <Content Include="Reports\BoletaParcial.aspx" />
     <Content Include="Reports\BoletaSemestre.aspx" />
     <Content Include="Reports\BoletaSemestreGrupo.aspx" />
     <Content Include="Reports\BoletaTodos.aspx" />
     <Content Include="Reports\ConcentradoCalificaciones.aspx" />
+    <Content Include="Reports\ConcentradoCalificacionesFinalMaestro.aspx" />
+    <Content Include="Reports\ConcentradoCalificacionesMaestro.aspx" />
     <Content Include="Reports\ConstanciaLaboral.aspx" />
     <Content Include="Reports\ConstanciaLaboralSinMaterias.aspx" />
     <Content Include="Reports\FormatoInfoAlumno.aspx" />
@@ -1200,6 +1206,13 @@
     <Compile Include="GUI\RespaldoBaseDeDatos.aspx.designer.cs">
       <DependentUpon>RespaldoBaseDeDatos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Aviso.aspx.cs">
+      <DependentUpon>Aviso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Aviso.aspx.designer.cs">
+      <DependentUpon>Aviso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\AvisosPadres.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1257,6 +1270,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BoletaParcial.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ConcentradoCalificacionesFinalMaestro.aspx.cs">
+      <DependentUpon>ConcentradoCalificacionesFinalMaestro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ConcentradoCalificacionesFinalMaestro.aspx.designer.cs">
+      <DependentUpon>ConcentradoCalificacionesFinalMaestro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ConcentradoCalificacionesFinalMaestro.cs">
+      <DependentUpon>ConcentradoCalificacionesFinalMaestro.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\ConcentradoCalificacionesMaestro.aspx.cs">
+      <DependentUpon>ConcentradoCalificacionesMaestro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ConcentradoCalificacionesMaestro.aspx.designer.cs">
+      <DependentUpon>ConcentradoCalificacionesMaestro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ConcentradoCalificacionesMaestro.cs">
+      <DependentUpon>ConcentradoCalificacionesMaestro.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Reports\ConcentradoCalificaciones.aspx.cs">
       <DependentUpon>ConcentradoCalificaciones.aspx</DependentUpon>
@@ -1464,6 +1503,14 @@
     <EmbeddedResource Include="Reports\BoletaParcial.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BoletaParcial.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ConcentradoCalificacionesFinalMaestro.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ConcentradoCalificacionesFinalMaestro.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ConcentradoCalificacionesMaestro.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ConcentradoCalificacionesMaestro.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ConcentradoCalificaciones.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

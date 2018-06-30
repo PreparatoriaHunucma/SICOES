@@ -61,51 +61,53 @@
             </div>
         </div>
     </div>
-    <div class="w3-row">
+    <div class="w3-row w3-margin-top">
         <div class="w3-col m12">
-            <asp:Label ID="lbAlumnos" runat="server" Text="Alumnos del grupo" Font-Bold="true"></asp:Label>
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-                <ContentTemplate>
-                    <div class="w3-responsive">
-                        <asp:GridView ID="gvAlumnos" runat="server" AutoGenerateColumns="False" CellPadding="6"
-                            CssClass="w3-table w3-striped w3-border" GridLines="None" ShowHeaderWhenEmpty="True" DataKeyNames="IDAlumno">
-                            <Columns>
-                                <asp:TemplateField HeaderText="ID" Visible="false">
-                                    <ItemTemplate>
-                                        <asp:Label ID="IDAlumno" runat="server" Text='<%#Eval("IDAlumno") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Alumno">
-                                    <ItemTemplate>
-                                        <asp:Label ID="AlumnoApePat" runat="server" Text='<%#Eval("ApePatAlumno") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Alumno">
-                                    <ItemTemplate>
-                                        <asp:Label ID="AlumnoApeMat" runat="server" Text='<%#Eval("ApeMatAlumno") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Alumno">
-                                    <ItemTemplate>
-                                        <asp:Label ID="AlumnoNom" runat="server" Text='<%#Eval("NomAlumno") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Seleccionar">
-                                    <ItemTemplate>
-                                        <asp:CheckBox ID="chckSeleccion" runat="server" AutoPostBack="true" OnCheckedChanged="chckSeleccion_CheckedChanged" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
-                    </div>
-                    <div class="w3-row w3-padding w3-margin-top">
-                        <asp:Button OnClick="btnReinscribir_Click" CssClass=" w3-button w3-amber w3-hover-blue" ID="btnReinscribir" runat="server" Text="Reinscribir grupo" CausesValidation="true" Width="90%" />
-                    </div>
-                </ContentTemplate>
-                <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="btnReinscribir" EventName="Click" />
-                </Triggers>
-            </asp:UpdatePanel>
+            <div class="w3-container w3-card w3-white w3-animate-right w3-left" style="width: 100%">
+                <asp:Label ID="lbAlumnos" runat="server" Text="Alumnos del grupo" Font-Bold="true"></asp:Label>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <div class="w3-responsive">
+                            <asp:GridView ID="gvAlumnos" runat="server" AutoGenerateColumns="False" CellPadding="6"
+                                CssClass="w3-table w3-striped w3-border" GridLines="None" ShowHeaderWhenEmpty="True" DataKeyNames="IDAlumno">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="ID" Visible="false">
+                                        <ItemTemplate>
+                                            <asp:Label ID="IDAlumno" runat="server" Text='<%#Eval("IDAlumno") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Primer Apellido">
+                                        <ItemTemplate>
+                                            <asp:Label ID="AlumnoApePat" runat="server" Text='<%#Eval("ApePatAlumno") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Segundo Apellido">
+                                        <ItemTemplate>
+                                            <asp:Label ID="AlumnoApeMat" runat="server" Text='<%#Eval("ApeMatAlumno") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Nombre">
+                                        <ItemTemplate>
+                                            <asp:Label ID="AlumnoNom" runat="server" Text='<%#Eval("NomAlumno") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Seleccionar">
+                                        <ItemTemplate>
+                                            <asp:CheckBox ID="chckSeleccion" runat="server" AutoPostBack="true" OnCheckedChanged="chckSeleccion_CheckedChanged" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+                        </div>
+                        <div class="w3-row w3-padding w3-margin-top">
+                            <asp:Button OnClick="btnReinscribir_Click" CssClass=" w3-button w3-amber w3-hover-blue" ID="btnReinscribir" runat="server" Text="Reinscribir grupo" CausesValidation="true" Width="100%" />
+                        </div>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="btnReinscribir" EventName="Click" />
+                    </Triggers>
+                </asp:UpdatePanel>
+            </div>
         </div>
     </div>
 
@@ -120,5 +122,15 @@
             });
         }
     </script>
+    <script type="text/javascript">
+        function erroralert() {
+            swal({
+                title: 'No se puede realizar el cambio',
+                text: 'El alumno está en un semestre superior al que se quiere reinscribir',
+                type: 'error'
+            });
+        }
+    </script>
+
 
 </asp:Content>
