@@ -31,6 +31,12 @@ namespace SICOES2018.DAO
             SQLCommand = "select distinct cal.IDAsignatura, cal.IDAlumno, al.FotoTabla, cal.IDCalificacion, CONCAT(al.ApePatAlumno,' ',al.ApeMatAlumno, ' ', al.NomAlumno) AS Alumno, cal.Calificacion, cal.Inasistencias from Calificaciones cal join Alumnos al on al.IDAlumno = cal.IDAlumno AND al.IDGrupo = cal.IDGrupo Where cal.IDGrupo = " + IDGrupo + " AND cal.IDAsignatura = " + IDAsig + " AND cal.IDMomento = " + IDMomento + " ORDER BY Alumno";
             return llenarTablas(SQLCommand);
         }
+        public DataTable ObtenerCalificacionesTodos(int IDGrupo, int IDAsig)
+        {
+            SQLCommand = "select distinct cal1.IDAsignatura, cal1.IDAlumno, al.FotoTabla, cal1.IDCalificacion, CONCAT(al.ApePatAlumno, ' ', al.ApeMatAlumno, ' ', al.NomAlumno) AS Alumno,  cal1.Calificacion AS PrimerReporte, cal2.Calificacion AS  SegundoReporte, cal3.Calificacion AS Ordinario, cal4.Calificacion AS CalificacionFinal, cal4.Inasistencias FROM dbo.Alumnos al JOIN dbo.Calificaciones cal1 ON cal1.IDAlumno = al.IDAlumno JOIN dbo.Calificaciones cal2 ON cal2.IDAlumno = al.IDAlumno JOIN dbo.Calificaciones cal3 ON cal3.IDAlumno = al.IDAlumno JOIN dbo.Calificaciones cal4 ON cal4.IDAlumno = al.IDAlumno WHERE al.IDGrupo = " + IDGrupo + " AND cal1.IDMomento = 1 AND cal2.IDMomento = 2 AND cal3.IDMomento = 3 AND cal4.IDMomento = 4 AND cal1.IDAsignatura = " + IDAsig + " AND cal2.IDAsignatura = " + IDAsig + " AND cal3.IDAsignatura = " + IDAsig + " AND cal4.IDAsignatura = " + IDAsig + " ORDER BY Alumno";
+            return llenarTablas(SQLCommand);
+        }
+
 
         public DataTable LlenarGVConcCalif(int IDGrupo, int IDAsig)
         {

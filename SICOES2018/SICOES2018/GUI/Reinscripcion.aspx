@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-
+    <h2>Reinscripciones</h2>
     <div class="w3-row">
         <div class="w3-col m6">
             <div class="w3-container w3-card w3-white w3-animate-right w3-left" style="width: 98%">

@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <h2>Gestión de calificaciones</h2>
+    <h2>Captura de calificaciones</h2>
 
     <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
         <div class="w3-row">
@@ -45,6 +45,9 @@
             </div>
             <div class="w3-col m4 w3-padding">
                 <asp:Button OnClick="btnConcentradoFinal_Click" CssClass=" w3-third w3-button w3-amber w3-hover-blue w3-right" ID="btnConcentradoFinal" runat="server" Text="Imprimir concentrado final" CausesValidation="true" Width="100%" AutoPostBack="false" />
+            </div>
+            <div class="w3-col m4 w3-padding">
+                <asp:Button OnClientClick="successalert(); return false;" CssClass=" w3-third w3-button w3-amber w3-hover-blue w3-right" ID="btnAprobar" runat="server" Text="GUARDAR CALIFICACIONES" CausesValidation="true" Width="100%" AutoPostBack="false" />
             </div>
         </div>
 
@@ -155,5 +158,17 @@
 
             }
         </script>
+        <script type="text/javascript">
+            function successalert() {
+                swal({
+                    title: '¡Calificaciones guardadas!',
+                    text: 'Las calificaciones han sido guardadas',
+                    type: 'success',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        </script>
+
     </div>
 </asp:Content>

@@ -160,7 +160,7 @@
                                 <p><a class="cursorencima" href="../GUI/GestionCalificacionesAprobacion.aspx" style="text-decoration: none">Aprobación de calificaciones</a></p>
                                 <p><a class="cursorencima" href="../GUI/ListaAsistenciaGeneral.aspx" style="text-decoration: none">General listas de asistencia</a></p>
                                 <p><a class="cursorencima" href="../GUI/GestionKardex.aspx" style="text-decoration: none">Kardex</a></p>
-                                <p><a class="cursorencima" href="../GUI/AvisosPadres.aspx" style="text-decoration: none">Avisos para Tutores y padres</a></p>
+                                <p><a class="cursorencima" href="../GUI/AvisosPadres.aspx" style="text-decoration: none">Avisos para padres y tutores</a></p>
                                 <p><a class="cursorencima" href="../GUI/Reinscripcion.aspx" style="text-decoration: none">Reinscripciones</a></p>
 
                                 <%--                                <p><a class="cursorencima" href="" style="text-decoration: none">Reinscripciones</a></p>--%>

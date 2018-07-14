@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-
+    <h2>Mensajes</h2>
     <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
         <div class="w3-row">
             <h4>ENVIAR MENSAJES</h4>
@@ -47,7 +47,7 @@
 
     <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
         <div class="w3-row">
-            <h4>MENSAJES</h4>
+            <h4>MENSAJES RECIBIDOS</h4>
         </div>
         <hr style="margin: 5px" />
         <asp:UpdatePanel ID="upMensajes" runat="server" UpdateMode="Conditional">

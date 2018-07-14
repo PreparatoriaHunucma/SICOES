@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <h2>Gestión de fecha de captura de calificaciones</h2>
+    <h2>Control de captura de calificaciones</h2>
 
     <div class="w3-row">
         <div class="w3-col m12">
@@ -64,7 +64,8 @@
                 </asp:UpdatePanel>
             </div>
         </div>
-            <script type="text/javascript">
+    </div>
+    <script type="text/javascript">
         function modifsuccessalert() {
             swal({
                 title: '¡Información modificada!',
