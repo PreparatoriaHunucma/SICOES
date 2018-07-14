@@ -2,11 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <h2>Generar lista de asistencia</h2>
+    <h2>Boletas de calificaciones</h2>
 
     <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
         <div class="w3-row">
-            <h4> GENERAR BOLETAS DE CALIFICACION</h4>
+            <h4>GENERAR BOLETAS DE CALIFICACION</h4>
         </div>
         <hr style="margin: 5px" />
         <asp:UpdatePanel ID="upGrupos" runat="server" UpdateMode="Conditional">
@@ -61,4 +61,5 @@
                 <asp:AsyncPostBackTrigger ControlID="ddlGrupo" EventName="SelectedIndexChanged" />
             </Triggers>
         </asp:UpdatePanel>
+    </div>
 </asp:Content>

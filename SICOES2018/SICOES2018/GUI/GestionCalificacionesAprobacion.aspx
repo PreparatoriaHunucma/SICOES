@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <h2>Gestión de calificaciones</h2>
+    <h2>Aprobación de calificaciones</h2>
 
     <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
         <div class="w3-row">
@@ -21,7 +21,8 @@
 
                 <div class="w3-row">
                     <asp:Label ID="lbMomento" runat="server" Text="Momento de calificacion" Font-Bold="true" CssClass="w3-margin-left"></asp:Label>
-                    <asp:DropDownList ID="ddlMomento" runat="server" CssClass="w3-input w3-margin-left w3-margin-bottom" OnSelectedIndexChanged="ddlMomento_SelectedIndexChanged" AppendDataBoundItems="true" AutoPostBack="true" Width="90%"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlMomento" runat="server" CssClass="w3-input w3-margin-left w3-margin-bottom" OnSelectedIndexChanged="ddlMomento_SelectedIndexChanged" AppendDataBoundItems="true" AutoPostBack="true" Width="90%">
+                    </asp:DropDownList>
                 </div>
             </div>
             <div class="w3-col m8">
@@ -105,6 +106,58 @@
                             { data: 'IDCalificacion', readOnly: true },
                             { data: 'Alumno', readOnly: true },
                             { data: 'Calificacion', readOnly: true, type: 'numeric', format: '0' },
+                            { data: 'Inasistencias', readOnly: true, type: 'numeric', format: '0' }
+                        ],
+                        beforeChange: function (changes, source) {
+                            for (var i = changes.length - 1; i >= 0; i--) {
+                                // gently don't accept the word "foo" (remove the change at index i)
+                                if (changes[i][3] > document.getElementById('<%=txtVal1.ClientID%>').value) {
+                                    changes.splice(i, 1);
+                                }
+                                // if any of pasted cells contains the word "nuke", reject the whole paste
+                                else if (changes[i][3] === 'nuke') {
+                                    return false;
+                                }
+                            }
+                        },
+                        afterCreateRow: function (index, numberOfRows) {
+                            DatosPersonas.splice(index, numberOfRows);
+                        },
+                        afterChange: function (registrosModificados, accionesHandsontable) {
+                            if (accionesHandsontable != 'loadData') {
+                                //Leer todos los registros modificados
+                                registrosModificados.forEach(function (elemento) {
+                                    //console.log(elemento);
+                                    var fila = tblExcel.getData()[elemento[0]];
+                                    console.log(fila);
+                                    $.ajax({
+                                        type: "POST",
+                                        url: '<%= ResolveUrl("GestionCalificaciones.aspx/ModificarRegistro") %>',
+                                        data: JSON.stringify({ tblExcel: [fila] }),
+                                        contentType: "application/json; charset=utf-8",
+                                        dataType: "json",
+                                        success: function (respuesta) { console.log("Informacion actualizada:" + respues.d); },
+                                        failure: function (respuesta) { console.log("Hay una falla:" + respuesta.d); }
+                                    });
+                                });
+                            }
+                        }
+                    };
+                }
+                if (document.getElementById('<%=txtValFechas1.ClientID%>').value == 2) {
+                    configuracion = {
+                        data: <%= ObtenerRegistrosTodos()%>,
+                        colWidths: [100, 0.1, 0.1, 300, 100, 100, 100, 100, 100],
+                        colHeaders: ['Foto', 'IDAlumno', 'IDCalificacion', 'Alumno', '1er Reporte', '2do Reporte', 'Ordinario', 'Calif. Final', 'Inasistencias'],
+                        columns: [
+                            { data: 'FotoTabla', renderer: 'html', readOnly: true },
+                            { data: 'IDAlumno', readOnly: true },
+                            { data: 'IDCalificacion', readOnly: true },
+                            { data: 'Alumno', readOnly: true },
+                            { data: 'PrimerReporte', readOnly: true, type: 'numeric', format: '0' },
+                            { data: 'SegundoReporte', readOnly: true, type: 'numeric', format: '0' },
+                            { data: 'Ordinario', readOnly: true, type: 'numeric', format: '0' },
+                            { data: 'CalificacionFinal', readOnly: true, type: 'numeric', format: '0' },
                             { data: 'Inasistencias', readOnly: true, type: 'numeric', format: '0' }
                         ],
                         beforeChange: function (changes, source) {

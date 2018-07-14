@@ -2,11 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <h2>Gestión de grupos</h2>
+    <h2>Consulta de calificaciones</h2>
 
     <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
         <div class="w3-row">
-            <h4>CONCENTRADO DE CALIFICACIONES</h4>
+            <h4>CALIFICACIONES</h4>
         </div>
         <hr style="margin: 5px" />
         <asp:UpdatePanel ID="upConCalif" runat="server" UpdateMode="Conditional">

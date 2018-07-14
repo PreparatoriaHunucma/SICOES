@@ -85,7 +85,11 @@ namespace SICOES2018.GUI
             }
             else if (Convert.ToInt32(ddlMomento.SelectedValue) == 4)
             {
-                    txtValFechas1.Value = "1";
+                txtValFechas1.Value = "1";
+            }
+            else if (Convert.ToInt32(ddlMomento.SelectedValue) == 0)
+            {
+                txtValFechas1.Value = "2";
             }
 
         }
@@ -131,6 +135,7 @@ namespace SICOES2018.GUI
             ddlMomento.DataTextField = "Nombre";
             ddlMomento.DataValueField = "IDMomento";
             ddlMomento.DataBind();
+            ddlMomento.Items.Insert(0, new ListItem("Todos los momentos", "0"));
         }
 
 
@@ -141,9 +146,17 @@ namespace SICOES2018.GUI
 
                 int momento = Convert.ToInt32(ddlMomento.SelectedValue);
                 if (momento < 3)
+                {
                     txtVal1.Value = "70";
-                else
+                }
+                else if (momento == 3)
+                {
                     txtVal1.Value = "30";
+                }
+                else if (momento == 4)
+                {
+                    txtVal1.Value = "100";
+                }
             }
         }
 
@@ -190,6 +203,14 @@ namespace SICOES2018.GUI
             }
             string JSONString = string.Empty;
             JSONString = JsonConvert.SerializeObject(ejecCalif.ObtenerCalificaciones(Grupo, Asig, Momento));
+            return JSONString;
+        }
+        protected string ObtenerRegistrosTodos()
+        {
+            int Grupo = Convert.ToInt32(ddlGrupo.SelectedValue);
+            int Asig = Convert.ToInt32(ddlAsig.SelectedValue);
+            string JSONString = string.Empty;
+            JSONString = JsonConvert.SerializeObject(ejecCalif.ObtenerCalificacionesTodos(Grupo, Asig));
             return JSONString;
         }
 
