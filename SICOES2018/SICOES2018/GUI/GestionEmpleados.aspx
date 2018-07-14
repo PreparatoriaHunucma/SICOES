@@ -13,7 +13,7 @@
     </div>
 
     <%--DATOS GENERALES--%>
-    <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
+    <div class="w3-container w3-card w3-white w3-margin-bottom c">
         <asp:UpdatePanel ID="upDatosGen" runat="server" UpdateMode="Conditional">
             <ContentTemplate>
                 <div class="w3-row">

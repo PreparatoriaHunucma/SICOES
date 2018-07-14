@@ -27,7 +27,7 @@ namespace SICOES2018.GUI
             //con.ConnectionString = @"Server=MyPC\SqlServer2k8;database=" + YourDBName + ";uid=sa;pwd=password;";  
 
             //IF Window Authentication then Connection String  
-            con = new SqlConnection("Data Source=DESKTOP-L9DKEN0;Initial Catalog=DB_A26FD9_SICOESHunucma;Integrated Security=True");
+            con = new SqlConnection("Data Source=sql5037.site4now.net;Initial Catalog=DB_A26FD9_SICOESHunucma;User Id= DB_A26FD9_SICOESHunucma_admin;Password=sicoeshunucma2018;");
 
             string backupDIR = Server.MapPath(@"~/Respaldos");
             string nombre = DateTime.Now.ToString("ddMMyyyy_HHmmss");
@@ -39,7 +39,7 @@ namespace SICOES2018.GUI
             {
                 
                 con.Open();
-                sqlcmd = new SqlCommand("backup database DB_A26FD9_SICOESHunucma to disk='" + backupDIR + "\\" + nombre+ ".Bak'", con);
+                sqlcmd = new SqlCommand("backup database DB_A26FD9_SICOESHunucma to disk='" + backupDIR + "\\" + nombre + ".Bak'", con);
                 sqlcmd.ExecuteNonQuery();
                 con.Close();
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "respaldosuccessalert();", true);

@@ -8,7 +8,7 @@ namespace SICOES2018.BO
     public class AlumnosBO
     {
         private int iDAlumno, iDTipoAlumno, iDMunicipioAlumno, iDDocumentosAlumno, iDEscProAlumno, iDGrupo, iDTurno, iDSemestrePreinscripcion;
-        private String nomAlumno, apePatAlumno, apeMatAlumno, telAlumno, fotoAlumno, calleAlumno, numeroAlumno, coloniaAlumno, codigoPostalAlumno, nomPadreAlumno, telPadreAlumno, nomMadreAlumno, telMadreAlumno, nomTutorAlumno, telTutorAlumno, curpAlumno, usuarioAlumno, contrasenhaAlumno, matricula, FotoTabla;
+        private String nomAlumno, apePatAlumno, apeMatAlumno, telAlumno, fotoAlumno, fCredencial, calleAlumno, numeroAlumno, coloniaAlumno, codigoPostalAlumno, nomPadreAlumno, telPadreAlumno, nomMadreAlumno, telMadreAlumno, nomTutorAlumno, telTutorAlumno, curpAlumno, usuarioAlumno, contrasenhaAlumno, matricula, FotoTabla;
         private DateTime ingresoAlumno, fechaNacAlum;
         private short revalidaAlumno, nuevoAlumno;
 
@@ -24,6 +24,7 @@ namespace SICOES2018.BO
         public string ApeMatAlumno { get => apeMatAlumno; set => apeMatAlumno = value; }
         public string TelAlumno { get => telAlumno; set => telAlumno = value; }
         public string FotoAlumno { get => fotoAlumno; set => fotoAlumno = value; }
+        public string FCredencial { get => fCredencial; set => fCredencial = value; }
         public string CalleAlumno { get => calleAlumno; set => calleAlumno = value; }
         public string NumeroAlumno { get => numeroAlumno; set => numeroAlumno = value; }
         public string ColoniaAlumno { get => coloniaAlumno; set => coloniaAlumno = value; }

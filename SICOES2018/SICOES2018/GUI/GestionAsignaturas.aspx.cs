@@ -35,6 +35,7 @@ namespace SICOES2018.GUI
 
         }
 
+
         //Llenar gridviews y drop down lists
         protected void LlenarGVAsignaturas(int IDSemestre)
         {
@@ -195,6 +196,8 @@ namespace SICOES2018.GUI
             LlenarGVAsignaturas(Convert.ToInt32(ddlSemestre.SelectedValue));
 
         }
+
+
 
         protected void gvAsignaturas_RowCommand(object sender, GridViewCommandEventArgs e)
         {

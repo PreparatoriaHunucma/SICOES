@@ -14,16 +14,19 @@ namespace SICOES2018.DAO
 
         public ConexionSQL()
         {
-            
+
             //Conexcion SICOES
-            con = new SqlConnection("Data Source=sql5037.site4now.net;Initial Catalog=DB_A26FD9_SICOESHunucma;User Id= DB_A26FD9_SICOESHunucma_admin;Password=sicoeshunucma2018;");
+            con = new SqlConnection("Data Source=DESKTOP-L9DKEN0;Initial Catalog=DB_A26FD9_SICOESHunucma;Integrated Security=True");
+
+            //con = new SqlConnection("Data Source=sql5037.site4now.net;Initial Catalog=DB_A26FD9_SICOESHunucma;User Id= DB_A26FD9_SICOESHunucma_admin;Password=sicoeshunucma2018;");
             //sirve para establecer las consultas e instrucciones SQL que se ejecutarán en el servidor
             exec = new SqlCommand();
         }
         public SqlConnection establecerConexion()
         {
-            
-            string cs = "Data Source=sql5037.site4now.net;Initial Catalog=DB_A26FD9_SICOESHunucma;User Id= DB_A26FD9_SICOESHunucma_admin;Password=sicoeshunucma2018;";
+            string cs = ("Data Source = DESKTOP-L9DKEN0; Initial Catalog = DB_A26FD9_SICOESHunucma;Integrated Security=True");
+
+            //string cs = "Data Source=sql5037.site4now.net;Initial Catalog=DB_A26FD9_SICOESHunucma;User Id= DB_A26FD9_SICOESHunucma_admin;Password=sicoeshunucma2018;";
             con = new SqlConnection(cs);
             return con;
         }

@@ -58,6 +58,7 @@ namespace SICOES2018.GUI
         //////////OBTENER DATOS DEL ALUMNO DE LOS CAMPOS
         protected void ObtenerDatosGenerales()
         {
+            
             datoEmp.NomMaestro = txtNomEmp.Text;
             datoEmp.ApePatMaestro = txtApePatEmp.Text;
             datoEmp.ApeMatMaestro = txtApeMatEmp.Text;
@@ -68,10 +69,16 @@ namespace SICOES2018.GUI
             else
                 datoEmp.CurriculumMaestro = "/Curriculum/NoCV.pdf";
             if (Session["RutaFoto"] != null)
+            {
+                string rutafinal = Session["RutaFoto"].ToString();
                 datoEmp.FotoMaestro = Session["RutaFoto"].ToString();
+                datoEmp.FCredencial = Server.MapPath(rutafinal);
+            }
             else
+            {
                 datoEmp.FotoMaestro = imgFotoEmp.ImageUrl;
-
+                datoEmp.FCredencial = imgFotoEmp.ImageUrl;
+            }
 
         }
         protected void ObtenerDatosGeneralesModif()
@@ -82,9 +89,17 @@ namespace SICOES2018.GUI
             datoEmp.CedulaMaestro = txtCedula.Text.ToUpper();
             datoEmp.GradoAcademicoMaestro = txtGradoEmp.Text.ToUpper();
             if (Session["RutaFoto"] != null)
+            {
+                string rutafinal = Session["RutaFoto"].ToString();
                 datoEmp.FotoMaestro = Session["RutaFoto"].ToString();
+                datoEmp.FCredencial = Server.MapPath(rutafinal);
+            }
             else
+            {
                 datoEmp.FotoMaestro = imgFotoEmp.ImageUrl;
+                datoEmp.FCredencial = imgFotoEmp.ImageUrl;
+
+            }
             if (Session["RutaCurriculum"] != null)
                 datoEmp.CurriculumMaestro = Session["RutaCurriculum"].ToString();
             else
@@ -547,7 +562,6 @@ namespace SICOES2018.GUI
         }
         protected void gvAlumnos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            ESTATUSPERSONAL.Visible = true;
             string currentCommand = e.CommandName;
             LimpiarCampos();
 
@@ -625,6 +639,7 @@ namespace SICOES2018.GUI
                 
                 btnAsignarGrupo.Visible = true;
                 btnResubirCurriculum.Visible = true;
+                ESTATUSPERSONAL.Visible = true;
             }
             ActualizarDatos();
         }
