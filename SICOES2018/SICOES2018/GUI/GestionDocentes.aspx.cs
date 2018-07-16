@@ -66,10 +66,16 @@ namespace SICOES2018.GUI
             else
                 datoEmp.CurriculumMaestro = "/Curriculum/NoCV.pdf";
             if (Session["RutaFoto"] != null)
+            {
+                string rutafinal = Session["RutaFoto"].ToString();
                 datoEmp.FotoMaestro = Session["RutaFoto"].ToString();
+                datoEmp.FCredencial = Server.MapPath(rutafinal);
+            }
             else
+            {
                 datoEmp.FotoMaestro = imgFotoEmp.ImageUrl;
-
+                datoEmp.FCredencial = imgFotoEmp.ImageUrl;
+            }
 
         }
         protected void ObtenerDatosGeneralesModif()
@@ -80,9 +86,18 @@ namespace SICOES2018.GUI
             datoEmp.CedulaMaestro = txtCedula.Text.ToUpper();
             datoEmp.GradoAcademicoMaestro = txtGradoEmp.Text.ToUpper();
             if (Session["RutaFoto"] != null)
+            {
+                string rutafinal = Session["RutaFoto"].ToString();
                 datoEmp.FotoMaestro = Session["RutaFoto"].ToString();
+                datoEmp.FCredencial = Server.MapPath(rutafinal);
+            }
             else
+            {
                 datoEmp.FotoMaestro = imgFotoEmp.ImageUrl;
+                datoEmp.FCredencial = imgFotoEmp.ImageUrl;
+
+            }
+            datoEmp.FotoMaestro = imgFotoEmp.ImageUrl;
             if (Session["RutaCurriculum"] != null)
                 datoEmp.CurriculumMaestro = Session["RutaCurriculum"].ToString();
             else

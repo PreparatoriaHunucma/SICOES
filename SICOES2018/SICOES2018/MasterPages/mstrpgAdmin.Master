@@ -132,9 +132,9 @@
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Calificaciones</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Calificaciones de Acompañamiento</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Credencial de Estudiantes</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Constancias de Estudio</a></p>
+                                <p><a class="cursorencima" href="../GUI/CredencialAlumnos.aspx" style="text-decoration: none">Constancias de Estudio</a></p>
                                 <p><a class="cursorencima" href="" style="text-decoration: none">Justifiaciones</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Kardex</a></p>
+                                <p><a class="cursorencima" href="../GUI/GestionKardex.aspx" style="text-decoration: none">Kardex</a></p>
                                 <p><a class="cursorencima" href="../GUI/GestionPlantel.aspx" style="text-decoration: none">Gestion del Plantel</a></p>
                                 <p><a class="cursorencima" href="../GUI/GestionAlumnos.aspx" style="text-decoration: none">Gestión de Alumnos</a></p>
                                 <p><a class="cursorencima" href="../GUI/RespaldoBaseDeDatos.aspx" style="text-decoration: none">Respaldo de información</a></p>
@@ -145,7 +145,7 @@
                             <div id="Académica" class="panel" runat="server">
                                 <p><a class="cursorencima" href="../GUI/GestionDocentes.aspx" style="text-decoration: none">Gestión de Docentes</a></p>
                                 <p><a class="cursorencima" href="../GUI/GestionAsignaturas.aspx" style="text-decoration: none">Administrar Materias</a></p>
-                                <p><a class="cursorencima" href="" style="text-decoration: none">Credencial de Maestros</a></p>
+                                <p><a class="cursorencima" href="../GUI/CredencialMaestros.aspx" style="text-decoration: none">Credencial de Maestros</a></p>
                                 <p><a class="cursorencima" href="../GUI/GenerarConstanciaLaboral" style="text-decoration: none">Constancia laboral</a></p>
                             </div>
 

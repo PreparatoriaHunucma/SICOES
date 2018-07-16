@@ -8,7 +8,7 @@ namespace SICOES2018.BO
     public class MaestrosBO
     {
         private int iDMaestro, iDTipoMaestro, iDMunicipioMaestro, sexo;
-        private String nomMaestro, apePatMaestro, apeMatMaestro, telMaestro, correoMaestro, fotoMaestro, curriculumMaestro, gradoAcademicoMaestro, direccionMaestro, usuarioMaestro, contrasenhaMaestro, cedulaMaestro, ultimoGrado;
+        private String nomMaestro, apePatMaestro, apeMatMaestro, telMaestro, correoMaestro, fotoMaestro, fCredencial, curriculumMaestro, gradoAcademicoMaestro, direccionMaestro, usuarioMaestro, contrasenhaMaestro, cedulaMaestro, ultimoGrado;
         private DateTime ingresoMaestro;
         private short statusMaestro;
 
@@ -20,6 +20,7 @@ namespace SICOES2018.BO
         public string TelMaestro { get => telMaestro; set => telMaestro = value; }
         public string CorreoMaestro { get => correoMaestro; set => correoMaestro = value; }
         public string FotoMaestro { get => fotoMaestro; set => fotoMaestro = value; }
+        public string FCredencial { get => fCredencial; set => fCredencial = value; }
         public string CurriculumMaestro { get => curriculumMaestro; set => curriculumMaestro = value; }
         public string GradoAcademicoMaestro { get => gradoAcademicoMaestro; set => gradoAcademicoMaestro = value; }
         public string DireccionMaestro { get => direccionMaestro; set => direccionMaestro = value; }

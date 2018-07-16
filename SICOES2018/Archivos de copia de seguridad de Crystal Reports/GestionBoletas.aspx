@@ -6,7 +6,7 @@
 
     <div class="w3-container w3-card w3-white w3-margin-bottom w3-animate-right">
         <div class="w3-row">
-            <h4>GENERAR LISTA DE ASISTENCIA</h4>
+            <h4> GENERAR BOLETAS DE CALIFICACION</h4>
         </div>
         <hr style="margin: 5px" />
         <asp:UpdatePanel ID="upGrupos" runat="server" UpdateMode="Conditional">
@@ -21,6 +21,11 @@
                         <asp:Label ID="lbGrupo" runat="server" Text="Grupo" Font-Bold="true" CssClass="w3-margin-left"></asp:Label>
                         <asp:DropDownList ID="ddlGrupo" runat="server" CssClass="w3-input w3-margin-left w3-margin-bottom" OnSelectedIndexChanged="ddlGrupo_SelectedIndexChanged" AppendDataBoundItems="true" AutoPostBack="true" Width="90%"></asp:DropDownList>
                     </div>
+
+                    <div class="w3-col m4 w3-padding w3-margin-top">
+                        <asp:Button OnClick="btnImprimir_Click" CssClass=" w3-third w3-button w3-amber w3-hover-blue w3-right" ID="btnImprimir" runat="server" Text="Reporte Semestral del grupo" CausesValidation="true" Width="90%" AutoPostBack="false" />
+                    </div>
+
                 </div>
                 <div class="w3-row w3-padding">
                     <div class="w3-col m12">
@@ -42,8 +47,8 @@
                                     <asp:ButtonField HeaderText="1er Reporte" ButtonType="Link" ControlStyle-CssClass="btn btn-success btn-sm" Text="<i class='fa fa-file-alt w3-large'></i>" CausesValidation="False" CommandName="SelectAlum1" Visible="true" />
                                     <asp:ButtonField HeaderText="2do Reporte" ButtonType="Link" ControlStyle-CssClass="btn btn-success btn-sm" Text="<i class='fa fa-file-alt w3-large'></i>" CausesValidation="False" CommandName="SelectAlum2" Visible="true" />
                                     <asp:ButtonField HeaderText="Ordinario" ButtonType="Link" ControlStyle-CssClass="btn btn-success btn-sm" Text="<i class='fa fa-file-alt w3-large'></i>" CausesValidation="False" CommandName="SelectAlum3" Visible="true" />
-                                    <asp:ButtonField HeaderText="Los tres momentos" ButtonType="Link" ControlStyle-CssClass="btn btn-success btn-sm" Text="<i class='fa fa-file-alt w3-large'></i>" CausesValidation="False" CommandName="SelectAlumTodos" Visible="true" />
                                     <asp:ButtonField HeaderText="Semestral" ButtonType="Link" ControlStyle-CssClass="btn btn-success btn-sm" Text="<i class='fa fa-file-alt w3-large'></i>" CausesValidation="False" CommandName="SelectAlum3Semestre" Visible="true" />
+                                    <asp:ButtonField HeaderText="Semestral Desglozado" ButtonType="Link" ControlStyle-CssClass="btn btn-success btn-sm" Text="<i class='fa fa-file-alt w3-large'></i>" CausesValidation="False" CommandName="SelectAlumTodos" Visible="true" />
                                 </Columns>
                             </asp:GridView>
                         </div>

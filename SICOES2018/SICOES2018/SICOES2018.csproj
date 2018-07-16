@@ -73,12 +73,14 @@
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.CrystalReports.Engine">
-      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.TemplateEngine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc">
+      <HintPath>..\..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
     <Reference Include="CrystalDecisions.Enterprise.Viewing.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -117,13 +119,13 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="CrystalDecisions.ReportSource">
-      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Shared">
-      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Web">
-      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Web.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Web.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -203,7 +205,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
@@ -212,10 +213,9 @@
     <Reference Include="System.Spatial, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Spatial.5.8.3\lib\net40\System.Spatial.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -243,6 +243,7 @@
     <Reference Include="Microsoft.AspNet.FriendlyUrls">
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
     </Reference>
@@ -832,6 +833,8 @@
     </Content>
     <Content Include="GUI\AvisosPadres.aspx" />
     <Content Include="GUI\ConsultaCalificaciones.aspx" />
+    <Content Include="GUI\CredencialAlumnos.aspx" />
+    <Content Include="GUI\CredencialMaestros.aspx" />
     <Content Include="GUI\FechaCalificacion.aspx" />
     <Content Include="GUI\GenerarConstanciaLaboral.aspx" />
     <Content Include="GUI\GestionBoletas.aspx" />
@@ -866,6 +869,8 @@
     <Content Include="Reports\ConcentradoCalificacionesMaestro.aspx" />
     <Content Include="Reports\ConstanciaLaboral.aspx" />
     <Content Include="Reports\ConstanciaLaboralSinMaterias.aspx" />
+    <Content Include="Reports\CredencialAlumnos.aspx" />
+    <Content Include="Reports\CredencialMaestros.aspx" />
     <Content Include="Reports\FormatoInfoAlumno.aspx" />
     <Content Include="Reports\Kardex.aspx" />
     <Content Include="Reports\ReporteCartaCompromiso.aspx" />
@@ -886,6 +891,8 @@
     <Content Include="MasterPages\mstrpgAlumno.Master" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\EstadiaHunucma.pubxml" />
+    <Content Include="Resources\FotoPerfilMaestro\3_luci.png" />
+    <Content Include="Resources\FotoPerfilMaestro\3_aurelio_mex.png" />
     <Content Include="Resources\images\LoginBack1.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -1074,6 +1081,20 @@
     </Compile>
     <Compile Include="GUI\ConsultaCalificaciones.aspx.designer.cs">
       <DependentUpon>ConsultaCalificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CredencialAlumnos.aspx.cs">
+      <DependentUpon>CredencialAlumnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\CredencialAlumnos.aspx.designer.cs">
+      <DependentUpon>CredencialAlumnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CredencialMaestros.aspx.cs">
+      <DependentUpon>CredencialMaestros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\CredencialMaestros.aspx.designer.cs">
+      <DependentUpon>CredencialMaestros.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\FechaCalificacion.aspx.cs">
       <DependentUpon>FechaCalificacion.aspx</DependentUpon>
@@ -1380,6 +1401,32 @@
       <DependentUpon>ConstanciaLaboralSinMaterias.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\CredencialAlumnos.aspx.cs">
+      <DependentUpon>CredencialAlumnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\CredencialAlumnos.aspx.designer.cs">
+      <DependentUpon>CredencialAlumnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CredencialAlumnos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CredencialAlumnos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CredencialMaestros.aspx.cs">
+      <DependentUpon>CredencialMaestros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\CredencialMaestros.aspx.designer.cs">
+      <DependentUpon>CredencialMaestros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CredencialMaestros.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CredencialMaestros.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\FormatoInfoAlumno.aspx.cs">
       <DependentUpon>FormatoInfoAlumno.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1490,7 +1537,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Curriculum\" />
     <Folder Include="Resources\FotoPerfilAlumno\" />
-    <Folder Include="Resources\FotoPerfilMaestro\" />
     <Folder Include="Respaldos\" />
   </ItemGroup>
   <ItemGroup>
@@ -1567,6 +1613,14 @@
     <EmbeddedResource Include="Reports\ConstanciaLaboralSinMaterias.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ConstanciaLaboralSinMaterias.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CredencialAlumnos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CredencialAlumnos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CredencialMaestros.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CredencialMaestros.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\FormatoCartaCompromiso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

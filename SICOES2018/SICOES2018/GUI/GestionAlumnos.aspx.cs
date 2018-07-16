@@ -80,9 +80,16 @@ namespace SICOES2018.GUI
             datoAlum.FechaNacAlum = DateTime.ParseExact(txtFechaNacAlum.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
             datoAlum.CurpAlumno = txtCurpAlum.Text.ToUpper();
             if (Session["RutaFoto"] != null)
+            {
+                string rutafinal = Session["RutaFoto"].ToString();
                 datoAlum.FotoAlumno = Session["RutaFoto"].ToString();
+                datoAlum.FCredencial = Server.MapPath(rutafinal);
+            }
             else
+            {
                 datoAlum.FotoAlumno = "~/Resources/images/imgPerfil.jpg";
+                datoAlum.FCredencial = "~/Resources/images/imgPerfil.jpg";
+            }
             if (Session["RutaFoto"] != null)
                 datoAlum.FotoTabla1 = "<img src='" + datoAlum.FotoAlumno.Substring(1) + "' class='w3-image' style='width:100%; height:100px'>";
             else
@@ -109,9 +116,16 @@ namespace SICOES2018.GUI
             datoAlum.FechaNacAlum = DateTime.ParseExact(txtFechaNacAlum.Text, "yyyy-MM-dd", CultureInfo.CurrentUICulture);
             datoAlum.CurpAlumno = txtCurpAlum.Text.ToUpper();
             if (Session["RutaFoto"] != null)
+            {
+                string rutafinal = Session["RutaFoto"].ToString();
                 datoAlum.FotoAlumno = Session["RutaFoto"].ToString();
+                datoAlum.FCredencial = Server.MapPath(rutafinal);
+            }
             else
+            {
                 datoAlum.FotoAlumno = imgFotoAlum.ImageUrl;
+                datoAlum.FCredencial = imgFotoAlum.ImageUrl;
+            }
             if (Session["RutaFoto"] != null)
                 datoAlum.FotoTabla1 = "<img src='" + datoAlum.FotoAlumno.Substring(1) + "' class='w3-image' style='width:100%; height:100px'>";
             else

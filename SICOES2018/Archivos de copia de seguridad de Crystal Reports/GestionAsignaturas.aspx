@@ -54,6 +54,8 @@
                             <asp:Button ID="btnAddAsig" runat="server" Text="Crear asignatura" CssClass="w3-button w3-amber w3-hover-blue w3-margin" Width="93%" OnClick="btnAddAsig_Click" ValidationGroup="vlgrAsig" />
 
                             <asp:Button ID="btnModAsig" runat="server" Text="Modificar información de la asignatura" CssClass="w3-button w3-amber w3-hover-blue w3-margin" Width="93%" Visible="false" OnClick="btnModAsig_Click" ValidationGroup="vlgrAsig" />
+
+                            <asp:Button ID="btnElimAsig" runat="server" Text="Eliminar asignatura" CssClass="w3-button w3-amber w3-hover-blue w3-margin" Width="93%" Visible="false" OnClick="btnElimAsig_Click" ValidationGroup="vlgrAsig" />
                         </div>
                     </div>
 
@@ -120,6 +122,15 @@
             swal({
                 title: '¡Información modificada!',
                 text: 'La información de la asignatura se modificó con éxito',
+                type: 'success',
+                showConfirmButton: false,
+                timer: 2000
+            });
+        }
+        function elimsuccessalert() {
+            swal({
+                title: '¡Asignatura Eliminada!',
+                text: 'La asignatura ha sido eliminada',
                 type: 'success',
                 showConfirmButton: false,
                 timer: 2000

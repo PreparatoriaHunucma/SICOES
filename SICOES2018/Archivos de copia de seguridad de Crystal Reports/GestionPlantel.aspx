@@ -209,6 +209,7 @@
                         </div>
                     </ContentTemplate>
                     <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="ddlPaisAddEstado" EventName="SelectedIndexChanged" />
                     </Triggers>
                 </asp:UpdatePanel>
             </div>
@@ -270,7 +271,8 @@
                         </div>
                     </ContentTemplate>
                     <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="ddlPaisAddEstado" EventName="SelectedIndexChanged" />
+                         <asp:AsyncPostBackTrigger ControlID="ddlPaisAddMunicipio" EventName="SelectedIndexChanged" />
+                        <asp:AsyncPostBackTrigger ControlID="ddlEstadoAddMunicipio" EventName="SelectedIndexChanged" />
                     </Triggers>
                 </asp:UpdatePanel>
 

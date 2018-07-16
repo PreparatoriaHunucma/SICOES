@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -67,42 +67,47 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="CrystalDecisions.ReportSource">
       <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Shared">
       <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
     </Reference>
-    <Reference Include="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web">
+      <HintPath>..\..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Web.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.6.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.6.4\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.6.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.6.4\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.6.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.6.4\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.Web, Version=2.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.6.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    <Reference Include="Microsoft.AI.Web, Version=2.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.6.4\lib\net45\Microsoft.AI.Web.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.WindowsServer, Version=2.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.6.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.6.4\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ApplicationInsights, Version=2.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.2.6.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.6.4\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.3\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.2.0.4\lib\net45\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.3.0.0\lib\net452\Microsoft.Azure.KeyVault.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -145,8 +150,8 @@
     <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=2.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\WindowsAzure.Storage.9.1.1\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.9.3.0\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -156,8 +161,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Spatial, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -782,24 +787,43 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GUI\AvisosPadres.aspx" />
+    <Content Include="GUI\ConsultaCalificaciones.aspx" />
+    <Content Include="GUI\FechaCalificacion.aspx" />
+    <Content Include="GUI\GenerarConstanciaLaboral.aspx" />
     <Content Include="GUI\GestionBoletas.aspx" />
     <Content Include="GUI\GestionCalificaciones.aspx" />
+    <Content Include="GUI\GestionCalificacionesAprobacion.aspx" />
     <Content Include="GUI\GestionConcentradoCalificaciones.aspx" />
+    <Content Include="GUI\GestionDocentes.aspx" />
     <Content Include="GUI\GestionEmpleados.aspx" />
     <Content Include="GUI\GestionAsignaturas.aspx" />
     <Content Include="GUI\GestionCiclo.aspx" />
     <Content Include="GUI\GestionGrupos.aspx" />
+    <Content Include="GUI\GestionKardex.aspx" />
+    <Content Include="GUI\GestionModelosEducativos.aspx" />
     <Content Include="GUI\GestionPlantel.aspx" />
     <Content Include="GUI\Inicio.aspx" />
     <Content Include="GUI\Index.aspx" />
     <Content Include="GUI\GestionAlumnos.aspx" />
+    <Content Include="GUI\InicioAlumno.aspx" />
     <Content Include="GUI\ListaAsistenciaGeneral.aspx" />
     <Content Include="GUI\ListaAsistenciaMaestro.aspx" />
+    <Content Include="GUI\Mensajes.aspx" />
+    <Content Include="GUI\MensajesAlumno.aspx" />
+    <Content Include="GUI\Reinscripcion.aspx" />
+    <Content Include="GUI\RespaldoBaseDeDatos.aspx" />
+    <Content Include="Reports\Aviso.aspx" />
     <Content Include="Reports\BoletaParcial.aspx" />
     <Content Include="Reports\BoletaSemestre.aspx" />
+    <Content Include="Reports\BoletaSemestreGrupo.aspx" />
     <Content Include="Reports\BoletaTodos.aspx" />
     <Content Include="Reports\ConcentradoCalificaciones.aspx" />
+    <Content Include="Reports\ConcentradoCalificacionesFinalMaestro.aspx" />
+    <Content Include="Reports\ConcentradoCalificacionesMaestro.aspx" />
+    <Content Include="Reports\ConstanciaLaboral.aspx" />
+    <Content Include="Reports\ConstanciaLaboralSinMaterias.aspx" />
     <Content Include="Reports\FormatoInfoAlumno.aspx" />
+    <Content Include="Reports\Kardex.aspx" />
     <Content Include="Reports\ReporteCartaCompromiso.aspx" />
     <Content Include="MasterPages\mstrpgAdmin.Master" />
     <Content Include="Reports\FormatoPreinscripcion.aspx" />
@@ -815,6 +839,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="MasterPages\mstrpgAlumno.Master" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\EstadiaHunucma.pubxml" />
     <Content Include="Resources\images\LoginBack1.jpg" />
@@ -931,6 +956,7 @@
     <Compile Include="BO\AsignaturasBO.cs" />
     <Compile Include="BO\AvisoBO.cs" />
     <Compile Include="BO\AvisosPadresBO.cs" />
+    <Compile Include="BO\CalificacionesAlumnoBO.cs" />
     <Compile Include="BO\CalificacionesBO.cs" />
     <Compile Include="BO\CicloEscolarBO.cs" />
     <Compile Include="BO\DatosEscuelaBO.cs" />
@@ -938,10 +964,12 @@
     <Compile Include="BO\DocumentosAlumnoBO.cs" />
     <Compile Include="BO\EscuelasProcedenciaAlumnosBO.cs" />
     <Compile Include="BO\EstadoBO.cs" />
+    <Compile Include="BO\FechaCalificacionBO.cs" />
     <Compile Include="BO\GrupoAsignaturaBO.cs" />
     <Compile Include="BO\GruposBO.cs" />
     <Compile Include="BO\MaestroGruposBO.cs" />
     <Compile Include="BO\MaestrosBO.cs" />
+    <Compile Include="BO\MensajesBO.cs" />
     <Compile Include="BO\ModalidadAsignaturasBO.cs" />
     <Compile Include="BO\MomentoCalificacionBO.cs" />
     <Compile Include="BO\MunicipioBO.cs" />
@@ -958,6 +986,7 @@
     <Compile Include="DAO\AsignaturasDAO.cs" />
     <Compile Include="DAO\AvisoDAO.cs" />
     <Compile Include="DAO\AvisosPadresDAO.cs" />
+    <Compile Include="DAO\CalificacionesAlumnoDAO.cs" />
     <Compile Include="DAO\CalificacionesDAO.cs" />
     <Compile Include="DAO\CicloEscolarDAO.cs" />
     <Compile Include="DAO\ConexionSQL.cs" />
@@ -966,10 +995,12 @@
     <Compile Include="DAO\DocumentosAlumnoDAO.cs" />
     <Compile Include="DAO\EscuelasProcedenciaAlumnosDAO.cs" />
     <Compile Include="DAO\EstadoDAO.cs" />
+    <Compile Include="DAO\FechaCalificacionDAO.cs" />
     <Compile Include="DAO\GruposDAO.cs" />
     <Compile Include="DAO\GruposAsignaturaDAO.cs" />
     <Compile Include="DAO\MaestrosDAO.cs" />
     <Compile Include="DAO\MaestrosGruposDAO.cs" />
+    <Compile Include="DAO\MensajesDAO.cs" />
     <Compile Include="DAO\ModalidadAsignaturasDAO.cs" />
     <Compile Include="DAO\MomentoCalificacionDAO.cs" />
     <Compile Include="DAO\MunicipioDAO.cs" />
@@ -993,6 +1024,27 @@
     <Compile Include="GUI\AvisosPadres.aspx.designer.cs">
       <DependentUpon>AvisosPadres.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ConsultaCalificaciones.aspx.cs">
+      <DependentUpon>ConsultaCalificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\ConsultaCalificaciones.aspx.designer.cs">
+      <DependentUpon>ConsultaCalificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FechaCalificacion.aspx.cs">
+      <DependentUpon>FechaCalificacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\FechaCalificacion.aspx.designer.cs">
+      <DependentUpon>FechaCalificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GenerarConstanciaLaboral.aspx.cs">
+      <DependentUpon>GenerarConstanciaLaboral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GenerarConstanciaLaboral.aspx.designer.cs">
+      <DependentUpon>GenerarConstanciaLaboral.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GestionBoletas.aspx.cs">
       <DependentUpon>GestionBoletas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1007,12 +1059,26 @@
     <Compile Include="GUI\GestionCalificaciones.aspx.designer.cs">
       <DependentUpon>GestionCalificaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GestionCalificacionesAprobacion.aspx.cs">
+      <DependentUpon>GestionCalificacionesAprobacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionCalificacionesAprobacion.aspx.designer.cs">
+      <DependentUpon>GestionCalificacionesAprobacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GestionConcentradoCalificaciones.aspx.cs">
       <DependentUpon>GestionConcentradoCalificaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GUI\GestionConcentradoCalificaciones.aspx.designer.cs">
       <DependentUpon>GestionConcentradoCalificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionDocentes.aspx.cs">
+      <DependentUpon>GestionDocentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionDocentes.aspx.designer.cs">
+      <DependentUpon>GestionDocentes.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\GestionEmpleados.aspx.cs">
       <DependentUpon>GestionEmpleados.aspx</DependentUpon>
@@ -1042,6 +1108,20 @@
     <Compile Include="GUI\GestionGrupos.aspx.designer.cs">
       <DependentUpon>GestionGrupos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GestionKardex.aspx.cs">
+      <DependentUpon>GestionKardex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionKardex.aspx.designer.cs">
+      <DependentUpon>GestionKardex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionModelosEducativos.aspx.cs">
+      <DependentUpon>GestionModelosEducativos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionModelosEducativos.aspx.designer.cs">
+      <DependentUpon>GestionModelosEducativos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GestionPlantel.aspx.cs">
       <DependentUpon>GestionPlantel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1070,6 +1150,13 @@
     <Compile Include="GUI\GestionAlumnos.aspx.designer.cs">
       <DependentUpon>GestionAlumnos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\InicioAlumno.aspx.cs">
+      <DependentUpon>InicioAlumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\InicioAlumno.aspx.designer.cs">
+      <DependentUpon>InicioAlumno.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ListaAsistenciaGeneral.aspx.cs">
       <DependentUpon>ListaAsistenciaGeneral.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1083,6 +1170,48 @@
     </Compile>
     <Compile Include="GUI\ListaAsistenciaMaestro.aspx.designer.cs">
       <DependentUpon>ListaAsistenciaMaestro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Mensajes.aspx.cs">
+      <DependentUpon>Mensajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Mensajes.aspx.designer.cs">
+      <DependentUpon>Mensajes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\MensajesAlumno.aspx.cs">
+      <DependentUpon>MensajesAlumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\MensajesAlumno.aspx.designer.cs">
+      <DependentUpon>MensajesAlumno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Reinscripcion.aspx.cs">
+      <DependentUpon>Reinscripcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Reinscripcion.aspx.designer.cs">
+      <DependentUpon>Reinscripcion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\mstrpgAlumno.Master.cs">
+      <DependentUpon>mstrpgAlumno.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\mstrpgAlumno.Master.designer.cs">
+      <DependentUpon>mstrpgAlumno.Master</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\RespaldoBaseDeDatos.aspx.cs">
+      <DependentUpon>RespaldoBaseDeDatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\RespaldoBaseDeDatos.aspx.designer.cs">
+      <DependentUpon>RespaldoBaseDeDatos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Aviso.aspx.cs">
+      <DependentUpon>Aviso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Aviso.aspx.designer.cs">
+      <DependentUpon>Aviso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reports\AvisosPadres.cs">
       <AutoGen>True</AutoGen>
@@ -1102,6 +1231,19 @@
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\BoletaSemestreGrupo.aspx.cs">
+      <DependentUpon>BoletaSemestreGrupo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\BoletaSemestreGrupo.aspx.designer.cs">
+      <DependentUpon>BoletaSemestreGrupo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BoletaSemestreGrupo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoletaSemestreGrupo.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\BoletaTodos.aspx.cs">
       <DependentUpon>BoletaTodos.aspx</DependentUpon>
@@ -1129,6 +1271,32 @@
       <DependentUpon>BoletaParcial.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\ConcentradoCalificacionesFinalMaestro.aspx.cs">
+      <DependentUpon>ConcentradoCalificacionesFinalMaestro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ConcentradoCalificacionesFinalMaestro.aspx.designer.cs">
+      <DependentUpon>ConcentradoCalificacionesFinalMaestro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ConcentradoCalificacionesFinalMaestro.cs">
+      <DependentUpon>ConcentradoCalificacionesFinalMaestro.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\ConcentradoCalificacionesMaestro.aspx.cs">
+      <DependentUpon>ConcentradoCalificacionesMaestro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ConcentradoCalificacionesMaestro.aspx.designer.cs">
+      <DependentUpon>ConcentradoCalificacionesMaestro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ConcentradoCalificacionesMaestro.cs">
+      <DependentUpon>ConcentradoCalificacionesMaestro.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\ConcentradoCalificaciones.aspx.cs">
       <DependentUpon>ConcentradoCalificaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1140,6 +1308,32 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ConcentradoCalificaciones.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ConstanciaLaboral.aspx.cs">
+      <DependentUpon>ConstanciaLaboral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ConstanciaLaboral.aspx.designer.cs">
+      <DependentUpon>ConstanciaLaboral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ConstanciaLaboral1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConstanciaLaboral.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ConstanciaLaboralSinMaterias.aspx.cs">
+      <DependentUpon>ConstanciaLaboralSinMaterias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ConstanciaLaboralSinMaterias.aspx.designer.cs">
+      <DependentUpon>ConstanciaLaboralSinMaterias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ConstanciaLaboralSinMaterias.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConstanciaLaboralSinMaterias.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\FormatoInfoAlumno.aspx.cs">
@@ -1161,6 +1355,19 @@
       <DependentUpon>FormatoPreinscripcion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\Kardex.aspx.cs">
+      <DependentUpon>Kardex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Kardex.aspx.designer.cs">
+      <DependentUpon>Kardex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Kardex.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Kardex.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\ListaAsistenciaGeneral.cs">
       <DependentUpon>ListaAsistenciaGeneral.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1172,6 +1379,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ListaAsistenciaMaestro.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MateriasCursadas.cs">
+      <DependentUpon>MateriasCursadas.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\MateriasNoCursadas.cs">
+      <DependentUpon>MateriasNoCursadas.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Reports\ReporteCartaCompromiso.aspx.cs">
       <DependentUpon>ReporteCartaCompromiso.aspx</DependentUpon>
@@ -1228,6 +1447,7 @@
     <Folder Include="Curriculum\" />
     <Folder Include="Resources\FotoPerfilAlumno\" />
     <Folder Include="Resources\FotoPerfilMaestro\" />
+    <Folder Include="Respaldos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -1272,6 +1492,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BoletaSemestre.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BoletaSemestreGrupo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BoletaSemestreGrupo.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\BoletaTodos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BoletaTodos.cs</LastGenOutput>
@@ -1280,9 +1504,25 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BoletaParcial.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ConcentradoCalificacionesFinalMaestro.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ConcentradoCalificacionesFinalMaestro.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ConcentradoCalificacionesMaestro.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ConcentradoCalificacionesMaestro.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ConcentradoCalificaciones.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ConcentradoCalificaciones.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ConstanciaLaboral.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ConstanciaLaboral1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ConstanciaLaboralSinMaterias.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ConstanciaLaboralSinMaterias.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\FormatoCartaCompromiso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1296,6 +1536,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FormatoPreinscripcion.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Kardex.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Kardex.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ListaAsistenciaGeneral.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ListaAsistenciaGeneral.cs</LastGenOutput>
@@ -1303,6 +1547,14 @@
     <EmbeddedResource Include="Reports\ListaAsistenciaMaestro.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ListaAsistenciaMaestro.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MateriasCursadas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MateriasCursadas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MateriasNoCursadas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MateriasNoCursadas.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SolicitudBaja.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1339,8 +1591,8 @@
     <PropertyGroup>
       <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
